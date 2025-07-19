@@ -1,0 +1,72 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "dist/**",
+        "locales/**",
+        "storybook/static/**"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "docs:build": {
+      "dependsOn": ["^lib:build"],
+      "cache": false,
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
+    },
+    "docs:dev": {
+      "cache": false
+    },
+    "docs:sitemap": {
+      "cache": false
+    },
+    "docs:start": {
+      "cache": false
+    },
+    "lib:build": {
+      "outputs": [
+        "dist/**",
+        "locales/**"
+      ]
+    },
+    "lib:build-locales": {
+      "outputs": [
+        "locales/**"
+      ]
+    },
+    "lib:build-lib": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "lib:dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "storybook": {
+      "cache": false
+    },
+    "storybook:build": {
+      "outputs": [
+        "storybook-static/**"
+      ]
+    },
+    "storybook:dev": {
+      "cache": false
+    }
+  }
+}
