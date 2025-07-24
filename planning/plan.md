@@ -1,0 +1,10 @@
+- Run the project
+- Use shadcn to create one table example
+    - Install shadcn
+    - replace mui button with shadcn button 
+    - Gradually replace mui components
+- Add necessary commands for shadcn setup
+    - Create a script to automatically install all the shadcn components needed for the project
+- Remove mui
+- Remove other mui related packages
+- Replace mui icons with lucide icons
