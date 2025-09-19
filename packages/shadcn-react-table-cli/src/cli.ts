@@ -1,7 +1,15 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { cyan, green } from 'kolorist';
-import { join } from 'path';
+import { Eta } from 'eta';
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  statSync,
+  writeFileSync,
+} from 'fs';
+import { cyan, green, yellow } from 'kolorist';
+import { dirname, join, relative } from 'path';
 
 const [, , cmd, target] = process.argv;
 
@@ -11,60 +19,53 @@ if (cmd !== 'add' || target !== 'data-table') {
 }
 
 const cwd = process.cwd();
-const outDir = join(cwd, 'src/components/ui/data-table');
-if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+// Compute path to CLI's templates directory (we ship src/templates with the package)
+const selfPath = process.argv[1] || '';
+const cliDir = dirname(selfPath);
+const templatesRoot = join(cliDir, '..', 'src', 'templates');
+const sourceDir = join(templatesRoot, 'shadcn-react-table');
 
-const indexTsx = `import { type ColumnDef } from 'shadcn-react-table-core'
-import { useDataTable } from 'shadcn-react-table-core'
-
-export type DataTableProps<TData> = {
-  columns: ColumnDef<TData, any>[]
-  data: TData[]
-  className?: string
+function listFilesRecursively(rootDir: string): string[] {
+  const results: string[] = [];
+  const stack: string[] = [rootDir];
+  while (stack.length) {
+    const current = stack.pop() as string;
+    for (const entry of readdirSync(current)) {
+      const full = join(current, entry);
+      const stat = statSync(full);
+      if (stat.isDirectory()) stack.push(full);
+      else if (stat.isFile()) results.push(full);
+    }
+  }
+  return results;
 }
 
-export function DataTable<TData>({ columns, data, className }: DataTableProps<TData>) {
-  const table = useDataTable({ columns, data })
-  return (
-    <div className={className ?? 'w-full overflow-x-auto'}>
-      <table className="w-full text-sm">
-        <thead className="border-b">
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className="border-b">
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} className="h-10 px-2 text-left align-middle font-medium text-gray-500">
-                  {header.isPlaceholder ? null : (
-                    <div>
-                      {header.column.columnDef.header as any}
-                    </div>
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className="border-b transition-colors hover:bg-gray-50">
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="p-2 align-middle">
-                  {cell.column.columnDef.cell
-                    ? (cell.column.columnDef.cell as any)({ ...cell.getContext() })
-                    : (cell.getValue() as any)}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
+async function formatWithPrettier(code: string) {
+  return code;
 }
-`;
 
-writeFileSync(join(outDir, 'index.tsx'), indexTsx);
-console.log(
-  green('✔'),
-  cyan('Generated:'),
-  'src/components/ui/data-table/index.tsx',
-);
+async function run() {
+  const engine = new Eta();
+  if (!existsSync(sourceDir)) {
+    console.log(
+      yellow('!'),
+      cyan('Missing templates dir:'),
+      relative(cwd, sourceDir),
+    );
+    process.exit(1);
+  }
+  const files = listFilesRecursively(sourceDir);
+  for (const template of files) {
+    const raw = readFileSync(template, 'utf8');
+    const rendered = engine.renderString(raw, {}) ?? raw;
+    // Map template path under src/templates/shadcn-react-table/** to app's src/components/ui/shadcn-react-table/**
+    const rel = template.slice(sourceDir.length + 1);
+    const target = join(cwd, 'src/components/ui/shadcn-react-table', rel);
+    const formatted = await formatWithPrettier(rendered);
+    mkdirSync(dirname(target), { recursive: true });
+    writeFileSync(target, formatted, 'utf8');
+    console.log(green('✔'), cyan('Generated:'), relative(cwd, target));
+  }
+}
+
+run();
