@@ -1,6 +1,6 @@
 import { type ColumnDef } from '@tanstack/react-table';
-import { DataTable } from 'shadcn-react-table';
 import './App.css';
+import { DataTable } from './components/ui/data-table';
 
 type Person = { name: string; email: string; age: number };
 

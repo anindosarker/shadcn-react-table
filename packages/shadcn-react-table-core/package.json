@@ -1,0 +1,33 @@
+{
+  "name": "shadcn-react-table-core",
+  "version": "0.0.1",
+  "description": "Headless core for shadcn React Table (hooks, types, utils)",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rollup -c rollup.config.mjs",
+    "dev": "rollup -c rollup.config.mjs --watch"
+  },
+  "peerDependencies": {
+    "@tanstack/react-table": ">=8",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^19.1.13",
+    "rollup": "^2.79.2",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.8.1",
+    "typescript": "5.7.2"
+  }
+}
