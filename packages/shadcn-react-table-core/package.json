@@ -24,10 +24,18 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^19.1.13",
-    "rollup": "^2.79.2",
+    "rollup": "^4.50.2",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "tslib": "^2.8.1",
     "typescript": "5.7.2"
+  },
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
   }
 }
