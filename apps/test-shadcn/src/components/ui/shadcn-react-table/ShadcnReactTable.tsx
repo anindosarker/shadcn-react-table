@@ -1,13 +1,25 @@
-import { useDataTable, type ColumnDef } from 'shadcn-react-table-core';
+import type { ColumnDef, SRT_RowData, SRT_TableInstance } from 'shadcn-react-table-core';
+import { useDataTable } from 'shadcn-react-table-core';
 import { Header } from './head/Header';
 
+//TODO fix it
 export type ShadcnReactTableProps<TData> = {
   columns: ColumnDef<TData, any>[];
   data: TData[];
   className?: string;
 };
 
-export function ShadcnReactTable<TData>({
+type TableInstanceProp<TData extends MRT_RowData> = {
+  table: SRT_TableInstance<TData>;
+};
+
+export type MaterialReactTableProps<TData extends SRT_RowData> = Xor<
+  TableInstanceProp<TData>,
+  MRT_TableOptions<TData>
+>;
+
+
+export default function ShadcnReactTableOld<TData>({
   columns,
   data,
   className,
@@ -39,3 +51,15 @@ export function ShadcnReactTable<TData>({
     </div>
   );
 }
+
+export const ShadcnReactTable = <TData extends SRT_RowData>(
+  props: MaterialReactTableProps<TData>,
+) => {
+  return (
+    <div className={className ?? 'w-full overflow-x-auto'}>
+      <table className="w-full text-sm">
+        <Header table={table} />
+      </table>
+    </div>
+  );
+};

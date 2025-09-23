@@ -536,9 +536,18 @@ importers:
 
   packages/shadcn-react-table-core:
     dependencies:
+      '@tanstack/match-sorter-utils':
+        specifier: 8.19.4
+        version: 8.19.4
       '@tanstack/react-table':
-        specifier: '>=8'
+        specifier: 8.20.6
         version: 8.20.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@tanstack/react-virtual':
+        specifier: 3.11.2
+        version: 3.11.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      highlight-words:
+        specifier: 2.0.0
+        version: 2.0.0
       react:
         specifier: '>=18'
         version: 19.1.1
@@ -13663,6 +13672,12 @@ snapshots:
       '@tanstack/virtual-core': 3.11.2
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
+
+  '@tanstack/react-virtual@3.11.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@tanstack/virtual-core': 3.11.2
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   '@tanstack/table-core@8.20.5': {}
 

@@ -9,4 +9,19 @@ When users will install the package `shadcn-react-table-core`, they will get all
     - [x] - shadcn-react-table-cli will be used to create the table component in user's repos
     - [x] - shadcn-react-table-core will be used to create the table component
 - [x] Remove old shadcn-react-table package since we don't need it anymore
-- [ ] use tbody
+- [ ] Port components
+
+        - [ ] /body
+        - [ ] /buttons
+        - [ ] /footer
+        - [ ] /head
+        - [ ] /inputs
+        - [ ] /menus
+        - [ ] /modals
+        - [ ] /table
+                - [ ] /table/MRT_Table.tsx
+                - [ ] /table/MRT_TableContainer.tsx
+                - [ ] /table/MRT_TableLoadingOverlay.tsx
+                - [ ] /table/MRT_TablePaper.tsx
+        - [ ] /toolbar
+        - [ ] /MaterialReactTable.tsx

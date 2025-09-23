@@ -1,7 +1,3 @@
-export type {
-  ColumnDef,
-  Header,
-  HeaderGroup,
-  Table,
-} from '@tanstack/react-table';
+export * from './types';
+
 export { useDataTable } from './useDataTable';

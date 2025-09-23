@@ -1,5 +1,5 @@
 import { type ColumnDef } from '@tanstack/react-table';
-import { ShadcnReactTable } from './components/ui/shadcn-react-table/ShadcnReactTable';
+import ShadcnReactTable from './components/ui/shadcn-react-table/ShadcnReactTable';
 
 type Person = { name: string; email: string; age: number };
 
