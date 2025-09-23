@@ -42,6 +42,7 @@ import {
 import { SRT_FilterFns } from './fns/filterFns';
 import { SRT_AggregationFns } from './fns/aggregationFns';
 import { SRT_SortingFns } from './fns/sortingFns';
+import { SRT_Icons } from './icons';
 
 export type {
   ColumnDef,
@@ -74,6 +75,12 @@ export type SRT_Header<TData extends SRT_RowData> = Omit<
   column: SRT_Column<TData>;
 };
 
+export type SRT_HeaderGroup<TData extends SRT_RowData> = Omit<
+  HeaderGroup<TData>,
+  'headers'
+> & {
+  headers: SRT_Header<TData>[];
+};
 export type SRT_SortingOption = LiteralUnion<
   string & keyof typeof SRT_SortingFns
 >;
@@ -189,7 +196,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
    */
   accessorKey?: DeepKeys<TData> | (string & {});
   AggregatedCell?: (props: {
-    cell: MRT_Cell<TData, TValue>;
+    cell: SRT_Cell<TData, TValue>;
     column: SRT_Column<TData, TValue>;
     row: SRT_Row<TData>;
     table: SRT_TableInstance<TData>;
@@ -198,7 +205,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   }) => ReactNode;
   aggregationFn?: Array<SRT_AggregationFn<TData>> | SRT_AggregationFn<TData>;
   Cell?: (props: {
-    cell: MRT_Cell<TData, TValue>;
+    cell: SRT_Cell<TData, TValue>;
     column: SRT_Column<TData, TValue>;
     renderedCellValue: ReactNode;
     row: SRT_Row<TData>;
@@ -221,14 +228,14 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   > | null;
   columns?: SRT_ColumnDef<TData, TValue>[];
   Edit?: (props: {
-    cell: MRT_Cell<TData, TValue>;
+    cell: SRT_Cell<TData, TValue>;
     column: SRT_Column<TData, TValue>;
     row: SRT_Row<TData>;
     table: SRT_TableInstance<TData>;
   }) => ReactNode;
   editSelectOptions?:
     | ((props: {
-        cell: MRT_Cell<TData, TValue>;
+        cell: SRT_Cell<TData, TValue>;
         column: SRT_Column<TData>;
         row: SRT_Row<TData>;
         table: SRT_TableInstance<TData>;
@@ -237,7 +244,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   editVariant?: 'select' | 'text';
   enableClickToCopy?:
     | 'context-menu'
-    | ((cell: MRT_Cell<TData>) => 'context-menu' | boolean)
+    | ((cell: SRT_Cell<TData>) => 'context-menu' | boolean)
     | boolean;
   enableColumnActions?: boolean;
   enableColumnDragging?: boolean;
@@ -279,7 +286,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
       }) => ReactNode)
     | ReactNode;
   GroupedCell?: (props: {
-    cell: MRT_Cell<TData, TValue>;
+    cell: SRT_Cell<TData, TValue>;
     column: SRT_Column<TData, TValue>;
     row: SRT_Row<TData>;
     table: SRT_TableInstance<TData>;
@@ -325,7 +332,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   //   | IconButtonProps;
   // muiCopyButtonProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData, TValue>;
+  //       cell: SRT_Cell<TData, TValue>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -333,7 +340,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   //   | ButtonProps;
   // muiEditTextFieldProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData, TValue>;
+  //       cell: SRT_Cell<TData, TValue>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -387,7 +394,7 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   //   | TimePickerProps<never>;
   // muiTableBodyCellProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData, TValue>;
+  //       cell: SRT_Cell<TData, TValue>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -406,13 +413,13 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   //     }) => TableCellProps)
   //   | TableCellProps;
   PlaceholderCell?: (props: {
-    cell: MRT_Cell<TData, TValue>;
+    cell: SRT_Cell<TData, TValue>;
     column: SRT_Column<TData, TValue>;
     row: SRT_Row<TData>;
     table: SRT_TableInstance<TData>;
   }) => ReactNode;
   renderCellActionMenuItems?: (props: {
-    cell: MRT_Cell<TData>;
+    cell: SRT_Cell<TData>;
     closeMenu: () => void;
     column: SRT_Column<TData>;
     internalMenuItems: ReactNode[];
@@ -457,7 +464,7 @@ export type SRT_Column<TData extends SRT_RowData, TValue = unknown> = Omit<
   header: string;
 };
 
-export type MRT_Cell<TData extends SRT_RowData, TValue = unknown> = Omit<
+export type SRT_Cell<TData extends SRT_RowData, TValue = unknown> = Omit<
   Cell<TData, TValue>,
   'column' | 'row'
 > & {
@@ -475,11 +482,11 @@ export type SRT_Row<TData extends SRT_RowData> = Omit<
   | 'subRows'
 > & {
   _valuesCache: Record<LiteralUnion<string & DeepKeys<TData>>, any>;
-  getAllCells: () => MRT_Cell<TData>[];
+  getAllCells: () => SRT_Cell<TData>[];
   getParentRow: () => SRT_Row<TData> | null;
   getParentRows: () => SRT_Row<TData>[];
   getRow: () => SRT_Row<TData>;
-  getVisibleCells: () => MRT_Cell<TData>[];
+  getVisibleCells: () => SRT_Cell<TData>[];
   subRows?: SRT_Row<TData>[];
 };
 
@@ -622,28 +629,28 @@ export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
   | 'getTopRows'
   | 'options'
 > & {
-  // getAllColumns: () => SRT_Column<TData>[];
-  // getAllFlatColumns: () => SRT_Column<TData>[];
-  // getAllLeafColumns: () => SRT_Column<TData>[];
-  // getBottomRows: () => SRT_Row<TData>[];
-  // getCenterLeafColumns: () => SRT_Column<TData>[];
-  // getCenterRows: () => SRT_Row<TData>[];
-  // getColumn: (columnId: string) => SRT_Column<TData>;
-  // getExpandedRowModel: () => SRT_RowModel<TData>;
-  // getFlatHeaders: () => SRT_Header<TData>[];
-  // getFooterGroups: () => MRT_HeaderGroup<TData>[];
-  // getHeaderGroups: () => MRT_HeaderGroup<TData>[];
-  // getLeafHeaders: () => SRT_Header<TData>[];
-  // getLeftLeafColumns: () => SRT_Column<TData>[];
-  // getPaginationRowModel: () => SRT_RowModel<TData>;
-  // getPreFilteredRowModel: () => SRT_RowModel<TData>;
-  // getPrePaginationRowModel: () => SRT_RowModel<TData>;
-  // getRightLeafColumns: () => SRT_Column<TData>[];
-  // getRowModel: () => SRT_RowModel<TData>;
-  // getSelectedRowModel: () => SRT_RowModel<TData>;
-  // getState: () => SRT_TableState<TData>;
-  // getTopRows: () => SRT_Row<TData>[];
-  // options: MRT_StatefulTableOptions<TData>;
+  getAllColumns: () => SRT_Column<TData>[];
+  getAllFlatColumns: () => SRT_Column<TData>[];
+  getAllLeafColumns: () => SRT_Column<TData>[];
+  getBottomRows: () => SRT_Row<TData>[];
+  getCenterLeafColumns: () => SRT_Column<TData>[];
+  getCenterRows: () => SRT_Row<TData>[];
+  getColumn: (columnId: string) => SRT_Column<TData>;
+  getExpandedRowModel: () => SRT_RowModel<TData>;
+  getFlatHeaders: () => SRT_Header<TData>[];
+  getFooterGroups: () => SRT_HeaderGroup<TData>[];
+  getHeaderGroups: () => SRT_HeaderGroup<TData>[];
+  getLeafHeaders: () => SRT_Header<TData>[];
+  getLeftLeafColumns: () => SRT_Column<TData>[];
+  getPaginationRowModel: () => SRT_RowModel<TData>;
+  getPreFilteredRowModel: () => SRT_RowModel<TData>;
+  getPrePaginationRowModel: () => SRT_RowModel<TData>;
+  getRightLeafColumns: () => SRT_Column<TData>[];
+  getRowModel: () => SRT_RowModel<TData>;
+  getSelectedRowModel: () => SRT_RowModel<TData>;
+  getState: () => SRT_TableState<TData>;
+  getTopRows: () => SRT_Row<TData>[];
+  options: SRT_StatefulTableOptions<TData>;
   refs: {
     actionCellRef: RefObject<HTMLTableCellElement | null>;
     bottomToolbarRef: RefObject<HTMLDivElement | null>;
@@ -658,13 +665,13 @@ export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
     tablePaperRef: RefObject<HTMLDivElement | null>;
     topToolbarRef: RefObject<HTMLDivElement | null>;
   };
-  // setActionCell: Dispatch<SetStateAction<MRT_Cell<TData> | null>>;
+  // setActionCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
   // setColumnFilterFns: Dispatch<SetStateAction<SRT_ColumnFilterFnsState>>;
   // setCreatingRow: Dispatch<SetStateAction<SRT_Row<TData> | null | true>>;
   // setDensity: Dispatch<SetStateAction<SRT_DensityState>>;
   // setDraggingColumn: Dispatch<SetStateAction<SRT_Column<TData> | null>>;
   // setDraggingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
-  // setEditingCell: Dispatch<SetStateAction<MRT_Cell<TData> | null>>;
+  // setEditingCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
   // setEditingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
   // setGlobalFilterFn: Dispatch<SetStateAction<SRT_FilterOption>>;
   // setHoveredColumn: Dispatch<SetStateAction<Partial<SRT_Column<TData>> | null>>;
@@ -675,6 +682,41 @@ export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
   setShowGlobalFilter: Dispatch<SetStateAction<boolean>>;
   setShowToolbarDropZone: Dispatch<SetStateAction<boolean>>;
 };
+
+export type SRT_DefinedTableOptions<TData extends SRT_RowData> = Omit<
+  SRT_TableOptions<TData>,
+  'icons' | 'localization' | 'mrtTheme'
+> & {
+  icons: SRT_Icons;
+  localization: SRT_Localization;
+  mrtTheme: Required<SRT_Theme>;
+};
+
+export type SRT_StatefulTableOptions<TData extends SRT_RowData> =
+  SRT_DefinedTableOptions<TData> & {
+    state: Pick<
+      SRT_TableState<TData>,
+      | 'columnFilterFns'
+      | 'columnOrder'
+      | 'columnSizingInfo'
+      | 'creatingRow'
+      | 'density'
+      | 'draggingColumn'
+      | 'draggingRow'
+      | 'editingCell'
+      | 'editingRow'
+      | 'globalFilterFn'
+      | 'grouping'
+      | 'hoveredColumn'
+      | 'hoveredRow'
+      | 'isFullScreen'
+      | 'pagination'
+      | 'showAlertBanner'
+      | 'showColumnFilters'
+      | 'showGlobalFilter'
+      | 'showToolbarDropZone'
+    >;
+  };
 
 /**
  * TODO: fix them gradually
@@ -743,10 +785,10 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   editDisplayMode?: 'cell' | 'custom' | 'modal' | 'row' | 'table';
   enableBatchRowSelection?: boolean;
   enableBottomToolbar?: boolean;
-  enableCellActions?: ((cell: MRT_Cell<TData>) => boolean) | boolean;
+  enableCellActions?: ((cell: SRT_Cell<TData>) => boolean) | boolean;
   enableClickToCopy?:
     | 'context-menu'
-    | ((cell: MRT_Cell<TData>) => 'context-menu' | boolean)
+    | ((cell: SRT_Cell<TData>) => 'context-menu' | boolean)
     | boolean;
   enableColumnActions?: boolean;
   enableColumnDragging?: boolean;
@@ -828,7 +870,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | IconButtonProps;
   // muiCopyButtonProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData>;
+  //       cell: SRT_Cell<TData>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -854,7 +896,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | DialogProps;
   // muiEditTextFieldProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData>;
+  //       cell: SRT_Cell<TData>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -960,7 +1002,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | (CheckboxProps | RadioProps);
   // muiSkeletonProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData>;
+  //       cell: SRT_Cell<TData>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -968,7 +1010,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | SkeletonProps;
   // muiTableBodyCellProps?:
   //   | ((props: {
-  //       cell: MRT_Cell<TData>;
+  //       cell: SRT_Cell<TData>;
   //       column: SRT_Column<TData>;
   //       row: SRT_Row<TData>;
   //       table: SRT_TableInstance<TData>;
@@ -999,7 +1041,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | TableFooterProps;
   // muiTableFooterRowProps?:
   //   | ((props: {
-  //       footerGroup: MRT_HeaderGroup<TData>;
+  //       footerGroup: SRT_HeaderGroup<TData>;
   //       table: SRT_TableInstance<TData>;
   //     }) => TableRowProps)
   //   | TableRowProps;
@@ -1014,7 +1056,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //   | TableHeadProps;
   // muiTableHeadRowProps?:
   //   | ((props: {
-  //       headerGroup: MRT_HeaderGroup<TData>;
+  //       headerGroup: SRT_HeaderGroup<TData>;
   //       table: SRT_TableInstance<TData>;
   //     }) => TableRowProps)
   //   | TableRowProps;
@@ -1033,7 +1075,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   // muiTopToolbarProps?:
   //   | ((props: { table: SRT_TableInstance<TData> }) => BoxProps)
   //   | BoxProps;
-  onActionCellChange?: OnChangeFn<MRT_Cell<TData> | null>;
+  onActionCellChange?: OnChangeFn<SRT_Cell<TData> | null>;
   onColumnFilterFnsChange?: OnChangeFn<{ [key: string]: SRT_FilterOption }>;
   onCreatingRowCancel?: (props: {
     row: SRT_Row<TData>;
@@ -1049,7 +1091,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   onDensityChange?: OnChangeFn<SRT_DensityState>;
   onDraggingColumnChange?: OnChangeFn<SRT_Column<TData> | null>;
   onDraggingRowChange?: OnChangeFn<SRT_Row<TData> | null>;
-  onEditingCellChange?: OnChangeFn<MRT_Cell<TData> | null>;
+  onEditingCellChange?: OnChangeFn<SRT_Cell<TData> | null>;
   onEditingRowCancel?: (props: {
     row: SRT_Row<TData>;
     table: SRT_TableInstance<TData>;
@@ -1087,7 +1129,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
     | ((props: { table: SRT_TableInstance<TData> }) => ReactNode)
     | ReactNode;
   renderCellActionMenuItems?: (props: {
-    cell: MRT_Cell<TData>;
+    cell: SRT_Cell<TData>;
     closeMenu: () => void;
     column: SRT_Column<TData>;
     internalMenuItems: ReactNode[];
@@ -1137,7 +1179,7 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
     table: SRT_TableInstance<TData>;
   }) => ReactNode[] | undefined;
   renderRowActions?: (props: {
-    cell: MRT_Cell<TData>;
+    cell: SRT_Cell<TData>;
     row: SRT_Row<TData>;
     staticRowIndex?: number;
     table: SRT_TableInstance<TData>;
@@ -1179,13 +1221,13 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
 }
 
 export interface SRT_TableState<TData extends SRT_RowData> extends TableState {
-  actionCell?: MRT_Cell<TData> | null;
+  actionCell?: SRT_Cell<TData> | null;
   columnFilterFns: SRT_ColumnFilterFnsState;
   creatingRow: SRT_Row<TData> | null;
   density: SRT_DensityState;
   draggingColumn: SRT_Column<TData> | null;
   draggingRow: SRT_Row<TData> | null;
-  editingCell: MRT_Cell<TData> | null;
+  editingCell: SRT_Cell<TData> | null;
   editingRow: SRT_Row<TData> | null;
   globalFilterFn: SRT_FilterOption;
   hoveredColumn: Partial<SRT_Column<TData>> | null;
