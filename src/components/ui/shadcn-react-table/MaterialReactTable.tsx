@@ -1,27 +1,18 @@
-import {
-  getCoreRowModel,
-  useReactTable,
-  type ColumnDef,
-} from '@tanstack/react-table';
-import { Header } from '../shadcn-react-table/head/Header';
+import { useDataTable, type ColumnDef } from 'shadcn-react-table-core';
+import { Header } from './head/Header';
 
-export type DataTableProps<TData> = {
+export type ShadcnReactTableProps<TData> = {
   columns: ColumnDef<TData, any>[];
   data: TData[];
   className?: string;
 };
 
-export function DataTable<TData>({
+export function ShadcnReactTable<TData>({
   columns,
   data,
   className,
-}: DataTableProps<TData>) {
-  const table = useReactTable({
-    columns,
-    data,
-    getCoreRowModel: getCoreRowModel(),
-  });
-
+}: ShadcnReactTableProps<TData>) {
+  const table = useDataTable({ columns, data });
   return (
     <div className={className ?? 'w-full overflow-x-auto'}>
       <table className="w-full text-sm">

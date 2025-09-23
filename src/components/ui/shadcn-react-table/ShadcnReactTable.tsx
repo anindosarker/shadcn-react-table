@@ -1,4 +1,3 @@
-/** @jsxImportSource react */
 import { useDataTable, type ColumnDef } from 'shadcn-react-table-core';
 import { Header } from './head/Header';
 

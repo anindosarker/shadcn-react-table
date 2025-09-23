@@ -1,6 +1,5 @@
 import { type ColumnDef } from '@tanstack/react-table';
-import './App.css';
-import { DataTable } from './components/ui/data-table';
+import { ShadcnReactTable } from './components/ui/shadcn-react-table/ShadcnReactTable';
 
 type Person = { name: string; email: string; age: number };
 
@@ -20,7 +19,7 @@ function App() {
   return (
     <div className="p-6">
       <h1 className="mb-4 text-2xl font-bold">shadcn-react-table Demo</h1>
-      <DataTable columns={columns} data={data} />
+      <ShadcnReactTable columns={columns} data={data} />
     </div>
   );
 }
