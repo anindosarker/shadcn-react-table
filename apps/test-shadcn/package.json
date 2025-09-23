@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gen:srt": "node ../../packages/shadcn-react-table-cli/dist/cli.cjs"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.20.6",
