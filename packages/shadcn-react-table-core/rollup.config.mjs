@@ -1,4 +1,5 @@
 import typescript from '@rollup/plugin-typescript';
+import resolve from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 import external from 'rollup-plugin-peer-deps-external';
 
@@ -25,7 +26,7 @@ export default [
       { file: './dist/index.js', format: 'cjs', sourcemap: true },
       { file: './dist/index.esm.js', format: 'esm', sourcemap: true },
     ],
-    plugins: [external(), typescript({ rootDir: './src' })],
+    plugins: [external(), resolve(), typescript({ rootDir: './src' })],
   },
   {
     input: './dist/types/index.d.ts',

@@ -31,8 +31,9 @@ import {
   EyeOff,
   Text,
 } from 'lucide-react';
+import { ComponentType } from 'react';
 
-export const SRT_Default_Icons = {
+export const SRT_Default_Icons: Record<string, ComponentType<any>> = {
   ArrowDownwardIcon: ArrowDown,
   ArrowRightIcon: ArrowRight,
   CancelIcon: XCircle,
