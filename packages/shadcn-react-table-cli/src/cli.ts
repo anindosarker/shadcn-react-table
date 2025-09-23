@@ -11,12 +11,8 @@ import {
 import { cyan, green, yellow } from 'kolorist';
 import { dirname, join, relative } from 'path';
 
-const [, , cmd, target] = process.argv;
-
-if (cmd !== 'add' || target !== 'data-table') {
-  console.log('Usage: shadcn-rt add data-table');
-  process.exit(1);
-}
+// Simple mode: no args required. Legacy `add data-table` is still accepted but not required.
+const [, , ..._argv] = process.argv;
 
 const cwd = process.cwd();
 // Compute path to CLI's templates directory (we ship src/templates with the package)
