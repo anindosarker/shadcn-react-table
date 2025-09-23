@@ -5,12 +5,12 @@ import {
   type Renderable,
 } from '@tanstack/react-table';
 import {
-  type MRT_ColumnHelper,
-  type MRT_DisplayColumnDef,
-  type MRT_GroupColumnDef,
-  type MRT_Row,
-  type MRT_RowData,
-  type MRT_TableInstance,
+  type SRT_ColumnHelper,
+  type SRT_DisplayColumnDef,
+  type SRT_GroupColumnDef,
+  type SRT_Row,
+  type SRT_RowData,
+  type SRT_TableInstance,
 } from '../types';
 import { getAllLeafColumnDefs, getColumnId } from './column.utils';
 
@@ -19,9 +19,9 @@ export const flexRender = _flexRender as (
   props: any,
 ) => JSX.Element | ReactNode;
 
-export function createMRTColumnHelper<
-  TData extends MRT_RowData,
->(): MRT_ColumnHelper<TData> {
+export function createSRTColumnHelper<
+  TData extends SRT_RowData,
+>(): SRT_ColumnHelper<TData> {
   return {
     accessor: (accessor, column) => {
       return typeof accessor === 'function'
@@ -34,19 +34,19 @@ export function createMRTColumnHelper<
             accessorKey: accessor,
           };
     },
-    display: (column) => column as MRT_DisplayColumnDef<TData>,
-    group: (column) => column as MRT_GroupColumnDef<TData>,
+    display: (column) => column as SRT_DisplayColumnDef<TData>,
+    group: (column) => column as SRT_GroupColumnDef<TData>,
   };
 }
 
-export const createRow = <TData extends MRT_RowData>(
-  table: MRT_TableInstance<TData>,
+export const createRow = <TData extends SRT_RowData>(
+  table: SRT_TableInstance<TData>,
   originalRow?: TData,
   rowIndex = -1,
   depth = 0,
-  subRows?: MRT_Row<TData>[],
+  subRows?: SRT_Row<TData>[],
   parentId?: string,
-): MRT_Row<TData> =>
+): SRT_Row<TData> =>
   _createRow(
     table as any,
     'mrt-row-create',
@@ -61,4 +61,4 @@ export const createRow = <TData extends MRT_RowData>(
     depth,
     subRows as any,
     parentId,
-  ) as MRT_Row<TData>;
+  ) as SRT_Row<TData>;

@@ -109,7 +109,6 @@ export type SRT_InternalFilterOption = {
   symbol: string;
 };
 
-
 export type SRT_DensityState = 'comfortable' | 'compact' | 'spacious';
 
 export type SRT_ColumnFilterFnsState = Record<string, SRT_FilterOption>;
@@ -129,7 +128,6 @@ export type SRT_SortingState = SortingState;
 export type SRT_Updater<T> = Updater<T>;
 export type SRT_VirtualItem = VirtualItem;
 export type SRT_VisibilityState = VisibilityState;
-
 
 export type SRT_VirtualizerOptions<
   TScrollElement extends Element | Window = Element | Window,
@@ -444,6 +442,12 @@ export interface SRT_ColumnDef<TData extends SRT_RowData, TValue = unknown>
   visibleInShowHideMenu?: boolean;
 }
 
+export type SRT_GroupColumnDef<TData extends SRT_RowData> =
+  SRT_DisplayColumnDef<TData, any> & {
+    columns: SRT_ColumnDef<TData>[];
+  };
+
+
 export type SRT_DefinedColumnDef<
   TData extends SRT_RowData,
   TValue = unknown,
@@ -490,6 +494,21 @@ export type SRT_Row<TData extends SRT_RowData> = Omit<
   subRows?: SRT_Row<TData>[];
 };
 
+export type SRT_ColumnHelper<TData extends SRT_RowData> = {
+  accessor: <
+    TAccessor extends AccessorFn<TData> | DeepKeys<TData>,
+    TValue extends TAccessor extends AccessorFn<TData, infer TReturn>
+      ? TReturn
+      : TAccessor extends DeepKeys<TData>
+        ? DeepValue<TData, TAccessor>
+        : never,
+  >(
+    accessor: TAccessor,
+    column: SRT_DisplayColumnDef<TData, TValue>,
+  ) => SRT_ColumnDef<TData, TValue>;
+  display: (column: SRT_DisplayColumnDef<TData>) => SRT_ColumnDef<TData>;
+  group: (column: SRT_GroupColumnDef<TData>) => SRT_ColumnDef<TData>;
+};
 
 export interface SRT_Localization {
   // language of the localization as BCP 47 language tag for number formatting
@@ -603,7 +622,6 @@ export interface SRT_RowModel<TData extends SRT_RowData> {
   rowsById: { [key: string]: SRT_Row<TData> };
 }
 
-// TODO: Add the rest gradually
 export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
   Table<TData>,
   | 'getAllColumns'
@@ -665,17 +683,17 @@ export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
     tablePaperRef: RefObject<HTMLDivElement | null>;
     topToolbarRef: RefObject<HTMLDivElement | null>;
   };
-  // setActionCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
-  // setColumnFilterFns: Dispatch<SetStateAction<SRT_ColumnFilterFnsState>>;
-  // setCreatingRow: Dispatch<SetStateAction<SRT_Row<TData> | null | true>>;
-  // setDensity: Dispatch<SetStateAction<SRT_DensityState>>;
-  // setDraggingColumn: Dispatch<SetStateAction<SRT_Column<TData> | null>>;
-  // setDraggingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
-  // setEditingCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
-  // setEditingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
-  // setGlobalFilterFn: Dispatch<SetStateAction<SRT_FilterOption>>;
-  // setHoveredColumn: Dispatch<SetStateAction<Partial<SRT_Column<TData>> | null>>;
-  // setHoveredRow: Dispatch<SetStateAction<Partial<SRT_Row<TData>> | null>>;
+  setActionCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
+  setColumnFilterFns: Dispatch<SetStateAction<SRT_ColumnFilterFnsState>>;
+  setCreatingRow: Dispatch<SetStateAction<SRT_Row<TData> | null | true>>;
+  setDensity: Dispatch<SetStateAction<SRT_DensityState>>;
+  setDraggingColumn: Dispatch<SetStateAction<SRT_Column<TData> | null>>;
+  setDraggingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
+  setEditingCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
+  setEditingRow: Dispatch<SetStateAction<SRT_Row<TData> | null>>;
+  setGlobalFilterFn: Dispatch<SetStateAction<SRT_FilterOption>>;
+  setHoveredColumn: Dispatch<SetStateAction<Partial<SRT_Column<TData>> | null>>;
+  setHoveredRow: Dispatch<SetStateAction<Partial<SRT_Row<TData>> | null>>;
   setIsFullScreen: Dispatch<SetStateAction<boolean>>;
   setShowAlertBanner: Dispatch<SetStateAction<boolean>>;
   setShowColumnFilters: Dispatch<SetStateAction<boolean>>;

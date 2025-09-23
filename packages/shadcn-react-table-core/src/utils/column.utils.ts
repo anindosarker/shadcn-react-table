@@ -2,27 +2,27 @@ import { useMemo } from 'react';
 import { type Row } from '@tanstack/react-table';
 import {
   type DropdownOption,
-  type MRT_Column,
-  type MRT_ColumnDef,
-  type MRT_ColumnOrderState,
-  type MRT_DefinedColumnDef,
-  type MRT_DefinedTableOptions,
-  type MRT_FilterOption,
-  type MRT_Header,
-  type MRT_RowData,
-  type MRT_TableInstance,
+  type SRT_Column,
+  type SRT_ColumnDef,
+  type SRT_ColumnOrderState,
+  type SRT_DefinedColumnDef,
+  type SRT_DefinedTableOptions,
+  type SRT_FilterOption,
+  type SRT_Header,
+  type SRT_RowData,
+  type SRT_TableInstance,
 } from '../types';
 
-export const getColumnId = <TData extends MRT_RowData>(
-  columnDef: MRT_ColumnDef<TData>,
+export const getColumnId = <TData extends SRT_RowData>(
+  columnDef: SRT_ColumnDef<TData>,
 ): string =>
   columnDef.id ?? columnDef.accessorKey?.toString?.() ?? columnDef.header;
 
-export const getAllLeafColumnDefs = <TData extends MRT_RowData>(
-  columns: MRT_ColumnDef<TData>[],
-): MRT_ColumnDef<TData>[] => {
-  const allLeafColumnDefs: MRT_ColumnDef<TData>[] = [];
-  const getLeafColumns = (cols: MRT_ColumnDef<TData>[]) => {
+export const getAllLeafColumnDefs = <TData extends SRT_RowData>(
+  columns: SRT_ColumnDef<TData>[],
+): SRT_ColumnDef<TData>[] => {
+  const allLeafColumnDefs: SRT_ColumnDef<TData>[] = [];
+  const getLeafColumns = (cols: SRT_ColumnDef<TData>[]) => {
     cols.forEach((col) => {
       if (col.columns) {
         getLeafColumns(col.columns);
@@ -35,13 +35,13 @@ export const getAllLeafColumnDefs = <TData extends MRT_RowData>(
   return allLeafColumnDefs;
 };
 
-export const prepareColumns = <TData extends MRT_RowData>({
+export const prepareColumns = <TData extends SRT_RowData>({
   columnDefs,
   tableOptions,
 }: {
-  columnDefs: MRT_ColumnDef<TData>[];
-  tableOptions: MRT_DefinedTableOptions<TData>;
-}): MRT_DefinedColumnDef<TData>[] => {
+  columnDefs: SRT_ColumnDef<TData>[];
+  tableOptions: SRT_DefinedTableOptions<TData>;
+}): SRT_DefinedColumnDef<TData>[] => {
   const {
     aggregationFns = {},
     defaultDisplayColumn,
@@ -79,7 +79,7 @@ export const prepareColumns = <TData extends MRT_RowData>({
       if (Object.keys(filterFns).includes(columnFilterFns[columnDef.id])) {
         columnDef.filterFn =
           filterFns[columnFilterFns[columnDef.id]] ?? filterFns.fuzzy;
-        (columnDef as MRT_DefinedColumnDef<TData>)._filterFn =
+        (columnDef as SRT_DefinedColumnDef<TData>)._filterFn =
           columnFilterFns[columnDef.id];
       }
 
@@ -90,19 +90,19 @@ export const prepareColumns = <TData extends MRT_RowData>({
       }
     } else if (columnDef.columnDefType === 'display') {
       columnDef = {
-        ...(defaultDisplayColumn as MRT_ColumnDef<TData>),
+        ...(defaultDisplayColumn as SRT_ColumnDef<TData>),
         ...columnDef,
       };
     }
     return columnDef;
-  }) as MRT_DefinedColumnDef<TData>[];
+  }) as SRT_DefinedColumnDef<TData>[];
 };
 
-export const reorderColumn = <TData extends MRT_RowData>(
-  draggedColumn: MRT_Column<TData>,
-  targetColumn: MRT_Column<TData>,
-  columnOrder: MRT_ColumnOrderState,
-): MRT_ColumnOrderState => {
+export const reorderColumn = <TData extends SRT_RowData>(
+  draggedColumn: SRT_Column<TData>,
+  targetColumn: SRT_Column<TData>,
+  columnOrder: SRT_ColumnOrderState,
+): SRT_ColumnOrderState => {
   if (draggedColumn.getCanPin()) {
     draggedColumn.pin(targetColumn.getIsPinned());
   }
@@ -115,9 +115,9 @@ export const reorderColumn = <TData extends MRT_RowData>(
   return newColumnOrder;
 };
 
-export const getDefaultColumnFilterFn = <TData extends MRT_RowData>(
-  columnDef: MRT_ColumnDef<TData>,
-): MRT_FilterOption => {
+export const getDefaultColumnFilterFn = <TData extends SRT_RowData>(
+  columnDef: SRT_ColumnDef<TData>,
+): SRT_FilterOption => {
   const { filterVariant } = columnDef;
   if (filterVariant === 'multi-select') return 'arrIncludesSome';
   if (filterVariant?.includes('range')) return 'betweenInclusive';
@@ -126,12 +126,12 @@ export const getDefaultColumnFilterFn = <TData extends MRT_RowData>(
   return 'fuzzy';
 };
 
-export const getColumnFilterInfo = <TData extends MRT_RowData>({
+export const getColumnFilterInfo = <TData extends SRT_RowData>({
   header,
   table,
 }: {
-  header: MRT_Header<TData>;
-  table: MRT_TableInstance<TData>;
+  header: SRT_Header<TData>;
+  table: SRT_TableInstance<TData>;
 }) => {
   const {
     options: { columnFilterModeOptions },
@@ -174,12 +174,12 @@ export const getColumnFilterInfo = <TData extends MRT_RowData>({
   } as const;
 };
 
-export const useDropdownOptions = <TData extends MRT_RowData>({
+export const useDropdownOptions = <TData extends SRT_RowData>({
   header,
   table,
 }: {
-  header: MRT_Header<TData>;
-  table: MRT_TableInstance<TData>;
+  header: SRT_Header<TData>;
+  table: SRT_TableInstance<TData>;
 }): DropdownOption[] | undefined => {
   const { column } = header;
   const { columnDef } = column;

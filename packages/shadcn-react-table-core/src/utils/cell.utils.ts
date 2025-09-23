@@ -5,8 +5,8 @@ import {
   type SRT_TableInstance,
 } from '../types';
 import {
-  getMRT_RowSelectionHandler,
-  getMRT_SelectAllHandler,
+  getSRT_RowSelectionHandler,
+  getSRT_SelectAllHandler,
 } from './row.utils';
 import { parseFromValuesOrFunc } from './utils';
 
@@ -89,7 +89,7 @@ export const cellKeyboardShortcuts = <TData extends SRT_RowData = SRT_RowData>({
   } else if (['Enter', ' '].includes(event.key)) {
     if (cell?.column?.id === 'mrt-row-select') {
       event.preventDefault();
-      getMRT_RowSelectionHandler({
+      getSRT_RowSelectionHandler({
         row: cell.row,
         table,
         //@ts-expect-error
@@ -100,7 +100,7 @@ export const cellKeyboardShortcuts = <TData extends SRT_RowData = SRT_RowData>({
       table.options.enableSelectAll
     ) {
       event.preventDefault();
-      getMRT_SelectAllHandler({
+      getSRT_SelectAllHandler({
         table,
       })(event as any);
     } else if (

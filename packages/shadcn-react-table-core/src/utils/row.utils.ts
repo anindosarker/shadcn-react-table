@@ -7,7 +7,7 @@ import {
 } from '../types';
 import { parseFromValuesOrFunc } from './utils';
 
-export const getMRT_Rows = <TData extends SRT_RowData>(
+export const getSRT_Rows = <TData extends SRT_RowData>(
   table: SRT_TableInstance<TData>,
   all?: boolean,
 ): SRT_Row<TData>[] => {
@@ -142,7 +142,7 @@ export const getIsRowSelected = <TData extends SRT_RowData>({
   );
 };
 
-export const getMRT_RowSelectionHandler =
+export const getSRT_RowSelectionHandler =
   <TData extends SRT_RowData>({
     row,
     staticRowIndex = 0,
@@ -187,7 +187,7 @@ export const getMRT_RowSelectionHandler =
       (event as any).nativeEvent.shiftKey &&
       lastSelectedRowId.current !== null
     ) {
-      const rows = getMRT_Rows(table, true);
+      const rows = getSRT_Rows(table, true);
 
       const lastIndex = rows.findIndex(
         (r) => r.id === lastSelectedRowId.current,
@@ -238,7 +238,7 @@ export const getMRT_RowSelectionHandler =
     }
   };
 
-export const getMRT_SelectAllHandler =
+export const getSRT_SelectAllHandler =
   <TData extends SRT_RowData>({ table }: { table: SRT_TableInstance<TData> }) =>
   (
     event: ChangeEvent<HTMLInputElement> | MouseEvent<HTMLButtonElement>,
