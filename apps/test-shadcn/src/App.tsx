@@ -1,3 +1,4 @@
+import { Button } from './components/ui/button';
 import ShadcnReactTable from './components/ui/shadcn-react-table/ShadcnReactTable';
 import {
   type SRT_TableOptions,
@@ -25,6 +26,7 @@ function App() {
   const table = useShadcnReactTable<Person>(tableOptions);
   return (
     <div className="p-6">
+      <Button>Click me</Button>
       <h1 className="mb-4 text-2xl font-bold">shadcn-react-table Demo</h1>
       <ShadcnReactTable {...tableOptions} />
 
