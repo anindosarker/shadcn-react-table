@@ -7,6 +7,7 @@ import {
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import SRT_TableContainer from './SRT_TableContainer';
+import SRT_TopToolbar from '../toolbar/SRT_TopToolbar';
 
 export interface SRT_TableLayoutProps<TData extends SRT_RowData>
   extends LayoutDivProps {
@@ -34,14 +35,14 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
 }: SRT_TableLayoutProps<TData>) => {
   const {
     getState,
-    options,
+    options: { enableTopToolbar, renderTopToolbar, srtTableLayoutProps },
     refs: { tableLayoutRef },
   } = table;
 
   const { isFullScreen } = getState();
 
   const layoutDivProps = {
-    ...parseFromValuesOrFunc(options?.srtTableLayoutProps, { table }),
+    ...parseFromValuesOrFunc(srtTableLayoutProps, { table }),
     ...rest,
   };
   const { className, ...divRest } = layoutDivProps;
@@ -59,6 +60,10 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
       )}
       {...divRest}
     >
+      {enableTopToolbar &&
+        (parseFromValuesOrFunc(renderTopToolbar, { table }) ?? (
+          <SRT_TopToolbar table={table} />
+        ))}
       <SRT_TableContainer table={table} />
     </div>
   );

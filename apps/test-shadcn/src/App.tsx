@@ -13,17 +13,22 @@ const data: Person[] = [
   { name: 'Edsger Dijkstra', email: 'edsger@example.com', age: 51 },
 ];
 
+const columns = [
+  { accessorKey: 'name', header: 'Name' },
+  { accessorKey: 'email', header: 'Email' },
+  { accessorKey: 'age', header: 'Age' },
+];
 const tableOptions: SRT_TableOptions<Person> = {
-  columns: [
-    { accessorKey: 'name', header: 'Name' },
-    { accessorKey: 'email', header: 'Email' },
-    { accessorKey: 'age', header: 'Age' },
-  ],
+  columns,
   data,
 };
 
 function App() {
-  const table = useShadcnReactTable<Person>(tableOptions);
+  const table = useShadcnReactTable<Person>({
+    columns,
+    data,
+    enableTopToolbar: false,
+  });
   return (
     <div className="p-6">
       <Button>Click me</Button>
