@@ -4,6 +4,8 @@ import {
   type SRT_RowData,
   type SRT_TableInstance,
 } from 'shadcn-react-table-core';
+import { cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 import SRT_TableContainer from './SRT_TableContainer';
 
 export interface SRT_TableLayoutProps<TData extends SRT_RowData>
@@ -11,10 +13,20 @@ export interface SRT_TableLayoutProps<TData extends SRT_RowData>
   table: SRT_TableInstance<TData>;
 }
 
-const baseClasses =
-  'relative overflow-hidden rounded-md border bg-background shadow transition-all duration-100 p-2';
-const fullScreenClasses =
-  'fixed inset-0 z-50 h-dvh w-screen rounded-none border-0 m-0';
+const tableLayoutVariants = cva(
+  'relative overflow-hidden rounded-md border bg-background shadow transition-all duration-100 p-2',
+  {
+    variants: {
+      fullscreen: {
+        true: 'fixed inset-0 z-50 h-dvh w-screen rounded-none border-0 m-0',
+        false: '',
+      },
+    },
+    defaultVariants: {
+      fullscreen: false,
+    },
+  },
+);
 
 export const SRT_TableLayout = <TData extends SRT_RowData>({
   table,
@@ -32,6 +44,9 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
     ...parseFromValuesOrFunc(options?.srtTableLayoutProps, { table }),
     ...rest,
   };
+  const { className, ...divRest } = layoutDivProps;
+
+  // TODO: I've omitted the ref since this code will live in user's directory, might add later
 
   return (
     <div
@@ -39,8 +54,10 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
         tableLayoutRef.current = ref;
       }}
       onKeyDown={(e) => e.key === 'Escape' && table.setIsFullScreen(false)}
-      className={`${baseClasses} ${isFullScreen ? fullScreenClasses : ''} ${layoutDivProps.className ?? ''}`}
-      {...layoutDivProps}
+      className={cn(
+        tableLayoutVariants({ fullscreen: isFullScreen, className }),
+      )}
+      {...divRest}
     >
       <SRT_TableContainer table={table} />
     </div>
