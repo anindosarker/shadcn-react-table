@@ -1,33 +1,46 @@
-import type { SRT_RowData, SRT_TableInstance } from 'shadcn-react-table-core';
+import {
+  parseFromValuesOrFunc,
+  type LayoutDivProps,
+  type SRT_RowData,
+  type SRT_TableInstance,
+} from 'shadcn-react-table-core';
 import SRT_TableContainer from './SRT_TableContainer';
 
-export interface SRT_TableLayoutProps<TData extends SRT_RowData> {
+export interface SRT_TableLayoutProps<TData extends SRT_RowData>
+  extends LayoutDivProps {
   table: SRT_TableInstance<TData>;
 }
 
+const baseClasses =
+  'relative overflow-hidden rounded-md border bg-background shadow transition-all duration-100 p-2';
+const fullScreenClasses =
+  'fixed inset-0 z-50 h-dvh w-screen rounded-none border-0 m-0';
+
 export const SRT_TableLayout = <TData extends SRT_RowData>({
   table,
+  ...rest
 }: SRT_TableLayoutProps<TData>) => {
-  const isFullScreen = table.getState?.().isFullScreen;
+  const {
+    getState,
+    options,
+    refs: { tableLayoutRef },
+  } = table;
 
-  const baseClasses =
-    'relative overflow-hidden rounded-md border bg-background shadow transition-all duration-100';
-  const fullScreenClasses =
-    'fixed inset-0 z-50 h-dvh w-screen rounded-none border-0 m-0';
+  const { isFullScreen } = getState();
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
-    if (e.key === 'Escape') {
-      (
-        table as unknown as { setIsFullScreen?: (v: boolean) => void }
-      ).setIsFullScreen?.(false);
-    }
+  const layoutDivProps = {
+    ...parseFromValuesOrFunc(options?.srtTableLayoutProps, { table }),
+    ...rest,
   };
 
   return (
     <div
-      className={`${baseClasses} ${isFullScreen ? fullScreenClasses : ''}`}
-      onKeyDown={handleKeyDown}
-      tabIndex={-1}
+      ref={(ref: HTMLDivElement) => {
+        tableLayoutRef.current = ref;
+      }}
+      onKeyDown={(e) => e.key === 'Escape' && table.setIsFullScreen(false)}
+      className={`${baseClasses} ${isFullScreen ? fullScreenClasses : ''} ${layoutDivProps.className ?? ''}`}
+      {...layoutDivProps}
     >
       <SRT_TableContainer table={table} />
     </div>

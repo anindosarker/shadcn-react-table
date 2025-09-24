@@ -1,4 +1,5 @@
 import {
+  type ComponentPropsWithoutRef,
   type Dispatch,
   type ReactNode,
   type RefObject,
@@ -447,7 +448,6 @@ export type SRT_GroupColumnDef<TData extends SRT_RowData> =
     columns: SRT_ColumnDef<TData>[];
   };
 
-
 export type SRT_DefinedColumnDef<
   TData extends SRT_RowData,
   TValue = unknown,
@@ -680,7 +680,7 @@ export type SRT_TableInstance<TData extends SRT_RowData> = Omit<
     tableFooterRef: RefObject<HTMLTableSectionElement | null>;
     tableHeadCellRefs: RefObject<Record<string, HTMLTableCellElement> | null>;
     tableHeadRef: RefObject<HTMLTableSectionElement | null>;
-    tablePaperRef: RefObject<HTMLDivElement | null>;
+    tableLayoutRef: RefObject<HTMLDivElement | null>;
     topToolbarRef: RefObject<HTMLDivElement | null>;
   };
   setActionCell: Dispatch<SetStateAction<SRT_Cell<TData> | null>>;
@@ -1078,9 +1078,9 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //       table: SRT_TableInstance<TData>;
   //     }) => TableRowProps)
   //   | TableRowProps;
-  // muiTablePaperProps?:
-  //   | ((props: { table: SRT_TableInstance<TData> }) => PaperProps)
-  //   | PaperProps;
+  srtTableLayoutProps?:
+    | ((props: { table: SRT_TableInstance<TData> }) => LayoutDivProps)
+    | LayoutDivProps;
   // muiTableProps?:
   //   | ((props: { table: SRT_TableInstance<TData> }) => TableProps)
   //   | TableProps;
@@ -1261,3 +1261,9 @@ export interface SRT_TableState<TData extends SRT_RowData> extends TableState {
   showSkeletons: boolean;
   showToolbarDropZone: boolean;
 }
+
+// * Newly defined types
+export type LayoutDivProps = Omit<
+  React.ComponentPropsWithoutRef<'div'>,
+  'children'
+>;
