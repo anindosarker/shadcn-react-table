@@ -27,7 +27,10 @@ function App() {
   const table = useShadcnReactTable<Person>({
     columns,
     data,
-    enableTopToolbar: false,
+    state: {
+      isLoading: true,
+      showProgressBars: true,
+    },
   });
   return (
     <div className="p-6">

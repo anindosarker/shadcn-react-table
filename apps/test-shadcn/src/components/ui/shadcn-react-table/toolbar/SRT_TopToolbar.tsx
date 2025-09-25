@@ -3,6 +3,7 @@ import {
   type SRT_TableInstance,
 } from 'shadcn-react-table-core';
 import { cn } from '@/lib/utils';
+import SRT_LinearProgressBar from './SRT_LinearProgressBar';
 
 export interface SRT_TopToolbarProps<TData extends SRT_RowData> {
   table: SRT_TableInstance<TData>;
@@ -72,7 +73,7 @@ export const SRT_TopToolbar = <TData extends SRT_RowData>({
           <MRT_TablePagination position="top" table={table} />
         )} */}
       {/* TODO: Linear Progress Bar (isTopToolbar) */}
-      {/* <SRT_LinearProgressBar isTopToolbar table={table} /> */}
+      <SRT_LinearProgressBar isTopToolbar table={table} />
       <h1 className="text-red-500">Top Toolbar</h1>
     </div>
   );

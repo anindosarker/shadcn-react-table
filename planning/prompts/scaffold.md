@@ -17,7 +17,8 @@ When users will install the package `shadcn-react-table-core`, they will get all
 - Look into the code from original material-react-table package.
 - Port each components from the top down approach.
 - Mimic creating the root ShadcnReactTable component, that mimics the MaterialReactTable component. It will have similar child components for example: MRT_TableContainer -> SRT_TableContainer etc and so forth
-- Add utils, icons, types to the core package
+- Use shadcn components or simple tailwind stylings as you see fit
+- Add utils, icons, types to the core package if necessary
 - For all the parts that will be skipped (e.g. a mui related type that needs to ported later, or a component that we haven't created yet), add commented codes with TODO prefix. Keep the coding style similar to the original package
 
 Components to port:

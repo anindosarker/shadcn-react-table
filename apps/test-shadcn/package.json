@@ -11,6 +11,8 @@
     "gen:srt": "node ../../packages/shadcn-react-table-cli/dist/cli.cjs"
   },
   "dependencies": {
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.11",
     "class-variance-authority": "^0.7.1",
@@ -18,10 +20,9 @@
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "shadcn-react-table-core": "workspace:*",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.11",
-    "shadcn-react-table-core": "workspace:*"
-
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

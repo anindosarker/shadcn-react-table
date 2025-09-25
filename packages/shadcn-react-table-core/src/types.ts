@@ -1,4 +1,5 @@
 import {
+  HTMLAttributes,
   type ComponentPropsWithoutRef,
   type Dispatch,
   type ReactNode,
@@ -976,12 +977,12 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   //       table: SRT_TableInstance<TData>;
   //     }) => TimePickerProps<never>)
   //   | TimePickerProps<never>;
-  // muiLinearProgressProps?:
-  //   | ((props: {
-  //       isTopToolbar: boolean;
-  //       table: SRT_TableInstance<TData>;
-  //     }) => LinearProgressProps)
-  //   | LinearProgressProps;
+  srtLinearProgressProps?:
+    | ((props: {
+        isTopToolbar: boolean;
+        table: SRT_TableInstance<TData>;
+      }) => SRT_LinearProgressProps)
+    | SRT_LinearProgressProps;
   // muiPaginationProps?:
   //   | ((props: { table: SRT_TableInstance<TData> }) => Partial<
   //       PaginationProps & {
@@ -1267,3 +1268,8 @@ export type LayoutDivProps = Omit<
   React.ComponentPropsWithoutRef<'div'>,
   'children'
 >;
+
+export type SRT_LinearProgressProps = {
+  wrapper?: HTMLAttributes<HTMLDivElement>;
+  progressRoot?: HTMLAttributes<HTMLDivElement>;
+};
