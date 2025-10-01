@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Button } from './components/ui/button';
 import ShadcnReactTable from './components/ui/shadcn-react-table/ShadcnReactTable';
 import {
@@ -24,6 +25,16 @@ const tableOptions: SRT_TableOptions<Person> = {
 };
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
   const table = useShadcnReactTable<Person>({
     columns,
     data,
@@ -33,13 +44,27 @@ function App() {
     },
   });
   return (
-    <div className="p-6">
-      <Button>Click me</Button>
-      <h1 className="mb-4 text-2xl font-bold">shadcn-react-table Demo</h1>
-      <ShadcnReactTable {...tableOptions} />
+    <div className="min-h-screen p-6">
+      {/* Theme Controls */}
+      <div className="mb-6 flex gap-4">
+        <Button onClick={() => setIsDark(!isDark)} variant="outline">
+          {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
+        </Button>
+      </div>
 
-      <h1 className="mb-4 mt-8 text-2xl font-bold">Hook Example</h1>
-      <ShadcnReactTable table={table} />
+      <h1 className="mb-4 text-2xl font-bold">shadcn-react-table Demo</h1>
+
+      <div className="space-y-8">
+        <div>
+          <h2 className="mb-2 text-lg font-semibold">Table Options API</h2>
+          <ShadcnReactTable {...tableOptions} />
+        </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-semibold">Hook Example</h2>
+          <ShadcnReactTable table={table} />
+        </div>
+      </div>
     </div>
   );
 }
