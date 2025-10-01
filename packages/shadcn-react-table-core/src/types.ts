@@ -45,6 +45,7 @@ import { SRT_FilterFns } from './fns/filterFns';
 import { SRT_AggregationFns } from './fns/aggregationFns';
 import { SRT_SortingFns } from './fns/sortingFns';
 import { SRT_Icons } from './icons';
+import { LucideProps } from 'lucide-react';
 
 export type {
   ColumnDef,
@@ -870,11 +871,11 @@ export interface SRT_TableOptions<TData extends SRT_RowData>
   // muiBottomToolbarProps?:
   //   | ((props: { table: SRT_TableInstance<TData> }) => BoxProps)
   //   | BoxProps;
-  // muiCircularProgressProps?:
-  //   | ((props: {
-  //       table: SRT_TableInstance<TData>;
-  //     }) => CircularProgressProps & { Component?: ReactNode })
-  //   | (CircularProgressProps & { Component?: ReactNode });
+  srtCircularProgressProps?:
+    | ((props: {
+        table: SRT_TableInstance<TData>;
+      }) => SRT_CircularProgressProps & { Component?: ReactNode })
+    | (SRT_CircularProgressProps & { Component?: ReactNode });
   // muiColumnActionsButtonProps?:
   //   | ((props: {
   //       column: SRT_Column<TData>;
@@ -1273,3 +1274,7 @@ export type SRT_LinearProgressProps = {
   wrapper?: HTMLAttributes<HTMLDivElement>;
   progressRoot?: HTMLAttributes<HTMLDivElement>;
 };
+
+export interface SRT_CircularProgressProps extends LucideProps {
+  Component?: ReactNode;
+}
