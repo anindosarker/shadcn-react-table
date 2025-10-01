@@ -17,7 +17,7 @@ export interface SRT_LinearProgressBarProps<TData extends SRT_RowData> {
 export const SRT_LinearProgressBar = <TData extends SRT_RowData>({
   isTopToolbar,
   table,
-  className,
+  ...rest
 }: SRT_LinearProgressBarProps<TData>) => {
   const {
     getState,
@@ -25,9 +25,10 @@ export const SRT_LinearProgressBar = <TData extends SRT_RowData>({
   } = table;
   const { isSaving, showProgressBars } = getState();
 
-  const { wrapper, progressRoot } =
-    parseFromValuesOrFunc(srtLinearProgressProps, { isTopToolbar, table }) ??
-    {};
+  const linerProgressProps = {
+    ...parseFromValuesOrFunc(srtLinearProgressProps, { isTopToolbar, table }),
+    ...rest,
+  };
 
   const show = showProgressBars !== false && (showProgressBars || isSaving);
 
@@ -48,17 +49,17 @@ export const SRT_LinearProgressBar = <TData extends SRT_RowData>({
   return (
     <Collapsible open={show}>
       <CollapsibleContent
-        {...wrapper}
+        {...linerProgressProps}
         className={cn(
           'absolute left-0 right-0 w-full',
           isTopToolbar ? 'bottom-0' : 'top-0',
-          wrapper?.className,
+          linerProgressProps?.className,
         )}
       >
         <Progress
           value={value}
-          {...progressRoot}
-          className={cn('h-0.5', progressRoot?.className)}
+          {...linerProgressProps}
+          className={cn('h-0.5', linerProgressProps?.className)}
         />
       </CollapsibleContent>
     </Collapsible>
