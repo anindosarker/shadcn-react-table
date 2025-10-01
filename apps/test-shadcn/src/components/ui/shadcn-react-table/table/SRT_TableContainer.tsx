@@ -5,6 +5,14 @@ export interface SRT_TableContainerProps<TData extends SRT_RowData> {
   table: SRT_TableInstance<TData>;
 }
 
+/**
+ * TODO:
+ * - cva for className overrides
+ * - MRT_TableLoadingOverlay
+ * - MRT_EditRowModal
+ * - MRT_CellActionMenu
+ */
+
 export const SRT_TableContainer = <TData extends SRT_RowData>({
   table,
 }: SRT_TableContainerProps<TData>) => {

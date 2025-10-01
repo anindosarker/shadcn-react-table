@@ -5,6 +5,16 @@ export interface SRT_TableProps<TData extends SRT_RowData> {
   table: SRT_TableInstance<TData>;
 }
 
+/**
+ * TODO:
+ * - cva for className overrides
+ * - MRT_TableHead
+ * - Memo_MRT_TableBody
+ * - MRT_TableBody
+ * - MRT_TableFooter
+ * - useMRT_ColumnVirtualizer
+ */
+
 export const SRT_Table = <TData extends SRT_RowData>({
   table,
 }: SRT_TableProps<TData>) => {

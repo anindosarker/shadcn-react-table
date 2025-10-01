@@ -45,6 +45,7 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
     ...parseFromValuesOrFunc(srtTableLayoutProps, { table }),
     ...rest,
   };
+  // TODO: use cva for className overrides
   const { className, ...divRest } = layoutDivProps;
 
   // TODO: I've omitted the ref since this code will live in user's directory, might add later
@@ -65,6 +66,11 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
           <SRT_TopToolbar table={table} />
         ))}
       <SRT_TableContainer table={table} />
+      {/* TODO: Add bottom toolbar
+      {enableBottomToolbar &&
+        (parseFromValuesOrFunc(renderBottomToolbar, { table }) ?? (
+          <MRT_BottomToolbar table={table} />
+        ))} */}
     </div>
   );
 };
