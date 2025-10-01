@@ -38,8 +38,8 @@ export const SRT_LinearProgressBar = <TData extends SRT_RowData>({
     setValue(undefined);
     const id = setInterval(() => {
       setValue((prev) => {
-        const next = typeof prev === 'number' ? prev + 12 : 12;
-        return next >= 100 ? 0 : next;
+        const next = typeof prev === 'number' ? prev + 10 : 10;
+        return next > 100 ? 0 : next;
       });
     }, 150);
     return () => clearInterval(id);
