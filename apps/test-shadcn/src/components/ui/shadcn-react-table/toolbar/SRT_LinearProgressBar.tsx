@@ -32,8 +32,8 @@ export const SRT_LinearProgressBar = <TData extends SRT_RowData>({
 
   const show = showProgressBars !== false && (showProgressBars || isSaving);
 
+  // Function to calculate the progress value. You can change it as you wish.
   const [value, setValue] = useState<number | undefined>(undefined);
-
   useEffect(() => {
     if (!show) return;
     setValue(undefined);
