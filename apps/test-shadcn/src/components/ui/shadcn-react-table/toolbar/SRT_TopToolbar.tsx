@@ -14,16 +14,10 @@ export const SRT_TopToolbar = <TData extends SRT_RowData>({
 }: SRT_TopToolbarProps<TData>) => {
   const {
     getState,
-    options: {
-      enableGlobalFilter,
-      enableToolbarInternalActions,
-      positionGlobalFilter,
-      renderTopToolbarCustomActions,
-    },
-    refs: { topToolbarRef, searchInputRef },
+    refs: { topToolbarRef },
   } = table;
 
-  const { isFullScreen, showGlobalFilter, globalFilter } = getState();
+  const { isFullScreen } = getState();
 
   // TODO: srtTopToolbarProps - support passing props to top toolbar similar to MRT's muiTopToolbarProps
   // const toolbarProps = parseFromValuesOrFunc(table?.options?.srtTopToolbarProps as any, { table });

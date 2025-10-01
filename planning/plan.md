@@ -26,7 +26,7 @@ When users will install the package `shadcn-react-table-core`, they will get all
                         - MRT_EditRowModal
                         - MRT_CellActionMenu
  
-                - [ ] /table/MRT_TableLoadingOverlay.tsx
+                - [x] /table/MRT_TableLoadingOverlay.tsx
                 - [ ] /table/MRT_TablePaper.tsx
                         - Add bottom toolbar
                         - cva for className overrides

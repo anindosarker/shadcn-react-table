@@ -8,6 +8,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import SRT_TableContainer from './SRT_TableContainer';
 import SRT_TopToolbar from '../toolbar/SRT_TopToolbar';
+import { SRT_BottomToolbar } from '../toolbar/SRT_BottomToolbar';
 
 export interface SRT_TableLayoutProps<TData extends SRT_RowData>
   extends LayoutDivProps {
@@ -35,7 +36,13 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
 }: SRT_TableLayoutProps<TData>) => {
   const {
     getState,
-    options: { enableTopToolbar, renderTopToolbar, srtTableLayoutProps },
+    options: {
+      enableTopToolbar,
+      enableBottomToolbar,
+      renderTopToolbar,
+      renderBottomToolbar,
+      srtTableLayoutProps,
+    },
     refs: { tableLayoutRef },
   } = table;
 
@@ -66,11 +73,10 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
           <SRT_TopToolbar table={table} />
         ))}
       <SRT_TableContainer table={table} />
-      {/* TODO: Add bottom toolbar
       {enableBottomToolbar &&
         (parseFromValuesOrFunc(renderBottomToolbar, { table }) ?? (
-          <MRT_BottomToolbar table={table} />
-        ))} */}
+          <SRT_BottomToolbar table={table} />
+        ))}
     </div>
   );
 };
