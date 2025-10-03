@@ -15,9 +15,30 @@ const data: Person[] = [
 ];
 
 const columns = [
-  { accessorKey: 'name', header: 'Name' },
-  { accessorKey: 'email', header: 'Email' },
-  { accessorKey: 'age', header: 'Age' },
+  {
+    accessorKey: 'name',
+    header: 'Name',
+    enableSorting: true,
+    enableColumnFilter: true,
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+    enableSorting: true,
+    enableColumnFilter: true,
+  },
+  {
+    accessorKey: 'age',
+    header: 'Age',
+    enableSorting: true,
+    enableColumnFilter: true,
+    Footer: () => {
+      const total = data.reduce((sum, person) => sum + person.age, 0);
+      return (
+        <div className="font-bold">Avg: {(total / data.length).toFixed(1)}</div>
+      );
+    },
+  },
 ];
 const tableOptions: SRT_TableOptions<Person> = {
   columns,
@@ -38,20 +59,43 @@ function App() {
   const table = useShadcnReactTable<Person>({
     columns,
     data,
+    // Toolbar
     enableTopToolbar: true,
     enableBottomToolbar: true,
     enableToolbarInternalActions: true,
+
+    // Toolbar buttons
     enableFullScreenToggle: true,
     enableDensityToggle: true,
     enableGlobalFilter: true,
     positionGlobalFilter: 'right',
+    enableColumnFilters: true,
+    // enableFiltersButton: true, // TODO: Add to core types
+    // enableShowHideColumnsButton: true, // TODO: Add to core types
+
+    // Table features
+    enableSorting: true,
+    enableColumnResizing: false,
+    enableRowSelection: false,
+    enableExpandAll: false,
+
+    // Footer
+    enableTableFooter: true,
+
+    // Loading/Progress
     state: {
-      // isLoading: false,
-      // showProgressBars: false,
       isLoading: false,
-      showProgressBars: true,
+      showProgressBars: false,
     },
-    // enableTableHead: false,
+
+    // Detail panel for row expansion (commented for now)
+    // renderDetailPanel: ({ row }) => (
+    //   <div className="p-4 text-sm">
+    //     <p>Details for <strong>{row.original.name}</strong></p>
+    //     <p>Email: {row.original.email}</p>
+    //     <p>Age: {row.original.age} years old</p>
+    //   </div>
+    // ),
   });
   return (
     <div className="min-h-screen p-6">
@@ -66,30 +110,56 @@ function App() {
 
       <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-900 dark:bg-blue-950">
         <h3 className="mb-2 font-semibold text-blue-900 dark:text-blue-100">
-          🧪 Testing Toolbar Components
+          🧪 Testing Components - {data.length} rows
         </h3>
-        <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
-          <li>
-            • <strong>Fullscreen Toggle</strong> - Click the maximize icon to
-            enter fullscreen
-          </li>
-          <li>
-            • <strong>Density Toggle</strong> - Click to cycle: Comfortable →
-            Compact → Spacious
-          </li>
-          <li>
-            • <strong>Global Search Toggle</strong> - Click search icon to
-            show/hide search
-          </li>
-          <li>
-            • <strong>Theme Toggle</strong> - Test dark/light mode with toolbar
-            components
-          </li>
-          <li>
-            • <strong>Loading States</strong> - Toolbar progress bars and
-            overlay
-          </li>
-        </ul>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div>
+            <h4 className="mb-1 text-sm font-semibold text-blue-900 dark:text-blue-100">
+              Toolbar Buttons (Top Right)
+            </h4>
+            <ul className="space-y-1 text-xs text-blue-800 dark:text-blue-200">
+              <li>
+                🔍 <strong>Global Search</strong> - Click to show/hide search
+                input
+              </li>
+              <li>
+                🗂️ <strong>Show/Hide Columns</strong> - Toggle column visibility
+              </li>
+              <li>
+                🔽 <strong>Filters</strong> - Show/hide column filters
+              </li>
+              <li>
+                📏 <strong>Density</strong> - Cycle: Comfortable → Compact →
+                Spacious
+              </li>
+              <li>
+                ⛶ <strong>Fullscreen</strong> - Maximize/minimize view
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="mb-1 text-sm font-semibold text-blue-900 dark:text-blue-100">
+              Table Features
+            </h4>
+            <ul className="space-y-1 text-xs text-blue-800 dark:text-blue-200">
+              <li>
+                ↕️ <strong>Sorting</strong> - Click column headers to sort
+              </li>
+              <li>
+                🔎 <strong>Column Filters</strong> - Filter individual columns
+              </li>
+              <li>
+                📊 <strong>Footer</strong> - See age average calculation
+              </li>
+              <li>
+                🌓 <strong>Theme</strong> - Toggle dark/light mode
+              </li>
+              <li>
+                📦 <strong>59 Components</strong> - All scaffolded!
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="space-y-8">
