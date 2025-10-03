@@ -3,8 +3,8 @@ import {
   type SRT_RowData,
   type SRT_TableInstance,
 } from 'shadcn-react-table-core';
-import { SRT_TableFooterRow } from './SRT_TableFooterRow';
 import { cn } from '@/lib/utils';
+import { SRT_TableFooterRow } from './SRT_TableFooterRow';
 
 export interface SRT_TableFooterProps<TData extends SRT_RowData> {
   columnVirtualizer?: SRT_ColumnVirtualizer;
@@ -71,6 +71,7 @@ export const SRT_TableFooter = <TData extends SRT_RowData>({
       {footerGroups.map((footerGroup) => (
         <SRT_TableFooterRow
           columnVirtualizer={columnVirtualizer}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           footerGroup={footerGroup as any}
           key={footerGroup.id}
           table={table}

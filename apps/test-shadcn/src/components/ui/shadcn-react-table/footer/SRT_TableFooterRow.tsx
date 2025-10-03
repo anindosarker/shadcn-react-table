@@ -6,8 +6,8 @@ import {
   type SRT_TableInstance,
   type SRT_VirtualItem,
 } from 'shadcn-react-table-core';
-import { SRT_TableFooterCell } from './SRT_TableFooterCell';
 import { cn } from '@/lib/utils';
+import { SRT_TableFooterCell } from './SRT_TableFooterCell';
 
 export interface SRT_TableFooterRowProps<TData extends SRT_RowData> {
   columnVirtualizer?: SRT_ColumnVirtualizer;

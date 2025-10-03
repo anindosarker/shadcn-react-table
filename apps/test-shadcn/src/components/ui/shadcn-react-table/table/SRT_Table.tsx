@@ -1,6 +1,7 @@
 import type { SRT_RowData, SRT_TableInstance } from 'shadcn-react-table-core';
 import { SRT_TableHead } from '../head/SRT_TableHead';
 import { SRT_TableBody } from '../body/SRT_TableBody';
+import { SRT_TableFooter } from '../footer/SRT_TableFooter';
 
 export interface SRT_TableProps<TData extends SRT_RowData> {
   table: SRT_TableInstance<TData>;
@@ -25,7 +26,7 @@ export const SRT_Table = <TData extends SRT_RowData>({
     options: {
       // columns,
       // enableStickyHeader,
-      // enableTableFooter,
+      enableTableFooter,
       enableTableHead,
       // layoutMode,
       // memoMode,
@@ -44,6 +45,7 @@ export const SRT_Table = <TData extends SRT_RowData>({
     <table className="w-full border-collapse text-sm">
       {enableTableHead && <SRT_TableHead {...commonTableGroupProps} />}
       <SRT_TableBody {...commonTableGroupProps} />
+      {enableTableFooter && <SRT_TableFooter {...commonTableGroupProps} />}
     </table>
   );
 };

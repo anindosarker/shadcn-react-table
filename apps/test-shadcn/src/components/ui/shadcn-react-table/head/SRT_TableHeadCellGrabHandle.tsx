@@ -39,12 +39,12 @@ export const SRT_TableHeadCellGrabHandle = <TData extends SRT_RowData>({
   const {
     getState,
     options: { enableColumnOrdering },
-    setColumnOrder,
-    setColumnPinning,
+    // setColumnOrder,
+    // setColumnPinning,
     setDraggingColumn,
     setHoveredColumn,
   } = table;
-  const { columnOrder, draggingColumn, hoveredColumn } = getState();
+  const { /* columnOrder, */ draggingColumn, hoveredColumn } = getState();
 
   const handleDragStart = (event: DragEvent<HTMLButtonElement>) => {
     setDraggingColumn(column);
@@ -59,7 +59,7 @@ export const SRT_TableHeadCellGrabHandle = <TData extends SRT_RowData>({
     }
   };
 
-  const handleDragEnd = (_event: DragEvent<HTMLButtonElement>) => {
+  const handleDragEnd = () => {
     if (hoveredColumn?.id === 'drop-zone') {
       column.toggleGrouping();
     } else if (

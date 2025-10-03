@@ -1,4 +1,3 @@
-import { type MouseEvent, useState } from 'react';
 import { ColumnsIcon } from 'lucide-react';
 import {
   type SRT_RowData,
@@ -36,10 +35,11 @@ export const SRT_ShowHideColumnsButton = <TData extends SRT_RowData>({
     options: { localization },
   } = table;
 
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  // const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const handleClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = (/* event: MouseEvent<HTMLElement> */) => {
+    // setAnchorEl(event.currentTarget);
+    // TODO: Implement menu when SRT_ShowHideColumnsMenu is ready
   };
 
   return (

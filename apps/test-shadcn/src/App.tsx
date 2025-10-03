@@ -12,6 +12,21 @@ const data: Person[] = [
   { name: 'Ada Lovelace', email: 'ada@example.com', age: 36 },
   { name: 'Grace Hopper', email: 'grace@example.com', age: 45 },
   { name: 'Edsger Dijkstra', email: 'edsger@example.com', age: 51 },
+  { name: 'Alan Turing', email: 'alan@example.com', age: 41 },
+  { name: 'Margaret Hamilton', email: 'margaret@example.com', age: 38 },
+  { name: 'Charles Babbage', email: 'charles@example.com', age: 47 },
+  { name: 'Tim Berners-Lee', email: 'tim@example.com', age: 56 },
+  { name: 'Isaac Newton', email: 'isaac@example.com', age: 64 },
+  { name: 'Marie Curie', email: 'marie@example.com', age: 54 },
+  { name: 'Nikola Tesla', email: 'nikola@example.com', age: 58 },
+  { name: 'Albert Einstein', email: 'albert@example.com', age: 62 },
+  { name: 'Galileo Galilei', email: 'galileo@example.com', age: 70 },
+  { name: 'Johannes Kepler', email: 'johannes@example.com', age: 67 },
+  { name: 'René Descartes', email: 'rene@example.com', age: 59 },
+  { name: 'Francis Bacon', email: 'francis@example.com', age: 63 },
+  { name: 'Isaac Asimov', email: 'isaac@example.com', age: 62 },
+  { name: 'Carl Sagan', email: 'carl@example.com', age: 65 },
+  { name: 'Stephen Hawking', email: 'stephen@example.com', age: 66 },
 ];
 
 const columns = [

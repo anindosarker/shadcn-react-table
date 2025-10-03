@@ -1,4 +1,4 @@
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent } from 'react';
 import { EditIcon, MoreHorizontalIcon } from 'lucide-react';
 import {
   type SRT_Cell,
@@ -66,18 +66,19 @@ export const SRT_ToggleRowActionMenuButton = <TData extends SRT_RowData>({
     (isCreating && createDisplayMode === 'row') ||
     (isEditing && editDisplayMode === 'row');
 
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  // const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const handleOpenRowActionMenu = (event: MouseEvent<HTMLElement>) => {
     event.stopPropagation();
     event.preventDefault();
-    setAnchorEl(event.currentTarget);
+    // setAnchorEl(event.currentTarget);
+    // TODO: Implement menu when SRT_RowActionMenu is ready
   };
 
   const handleStartEditMode = (event: MouseEvent) => {
     event.stopPropagation();
     setEditingRow({ ...row });
-    setAnchorEl(null);
+    // setAnchorEl(null);
   };
 
   const commonButtonClass = cn(
@@ -108,6 +109,7 @@ export const SRT_ToggleRowActionMenuButton = <TData extends SRT_RowData>({
           row,
           staticRowIndex,
           table,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any)?.length ? (
         <>
           <Button

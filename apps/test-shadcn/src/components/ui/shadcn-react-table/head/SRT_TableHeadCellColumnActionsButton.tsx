@@ -1,4 +1,4 @@
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent } from 'react';
 import { MoreVerticalIcon } from 'lucide-react';
 import {
   type SRT_Header,
@@ -35,7 +35,6 @@ export interface SRT_TableHeadCellColumnActionsButtonProps<
 export const SRT_TableHeadCellColumnActionsButton = <
   TData extends SRT_RowData,
 >({
-  header,
   table,
   className,
 }: SRT_TableHeadCellColumnActionsButtonProps<TData>) => {
@@ -43,12 +42,13 @@ export const SRT_TableHeadCellColumnActionsButton = <
     options: { localization },
   } = table;
 
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  // const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     event.stopPropagation();
     event.preventDefault();
-    setAnchorEl(event.currentTarget);
+    // setAnchorEl(event.currentTarget);
+    // TODO: Implement menu when SRT_ColumnActionMenu is ready
   };
 
   return (

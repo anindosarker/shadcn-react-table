@@ -63,6 +63,7 @@ export const SRT_EditActionButtons = <TData extends SRT_RowData>({
       onEditingRowCancel?.({ row, table });
       setEditingRow(null);
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     row._valuesCache = {} as any; // reset values cache
   };
 

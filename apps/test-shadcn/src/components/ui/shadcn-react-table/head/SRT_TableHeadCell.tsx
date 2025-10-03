@@ -6,6 +6,7 @@ import {
 } from 'shadcn-react-table-core';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
+import { SRT_TableHeadCellSortLabel } from './SRT_TableHeadCellSortLabel';
 
 export interface SRT_TableHeadCellProps<TData extends SRT_RowData> {
   header: SRT_Header<TData>;
@@ -53,13 +54,30 @@ export const SRT_TableHeadCell = <TData extends SRT_RowData>({
   table,
 }: SRT_TableHeadCellProps<TData>) => {
   const { column } = header;
+  const { columnDef } = column;
   const { density } = table.getState();
+
+  // Check if this column can be sorted
+  const canSort = column.getCanSort();
 
   return (
     <th colSpan={header.colSpan} className={cn(headCellVariants({ density }))}>
-      {header.isPlaceholder
-        ? null
-        : flexRender(column.columnDef.header, header.getContext())}
+      {header.isPlaceholder ? null : (
+        <div className="flex items-center gap-2">
+          {/* Header content */}
+          <div className="flex-1">
+            {flexRender(columnDef.header, header.getContext())}
+          </div>
+
+          {/* Sort label - only show if sorting is enabled for this column */}
+          {canSort && <SRT_TableHeadCellSortLabel header={header} table={table} />}
+
+          {/* TODO: Add more header components */}
+          {/* {columnDef.enableColumnFilter && <SRT_TableHeadCellFilterLabel />} */}
+          {/* {columnDef.enableColumnActions && <SRT_TableHeadCellColumnActionsButton />} */}
+          {/* {enableColumnResizing && <SRT_TableHeadCellResizeHandle />} */}
+        </div>
+      )}
     </th>
   );
 };

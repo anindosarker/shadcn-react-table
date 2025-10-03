@@ -38,6 +38,7 @@ export const SRT_TableBodyRowPinButton = <TData extends SRT_RowData>({
   } = table;
   const { density } = getState();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const canPin = parseFromValuesOrFunc(enableRowPinning, row as any);
 
   if (!canPin) return null;

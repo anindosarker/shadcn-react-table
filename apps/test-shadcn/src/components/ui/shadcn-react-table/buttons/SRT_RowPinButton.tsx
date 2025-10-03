@@ -1,5 +1,4 @@
 import { type MouseEvent } from 'react';
-import { type RowPinningPosition } from '@tanstack/react-table';
 import { PinIcon, XIcon } from 'lucide-react';
 import {
   type SRT_Row,
@@ -10,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export interface SRT_RowPinButtonProps<TData extends SRT_RowData> {
-  pinningPosition: RowPinningPosition;
+  pinningPosition: 'top' | 'bottom' | false;
   row: SRT_Row<TData>;
   table: SRT_TableInstance<TData>;
   className?: string;
