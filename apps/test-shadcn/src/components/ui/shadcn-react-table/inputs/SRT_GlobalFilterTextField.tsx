@@ -57,7 +57,7 @@ export const SRT_GlobalFilterTextField = <TData extends SRT_RowData>({
   // Debounce the filter update
   const handleChangeDebounced = useCallback(
     (() => {
-      let timeoutId: NodeJS.Timeout;
+      let timeoutId: ReturnType<typeof setTimeout>;
       return (value: string) => {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(
