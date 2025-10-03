@@ -38,8 +38,17 @@ function App() {
   const table = useShadcnReactTable<Person>({
     columns,
     data,
+    enableTopToolbar: true,
+    enableBottomToolbar: true,
+    enableToolbarInternalActions: true,
+    enableFullScreenToggle: true,
+    enableDensityToggle: true,
+    enableGlobalFilter: true,
+    positionGlobalFilter: 'right',
     state: {
-      isLoading: true,
+      // isLoading: false,
+      // showProgressBars: false,
+      isLoading: false,
       showProgressBars: true,
     },
     // enableTableHead: false,
@@ -55,13 +64,45 @@ function App() {
 
       <h1 className="mb-4 text-2xl font-bold">shadcn-react-table Demo</h1>
 
+      <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-900 dark:bg-blue-950">
+        <h3 className="mb-2 font-semibold text-blue-900 dark:text-blue-100">
+          🧪 Testing Toolbar Components
+        </h3>
+        <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
+          <li>
+            • <strong>Fullscreen Toggle</strong> - Click the maximize icon to
+            enter fullscreen
+          </li>
+          <li>
+            • <strong>Density Toggle</strong> - Click to cycle: Comfortable →
+            Compact → Spacious
+          </li>
+          <li>
+            • <strong>Global Search Toggle</strong> - Click search icon to
+            show/hide search
+          </li>
+          <li>
+            • <strong>Theme Toggle</strong> - Test dark/light mode with toolbar
+            components
+          </li>
+          <li>
+            • <strong>Loading States</strong> - Toolbar progress bars and
+            overlay
+          </li>
+        </ul>
+      </div>
+
       <div className="space-y-8">
         <div>
-          <h2 className="mb-2 text-lg font-semibold">Hook Example</h2>
+          <h2 className="mb-2 text-lg font-semibold">
+            Hook Example - Full Featured
+          </h2>
           <ShadcnReactTable table={table} />
         </div>
         <div>
-          <h2 className="mb-2 text-lg font-semibold">Table Options API</h2>
+          <h2 className="mb-2 text-lg font-semibold">
+            Table Options API - Minimal
+          </h2>
           <ShadcnReactTable {...tableOptions} />
         </div>
       </div>
