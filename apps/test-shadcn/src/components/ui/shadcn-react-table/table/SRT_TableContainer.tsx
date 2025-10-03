@@ -47,5 +47,3 @@ export const SRT_TableContainer = <TData extends SRT_RowData>({
     </div>
   );
 };
-
-export default SRT_TableContainer;

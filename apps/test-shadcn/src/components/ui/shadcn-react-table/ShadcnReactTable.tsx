@@ -5,7 +5,7 @@ import {
   type SRT_TableOptions,
   type Xor,
 } from 'shadcn-react-table-core';
-import SRT_TableLayout from './table/SRT_TableLayout';
+import { SRT_TableLayout } from './table/SRT_TableLayout';
 
 type TableInstanceProp<TData extends SRT_RowData> = {
   table: SRT_TableInstance<TData>;

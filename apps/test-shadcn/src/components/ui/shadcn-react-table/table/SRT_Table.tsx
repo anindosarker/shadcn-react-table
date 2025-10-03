@@ -1,6 +1,6 @@
 import type { SRT_RowData, SRT_TableInstance } from 'shadcn-react-table-core';
-import SRT_TableHead from '../head/SRT_TableHead';
-import SRT_TableBody from '../body/SRT_TableBody';
+import { SRT_TableHead } from '../head/SRT_TableHead';
+import { SRT_TableBody } from '../body/SRT_TableBody';
 
 export interface SRT_TableProps<TData extends SRT_RowData> {
   table: SRT_TableInstance<TData>;
@@ -26,5 +26,3 @@ export const SRT_Table = <TData extends SRT_RowData>({
     </table>
   );
 };
-
-export default SRT_Table;

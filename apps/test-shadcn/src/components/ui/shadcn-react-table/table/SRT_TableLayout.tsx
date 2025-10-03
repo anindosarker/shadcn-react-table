@@ -6,8 +6,8 @@ import {
 } from 'shadcn-react-table-core';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import SRT_TableContainer from './SRT_TableContainer';
-import SRT_TopToolbar from '../toolbar/SRT_TopToolbar';
+import { SRT_TableContainer } from './SRT_TableContainer';
+import { SRT_TopToolbar } from '../toolbar/SRT_TopToolbar';
 import { SRT_BottomToolbar } from '../toolbar/SRT_BottomToolbar';
 
 export interface SRT_TableLayoutProps<TData extends SRT_RowData>
@@ -80,5 +80,3 @@ export const SRT_TableLayout = <TData extends SRT_RowData>({
     </div>
   );
 };
-
-export default SRT_TableLayout;
