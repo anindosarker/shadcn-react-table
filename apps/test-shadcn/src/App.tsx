@@ -25,7 +25,7 @@ const tableOptions: SRT_TableOptions<Person> = {
 };
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     if (isDark) {
@@ -42,6 +42,7 @@ function App() {
       isLoading: true,
       showProgressBars: true,
     },
+    // enableTableHead: false,
   });
   return (
     <div className="min-h-screen p-6">
@@ -56,13 +57,12 @@ function App() {
 
       <div className="space-y-8">
         <div>
-          <h2 className="mb-2 text-lg font-semibold">Table Options API</h2>
-          <ShadcnReactTable {...tableOptions} />
-        </div>
-
-        <div>
           <h2 className="mb-2 text-lg font-semibold">Hook Example</h2>
           <ShadcnReactTable table={table} />
+        </div>
+        <div>
+          <h2 className="mb-2 text-lg font-semibold">Table Options API</h2>
+          <ShadcnReactTable {...tableOptions} />
         </div>
       </div>
     </div>
