@@ -80,10 +80,11 @@ Shared rules:
 - Match MRT prop interfaces + behavior exactly. Map MUI components → shadcn equivalents (TextField→Input, Menu→DropdownMenu, Popover→Popover, Dialog→Dialog, Checkbox→Checkbox, Slider→Slider, Tooltip→Tooltip).
 - Replace MUI `sx`/theme w/ cva + tailwind classes. Allow `className` override prop.
 
-### Phase 2 — Integration
+### Phase 2 — Integration + browser verification
 - Wire `ShadcnReactTable.tsx` → `SRT_TableLayout` → full tree.
 - Build a full-feature demo in `apps/test-shadcn/src/App.tsx` (sorting, filtering, pagination, selection, editing, expand, pinning, drag, virtualization, row actions).
-- `pnpm build` + typecheck green. Visual smoke test.
+- `pnpm build` + typecheck green.
+- **Live browser test (`/agent-browser`):** start vite dev server, drive the app in a real browser — exercise each feature (sort cols, type filters, paginate, select rows, edit cell, expand row, pin, reorder, scroll virtualized list, open row/column action menus). Capture screenshots, check console for errors. Log defects as new tasks, fix, re-test until clean.
 
 ### Phase 3 — Per-file code review
 - Review each ported file vs MRT counterpart. Catch MUI→shadcn nuance gaps (focus mgmt, a11y, keyboard nav, controlled/uncontrolled, density/fullscreen, RTL).
