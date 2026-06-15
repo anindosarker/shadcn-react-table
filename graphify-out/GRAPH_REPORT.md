@@ -1,16 +1,16 @@
 # Graph Report - shadcn-react-table  (2026-06-15)
 
 ## Corpus Check
-- 1705 files · ~452,302 words
+- 1769 files · ~480,673 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 10988 nodes · 11832 edges · 1298 communities (961 shown, 337 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 271 edges (avg confidence: 0.84)
+- 11797 nodes · 12770 edges · 1339 communities (1005 shown, 334 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 326 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6059a14c`
+- Built from commit: `5a2b3f2f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -533,7 +533,6 @@
 - [[_COMMUNITY_material-react-table-docs (c516)|material-react-table-docs (c516)]]
 - [[_COMMUNITY_material-react-table-docs (c517)|material-react-table-docs (c517)]]
 - [[_COMMUNITY_material-react-table-docs (c518)|material-react-table-docs (c518)]]
-- [[_COMMUNITY_material-react-table-docs (c519)|material-react-table-docs (c519)]]
 - [[_COMMUNITY_material-react-table-docs (c520)|material-react-table-docs (c520)]]
 - [[_COMMUNITY_material-react-table-docs (c521)|material-react-table-docs (c521)]]
 - [[_COMMUNITY_material-react-table-docs (c522)|material-react-table-docs (c522)]]
@@ -542,15 +541,36 @@
 - [[_COMMUNITY_material-react-table-docs (c525)|material-react-table-docs (c525)]]
 - [[_COMMUNITY_material-react-table-docs (c526)|material-react-table-docs (c526)]]
 - [[_COMMUNITY_material-react-table-docs (c527)|material-react-table-docs (c527)]]
+- [[_COMMUNITY_Community 528|Community 528]]
 - [[_COMMUNITY_material-react-table-docs (c529)|material-react-table-docs (c529)]]
+- [[_COMMUNITY_Community 530|Community 530]]
+- [[_COMMUNITY_Community 531|Community 531]]
+- [[_COMMUNITY_Community 532|Community 532]]
+- [[_COMMUNITY_Community 533|Community 533]]
+- [[_COMMUNITY_Community 534|Community 534]]
+- [[_COMMUNITY_Community 535|Community 535]]
+- [[_COMMUNITY_Community 536|Community 536]]
 - [[_COMMUNITY_material-react-table-docs (c537)|material-react-table-docs (c537)]]
 - [[_COMMUNITY_material-react-table-docs (c538)|material-react-table-docs (c538)]]
+- [[_COMMUNITY_Community 539|Community 539]]
 - [[_COMMUNITY_material-react-table-docs (c540)|material-react-table-docs (c540)]]
+- [[_COMMUNITY_Community 541|Community 541]]
 - [[_COMMUNITY_material-react-table-docs (c542)|material-react-table-docs (c542)]]
+- [[_COMMUNITY_Community 543|Community 543]]
 - [[_COMMUNITY_material-react-table-docs (c544)|material-react-table-docs (c544)]]
+- [[_COMMUNITY_Community 545|Community 545]]
+- [[_COMMUNITY_Community 546|Community 546]]
+- [[_COMMUNITY_Community 547|Community 547]]
+- [[_COMMUNITY_Community 548|Community 548]]
+- [[_COMMUNITY_Community 549|Community 549]]
+- [[_COMMUNITY_Community 550|Community 550]]
+- [[_COMMUNITY_Community 551|Community 551]]
+- [[_COMMUNITY_Community 552|Community 552]]
 - [[_COMMUNITY_material-react-table-docs (c553)|material-react-table-docs (c553)]]
 - [[_COMMUNITY_material-react-table-docs (c554)|material-react-table-docs (c554)]]
+- [[_COMMUNITY_Community 555|Community 555]]
 - [[_COMMUNITY_material-react-table-docs (c556)|material-react-table-docs (c556)]]
+- [[_COMMUNITY_Community 557|Community 557]]
 - [[_COMMUNITY_test-shadcn (c558)|test-shadcn (c558)]]
 - [[_COMMUNITY_test-vite (c559)|test-vite (c559)]]
 - [[_COMMUNITY_material-react-table-docs (c560)|material-react-table-docs (c560)]]
@@ -558,6 +578,7 @@
 - [[_COMMUNITY_material-react-table-docs (c562)|material-react-table-docs (c562)]]
 - [[_COMMUNITY_material-react-table (c563)|material-react-table (c563)]]
 - [[_COMMUNITY_material-react-table-docs (c564)|material-react-table-docs (c564)]]
+- [[_COMMUNITY_Community 565|Community 565]]
 - [[_COMMUNITY_material-react-table-docs (c566)|material-react-table-docs (c566)]]
 - [[_COMMUNITY_material-react-table-docs (c567)|material-react-table-docs (c567)]]
 - [[_COMMUNITY_shadcn-react-table-cli (c568)|shadcn-react-table-cli (c568)]]
@@ -579,6 +600,7 @@
 - [[_COMMUNITY_material-react-table-docs (c585)|material-react-table-docs (c585)]]
 - [[_COMMUNITY_material-react-table-docs (c586)|material-react-table-docs (c586)]]
 - [[_COMMUNITY_material-react-table-docs (c587)|material-react-table-docs (c587)]]
+- [[_COMMUNITY_Community 588|Community 588]]
 - [[_COMMUNITY_material-react-table-docs (c589)|material-react-table-docs (c589)]]
 - [[_COMMUNITY_material-react-table-docs (c590)|material-react-table-docs (c590)]]
 - [[_COMMUNITY_material-react-table-docs (c591)|material-react-table-docs (c591)]]
@@ -609,8 +631,10 @@
 - [[_COMMUNITY_material-react-table-docs (c616)|material-react-table-docs (c616)]]
 - [[_COMMUNITY_material-react-table-docs (c617)|material-react-table-docs (c617)]]
 - [[_COMMUNITY_material-react-table-docs (c618)|material-react-table-docs (c618)]]
+- [[_COMMUNITY_Community 619|Community 619]]
 - [[_COMMUNITY_material-react-table-docs (c620)|material-react-table-docs (c620)]]
 - [[_COMMUNITY_material-react-table-docs (c621)|material-react-table-docs (c621)]]
+- [[_COMMUNITY_Community 622|Community 622]]
 - [[_COMMUNITY_material-react-table-docs (c623)|material-react-table-docs (c623)]]
 - [[_COMMUNITY_material-react-table-docs (c624)|material-react-table-docs (c624)]]
 - [[_COMMUNITY_material-react-table-docs (c625)|material-react-table-docs (c625)]]
@@ -653,32 +677,56 @@
 - [[_COMMUNITY_material-react-table-docs (c662)|material-react-table-docs (c662)]]
 - [[_COMMUNITY_material-react-table-docs (c663)|material-react-table-docs (c663)]]
 - [[_COMMUNITY_material-react-table-docs (c664)|material-react-table-docs (c664)]]
+- [[_COMMUNITY_Community 665|Community 665]]
 - [[_COMMUNITY_material-react-table-docs (c666)|material-react-table-docs (c666)]]
 - [[_COMMUNITY_material-react-table-docs (c667)|material-react-table-docs (c667)]]
 - [[_COMMUNITY_material-react-table-docs (c668)|material-react-table-docs (c668)]]
 - [[_COMMUNITY_test-cra (c669)|test-cra (c669)]]
+- [[_COMMUNITY_Community 670|Community 670]]
+- [[_COMMUNITY_Community 671|Community 671]]
 - [[_COMMUNITY_test-shadcn (c672)|test-shadcn (c672)]]
 - [[_COMMUNITY_test-shadcn (c673)|test-shadcn (c673)]]
 - [[_COMMUNITY_test-shadcn (c674)|test-shadcn (c674)]]
+- [[_COMMUNITY_Community 675|Community 675]]
 - [[_COMMUNITY_test-shadcn (c676)|test-shadcn (c676)]]
 - [[_COMMUNITY_test-shadcn (c677)|test-shadcn (c677)]]
 - [[_COMMUNITY_test-shadcn (c678)|test-shadcn (c678)]]
+- [[_COMMUNITY_Community 679|Community 679]]
 - [[_COMMUNITY_test-shadcn (c680)|test-shadcn (c680)]]
+- [[_COMMUNITY_Community 681|Community 681]]
 - [[_COMMUNITY_test-shadcn (c682)|test-shadcn (c682)]]
 - [[_COMMUNITY_test-shadcn (c683)|test-shadcn (c683)]]
+- [[_COMMUNITY_Community 684|Community 684]]
 - [[_COMMUNITY_test-shadcn (c685)|test-shadcn (c685)]]
+- [[_COMMUNITY_Community 686|Community 686]]
 - [[_COMMUNITY_test-shadcn (c687)|test-shadcn (c687)]]
+- [[_COMMUNITY_Community 688|Community 688]]
+- [[_COMMUNITY_Community 689|Community 689]]
 - [[_COMMUNITY_material-react-table-docs (c690)|material-react-table-docs (c690)]]
 - [[_COMMUNITY_material-react-table-docs (c691)|material-react-table-docs (c691)]]
 - [[_COMMUNITY_material-react-table-docs (c692)|material-react-table-docs (c692)]]
 - [[_COMMUNITY_material-react-table-docs (c693)|material-react-table-docs (c693)]]
 - [[_COMMUNITY_material-react-table-docs (c694)|material-react-table-docs (c694)]]
+- [[_COMMUNITY_Community 695|Community 695]]
 - [[_COMMUNITY_test-shadcn (c696)|test-shadcn (c696)]]
-- [[_COMMUNITY_test-shadcn (c698)|test-shadcn (c698)]]
+- [[_COMMUNITY_Community 698|Community 698]]
+- [[_COMMUNITY_Community 699|Community 699]]
+- [[_COMMUNITY_Community 700|Community 700]]
+- [[_COMMUNITY_Community 701|Community 701]]
+- [[_COMMUNITY_Community 702|Community 702]]
+- [[_COMMUNITY_Community 703|Community 703]]
 - [[_COMMUNITY_material-react-table-docs (c704)|material-react-table-docs (c704)]]
 - [[_COMMUNITY_material-react-table (c705)|material-react-table (c705)]]
 - [[_COMMUNITY_material-react-table (c706)|material-react-table (c706)]]
 - [[_COMMUNITY_material-react-table-docs (c707)|material-react-table-docs (c707)]]
+- [[_COMMUNITY_Community 708|Community 708]]
+- [[_COMMUNITY_Community 709|Community 709]]
+- [[_COMMUNITY_Community 710|Community 710]]
+- [[_COMMUNITY_Community 711|Community 711]]
+- [[_COMMUNITY_Community 712|Community 712]]
+- [[_COMMUNITY_Community 713|Community 713]]
+- [[_COMMUNITY_Community 714|Community 714]]
+- [[_COMMUNITY_Community 715|Community 715]]
 - [[_COMMUNITY_material-react-table-docs (c716)|material-react-table-docs (c716)]]
 - [[_COMMUNITY_shadcn-react-table-cli (c718)|shadcn-react-table-cli (c718)]]
 - [[_COMMUNITY_shadcn-react-table-cli (c719)|shadcn-react-table-cli (c719)]]
@@ -700,49 +748,44 @@
 - [[_COMMUNITY_material-react-table-docs (c736)|material-react-table-docs (c736)]]
 - [[_COMMUNITY_material-react-table-docs (c737)|material-react-table-docs (c737)]]
 - [[_COMMUNITY_material-react-table-docs (c738)|material-react-table-docs (c738)]]
-- [[_COMMUNITY_material-react-table (c739)|material-react-table (c739)]]
+- [[_COMMUNITY_Community 739|Community 739]]
 - [[_COMMUNITY_turbo.json (c740)|turbo.json (c740)]]
 - [[_COMMUNITY_material-react-table-docs (c741)|material-react-table-docs (c741)]]
+- [[_COMMUNITY_Community 742|Community 742]]
+- [[_COMMUNITY_Community 743|Community 743]]
+- [[_COMMUNITY_Community 744|Community 744]]
+- [[_COMMUNITY_Community 745|Community 745]]
 - [[_COMMUNITY_test-cra (c747)|test-cra (c747)]]
 - [[_COMMUNITY_material-react-table-docs (c749)|material-react-table-docs (c749)]]
 - [[_COMMUNITY_material-react-table-docs (c750)|material-react-table-docs (c750)]]
 - [[_COMMUNITY_material-react-table-docs (c751)|material-react-table-docs (c751)]]
 - [[_COMMUNITY_material-react-table-docs (c752)|material-react-table-docs (c752)]]
 - [[_COMMUNITY_material-react-table-docs (c753)|material-react-table-docs (c753)]]
-- [[_COMMUNITY_material-react-table (c756)|material-react-table (c756)]]
 - [[_COMMUNITY_shadcn-react-table-core (c757)|shadcn-react-table-core (c757)]]
 - [[_COMMUNITY_shadcn-react-table-core (c759)|shadcn-react-table-core (c759)]]
 - [[_COMMUNITY_shadcn-react-table-core (c760)|shadcn-react-table-core (c760)]]
 - [[_COMMUNITY_shadcn-react-table-core (c761)|shadcn-react-table-core (c761)]]
 - [[_COMMUNITY_shadcn-react-table-core (c763)|shadcn-react-table-core (c763)]]
-- [[_COMMUNITY_material-react-table (c764)|material-react-table (c764)]]
 - [[_COMMUNITY_shadcn-react-table-core (c765)|shadcn-react-table-core (c765)]]
 - [[_COMMUNITY_shadcn-react-table-core (c766)|shadcn-react-table-core (c766)]]
-- [[_COMMUNITY_material-react-table (c767)|material-react-table (c767)]]
 - [[_COMMUNITY_shadcn-react-table-core (c768)|shadcn-react-table-core (c768)]]
 - [[_COMMUNITY_shadcn-react-table-core (c769)|shadcn-react-table-core (c769)]]
 - [[_COMMUNITY_shadcn-react-table-core (c771)|shadcn-react-table-core (c771)]]
 - [[_COMMUNITY_shadcn-react-table-core (c772)|shadcn-react-table-core (c772)]]
 - [[_COMMUNITY_shadcn-react-table-core (c773)|shadcn-react-table-core (c773)]]
-- [[_COMMUNITY_material-react-table (c774)|material-react-table (c774)]]
 - [[_COMMUNITY_shadcn-react-table-core (c775)|shadcn-react-table-core (c775)]]
 - [[_COMMUNITY_shadcn-react-table-core (c776)|shadcn-react-table-core (c776)]]
 - [[_COMMUNITY_shadcn-react-table-core (c777)|shadcn-react-table-core (c777)]]
-- [[_COMMUNITY_material-react-table (c778)|material-react-table (c778)]]
 - [[_COMMUNITY_shadcn-react-table-core (c779)|shadcn-react-table-core (c779)]]
-- [[_COMMUNITY_material-react-table (c780)|material-react-table (c780)]]
 - [[_COMMUNITY_shadcn-react-table-core (c781)|shadcn-react-table-core (c781)]]
 - [[_COMMUNITY_shadcn-react-table-core (c782)|shadcn-react-table-core (c782)]]
 - [[_COMMUNITY_material-react-table (c783)|material-react-table (c783)]]
 - [[_COMMUNITY_shadcn-react-table-core (c784)|shadcn-react-table-core (c784)]]
 - [[_COMMUNITY_shadcn-react-table-core (c785)|shadcn-react-table-core (c785)]]
 - [[_COMMUNITY_shadcn-react-table-core (c787)|shadcn-react-table-core (c787)]]
-- [[_COMMUNITY_material-react-table (c788)|material-react-table (c788)]]
 - [[_COMMUNITY_shadcn-react-table-core (c789)|shadcn-react-table-core (c789)]]
-- [[_COMMUNITY_material-react-table (c790)|material-react-table (c790)]]
 - [[_COMMUNITY_shadcn-react-table-core (c791)|shadcn-react-table-core (c791)]]
 - [[_COMMUNITY_shadcn-react-table-core (c792)|shadcn-react-table-core (c792)]]
-- [[_COMMUNITY_material-react-table (c793)|material-react-table (c793)]]
 - [[_COMMUNITY_shadcn-react-table-core (c794)|shadcn-react-table-core (c794)]]
 - [[_COMMUNITY_shadcn-react-table-core (c795)|shadcn-react-table-core (c795)]]
 - [[_COMMUNITY_material-react-table (c796)|material-react-table (c796)]]
@@ -751,9 +794,7 @@
 - [[_COMMUNITY_shadcn-react-table-core (c800)|shadcn-react-table-core (c800)]]
 - [[_COMMUNITY_material-react-table (c801)|material-react-table (c801)]]
 - [[_COMMUNITY_shadcn-react-table-core (c803)|shadcn-react-table-core (c803)]]
-- [[_COMMUNITY_material-react-table (c804)|material-react-table (c804)]]
 - [[_COMMUNITY_shadcn-react-table-core (c805)|shadcn-react-table-core (c805)]]
-- [[_COMMUNITY_material-react-table (c806)|material-react-table (c806)]]
 - [[_COMMUNITY_shadcn-react-table-core (c807)|shadcn-react-table-core (c807)]]
 - [[_COMMUNITY_shadcn-react-table-core (c808)|shadcn-react-table-core (c808)]]
 - [[_COMMUNITY_test-cra (c812)|test-cra (c812)]]
@@ -791,6 +832,7 @@
 - [[_COMMUNITY_material-react-table-docs (c1185)|material-react-table-docs (c1185)]]
 - [[_COMMUNITY_material-react-table-docs (c1186)|material-react-table-docs (c1186)]]
 - [[_COMMUNITY_material-react-table-docs (c1187)|material-react-table-docs (c1187)]]
+- [[_COMMUNITY_shadcn-react-table-core (c1191)|shadcn-react-table-core (c1191)]]
 - [[_COMMUNITY_material-react-table-docs (c1192)|material-react-table-docs (c1192)]]
 - [[_COMMUNITY_test-remix (c1194)|test-remix (c1194)]]
 - [[_COMMUNITY_Community 1200|Community 1200]]
@@ -816,7 +858,6 @@
 - [[_COMMUNITY_Community 1226|Community 1226]]
 - [[_COMMUNITY_Community 1227|Community 1227]]
 - [[_COMMUNITY_Community 1229|Community 1229]]
-- [[_COMMUNITY_Community 1230|Community 1230]]
 - [[_COMMUNITY_Community 1231|Community 1231]]
 - [[_COMMUNITY_Community 1232|Community 1232]]
 - [[_COMMUNITY_Community 1233|Community 1233]]
@@ -952,18 +993,18 @@
 ## God Nodes (most connected - your core abstractions)
 1. `MRT_ColumnDef` - 182 edges
 2. `MaterialReactTable()` - 176 edges
-3. `useMaterialReactTable()` - 158 edges
+3. `useMaterialReactTable()` - 151 edges
 4. `MRT_TableInstance` - 133 edges
 5. `SourceCodeSnippet()` - 122 edges
-6. `MRT_RowData` - 82 edges
-7. `MRT_Row` - 46 edges
-8. `MRT_Localization` - 41 edges
-9. `SRT_Localization` - 40 edges
-10. `Button()` - 31 edges
+6. `File-wise notes` - 105 edges
+7. `MRT_RowData` - 82 edges
+8. `MRT_Row` - 46 edges
+9. `Button()` - 41 edges
+10. `MRT_Localization` - 41 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `CompatibilityTable()` --calls--> `useMaterialReactTable()`  [INFERRED]
-  apps/material-react-table-docs/components/mdx/CompatibilityTable.tsx → packages/material-react-table/src/hooks/useMaterialReactTable.ts
+- `Example()` --calls--> `useMaterialReactTable()`  [INFERRED]
+  apps/material-react-table-docs/examples/alternate-pagination/sandbox/src/TS.tsx → packages/material-react-table/src/hooks/useMaterialReactTable.ts
 - `Example()` --calls--> `useMaterialReactTable()`  [INFERRED]
   apps/material-react-table-docs/examples/customize-filter-variants/sandbox/src/TS.tsx → packages/material-react-table/src/hooks/useMaterialReactTable.ts
 - `Example()` --calls--> `useMaterialReactTable()`  [INFERRED]
@@ -1010,15 +1051,15 @@
 - **Framework test harness apps (CRA, Remix, Vite, shadcn)** — test_cra_readme, test_remix_readme, test_vite_readme, test_shadcn_readme [INFERRED 0.75]
 - **shadcn-react-table headless core + CLI + TanStack Table** — shadcn_react_table_core_pkg, shadcn_react_table_cli_pkg, tanstack_table_v8 [EXTRACTED 1.00]
 
-## Communities (1298 total, 337 thin omitted)
+## Communities (1339 total, 334 thin omitted)
 
 ### Community 0 - "MRT Docs Example Components"
 Cohesion: 0.03
-Nodes (83): Employee, Example(), Example(), Example(), Example(), Example(), Example(), data (+75 more)
+Nodes (74): Employee, Example(), Example(), Example(), Example(), Example(), data, Example() (+66 more)
 
 ### Community 1 - "MRT Docs Example Tables"
 Cohesion: 0.03
-Nodes (4): LinkHeading(), Props, Props, SourceCodeSnippet()
+Nodes (4): EthicalAd(), Props, Props, SourceCodeSnippet()
 
 ### Community 2 - "Localization Examples"
 Cohesion: 0.04
@@ -1026,31 +1067,31 @@ Nodes (5): supportedLocales, Localization Example main.tsx Entry Point, Localiza
 
 ### Community 3 - "MRT Storybook Stories"
 Cohesion: 0.02
-Nodes (32): data, columns, columns, columns, columns, columns, columns, columns (+24 more)
+Nodes (30): data, columns, columns, columns, columns, columns, columns, columns (+22 more)
 
 ### Community 4 - "MRT Header & Footer Cells"
-Cohesion: 0.09
-Nodes (35): MRT_TableFooterCell(), MRT_TableFooterCellProps, MRT_TableHeadCell(), MRT_TableHeadCellProps, MRT_TableHeadCellColumnActionsButton(), MRT_TableHeadCellColumnActionsButtonProps, MRT_TableHeadCellFilterContainer(), MRT_TableHeadCellFilterContainerProps (+27 more)
+Cohesion: 0.06
+Nodes (46): MRT_TableBodyProps, MRT_TableFooter(), MRT_TableFooterProps, MRT_TableFooterCell(), MRT_TableFooterCellProps, MRT_TableFooterRow(), MRT_TableFooterRowProps, MRT_TableHead() (+38 more)
 
 ### Community 5 - "Async/Effects Stories"
-Cohesion: 0.04
-Nodes (30): columns, data, meta, MRT_AggregationFns, DropdownOption, LiteralUnion, Prettify, Xor (+22 more)
+Cohesion: 0.06
+Nodes (27): MRT_AggregationFns, DropdownOption, LiteralUnion, Prettify, Xor, getColumnFilterInfo(), useDropdownOptions(), flexRender (+19 more)
 
 ### Community 6 - "Docs MDX Components"
-Cohesion: 0.08
-Nodes (23): Quick Examples, Blockquote(), EthicalAd(), Props, mdxComponents, BreadCrumbs(), Footer(), Layout() (+15 more)
+Cohesion: 0.22
+Nodes (7): Quick Examples, RouteItem, routes, Props, Props, SideBarItems(), Props
 
 ### Community 7 - "MRT Package Dev Dependencies"
 Cohesion: 0.05
 Nodes (43): devDependencies, @emotion/react, @emotion/styled, eslint, eslint-plugin-mui-path-imports, eslint-plugin-perfectionist, eslint-plugin-storybook, @faker-js/faker (+35 more)
 
 ### Community 8 - "test-shadcn App Dependencies"
-Cohesion: 0.05
-Nodes (42): dependencies, class-variance-authority, clsx, cmdk, lucide-react, radix-ui, @radix-ui/react-collapsible, @radix-ui/react-progress (+34 more)
+Cohesion: 0.13
+Nodes (15): dependencies, class-variance-authority, clsx, cmdk, lucide-react, radix-ui, @radix-ui/react-collapsible, @radix-ui/react-progress (+7 more)
 
 ### Community 9 - "MRT Column & Cell Options (Docs)"
-Cohesion: 0.22
-Nodes (7): AggregatedCell Render Option, aggregationFn Column Option, filterFn / filterFns, filterVariant Option, enableGrouping Option, match-sorter (fuzzy filtering), @tanstack/react-table
+Cohesion: 0.20
+Nodes (8): AggregatedCell Render Option, aggregationFn Column Option, filterFn / filterFns, filterVariant Option, enableGrouping Option, match-sorter (fuzzy filtering), material-react-table Package, @tanstack/react-table
 
 ### Community 10 - "shadcn-react-table-core Dependencies"
 Cohesion: 0.06
@@ -1058,27 +1099,27 @@ Nodes (36): dependencies, highlight-words, lucide-react, @tanstack/match-sorter-
 
 ### Community 11 - "shadcn Core Type Definitions"
 Cohesion: 0.05
-Nodes (36): DropdownOption, LiteralUnion, Prettify, Xor, flexRender, LayoutDivProps, SRT_AggregationFn, SRT_AggregationOption (+28 more)
+Nodes (36): SRT_AggregationFns, DropdownOption, LiteralUnion, Prettify, Xor, flexRender, LayoutDivProps, SRT_AggregationFn (+28 more)
 
 ### Community 12 - "MRT Row Action Buttons"
-Cohesion: 0.14
-Nodes (18): getMRT_RowActionsColumnDef(), getMRT_RowDragColumnDef(), getMRT_RowExpandColumnDef(), getMRT_RowNumbersColumnDef(), getMRT_RowPinningColumnDef(), getMRT_RowSelectColumnDef(), blankColProps, getMRT_RowSpacerColumnDef() (+10 more)
+Cohesion: 0.12
+Nodes (21): MRT_ExpandAllButton(), MRT_ExpandAllButtonProps, MRT_ExpandButton(), MRT_ExpandButtonProps, getMRT_RowActionsColumnDef(), getMRT_RowDragColumnDef(), getMRT_RowExpandColumnDef(), getMRT_RowNumbersColumnDef() (+13 more)
 
 ### Community 13 - "MRT Feature Guides (Docs)"
 Cohesion: 0.11
 Nodes (17): ColumnOptionsTable Component, Customize Global Filter Position, Customize the Search Text Field, Disable Filter Match Highlighting, Disable Global Filter Feature, Disable Global Filtering, Disable Global Filtering per Column, Filter Match Highlighting (+9 more)
 
 ### Community 14 - "React Query / Virtual Data Fetching"
-Cohesion: 0.05
-Nodes (13): material-react-table Package, TanStack React Query, TanStack React Virtual, useInfiniteQuery hook, Infinite Scrolling Example, Lazy Detail Panel Example, Lazy Sub-Rows Example, React Query (Remote) Example (+5 more)
+Cohesion: 0.08
+Nodes (12): TanStack React Query, TanStack React Virtual, useInfiniteQuery hook, Infinite Scrolling Example, Lazy Detail Panel Example, Lazy Sub-Rows Example, React Query (Remote) Example, Remote Data Fetching Example (+4 more)
 
 ### Community 15 - "test-remix App Dependencies"
 Cohesion: 0.06
 Nodes (32): dependencies, @emotion/react, @emotion/styled, isbot, material-react-table, @mui/icons-material, @mui/material, @mui/x-date-pickers (+24 more)
 
 ### Community 16 - "MRT Table Body Components"
-Cohesion: 0.10
-Nodes (32): Memo_MRT_TableBody, MRT_TableBody(), MRT_TableBodyProps, Memo_MRT_TableBodyCell, MRT_TableBodyCell(), Memo_MRT_TableBodyRow, MRT_TableBodyRow(), MRT_TableBodyRowProps (+24 more)
+Cohesion: 0.14
+Nodes (17): MRT_TableBodyRowPinButton(), MRT_TableBodyRowPinButtonProps, MRT_EditActionButtons(), MRT_EditActionButtonsProps, MRT_RowPinButton(), MRT_RowPinButtonProps, commonIconButtonStyles, MRT_ToggleRowActionMenuButton() (+9 more)
 
 ### Community 17 - "Docs App Dependencies"
 Cohesion: 0.06
@@ -1094,11 +1135,11 @@ Nodes (11): Customize Table Styles Example, Disable Column Actions Example, Disa
 
 ### Community 20 - "MRT Localization Locales"
 Cohesion: 0.07
-Nodes (15): MRT_Localization_AR, MRT_Localization_AZ, MRT_Localization_CS, MRT_Localization_DE, MRT_Localization_EL, MRT_Localization_FI, MRT_Localization_HU, MRT_Localization_HY (+7 more)
+Nodes (15): MRT_Localization_AR, MRT_Localization_BG, MRT_Localization_DA, MRT_Localization_ES, MRT_Localization_ET, MRT_Localization_FI, MRT_Localization_FR, MRT_Localization_IT (+7 more)
 
 ### Community 21 - "MRT Table Body Cells"
-Cohesion: 0.20
-Nodes (12): MRT_TableBodyCellProps, allowedTypes, MRT_TableBodyCellValue(), MRT_TableBodyCellValueProps, MRT_CopyButton(), MRT_CopyButtonProps, MRT_EditCellTextField(), MRT_EditCellTextFieldProps (+4 more)
+Cohesion: 0.17
+Nodes (14): Memo_MRT_TableBodyCell, MRT_TableBodyCell(), MRT_TableBodyCellProps, allowedTypes, MRT_TableBodyCellValue(), MRT_TableBodyCellValueProps, MRT_CopyButton(), MRT_CopyButtonProps (+6 more)
 
 ### Community 22 - "test-vite App Dependencies"
 Cohesion: 0.07
@@ -1133,8 +1174,8 @@ Cohesion: 0.07
 Nodes (27): dependencies, dayjs, @emotion/react, @emotion/styled, material-react-table, @mui/icons-material, @mui/material, @mui/x-date-pickers (+19 more)
 
 ### Community 30 - "shadcn-react-table-core (c30)"
-Cohesion: 0.29
-Nodes (12): getSRT_RowActionsColumnDef(), getSRT_RowDragColumnDef(), getSRT_RowExpandColumnDef(), getSRT_RowNumbersColumnDef(), getSRT_RowPinningColumnDef(), getSRT_RowSelectColumnDef(), getSRT_RowSpacerColumnDef(), useSRT_Effects() (+4 more)
+Cohesion: 0.14
+Nodes (24): getSRT_RowActionsColumnDef(), getSRT_RowDragColumnDef(), getSRT_RowExpandColumnDef(), getSRT_RowNumbersColumnDef(), getSRT_RowPinningColumnDef(), getSRT_RowSelectColumnDef(), getSRT_RowSpacerColumnDef(), useSRT_Effects() (+16 more)
 
 ### Community 31 - "material-react-table-docs (c31)"
 Cohesion: 0.07
@@ -1153,8 +1194,8 @@ Cohesion: 0.07
 Nodes (26): dependencies, dayjs, @emotion/react, @emotion/styled, @faker-js/faker, material-react-table, @mui/icons-material, @mui/material (+18 more)
 
 ### Community 35 - "material-react-table (c35)"
-Cohesion: 0.20
-Nodes (10): Console Log All Internal Table State, Console Log Current Rendering Rows, Console Logging from the Table Instance, Debugging Material React Table, MRT Best Practices, Re-usable Components or Options?, Re-usable Default Options, Re-usable MRT Component (+2 more)
+Cohesion: 0.02
+Nodes (105): body/, buttons/, Core package (`packages/shadcn-react-table-core/src`) ↔ MRT (`packages/material-react-table/src`), File-wise notes, fns/, footer/, head/, hooks/ (+97 more)
 
 ### Community 36 - "test-cra (c36)"
 Cohesion: 0.07
@@ -1573,12 +1614,12 @@ Cohesion: 0.08
 Nodes (24): dependencies, dayjs, @emotion/react, @emotion/styled, material-react-table, @mui/icons-material, @mui/material, @mui/x-date-pickers (+16 more)
 
 ### Community 140 - "material-react-table (c140)"
-Cohesion: 0.07
-Nodes (34): columns, columns, MRT_ShowHideColumnsButton(), MRT_ToggleDensePaddingButton(), MRT_ToggleDensePaddingButtonProps, MRT_ToggleFiltersButton(), MRT_ToggleFiltersButtonProps, MRT_ToggleFullScreenButton() (+26 more)
+Cohesion: 0.09
+Nodes (26): columns, MRT_ShowHideColumnsButton(), MRT_ShowHideColumnsButtonProps, MRT_ToggleDensePaddingButton(), MRT_ToggleDensePaddingButtonProps, MRT_ToggleFiltersButton(), MRT_ToggleFiltersButtonProps, MRT_ToggleFullScreenButton() (+18 more)
 
 ### Community 141 - "material-react-table (c141)"
-Cohesion: 0.08
-Nodes (5): fakeColumns, fakeData, longColumns, longData, meta
+Cohesion: 0.07
+Nodes (21): columns, initData, meta, columns, data, meta, columns, data (+13 more)
 
 ### Community 142 - "test-shadcn (c142)"
 Cohesion: 0.08
@@ -1589,39 +1630,39 @@ Cohesion: 0.08
 Nodes (23): dependencies, @emotion/react, @emotion/styled, export-to-csv, material-react-table, @mui/icons-material, @mui/material, react (+15 more)
 
 ### Community 144 - "material-react-table (c144)"
-Cohesion: 0.06
-Nodes (9): data, expandingData, meta, Person, data, meta, nestedData, Person (+1 more)
+Cohesion: 0.07
+Nodes (27): isTableInstanceProp(), ShadcnReactTable(), ShadcnReactTableProps, TableInstanceProp, ClickToCopyDisabledPerColumn(), ClickToCopyEnabled(), ClickToCopyEnabledPerColumn(), ClickToCopyEnabledWithColumnResizing() (+19 more)
 
 ### Community 145 - "material-react-table (c145)"
 Cohesion: 0.08
-Nodes (3): columns, data, meta
+Nodes (5): fakeColumns, fakeData, longColumns, longData, meta
 
 ### Community 146 - "material-react-table (c146)"
 Cohesion: 0.08
-Nodes (4): columns, data, meta, MultiSelectRowWithHoldShift()
+Nodes (5): fakeColumns, fakeData, longColumns, longData, meta
 
 ### Community 147 - "material-react-table (c147)"
 Cohesion: 0.09
 Nodes (5): bigData, columns, data, meta, moreData
 
 ### Community 148 - "material-react-table (c148)"
-Cohesion: 0.13
-Nodes (18): MRT_TableBodyRowPinButton(), MRT_TableBodyRowPinButtonProps, MRT_EditActionButtons(), MRT_EditActionButtonsProps, MRT_ExpandButtonProps, MRT_RowPinButton(), MRT_RowPinButtonProps, commonIconButtonStyles (+10 more)
+Cohesion: 0.20
+Nodes (4): Row, columns, data, meta
 
 ### Community 149 - "material-react-table (c149)"
-Cohesion: 0.09
-Nodes (4): columns, data, meta, Person
+Cohesion: 0.08
+Nodes (5): data, meta, nestedData, Person, usStates
 
 ### Community 150 - "material-react-table (c150)"
 Cohesion: 0.09
 Nodes (21): compilerOptions, declaration, declarationDir, emitDeclarationOnly, esModuleInterop, forceConsistentCasingInFileNames, importHelpers, jsx (+13 more)
 
 ### Community 151 - "material-react-table-docs (c151)"
-Cohesion: 0.10
-Nodes (16): AnchorLink(), columns, ComparisonTable(), data, cardData, Contributors(), columns, data (+8 more)
+Cohesion: 0.12
+Nodes (13): AnchorLink(), cardData, Contributors(), columns, data, FeatureTable(), GuideCard(), Props (+5 more)
 
 ### Community 152 - "material-react-table (c152)"
-Cohesion: 0.10
+Cohesion: 0.08
 Nodes (3): columns, data, meta
 
 ### Community 153 - "material-react-table-docs (c153)"
@@ -1634,7 +1675,7 @@ Nodes (20): Row Instance APIs, State Options, Table Instance APIs, Table Options
 
 ### Community 155 - "material-react-table (c155)"
 Cohesion: 0.10
-Nodes (4): columns, data, meta, MRT_Localization_HE
+Nodes (4): MRT_Localization_HE, columns, data, meta
 
 ### Community 156 - "shadcn-react-table-cli (c156)"
 Cohesion: 0.10
@@ -2101,15 +2142,15 @@ Cohesion: 0.08
 Nodes (23): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+15 more)
 
 ### Community 272 - "material-react-table (c272)"
-Cohesion: 0.11
-Nodes (3): columns, data, meta
+Cohesion: 0.08
+Nodes (5): data, meta, nestedData, Person, usStates
 
 ### Community 273 - "material-react-table (c273)"
-Cohesion: 0.11
+Cohesion: 0.08
 Nodes (3): columns, data, meta
 
 ### Community 274 - "material-react-table (c274)"
-Cohesion: 0.11
+Cohesion: 0.08
 Nodes (3): columns, data, meta
 
 ### Community 275 - "material-react-table-docs (c275)"
@@ -2157,20 +2198,20 @@ Cohesion: 0.12
 Nodes (16): compilerOptions, allowJs, baseUrl, esModuleInterop, forceConsistentCasingInFileNames, isolatedModules, jsx, lib (+8 more)
 
 ### Community 286 - "shadcn-react-table-cli (c286)"
-Cohesion: 0.05
-Nodes (22): SRT_ToggleDensePaddingButtonProps, SRT_ToggleFullScreenButtonProps, SRT_ToggleGlobalFilterButtonProps, SRT_ToolbarAlertBannerProps, SRT_ToolbarInternalButtonsProps, SRT_EditActionButtons(), SRT_EditActionButtonsProps, SRT_ExpandAllButtonProps (+14 more)
+Cohesion: 0.11
+Nodes (27): SRT_TableHeadCellProps, SRT_GlobalFilterTextFieldProps, SRT_ColumnPinningButtons(), SRT_ColumnPinningButtonsProps, SRT_ExpandAllButton(), SRT_ExpandAllButtonProps, SRT_GrabHandleButton(), SRT_GrabHandleButtonProps (+19 more)
 
 ### Community 287 - "test-shadcn (c287)"
-Cohesion: 0.10
-Nodes (17): SRT_TableBodyProps, SRT_TableBodyRowProps, SRT_LinearProgressBar(), SRT_LinearProgressBarProps, Memo_SRT_TableBody, Memo_SRT_TableBodyCell, Memo_SRT_TableBodyRow, SRT_TableDetailPanel() (+9 more)
+Cohesion: 0.16
+Nodes (11): SRT_LinearProgressBar(), SRT_LinearProgressBarProps, SRT_TableDetailPanelProps, SRT_ProgressAnimationOptions, SRT_ProgressAnimationStrategy, useSRT_ProgressAnimation(), SRT_LinearProgressBar(), SRT_LinearProgressBarProps (+3 more)
 
 ### Community 288 - "material-react-table (c288)"
-Cohesion: 0.12
+Cohesion: 0.09
 Nodes (3): columns, data, meta
 
 ### Community 289 - "material-react-table (c289)"
-Cohesion: 0.12
-Nodes (5): blankData, columns, data, meta, Person
+Cohesion: 0.09
+Nodes (23): devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, @faker-js/faker, globals, storybook (+15 more)
 
 ### Community 290 - "material-react-table (c290)"
 Cohesion: 0.19
@@ -2181,8 +2222,8 @@ Cohesion: 0.19
 Nodes (8): SRT_FilterFns, between(), betweenInclusive(), equals(), greaterThan(), greaterThanOrEqualTo(), lessThan(), lessThanOrEqualTo()
 
 ### Community 292 - "material-react-table (c292)"
-Cohesion: 0.10
-Nodes (23): MRT_TableBodyRowGrabHandle(), MRT_TableBodyRowGrabHandleProps, MRT_ColumnPinningButtons(), MRT_ColumnPinningButtonsProps, MRT_ExpandAllButton(), MRT_ExpandAllButtonProps, MRT_ExpandButton(), MRT_GrabHandleButton() (+15 more)
+Cohesion: 0.14
+Nodes (15): MRT_TableBodyRowGrabHandle(), MRT_TableBodyRowGrabHandleProps, MRT_ColumnPinningButtons(), MRT_ColumnPinningButtonsProps, MRT_GrabHandleButton(), MRT_GrabHandleButtonProps, MRT_TableHeadCellGrabHandle(), MRT_TableHeadCellGrabHandleProps (+7 more)
 
 ### Community 293 - "material-react-table-docs (c293)"
 Cohesion: 0.13
@@ -2193,8 +2234,8 @@ Cohesion: 0.13
 Nodes (15): scripts, build, build-lib, build-locales, build-storybook, dev, lib:build, lib:build-lib (+7 more)
 
 ### Community 295 - "test-shadcn (c295)"
-Cohesion: 0.11
-Nodes (13): SRT_AggregationFns, SRT_SortingFns, useShadcnReactTable(), SRT_DefaultColumn, SRT_DefaultDisplayColumn, useSRT_TableOptions(), isTableInstanceProp(), ShadcnReactTable() (+5 more)
+Cohesion: 0.15
+Nodes (10): data, Example(), Person, data, Example(), Person, data, Example() (+2 more)
 
 ### Community 297 - "shadcn-react-table-core (c297)"
 Cohesion: 0.31
@@ -2205,24 +2246,24 @@ Cohesion: 0.29
 Nodes (11): getDefaultColumnOrderIds(), getLeadingDisplayColumnIds(), getTrailingDisplayColumnIds(), showRowActionsColumn(), showRowDragColumn(), showRowExpandColumn(), showRowNumbersColumn(), showRowPinningColumn() (+3 more)
 
 ### Community 299 - "material-react-table (c299)"
-Cohesion: 0.14
-Nodes (3): columns, data, meta
+Cohesion: 0.09
+Nodes (4): columns, data, meta, Person
 
 ### Community 300 - "test-shadcn (c300)"
-Cohesion: 0.21
-Nodes (8): SRT_TableProps, SRT_TableFooter(), SRT_TableFooterProps, footerCellVariants, SRT_TableFooterCell(), SRT_TableFooterCellProps, SRT_TableFooterRow(), SRT_TableFooterRowProps
+Cohesion: 0.05
+Nodes (49): SRT_TableBodyProps, SRT_TableBodyRow(), SRT_TableBodyRowProps, SRT_TableHead(), SRT_TableHeadProps, headCellVariants, SRT_TableHeadCell(), SRT_TableHeadRow() (+41 more)
 
 ### Community 301 - "material-react-table (c301)"
-Cohesion: 0.22
-Nodes (3): columns, data, meta
+Cohesion: 0.09
+Nodes (4): columns, data, meta, Person
 
 ### Community 302 - "material-react-table (c302)"
-Cohesion: 0.15
+Cohesion: 0.10
 Nodes (3): columns, data, meta
 
 ### Community 303 - "material-react-table (c303)"
 Cohesion: 0.15
-Nodes (6): columns, fakeColumns, fakeData, initData, meta, Person
+Nodes (6): Person, columns, fakeColumns, fakeData, initData, meta
 
 ### Community 304 - "material-react-table (c304)"
 Cohesion: 0.29
@@ -2249,8 +2290,8 @@ Cohesion: 0.26
 Nodes (10): Example(), queryClient, ReactQueryDevtoolsProduction, useCreateUser(), useDeleteUser(), useGetUsers(), useUpdateUser(), validateEmail() (+2 more)
 
 ### Community 310 - "material-react-table-docs (c310)"
-Cohesion: 0.26
-Nodes (10): Example(), queryClient, ReactQueryDevtoolsProduction, useCreateUser(), useDeleteUser(), useGetUsers(), useUpdateUser(), validateEmail() (+2 more)
+Cohesion: 0.19
+Nodes (14): Memo_MRT_TableBody, MRT_TableBody(), Memo_MRT_TableBodyRow, MRT_TableBodyRow(), MRT_TableBodyRowProps, MRT_TableDetailPanel(), MRT_TableDetailPanelProps, useMRT_ColumnVirtualizer() (+6 more)
 
 ### Community 311 - "material-react-table-docs (c311)"
 Cohesion: 0.26
@@ -2261,8 +2302,8 @@ Cohesion: 0.24
 Nodes (9): Example(), queryClient, ReactQueryDevtoolsProduction, useCreateUser(), useDeleteUser(), useGetUsers(), useUpdateUser(), validateRequired() (+1 more)
 
 ### Community 313 - "material-react-table-docs (c313)"
-Cohesion: 0.04
-Nodes (45): getData(), handler(), DataRow, getData(), handler(), Example(), queryClient, ReactQueryDevtoolsProduction (+37 more)
+Cohesion: 0.03
+Nodes (48): getData(), handler(), DataRow, getData(), handler(), Example(), queryClient, ReactQueryDevtoolsProduction (+40 more)
 
 ### Community 314 - "material-react-table-docs (c314)"
 Cohesion: 0.17
@@ -2273,16 +2314,20 @@ Cohesion: 0.21
 Nodes (12): Sandbox main.tsx Entrypoint, Expanding Tree Flat Parse Sandbox Entry, Expanding Tree Root Expanded Sandbox Entry, Export to CSV Sandbox Entry, Export to PDF Sandbox Entry, External Toolbar Sandbox Entry, Font Awesome Icons Sandbox Entry, Infinite Scrolling Sandbox Entry (+4 more)
 
 ### Community 317 - "material-react-table (c317)"
-Cohesion: 0.17
-Nodes (3): columns, data, meta
+Cohesion: 0.10
+Nodes (5): bigData, columns, data, meta, moreData
 
 ### Community 318 - "material-react-table (c318)"
-Cohesion: 0.17
-Nodes (3): columns, data, meta
+Cohesion: 0.26
+Nodes (10): Example(), queryClient, ReactQueryDevtoolsProduction, useCreateUser(), useDeleteUser(), useGetUsers(), useUpdateUser(), validateEmail() (+2 more)
 
 ### Community 319 - "material-react-table-docs (c319)"
 Cohesion: 0.17
 Nodes (12): devDependencies, eslint, eslint-config-next, next-plausible, raw-loader, @tanstack/eslint-plugin-query, @types/node, @types/react (+4 more)
+
+### Community 320 - "material-react-table (c320)"
+Cohesion: 0.10
+Nodes (3): columns, data, meta
 
 ### Community 322 - "material-react-table-docs (c322)"
 Cohesion: 0.17
@@ -2290,10 +2335,10 @@ Nodes (3): Row Dragging Example, Row DnD Ordering Example, Row Ordering/DnD Feat
 
 ### Community 323 - "material-react-table (c323)"
 Cohesion: 0.18
-Nodes (4): columns, data, meta, Row
+Nodes (4): Row, columns, data, meta
 
 ### Community 324 - "material-react-table (c324)"
-Cohesion: 0.18
+Cohesion: 0.11
 Nodes (3): columns, data, meta
 
 ### Community 325 - "material-react-table (c325)"
@@ -2309,31 +2354,31 @@ Cohesion: 0.06
 Nodes (34): material-react-table package, About, Accessibility and Internationalization Support, API Integrations and Third-Party Services, Architecture and Design Patterns, Authentication and Security Implementation, Comprehensive Repository Overview, Deployment Infrastructure and DevOps Approach (+26 more)
 
 ### Community 328 - "test-shadcn (c328)"
-Cohesion: 0.19
-Nodes (13): SRT_GlobalFilterTextFieldProps, SRT_ColumnPinningButtons(), SRT_ColumnPinningButtonsProps, SRT_TableHeadCellColumnActionsButtonProps, SRT_TableHeadCellSortLabelProps, SRT_FilterCheckboxProps, SRT_SelectCheckboxProps, SRT_ShowHideColumnsMenuItemsProps (+5 more)
+Cohesion: 0.23
+Nodes (9): BreadCrumbs(), Footer(), Layout(), LayoutProps, MiniNav(), SideBar(), Props, TopBar() (+1 more)
 
 ### Community 329 - "material-react-table-docs (c329)"
 Cohesion: 0.18
 Nodes (4): export-to-csv library, jspdf / jspdf-autotable, CSV Export Example, PDF Export Example
 
 ### Community 330 - "material-react-table (c330)"
-Cohesion: 0.11
-Nodes (11): columns, data, meta, Row, MRT_ActionMenuItem(), MRT_ActionMenuItemProps, MRT_CellActionMenu(), MRT_CellActionMenuProps (+3 more)
+Cohesion: 0.15
+Nodes (3): columns, data, meta
 
 ### Community 331 - "material-react-table-docs (c331)"
 Cohesion: 0.20
 Nodes (10): scripts, build, dev, docs:build, docs:dev, docs:sitemap, docs:start, lint (+2 more)
 
 ### Community 332 - "material-react-table (c332)"
-Cohesion: 0.18
+Cohesion: 0.11
 Nodes (3): columns, data, meta
 
 ### Community 333 - "material-react-table (c333)"
-Cohesion: 0.20
-Nodes (4): columns, columnsWithFooters, data, meta
+Cohesion: 0.11
+Nodes (3): columns, data, meta
 
 ### Community 334 - "material-react-table (c334)"
-Cohesion: 0.20
+Cohesion: 0.11
 Nodes (3): columns, data, meta
 
 ### Community 335 - "material-react-table-docs (c335)"
@@ -2345,40 +2390,44 @@ Cohesion: 0.15
 Nodes (11): data, Example(), Person, columns, Example(), queryClient, ReactQueryDevtoolsProduction, useFetchUsers() (+3 more)
 
 ### Community 337 - "test-shadcn (c337)"
-Cohesion: 0.13
-Nodes (15): headCellVariants, SRT_TableHeadCell(), SRT_TableHeadCellProps, SRT_TableBodyRowGrabHandle(), SRT_TableBodyRowGrabHandleProps, SRT_ExpandAllButton(), SRT_GrabHandleButton(), SRT_GrabHandleButtonProps (+7 more)
+Cohesion: 0.11
+Nodes (3): columns, data, meta
 
 ### Community 338 - "material-react-table (c338)"
-Cohesion: 0.22
+Cohesion: 0.11
 Nodes (3): columns, data, meta
 
 ### Community 339 - "material-react-table (c339)"
-Cohesion: 0.33
-Nodes (8): columns, generateData(), MemoCells(), MemoRows(), MemoTableBody(), meta, NoMemos(), Person
-
-### Community 341 - "material-react-table (c341)"
-Cohesion: 0.22
+Cohesion: 0.11
 Nodes (3): columns, data, meta
 
+### Community 340 - "material-react-table (c340)"
+Cohesion: 0.12
+Nodes (3): columns, data, meta
+
+### Community 341 - "material-react-table (c341)"
+Cohesion: 0.12
+Nodes (5): blankData, columns, data, meta, Person
+
 ### Community 342 - "material-react-table (c342)"
-Cohesion: 0.18
-Nodes (10): Reusable Default Options Pattern, MRT_ColumnDef Type, accessorKey / accessorFn, createMRTColumnHelper Utility, Define Your Columns With Type-Safety, Defining TData Type, Is TypeScript Required?, MRT_ColumnDef Type (+2 more)
+Cohesion: 0.12
+Nodes (16): Console Log All Internal Table State, Console Log Current Rendering Rows, Console Logging from the Table Instance, Debugging Material React Table, Define Your Columns With Type-Safety, Defining TData Type, Is TypeScript Required?, MRT Best Practices (+8 more)
 
 ### Community 343 - "material-react-table-docs (c343)"
-Cohesion: 0.25
+Cohesion: 0.12
 Nodes (3): columns, data, meta
 
 ### Community 344 - "material-react-table-docs (c344)"
-Cohesion: 0.29
-Nodes (7): Accessibility / Keyboard Navigation Guide, Custom Focus Styles, Custom Keyboard Shortcuts, `enableKeyboardShortcuts`, Full Screen Mode, Keyboard Navigation, Relevant Table Options
+Cohesion: 0.12
+Nodes (5): blankData, columns, data, meta, Person
 
 ### Community 345 - "material-react-table-docs (c345)"
 Cohesion: 0.32
 Nodes (8): Per-Column Filtering, Column Sorting, Dark Theme Material UI Styling, Employee Data Grid Table, Pagination Controls, Row and Bulk Action Buttons, Row Selection with Checkboxes, Material React Table Example Screenshot
 
 ### Community 346 - "material-react-table (c346)"
-Cohesion: 0.29
-Nodes (5): enableKeyboardShortcuts Option, Material UI V6, mrtTheme Option, sx Prop Styling, Pigment CSS (planned V4)
+Cohesion: 0.17
+Nodes (3): columns, data, meta
 
 ### Community 347 - "material-react-table (c347)"
 Cohesion: 0.25
@@ -2389,7 +2438,7 @@ Cohesion: 0.32
 Nodes (7): cliDir, cwd, formatWithPrettier(), listFilesRecursively(), run(), sourceDir, templatesRoot
 
 ### Community 349 - "material-react-table (c349)"
-Cohesion: 0.25
+Cohesion: 0.14
 Nodes (3): columns, data, meta
 
 ### Community 350 - "test-vite (c350)"
@@ -2397,24 +2446,24 @@ Cohesion: 0.25
 Nodes (7): compilerOptions, allowSyntheticDefaultImports, composite, module, moduleResolution, skipLibCheck, include
 
 ### Community 351 - "material-react-table-docs (c351)"
-Cohesion: 0.33
-Nodes (4): columns, data, meta, Person
+Cohesion: 0.14
+Nodes (3): columns, data, meta
 
 ### Community 352 - "material-react-table (c352)"
-Cohesion: 0.29
-Nodes (3): columns, data, meta
+Cohesion: 0.14
+Nodes (4): data, meta, customWidthColumns, smallWidthColumns
 
 ### Community 353 - "material-react-table (c353)"
 Cohesion: 0.20
 Nodes (9): Person, App(), bigData, cities, departments, firstNames, lastNames, smallData (+1 more)
 
 ### Community 354 - "material-react-table (c354)"
-Cohesion: 0.29
-Nodes (4): columns, data, meta, Person
+Cohesion: 0.14
+Nodes (3): columns, data, meta
 
 ### Community 355 - "material-react-table (c355)"
-Cohesion: 0.29
-Nodes (4): columns, data, meta, Person
+Cohesion: 0.15
+Nodes (3): columns, data, meta
 
 ### Community 356 - "material-react-table (c356)"
 Cohesion: 0.29
@@ -2425,8 +2474,8 @@ Cohesion: 0.20
 Nodes (9): engines, node, name, @types/react, packageManager, pnpm, overrides, private (+1 more)
 
 ### Community 358 - "material-react-table (c358)"
-Cohesion: 0.14
-Nodes (14): Custom Material UI Theme Example, Customize No Rows overlay, Customize (Style) Components Guide, Customize Table Body, Rows, Columns, and Cells, Customize Table Paper Styling, Customize Theme Just for your Table, Material UI Theme, MRT Theme Values (+6 more)
+Cohesion: 0.05
+Nodes (37): enableKeyboardShortcuts Option, Material UI V6, mrtTheme Option, sx Prop Styling, Breaking Changes, Migrating to Material React Table V3 from V2, New Feature Highlights, Upgrade Dependencies (+29 more)
 
 ### Community 359 - "test-shadcn (c359)"
 Cohesion: 0.29
@@ -2453,8 +2502,8 @@ Cohesion: 0.33
 Nodes (5): compilerOptions, composite, module, moduleResolution, include
 
 ### Community 365 - "material-react-table-docs (c365)"
-Cohesion: 0.50
-Nodes (3): data, Person, columns
+Cohesion: 0.33
+Nodes (8): columns, generateData(), MemoCells(), MemoRows(), MemoTableBody(), meta, NoMemos(), Person
 
 ### Community 366 - "material-react-table-docs (c366)"
 Cohesion: 0.33
@@ -2692,10 +2741,6 @@ Nodes (5): compilerOptions, composite, module, moduleResolution, include
 Cohesion: 0.33
 Nodes (5): compilerOptions, composite, module, moduleResolution, include
 
-### Community 425 - "material-react-table-docs (c425)"
-Cohesion: 0.33
-Nodes (6): Common Errors, Compatibility, FAQs, Install With Required Peer Dependencies (Recommended), Installation, Quick Install
-
 ### Community 426 - "material-react-table-docs (c426)"
 Cohesion: 0.33
 Nodes (5): compilerOptions, composite, module, moduleResolution, include
@@ -2759,6 +2804,10 @@ Nodes (5): compilerOptions, composite, module, moduleResolution, include
 ### Community 441 - "material-react-table-docs (c441)"
 Cohesion: 0.33
 Nodes (5): compilerOptions, composite, module, moduleResolution, include
+
+### Community 442 - "material-react-table-docs (c442)"
+Cohesion: 0.40
+Nodes (3): columns, initData, meta
 
 ### Community 443 - "material-react-table-docs (c443)"
 Cohesion: 0.33
@@ -2894,14 +2943,14 @@ Nodes (5): compilerOptions, composite, module, moduleResolution, include
 
 ### Community 476 - "test-shadcn (c476)"
 Cohesion: 0.29
-Nodes (4): columns, data, meta, Person
+Nodes (4): Person, columns, data, meta
 
 ### Community 477 - "test-shadcn (c477)"
-Cohesion: 0.33
+Cohesion: 0.15
 Nodes (3): columns, data, meta
 
 ### Community 478 - "test-shadcn (c478)"
-Cohesion: 0.29
+Cohesion: 0.17
 Nodes (3): columns, data, meta
 
 ### Community 479 - "material-react-table-docs (c479)"
@@ -2913,40 +2962,44 @@ Cohesion: 0.10
 Nodes (20): Build Status, Core Table Components Created, Dependencies Used, Files Deleted/Cleaned, Files Structure, High Priority, How to Test, Immediate (To Get Fully Functional) (+12 more)
 
 ### Community 481 - "material-react-table-docs (c481)"
-Cohesion: 0.40
-Nodes (4): columns, DraggingRowWhenFiltered(), initData, meta
+Cohesion: 0.17
+Nodes (5): columns, fakeColumns, fakeData, initData, meta
 
 ### Community 482 - "material-react-table-docs (c482)"
-Cohesion: 0.40
-Nodes (3): meta, mockColumns, mockData
-
-### Community 483 - "material-react-table-docs (c483)"
-Cohesion: 0.40
-Nodes (5): Add Custom Filter Functions, Custom Filter Functions, Custom Filter Functions Per Column, Pre-built MRT Filter Functions, Pre-built TanStack Table Filter Functions
-
-### Community 484 - "material-react-table-docs (c484)"
-Cohesion: 0.40
+Cohesion: 0.17
 Nodes (3): columns, data, meta
 
+### Community 484 - "material-react-table-docs (c484)"
+Cohesion: 0.39
+Nodes (5): SRT_BottomToolbar(), SRT_BottomToolbarProps, SRT_TopToolbar(), SRT_TopToolbarProps, useSRT_MediaQuery()
+
 ### Community 485 - "material-react-table-docs (c485)"
-Cohesion: 0.15
-Nodes (13): Tab, Props, SampleCodeSnippet(), StateOption, stateOptions, Props, TableOption, tableOptions (+5 more)
+Cohesion: 0.09
+Nodes (25): columns, MaterialReactTableProps, TableInstanceProp, parseCSSVarId(), MRT_Theme, MRT_TablePaper(), MRT_TablePaperProps, MRT_BottomToolbar() (+17 more)
+
+### Community 486 - "material-react-table-docs (c486)"
+Cohesion: 0.18
+Nodes (3): columns, data, meta
 
 ### Community 487 - "material-react-table-docs (c487)"
-Cohesion: 0.50
-Nodes (4): Breaking Changes, Migrating to Material React Table V3 from V2, New Feature Highlights, Upgrade Dependencies
+Cohesion: 0.18
+Nodes (3): columns, data, meta
+
+### Community 488 - "material-react-table-docs (c488)"
+Cohesion: 0.18
+Nodes (3): data, meta, Person
 
 ### Community 489 - "material-react-table-docs (c489)"
-Cohesion: 0.50
-Nodes (4): Conditional Styling, Style Expanded Rows, Style Pinned Columns, Style Selected Rows
+Cohesion: 0.18
+Nodes (10): Dropped story exports (could not reproduce without the MUI API), Functional (not just styling) — investigate, Gaps by impact, Other (real, low-cost), Recommended follow-ups (priority order), Result, Root-cause finding (headline), Storybook Litmus Report — shadcn-react-table vs material-react-table (+2 more)
 
 ### Community 490 - "material-react-table-docs (c490)"
-Cohesion: 0.40
-Nodes (3): columns, data, Person
+Cohesion: 0.09
+Nodes (17): Tab, Props, SampleCodeSnippet(), data, expandingData, meta, Person, StateOption (+9 more)
 
 ### Community 491 - "test-shadcn (c491)"
-Cohesion: 0.50
-Nodes (4): isTableInstanceProp(), ShadcnReactTable(), ShadcnReactTableProps, TableInstanceProp
+Cohesion: 0.18
+Nodes (4): data, expandingData, meta, Person
 
 ### Community 492 - "test-vite (c492)"
 Cohesion: 0.40
@@ -2957,44 +3010,60 @@ Cohesion: 0.50
 Nodes (5): AG Grid Library, Rich Cell Rendering (flags, icons, progress bars), Grouped Columns (Contact, IT Skills), JavaScript Data Grid, AG Grid Landing Page Screenshot
 
 ### Community 494 - "material-react-table (c494)"
-Cohesion: 0.67
-Nodes (3): Callback Functions to Dynamically Set Prop Values, Material UI Props and Types, Static Prop Objects
+Cohesion: 0.18
+Nodes (3): columns, data, meta
 
 ### Community 495 - "material-react-table (c495)"
-Cohesion: 0.14
-Nodes (10): SRT_TableContainerProps, SRT_CellActionMenu(), SRT_EditRowModal(), SRT_EditRowModalProps, Dialog(), DialogContent(), DialogDescription(), DialogFooter() (+2 more)
+Cohesion: 0.20
+Nodes (8): columnHelper, columns, Example(), columnHelper, columns, Example(), csvConfig, createMRTColumnHelper()
 
 ### Community 496 - "material-react-table (c496)"
 Cohesion: 0.40
 Nodes (5): dependencies, highlight-words, @tanstack/match-sorter-utils, @tanstack/react-table, @tanstack/react-virtual
 
 ### Community 497 - "material-react-table-docs (c497)"
-Cohesion: 0.17
-Nodes (10): SRT_TableBody(), useSRT_Rows(), useSRT_RowVirtualizer(), getCanRankRows(), getIsRankingRows(), SRT_ColumnVirtualizer, SRT_Row, SRT_RowVirtualizer (+2 more)
+Cohesion: 0.14
+Nodes (11): SRT_TableBody(), SRT_SortingFns, useSRT_Rows(), useSRT_RowVirtualizer(), getCanRankRows(), getIsRankingRows(), SRT_ColumnVirtualizer, SRT_Row (+3 more)
 
 ### Community 498 - "package.json (c498)"
 Cohesion: 0.40
 Nodes (4): devDependencies, prettier, turbo, $schema
 
 ### Community 499 - "shadcn-react-table-cli (c499)"
-Cohesion: 0.33
-Nodes (5): columns, data, FullscreenIsAboveAppbar(), meta, Person
+Cohesion: 0.20
+Nodes (4): columns, columnsWithFooters, data, meta
 
 ### Community 500 - "material-react-table-docs (c500)"
 Cohesion: 0.70
 Nodes (5): Material React Table Brand Identity, Data Table Grid Icon, Material React Table Logo, Material React Table Library, React Atom Logo
 
+### Community 501 - "test-remix (c501)"
+Cohesion: 0.20
+Nodes (3): columns, data, meta
+
 ### Community 502 - "material-react-table (c502)"
 Cohesion: 0.40
-Nodes (4): channel, darkTheme, lightTheme, preview
+Nodes (4): channel, preview, darkTheme, lightTheme
 
 ### Community 503 - "material-react-table (c503)"
 Cohesion: 0.10
 Nodes (19): 1.1 Rename & Convert MRT Components to SRT ✅, 1.2 Enhance Core Table Components ✅, 2.1 Bottom Toolbar ✅, 2.2 Top Toolbar ⏳, 3.1 Alert & Drop Zone ⏭️, 3.2 Internal Buttons ⏭️, 4.1 App Testing ✅, 4.2 Documentation ✅ (+11 more)
 
+### Community 504 - "material-react-table-docs (c504)"
+Cohesion: 0.20
+Nodes (4): columns, columnsWithFooters, data, meta
+
+### Community 505 - "material-react-table-docs (c505)"
+Cohesion: 0.05
+Nodes (26): SRT_ToggleDensePaddingButtonProps, SRT_ToggleFullScreenButtonProps, SRT_ToggleGlobalFilterButtonProps, SRT_ToolbarAlertBanner(), SRT_ToolbarAlertBannerProps, columns, generateData(), MemoCells() (+18 more)
+
 ### Community 506 - "test-remix (c506)"
 Cohesion: 0.83
 Nodes (3): handleBotRequest(), handleBrowserRequest(), handleRequest()
+
+### Community 507 - "material-react-table-docs (c507)"
+Cohesion: 0.20
+Nodes (3): columns, data, meta
 
 ### Community 509 - "material-react-table-docs (c509)"
 Cohesion: 0.50
@@ -3016,6 +3085,10 @@ Nodes (3): fakeData, User, usStates
 Cohesion: 0.50
 Nodes (3): fakeData, User, usStates
 
+### Community 514 - "material-react-table-docs (c514)"
+Cohesion: 0.24
+Nodes (6): SRT_ToolbarInternalButtonsProps, SRT_ShowHideColumnsButton(), SRT_ShowHideColumnsButtonProps, SRT_ToggleFiltersButton(), SRT_ToggleFiltersButtonProps, SRT_ShowHideColumnsMenu()
+
 ### Community 515 - "material-react-table-docs (c515)"
 Cohesion: 0.22
 Nodes (3): columns, data, meta
@@ -3025,28 +3098,152 @@ Cohesion: 0.11
 Nodes (17): Drag and Drop Rows to Other UI or Tables, Enable Row Ordering, Relevant State, Relevant Table Options, Row Ordering (DnD) Feature Guide, Default Sorting Features, Disable Sorting, Initial/Default Sorting (+9 more)
 
 ### Community 517 - "material-react-table-docs (c517)"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 518 - "material-react-table-docs (c518)"
+Cohesion: 0.12
+Nodes (14): enableClickToCopy Option, Cell Actions Feature Guide, Enable Cell Actions, Include Automatic Cell Actions, Relevant Column Options, Relevant Table Options, Render Cell Action Menu Items, Click to Copy Example (+6 more)
+
+### Community 520 - "material-react-table-docs (c520)"
+Cohesion: 0.33
+Nodes (4): data, Person, Example(), columns
+
+### Community 521 - "material-react-table-docs (c521)"
+Cohesion: 0.40
+Nodes (3): meta, mockColumns, mockData
+
+### Community 522 - "material-react-table-docs (c522)"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 524 - "material-react-table-docs (c524)"
+Cohesion: 0.04
+Nodes (15): columns, columns, columns, columns, columns, columns, columns, columns (+7 more)
+
+### Community 525 - "material-react-table-docs (c525)"
+Cohesion: 0.29
+Nodes (6): Reusable Default Options Pattern, renderCellActionMenuItems Option, MRT_ColumnDef Type, accessorKey / accessorFn, Custom Cell Render Option, createMRTColumnHelper Utility
+
+### Community 526 - "material-react-table-docs (c526)"
+Cohesion: 0.40
+Nodes (3): columns, data, meta
+
+### Community 527 - "material-react-table-docs (c527)"
+Cohesion: 0.36
+Nodes (4): mdxComponents, theme(), ThemeContext, ThemeContextProvider()
+
+### Community 529 - "material-react-table-docs (c529)"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 530 - "Community 530"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 531 - "Community 531"
+Cohesion: 0.22
+Nodes (4): columns, data, meta, Person
+
+### Community 532 - "Community 532"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 533 - "Community 533"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 536 - "Community 536"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 537 - "material-react-table-docs (c537)"
+Cohesion: 0.22
+Nodes (3): columns, data, meta
+
+### Community 538 - "material-react-table-docs (c538)"
+Cohesion: 0.25
+Nodes (3): columns, data, meta
+
+### Community 539 - "Community 539"
+Cohesion: 0.25
+Nodes (3): columns, data, meta
+
+### Community 540 - "material-react-table-docs (c540)"
+Cohesion: 0.25
+Nodes (7): Dependency order, Locked decisions, Open verification flags (confirm during work), Phase A — Core foundations (1 teammate, sequential), Phase B — Cluster wiring (7 teammates, parallel, after A), Phase C — Review + verify, SRT → MRT 1:1 Parity — Implementation Plan
+
+### Community 541 - "Community 541"
+Cohesion: 0.33
+Nodes (3): columns, data, meta
+
+### Community 542 - "material-react-table-docs (c542)"
+Cohesion: 0.25
+Nodes (3): columns, data, meta
+
+### Community 543 - "Community 543"
+Cohesion: 0.25
+Nodes (3): columns, data, meta
+
+### Community 544 - "material-react-table-docs (c544)"
+Cohesion: 0.25
+Nodes (7): name, vite, pnpm, overrides, private, type, version
+
+### Community 545 - "Community 545"
+Cohesion: 0.25
+Nodes (8): scripts, build, build-storybook, dev, gen:srt, lint, preview, storybook
+
+### Community 546 - "Community 546"
+Cohesion: 0.29
+Nodes (3): columns, data, meta
+
+### Community 547 - "Community 547"
+Cohesion: 0.29
+Nodes (4): columns, data, meta, Person
+
+### Community 548 - "Community 548"
+Cohesion: 0.29
+Nodes (4): columns, data, meta, Person
+
+### Community 549 - "Community 549"
+Cohesion: 0.29
+Nodes (3): columns, data, meta
+
+### Community 550 - "Community 550"
+Cohesion: 0.29
+Nodes (3): columns, data, meta
+
+### Community 551 - "Community 551"
 Cohesion: 0.29
 Nodes (3): columns, initData, meta
 
-### Community 518 - "material-react-table-docs (c518)"
-Cohesion: 0.11
-Nodes (16): renderCellActionMenuItems Option, enableClickToCopy Option, Custom Cell Render Option, Cell Actions Feature Guide, Enable Cell Actions, Include Automatic Cell Actions, Relevant Column Options, Relevant Table Options (+8 more)
+### Community 552 - "Community 552"
+Cohesion: 0.29
+Nodes (4): columns, data, meta, Person
 
-### Community 527 - "material-react-table-docs (c527)"
-Cohesion: 0.05
-Nodes (8): columns, columns, columns, columns, columns, columns, columns, columns
+### Community 554 - "material-react-table-docs (c554)"
+Cohesion: 0.29
+Nodes (4): columns, data, meta, Person
+
+### Community 555 - "Community 555"
+Cohesion: 0.29
+Nodes (3): columns, data, meta
 
 ### Community 556 - "material-react-table-docs (c556)"
 Cohesion: 0.12
 Nodes (16): Built-in MRT Display Columns, Create your own Display Columns, Customize Built-in MRT Display Columns, Default Display Column Table Option, Display (Built-in) Columns Guide, Display Column Definition Options Table Option, Built-in MRT Display Columns (mrt-row-*), Relevant Table Options (+8 more)
 
+### Community 557 - "Community 557"
+Cohesion: 0.47
+Nodes (3): Blockquote(), LinkHeading(), Props
+
 ### Community 558 - "test-shadcn (c558)"
-Cohesion: 0.67
-Nodes (3): SRT_TableLayout(), SRT_TableLayoutProps, tableLayoutVariants
+Cohesion: 0.33
+Nodes (4): columns, data, meta, Person
 
 ### Community 559 - "test-vite (c559)"
-Cohesion: 0.40
-Nodes (3): data, Index(), Person
+Cohesion: 0.33
+Nodes (4): columns, data, meta, Person
 
 ### Community 560 - "material-react-table-docs (c560)"
 Cohesion: 0.67
@@ -3067,6 +3264,10 @@ Nodes (3): build(), run(), supportedLocales
 ### Community 564 - "material-react-table-docs (c564)"
 Cohesion: 0.50
 Nodes (3): nextConfig, withMDX, { withPlausibleProxy }
+
+### Community 565 - "Community 565"
+Cohesion: 0.40
+Nodes (3): columns, data, Person
 
 ### Community 567 - "material-react-table-docs (c567)"
 Cohesion: 0.12
@@ -3104,17 +3305,37 @@ Nodes (4): Code Brackets Glyph, Source Code Link Indicator, Blue Hexagon Badge, 
 Cohesion: 0.50
 Nodes (4): cache, dependsOn, outputs, docs:build
 
+### Community 588 - "Community 588"
+Cohesion: 0.33
+Nodes (3): columns, data, meta
+
 ### Community 599 - "material-react-table-docs (c599)"
 Cohesion: 0.12
 Nodes (15): Architecture (confirmed), Component layer — 22/57 are TODO stubs (return `<div>TODO</div>`), Conventions, Core pkg — mostly complete, real gaps, Current state (gap analysis), Dependency graph, Locked decisions, Phase 0 — Foundation (2 tracks, parallel) — BLOCKS Phase 1 (+7 more)
+
+### Community 619 - "Community 619"
+Cohesion: 0.33
+Nodes (3): columns, data, meta
+
+### Community 622 - "Community 622"
+Cohesion: 0.33
+Nodes (5): compilerOptions, tsBuildInfoFile, types, extends, include
 
 ### Community 663 - "material-react-table-docs (c663)"
 Cohesion: 0.12
 Nodes (15): Customize or Style Detail Panel, Detail Panel Feature Guide, Detail Panel With Charts, Detail Panels with Virtualization, Disable Expand All Button, Enable Detail Panel Conditionally Per Row, Expand Detail Panel By Default, Lazy Detail Panels (+7 more)
 
+### Community 665 - "Community 665"
+Cohesion: 0.40
+Nodes (3): meta, mockColumns, mockData
+
 ### Community 669 - "test-cra (c669)"
 Cohesion: 0.12
 Nodes (15): Customize Expand Column, Enable Expanding Sub-Rows, Expand All Rows Button, Expand All Rows By Default, Expand Root Rows Only By Default, Expanded Leaf Row Filtering Behavior, Expanded Rows Pagination Behavior, Expanding Sub-Rows (Tree Data) Feature Guide (+7 more)
+
+### Community 670 - "Community 670"
+Cohesion: 0.40
+Nodes (5): Add Custom Filter Functions, Custom Filter Functions, Custom Filter Functions Per Column, Pre-built MRT Filter Functions, Pre-built TanStack Table Filter Functions
 
 ### Community 674 - "test-shadcn (c674)"
 Cohesion: 0.12
@@ -3125,12 +3346,16 @@ Cohesion: 0.12
 Nodes (15): Access Underlying Virtualizer Instances, Customize Virtualizer Props, Does Your Table Even Need Virtualization?, Enable Column Virtualization, Enable Row Virtualization, `enableStickyHeader` Prop, Full Row and Column Virtualization Example, Headless Virtualization with MRT Hooks (+7 more)
 
 ### Community 683 - "test-shadcn (c683)"
-Cohesion: 0.11
-Nodes (17): cellVariants, SRT_TableBodyCell(), SRT_TableBodyCellProps, allowedTypes, highlightWords(), SRT_TableBodyCellValue(), SRT_TableBodyCellValueProps, SRT_TableBodyRowPinButton() (+9 more)
+Cohesion: 0.10
+Nodes (19): cellVariants, SRT_TableBodyCell(), SRT_TableBodyCellProps, Memo_SRT_TableBodyCell, allowedTypes, highlightWords(), SRT_TableBodyCellValue(), SRT_TableBodyCellValueProps (+11 more)
+
+### Community 684 - "Community 684"
+Cohesion: 0.50
+Nodes (3): columns, ComparisonTable(), data
 
 ### Community 685 - "test-shadcn (c685)"
-Cohesion: 0.09
-Nodes (20): SRT_ActionMenuItem(), SRT_ActionMenuItemProps, SRT_CellActionMenuProps, SRT_ColumnActionMenu(), SRT_ColumnActionMenuProps, arrModes, emptyModes, rangeModes (+12 more)
+Cohesion: 0.06
+Nodes (25): columns, data, meta, columns, data, meta, SRT_ActionMenuItem(), SRT_ActionMenuItemProps (+17 more)
 
 ### Community 687 - "test-shadcn (c687)"
 Cohesion: 0.13
@@ -3152,14 +3377,6 @@ Nodes (3): Ryan Kholousi Contributor Avatar, Ryan Kholousi (Contributor), Profes
 Cohesion: 0.20
 Nodes (9): Add Side Effects in Set State Callbacks, initialState vs state Options, Manage Individual States as Needed, Persistent State, Populate Initial State, Read From the Table Instance, Relevant Table Options, State Management Guide (+1 more)
 
-### Community 696 - "test-shadcn (c696)"
-Cohesion: 0.12
-Nodes (14): SRT_TableHeadCellFilterContainer(), SRT_TableHeadCellFilterContainerProps, SRT_TableHeadCellFilterLabelProps, SRT_FilterCheckbox(), SRT_FilterRangeFields(), SRT_FilterRangeFieldsProps, SRT_FilterRangeSlider(), SRT_FilterRangeSliderProps (+6 more)
-
-### Community 698 - "test-shadcn (c698)"
-Cohesion: 0.15
-Nodes (10): data, Example(), Person, data, Example(), Person, data, Example() (+2 more)
-
 ### Community 705 - "material-react-table (c705)"
 Cohesion: 0.67
 Nodes (3): funding, type, url
@@ -3167,6 +3384,10 @@ Nodes (3): funding, type, url
 ### Community 706 - "material-react-table (c706)"
 Cohesion: 0.67
 Nodes (3): repository, type, url
+
+### Community 711 - "Community 711"
+Cohesion: 0.29
+Nodes (6): Accepted deviations, Browser verification — passed, Builds / static checks — all green, Phase C verification, Regressions — none blocking, SRT ↔ MRT review notes
 
 ### Community 720 - "shadcn-react-table-cli (c720)"
 Cohesion: 0.15
@@ -3241,8 +3462,8 @@ Cohesion: 0.15
 Nodes (11): TableOptionsTable Component, Change Z-Index of Full Screen Table, Disable Full Screen Toggle, Full Screen Toggle Feature Guide, Relevant State, Relevant Table Options, Enable Sticky Footer, Enable Sticky Header (+3 more)
 
 ### Community 819 - "turbo.json (c819)"
-Cohesion: 0.38
-Nodes (4): MaterialReactTable Component, useMaterialReactTable Hook, Getting Started, Memoized/Stable Data Requirement
+Cohesion: 0.18
+Nodes (10): MaterialReactTable Component, useMaterialReactTable Hook, Getting Started, Common Errors, Compatibility, FAQs, Install With Required Peer Dependencies (Recommended), Installation (+2 more)
 
 ### Community 1167 - "material-react-table-docs (c1167)"
 Cohesion: 0.29
@@ -3301,8 +3522,8 @@ Cohesion: 0.18
 Nodes (11): Accessibility and Internationalization Support, API Integrations and Third-Party Services, Architecture and Design Patterns, Authentication and Security Implementation, Comprehensive Repository Overview, Deployment Infrastructure and DevOps Approach, Feature Highlights, Key Technologies (+3 more)
 
 ### Community 1209 - "Community 1209"
-Cohesion: 0.10
-Nodes (20): SRT_TablePaginationProps, SRT_EditCellTextField(), SRT_EditCellTextFieldProps, SRT_FilterTextFieldProps, defaultRowsPerPage, Badge(), badgeVariants, Command() (+12 more)
+Cohesion: 0.06
+Nodes (33): SRT_TablePagination(), SRT_TablePaginationProps, SRT_TableHeadCellFilterLabelProps, SRT_EditCellTextField(), SRT_EditCellTextFieldProps, SRT_FilterTextFieldProps, SRT_EditRowModalProps, defaultRowsPerPage (+25 more)
 
 ### Community 1210 - "Community 1210"
 Cohesion: 0.33
@@ -3356,10 +3577,6 @@ Nodes (5): Built-in Locale Examples, Built-in Locales, Custom Non-Built-In Trans
 Cohesion: 0.33
 Nodes (5): For /graphify explain, For /graphify path, graphify reference: query, path, explain, Step 0 — Constrained query expansion (REQUIRED before traversal), Step 1 — Traversal
 
-### Community 1230 - "Community 1230"
-Cohesion: 0.33
-Nodes (3): columns, data, meta
-
 ### Community 1231 - "Community 1231"
 Cohesion: 0.18
 Nodes (10): body/ (Phase 3 review vs MRT components/body/), Changes I've introduced from the original package, core package (Phase 3 review vs material-react-table/src) — hooks, display-columns, utils, fns, types, locales, head/ (Phase 3 review vs MRT components/head/), Individual components, inputs/ (Phase 3 review vs MRT components/inputs/), menus/ (Phase 3 review vs MRT components/menus/), Overall (+2 more)
@@ -3397,24 +3614,24 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **6979 isolated node(s):** `PreToolUse`, `context-mode@context-mode`, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`, `Props`, `columns` (+6974 more)
+- **7305 isolated node(s):** `PreToolUse`, `context-mode@context-mode`, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`, `Props`, `columns` (+7300 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **337 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **334 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MRT_ColumnDef` connect `MRT Storybook Stories` to `MRT Docs Example Components`, `material-react-table-docs (c515)`, `MRT Header & Footer Cells`, `Async/Effects Stories`, `material-react-table-docs (c517)`, `material-react-table-docs (c520)`, `material-react-table-docs (c521)`, `material-react-table-docs (c522)`, `MRT Row Action Buttons`, `material-react-table-docs (c526)`, `material-react-table-docs (c527)`, `material-react-table-docs (c529)`, `MRT Table Body Cells`, `material-react-table-docs (c537)`, `material-react-table-docs (c538)`, `material-react-table-docs (c540)`, `material-react-table-docs (c542)`, `material-react-table-docs (c544)`, `material-react-table-docs (c553)`, `material-react-table-docs (c554)`, `test-vite (c559)`, `material-react-table (c140)`, `material-react-table (c141)`, `material-react-table (c145)`, `material-react-table (c146)`, `material-react-table (c147)`, `material-react-table (c148)`, `material-react-table (c149)`, `material-react-table-docs (c151)`, `material-react-table (c152)`, `material-react-table (c155)`, `test-shadcn (c698)`, `Community 1230`, `material-react-table (c272)`, `material-react-table (c273)`, `material-react-table (c274)`, `material-react-table (c288)`, `material-react-table (c289)`, `material-react-table (c292)`, `material-react-table (c299)`, `material-react-table (c301)`, `material-react-table (c302)`, `material-react-table (c303)`, `material-react-table-docs (c308)`, `material-react-table-docs (c309)`, `material-react-table-docs (c310)`, `material-react-table-docs (c311)`, `material-react-table-docs (c312)`, `material-react-table-docs (c313)`, `material-react-table (c317)`, `material-react-table (c318)`, `material-react-table (c323)`, `material-react-table (c324)`, `material-react-table (c330)`, `material-react-table (c332)`, `material-react-table (c333)`, `material-react-table (c334)`, `material-react-table-docs (c335)`, `material-react-table-docs (c336)`, `material-react-table (c338)`, `material-react-table (c339)`, `material-react-table (c340)`, `material-react-table (c341)`, `material-react-table-docs (c343)`, `material-react-table (c349)`, `material-react-table-docs (c351)`, `material-react-table (c352)`, `material-react-table (c354)`, `material-react-table (c355)`, `material-react-table-docs (c365)`, `material-react-table-docs (c442)`, `test-shadcn (c476)`, `test-shadcn (c477)`, `test-shadcn (c478)`, `material-react-table-docs (c481)`, `material-react-table-docs (c484)`, `material-react-table-docs (c485)`, `material-react-table-docs (c490)`, `shadcn-react-table-cli (c499)`?**
+- **Why does `MRT_ColumnDef` connect `MRT Storybook Stories` to `MRT Docs Example Components`, `Async/Effects Stories`, `material-react-table-docs (c520)`, `material-react-table-docs (c523)`, `material-react-table (c140)`, `material-react-table-docs (c524)`, `MRT Row Action Buttons`, `material-react-table-docs (c537)`, `material-react-table-docs (c526)`, `material-react-table (c273)`, `material-react-table (c274)`, `Community 531`, `material-react-table (c148)`, `Community 532`, `Community 534`, `material-react-table-docs (c151)`, `Community 533`, `material-react-table (c147)`, `material-react-table (c146)`, `material-react-table (c155)`, `Community 535`, `Community 536`, `material-react-table-docs (c542)`, `Community 671`, `test-shadcn (c672)`, `test-shadcn (c673)`, `Community 543`, `Community 675`, `material-react-table (c292)`, `test-shadcn (c677)`, `Community 550`, `test-shadcn (c295)`, `Community 679`, `material-react-table-docs (c553)`, `Community 551`, `Community 552`, `Community 684`, `material-react-table (c301)`, `material-react-table-docs (c554)`, `material-react-table (c303)`, `test-vite (c559)`, `Community 555`, `material-react-table-docs (c308)`, `material-react-table-docs (c309)`, `Community 565`, `material-react-table-docs (c311)`, `material-react-table-docs (c312)`, `material-react-table-docs (c313)`, `material-react-table-docs (c442)`, `material-react-table (c318)`, `material-react-table (c320)`, `material-react-table (c323)`, `material-react-table (c330)`, `Community 588`, `material-react-table (c334)`, `material-react-table-docs (c335)`, `material-react-table-docs (c336)`, `test-shadcn (c337)`, `material-react-table (c338)`, `MRT Table Body Components`, `material-react-table-docs (c343)`, `material-react-table-docs (c344)`, `material-react-table (c346)`, `test-shadcn (c476)`, `test-shadcn (c477)`, `material-react-table-docs (c482)`, `material-react-table (c354)`, `material-react-table-docs (c485)`, `MRT Table Body Cells`, `Community 619`, `material-react-table-docs (c490)`, `material-react-table-docs (c365)`, `material-react-table (c494)`, `material-react-table-docs (c504)`, `material-react-table-docs (c507)`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+- **Why does `debounce()` connect `MRT Header & Footer Cells` to `Community 1209`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `MaterialReactTable()` connect `MRT Docs Example Components` to `MRT Storybook Stories`, `MRT Header & Footer Cells`, `Async/Effects Stories`, `material-react-table-docs (c517)`, `material-react-table-docs (c515)`, `material-react-table-docs (c520)`, `material-react-table-docs (c521)`, `material-react-table-docs (c522)`, `material-react-table-docs (c526)`, `material-react-table-docs (c527)`, `material-react-table-docs (c529)`, `MRT Table Body Cells`, `material-react-table-docs (c537)`, `material-react-table-docs (c538)`, `material-react-table-docs (c540)`, `material-react-table-docs (c542)`, `material-react-table-docs (c544)`, `material-react-table-docs (c553)`, `material-react-table-docs (c554)`, `test-vite (c559)`, `material-react-table (c140)`, `material-react-table (c141)`, `material-react-table (c144)`, `material-react-table (c145)`, `material-react-table (c146)`, `material-react-table (c147)`, `material-react-table (c148)`, `material-react-table (c149)`, `material-react-table-docs (c151)`, `material-react-table (c152)`, `material-react-table (c155)`, `test-shadcn (c698)`, `Community 1230`, `material-react-table (c272)`, `material-react-table (c273)`, `material-react-table (c274)`, `material-react-table (c288)`, `material-react-table (c289)`, `material-react-table (c292)`, `material-react-table (c296)`, `material-react-table (c299)`, `material-react-table (c301)`, `material-react-table (c302)`, `material-react-table (c303)`, `material-react-table-docs (c308)`, `material-react-table-docs (c309)`, `material-react-table-docs (c310)`, `material-react-table-docs (c311)`, `material-react-table-docs (c312)`, `material-react-table-docs (c313)`, `material-react-table (c317)`, `material-react-table (c318)`, `material-react-table (c320)`, `material-react-table (c323)`, `material-react-table (c324)`, `material-react-table (c330)`, `material-react-table (c332)`, `material-react-table (c333)`, `material-react-table (c334)`, `material-react-table-docs (c335)`, `material-react-table-docs (c336)`, `material-react-table (c338)`, `material-react-table (c339)`, `material-react-table (c340)`, `material-react-table (c341)`, `material-react-table-docs (c343)`, `material-react-table (c349)`, `material-react-table-docs (c351)`, `material-react-table (c352)`, `material-react-table (c354)`, `material-react-table (c355)`, `material-react-table-docs (c442)`, `test-shadcn (c476)`, `test-shadcn (c477)`, `test-shadcn (c478)`, `material-react-table-docs (c481)`, `material-react-table-docs (c482)`, `material-react-table-docs (c484)`, `material-react-table-docs (c485)`, `material-react-table-docs (c486)`, `material-react-table-docs (c490)`, `shadcn-react-table-cli (c499)`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `debounce()` connect `material-react-table (c140)` to `Community 1209`, `MRT Header & Footer Cells`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `MRT_GlobalFilterTextField()` connect `MRT Header & Footer Cells` to `MRT Docs Example Components`, `material-react-table (c140)`, `material-react-table-docs (c485)`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Are the 71 inferred relationships involving `useMaterialReactTable()` (e.g. with `Example()` and `Example()`) actually correct?**
   _`useMaterialReactTable()` has 71 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `PreToolUse`, `context-mode@context-mode`, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` to the rest of the system?**
-  _6985 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _7311 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MRT Docs Example Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.025981205085682697 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.027246594175728035 - nodes in this community are weakly interconnected._
 - **Should `MRT Docs Example Tables` be split into smaller, more focused modules?**
   _Cohesion score 0.03295880149812734 - nodes in this community are weakly interconnected._
