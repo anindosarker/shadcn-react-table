@@ -3,121 +3,121 @@
 
 ## File-wise notes
 ### buttons/
-### [x] SRT_CopyButton.tsx : MRT_CopyButton.tsx
-### [x] SRT_ColumnPinningButtons.tsx : MRT_ColumnPinningButtons.tsx
-### [x] SRT_EditActionButtons.tsx : MRT_EditActionButtons.tsx
-### [x] SRT_ExpandAllButton.tsx : MRT_ExpandAllButton.tsx
-### [x] SRT_ExpandButton.tsx : MRT_ExpandButton.tsx
-### [x] SRT_GrabHandleButton.tsx : MRT_GrabHandleButton.tsx
-### [x] SRT_RowPinButton.tsx : MRT_RowPinButton.tsx
-### [x] SRT_ShowHideColumnsButton.tsx : MRT_ShowHideColumnsButton.tsx
-### [x] SRT_ToggleDensePaddingButton.tsx : MRT_ToggleDensePaddingButton.tsx
-### [x] SRT_ToggleFiltersButton.tsx : MRT_ToggleFiltersButton.tsx
-### [x] SRT_ToggleFullScreenButton.tsx : MRT_ToggleFullScreenButton.tsx
-### [x] SRT_ToggleGlobalFilterButton.tsx : MRT_ToggleGlobalFilterButton.tsx
-### [x] SRT_ToggleRowActionMenuButton.tsx : MRT_ToggleRowActionMenuButton.tsx
+### [ ] SRT_CopyButton.tsx : MRT_CopyButton.tsx
+### [ ] SRT_ColumnPinningButtons.tsx : MRT_ColumnPinningButtons.tsx
+### [ ] SRT_EditActionButtons.tsx : MRT_EditActionButtons.tsx
+### [ ] SRT_ExpandAllButton.tsx : MRT_ExpandAllButton.tsx
+### [ ] SRT_ExpandButton.tsx : MRT_ExpandButton.tsx
+### [ ] SRT_GrabHandleButton.tsx : MRT_GrabHandleButton.tsx
+### [ ] SRT_RowPinButton.tsx : MRT_RowPinButton.tsx
+### [ ] SRT_ShowHideColumnsButton.tsx : MRT_ShowHideColumnsButton.tsx
+### [ ] SRT_ToggleDensePaddingButton.tsx : MRT_ToggleDensePaddingButton.tsx
+### [ ] SRT_ToggleFiltersButton.tsx : MRT_ToggleFiltersButton.tsx
+### [ ] SRT_ToggleFullScreenButton.tsx : MRT_ToggleFullScreenButton.tsx
+### [ ] SRT_ToggleGlobalFilterButton.tsx : MRT_ToggleGlobalFilterButton.tsx
+### [ ] SRT_ToggleRowActionMenuButton.tsx : MRT_ToggleRowActionMenuButton.tsx
 
 ### inputs/
-### [x] SRT_EditCellTextField.tsx : MRT_EditCellTextField.tsx
-### [x] SRT_FilterCheckbox.tsx : MRT_FilterCheckbox.tsx
-### [x] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
-### [x] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
-### [x] SRT_FilterTextField.tsx : MRT_FilterTextField.tsx
-### [x] SRT_GlobalFilterTextField.tsx : MRT_GlobalFilterTextField.tsx
-### [x] SRT_SelectCheckbox.tsx : MRT_SelectCheckbox.tsx
+### [ ] SRT_EditCellTextField.tsx : MRT_EditCellTextField.tsx
+### [ ] SRT_FilterCheckbox.tsx : MRT_FilterCheckbox.tsx
+### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
+### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
+### [ ] SRT_FilterTextField.tsx : MRT_FilterTextField.tsx
+### [ ] SRT_GlobalFilterTextField.tsx : MRT_GlobalFilterTextField.tsx
+### [ ] SRT_SelectCheckbox.tsx : MRT_SelectCheckbox.tsx
 
 ### menus/
-### [x] SRT_ActionMenuItem.tsx : MRT_ActionMenuItem.tsx
-### [x] SRT_CellActionMenu.tsx : MRT_CellActionMenu.tsx
-### [x] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
-### [x] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
-### [x] SRT_RowActionMenu.tsx : MRT_RowActionMenu.tsx
-### [x] SRT_ShowHideColumnsMenu.tsx : MRT_ShowHideColumnsMenu.tsx
-### [x] SRT_ShowHideColumnsMenuItems.tsx : MRT_ShowHideColumnsMenuItems.tsx
+### [ ] SRT_ActionMenuItem.tsx : MRT_ActionMenuItem.tsx
+### [ ] SRT_CellActionMenu.tsx : MRT_CellActionMenu.tsx
+### [ ] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
+### [ ] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
+### [ ] SRT_RowActionMenu.tsx : MRT_RowActionMenu.tsx
+### [ ] SRT_ShowHideColumnsMenu.tsx : MRT_ShowHideColumnsMenu.tsx
+### [ ] SRT_ShowHideColumnsMenuItems.tsx : MRT_ShowHideColumnsMenuItems.tsx
 
 ### body/
-### [x] SRT_TableBody.tsx : MRT_TableBody.tsx
-### [x] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
-### [x] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
-### [x] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
-### [x] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
-### [x] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
-### [x] SRT_TableDetailPanel.tsx : MRT_TableDetailPanel.tsx
+### [ ] SRT_TableBody.tsx : MRT_TableBody.tsx
+### [ ] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
+### [ ] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
+### [ ] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
+### [ ] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
+### [ ] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
+### [ ] SRT_TableDetailPanel.tsx : MRT_TableDetailPanel.tsx
 
 ### head/
-### [x] SRT_TableHead.tsx : MRT_TableHead.tsx
-### [x] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
-### [x] SRT_TableHeadCellColumnActionsButton.tsx : MRT_TableHeadCellColumnActionsButton.tsx
-### [x] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
-### [x] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
-### [x] SRT_TableHeadCellGrabHandle.tsx : MRT_TableHeadCellGrabHandle.tsx
-### [x] SRT_TableHeadCellResizeHandle.tsx : MRT_TableHeadCellResizeHandle.tsx
-### [x] SRT_TableHeadCellSortLabel.tsx : MRT_TableHeadCellSortLabel.tsx
-### [x] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
+### [ ] SRT_TableHead.tsx : MRT_TableHead.tsx
+### [ ] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
+### [ ] SRT_TableHeadCellColumnActionsButton.tsx : MRT_TableHeadCellColumnActionsButton.tsx
+### [ ] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
+### [ ] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
+### [ ] SRT_TableHeadCellGrabHandle.tsx : MRT_TableHeadCellGrabHandle.tsx
+### [ ] SRT_TableHeadCellResizeHandle.tsx : MRT_TableHeadCellResizeHandle.tsx
+### [ ] SRT_TableHeadCellSortLabel.tsx : MRT_TableHeadCellSortLabel.tsx
+### [ ] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
 
 ### footer/
-### [x] SRT_TableFooter.tsx : MRT_TableFooter.tsx
-### [x] SRT_TableFooterCell.tsx : MRT_TableFooterCell.tsx
-### [x] SRT_TableFooterRow.tsx : MRT_TableFooterRow.tsx
+### [ ] SRT_TableFooter.tsx : MRT_TableFooter.tsx
+### [ ] SRT_TableFooterCell.tsx : MRT_TableFooterCell.tsx
+### [ ] SRT_TableFooterRow.tsx : MRT_TableFooterRow.tsx
 
 ### toolbar/
-### [x] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
-### [x] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
-### [x] SRT_TablePagination.tsx : MRT_TablePagination.tsx
-### [x] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
-### [x] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
-### [x] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
-### [x] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
+### [ ] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
+### [ ] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
+### [ ] SRT_TablePagination.tsx : MRT_TablePagination.tsx
+### [ ] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
+### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
+### [ ] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
+### [ ] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
 
 ### table/ + modals/ (orchestrators — review last)
-### [x] ShadcnReactTable.tsx : MaterialReactTable.tsx
-### [x] SRT_Table.tsx : MRT_Table.tsx
-### [x] SRT_TableContainer.tsx : MRT_TableContainer.tsx
-### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
-### [x] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
-### [x] SRT_EditRowModal.tsx : MRT_EditRowModal.tsx
+### [ ] ShadcnReactTable.tsx : MaterialReactTable.tsx
+### [ ] SRT_Table.tsx : MRT_Table.tsx
+### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx
+### [ ] SRT_TableLayout.tsx : MRT_TablePaper.tsx
+### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
+### [ ] SRT_EditRowModal.tsx : MRT_EditRowModal.tsx
 
 ### Core package (`packages/shadcn-react-table-core/src`) ↔ MRT (`packages/material-react-table/src`)
 
 ### root
-### [x] index.ts : index.ts
-### [x] types.ts : types.ts
-### [x] icons.ts : icons.ts
+### [ ] index.ts : index.ts
+### [ ] types.ts : types.ts
+### [ ] icons.ts : icons.ts
 
 ### fns/
-### [x] fns/aggregationFns.ts : fns/aggregationFns.ts
-### [x] fns/filterFns.ts : fns/filterFns.ts
-### [x] fns/sortingFns.ts : fns/sortingFns.ts
+### [ ] fns/aggregationFns.ts : fns/aggregationFns.ts
+### [ ] fns/filterFns.ts : fns/filterFns.ts
+### [ ] fns/sortingFns.ts : fns/sortingFns.ts
 
 ### utils/
-### [x] utils/cell.utils.ts : utils/cell.utils.ts
-### [x] utils/column.utils.ts : utils/column.utils.ts
-### [x] utils/displayColumn.utils.ts : utils/displayColumn.utils.ts
-### [x] utils/row.utils.ts : utils/row.utils.ts
-### [x] utils/style.utils.ts : utils/style.utils.ts
-### [x] utils/tanstack.helpers.ts : utils/tanstack.helpers.ts
-### [x] utils/utils.ts : utils/utils.ts
-### [x] utils/virtualization.utils.ts : utils/virtualization.utils.ts
-### [x] utils/srtHtmlProps.utils.ts : (SRT-only — no MRT equivalent, styling slot helpers)
+### [ ] utils/cell.utils.ts : utils/cell.utils.ts
+### [ ] utils/column.utils.ts : utils/column.utils.ts
+### [ ] utils/displayColumn.utils.ts : utils/displayColumn.utils.ts
+### [ ] utils/row.utils.ts : utils/row.utils.ts
+### [ ] utils/style.utils.ts : utils/style.utils.ts
+### [ ] utils/tanstack.helpers.ts : utils/tanstack.helpers.ts
+### [ ] utils/utils.ts : utils/utils.ts
+### [ ] utils/virtualization.utils.ts : utils/virtualization.utils.ts
+### [ ] utils/srtHtmlProps.utils.ts : (SRT-only — no MRT equivalent, styling slot helpers)
 
 ### hooks/
-### [x] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
-### [x] hooks/useSRT_TableInstance.ts : hooks/useMRT_TableInstance.ts
-### [x] hooks/useSRT_TableOptions.ts : hooks/useMRT_TableOptions.ts
-### [x] hooks/useSRT_Effects.ts : hooks/useMRT_Effects.ts
-### [x] hooks/useSRT_Rows.ts : hooks/useMRT_Rows.ts
-### [x] hooks/useSRT_ColumnVirtualizer.ts : hooks/useMRT_ColumnVirtualizer.ts
-### [x] hooks/useSRT_RowVirtualizer.ts : hooks/useMRT_RowVirtualizer.ts
-### [x] hooks/useSRT_ProgressAnimation.ts : (SRT-only — no MRT equivalent, progress bar animation)
+### [ ] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
+### [ ] hooks/useSRT_TableInstance.ts : hooks/useMRT_TableInstance.ts
+### [ ] hooks/useSRT_TableOptions.ts : hooks/useMRT_TableOptions.ts
+### [ ] hooks/useSRT_Effects.ts : hooks/useMRT_Effects.ts
+### [ ] hooks/useSRT_Rows.ts : hooks/useMRT_Rows.ts
+### [ ] hooks/useSRT_ColumnVirtualizer.ts : hooks/useMRT_ColumnVirtualizer.ts
+### [ ] hooks/useSRT_RowVirtualizer.ts : hooks/useMRT_RowVirtualizer.ts
+### [ ] hooks/useSRT_ProgressAnimation.ts : (SRT-only — no MRT equivalent, progress bar animation)
 
 ### hooks/display-columns/
-### [x] getSRT_RowActionsColumnDef.tsx : getMRT_RowActionsColumnDef.tsx
-### [x] getSRT_RowDragColumnDef.tsx : getMRT_RowDragColumnDef.tsx
-### [x] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
-### [x] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
-### [x] getSRT_RowPinningColumnDef.tsx : getMRT_RowPinningColumnDef.tsx
-### [x] getSRT_RowSelectColumnDef.tsx : getMRT_RowSelectColumnDef.tsx
-### [x] getSRT_RowSpacerColumnDef.tsx : getMRT_RowSpacerColumnDef.tsx
+### [ ] getSRT_RowActionsColumnDef.tsx : getMRT_RowActionsColumnDef.tsx
+### [ ] getSRT_RowDragColumnDef.tsx : getMRT_RowDragColumnDef.tsx
+### [ ] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
+### [ ] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
+### [ ] getSRT_RowPinningColumnDef.tsx : getMRT_RowPinningColumnDef.tsx
+### [ ] getSRT_RowSelectColumnDef.tsx : getMRT_RowSelectColumnDef.tsx
+### [ ] getSRT_RowSpacerColumnDef.tsx : getMRT_RowSpacerColumnDef.tsx
 
 ### locales/ (38 files, 1:1 by code — review only if i18n strings matter)
 
