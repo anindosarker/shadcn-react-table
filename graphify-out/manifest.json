@@ -5450,293 +5450,293 @@
     "semantic_hash": "96b4c528785005580a7ca0d6999f031e"
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx": {
-    "mtime": 1781522468.0511258,
-    "ast_hash": "48a5793c0a083083bd4f095fd664c690",
+    "mtime": 1781639488.6014645,
+    "ast_hash": "927374a9fea3290f3ab763f1be5fd2c8",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyCell.tsx": {
-    "mtime": 1781537672.5445142,
-    "ast_hash": "4a3a28ed17cbabbb47b666ee86c6eb26",
+    "mtime": 1781639541.7656078,
+    "ast_hash": "aef3440c16e2f28decad8b485f249684",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyCellValue.tsx": {
-    "mtime": 1781517268.2726638,
-    "ast_hash": "cd20469466645e21cc379c8c955c9a62",
+    "mtime": 1781639405.901948,
+    "ast_hash": "ebc8ed9c87981186dad41a5c0add0064",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyRow.tsx": {
-    "mtime": 1781522495.2826438,
-    "ast_hash": "d944c47c2073a93c51d54d7bb714f9be",
+    "mtime": 1781639564.58542,
+    "ast_hash": "5ab25bcbfa617cc3294ea3065ea79b66",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyRowGrabHandle.tsx": {
-    "mtime": 1759488818.509767,
-    "ast_hash": "84ce6491e5c4e06ad02965da2f36e8a3",
-    "semantic_hash": "84ce6491e5c4e06ad02965da2f36e8a3"
+    "mtime": 1781639426.8557618,
+    "ast_hash": "580b3a7c448e28030394049ff2560b25",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyRowPinButton.tsx": {
-    "mtime": 1759488496.0169127,
-    "ast_hash": "6034be8c71b8d0d6cfb41b681bc92192",
-    "semantic_hash": "6034be8c71b8d0d6cfb41b681bc92192"
+    "mtime": 1781639443.4576206,
+    "ast_hash": "cd1b6e83edd93cba551e3fa95446812b",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableDetailPanel.tsx": {
-    "mtime": 1781537641.8139906,
-    "ast_hash": "2eb4446063d4cc20ce61645c01dda508",
+    "mtime": 1781639468.5824106,
+    "ast_hash": "f97dd40bd922ec9658bd4220fb34aefb",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ColumnPinningButtons.tsx": {
-    "mtime": 1781537657.8439283,
-    "ast_hash": "3445e5f2d5cfa3ecb7c881f81b99f071",
+    "mtime": 1781639390.657983,
+    "ast_hash": "1a536aeaf4b4c75b6d9a88f361e9dcdb",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_CopyButton.tsx": {
-    "mtime": 1781537793.7741094,
-    "ast_hash": "ae3fbe2782280d023e2da1c6a461d996",
+    "mtime": 1781638942.7695158,
+    "ast_hash": "f9f0318337ac726ec1daaa5c5df717a0",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_EditActionButtons.tsx": {
-    "mtime": 1781537737.338895,
-    "ast_hash": "0759823d007930bf4aa8066339ac60dc",
+    "mtime": 1781639433.5332947,
+    "ast_hash": "9289863b68620a3416f26e5606d487a2",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ExpandAllButton.tsx": {
-    "mtime": 1781537847.751085,
-    "ast_hash": "17bd6a930ddcc984079d0a035301d5cb",
+    "mtime": 1781639467.4426959,
+    "ast_hash": "f53a2a7a1bc0347fa302497ef843d98c",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ExpandButton.tsx": {
-    "mtime": 1781537860.8806243,
-    "ast_hash": "4f45733234d51c816037b6acfe4e095c",
+    "mtime": 1781639492.7367134,
+    "ast_hash": "29b4993a5fca2850ee28d5e236f36c50",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_GrabHandleButton.tsx": {
-    "mtime": 1781537891.252141,
-    "ast_hash": "de6df0542f33b4e935f7f57d5ab2a338",
+    "mtime": 1781639516.0425985,
+    "ast_hash": "3115177e98c491fd6b6e226976e6d857",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_RowPinButton.tsx": {
-    "mtime": 1781537714.9998505,
-    "ast_hash": "31187474da305e72c46d65a128cb77f5",
+    "mtime": 1781639530.9108849,
+    "ast_hash": "26aca4d453a6467520f57c39710a8469",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ShowHideColumnsButton.tsx": {
-    "mtime": 1781537753.7782936,
-    "ast_hash": "f4d29e918495ad0676995ab834eff161",
+    "mtime": 1781639552.254882,
+    "ast_hash": "827af36e8b73e2d0efe55fa137b4d087",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleDensePaddingButton.tsx": {
-    "mtime": 1781537690.8126266,
-    "ast_hash": "b1957e719ecd1e41f3492f1239365e13",
+    "mtime": 1781639564.9291434,
+    "ast_hash": "f1a276e0579e12f515b918be1447f931",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFiltersButton.tsx": {
-    "mtime": 1781537667.7909548,
-    "ast_hash": "21e5cf9f5edebdab53d37c9b36a1d4ad",
+    "mtime": 1781639584.6721509,
+    "ast_hash": "3581c495e98c374e4276aa95213eece4",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFullScreenButton.tsx": {
-    "mtime": 1781537701.8455954,
-    "ast_hash": "c1c07af6bd8a993eceeb68c6acdb6917",
+    "mtime": 1781639598.560396,
+    "ast_hash": "2d7445279218f7c0e8329e0303b6d721",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleGlobalFilterButton.tsx": {
-    "mtime": 1781537680.0244398,
-    "ast_hash": "55ec1f1501451d3a17be2240596842b6",
+    "mtime": 1781639624.3213472,
+    "ast_hash": "bda1e45b5ffb01b8c62f724205cc74fc",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleRowActionMenuButton.tsx": {
-    "mtime": 1781537775.8301764,
-    "ast_hash": "1d482ef3956c7f1cb9283dc9361acf8e",
+    "mtime": 1781639662.1039531,
+    "ast_hash": "002708e48a357b2363e6a00792e16a29",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/footer/SRT_TableFooter.tsx": {
-    "mtime": 1781522751.6297114,
-    "ast_hash": "3e37d5f105d84a3efe6ced81fffd6daa",
+    "mtime": 1781639425.7075984,
+    "ast_hash": "234e9b95284d9fbc53d11255a24c1986",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/footer/SRT_TableFooterCell.tsx": {
-    "mtime": 1781537811.9434214,
-    "ast_hash": "6548856cc03d4a0246069770bd299d56",
+    "mtime": 1781639454.7288744,
+    "ast_hash": "e11d8c4931ff49517361577a9c24e4a3",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/footer/SRT_TableFooterRow.tsx": {
-    "mtime": 1781522755.811612,
-    "ast_hash": "591dcd3454cd4ffa3c32561ac1a2a2d1",
+    "mtime": 1781639466.0427434,
+    "ast_hash": "b39300918333b0ed8128f13aec2b6bc0",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHead.tsx": {
-    "mtime": 1781537717.7722974,
-    "ast_hash": "c92f6f308c978d2dac9e6568e3d392ac",
+    "mtime": 1781639403.120685,
+    "ast_hash": "85830736a5f73c5957bbc238bd4ca596",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCell.tsx": {
-    "mtime": 1781522504.0280948,
-    "ast_hash": "67052ca204d646cfa172e87edc71257f",
+    "mtime": 1781639513.237064,
+    "ast_hash": "82965d3fe5af094a536621975f6774c8",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellColumnActionsButton.tsx": {
-    "mtime": 1781537695.6233058,
-    "ast_hash": "a8dbe85cfbf7b54b8d55b43ca12e9fcd",
+    "mtime": 1781639456.3875437,
+    "ast_hash": "be74ad75bf9e39dbdc9611d36cb92c5e",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterContainer.tsx": {
-    "mtime": 1781517289.497983,
-    "ast_hash": "a2b93f64e2f3fdd95bb1f4746b146b9b",
+    "mtime": 1781639485.7305567,
+    "ast_hash": "eee6a5b80db1a02beffd58da8d56bb4a",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterLabel.tsx": {
-    "mtime": 1781518670.6207552,
-    "ast_hash": "77ae10d8b1d2ecc845f4ad1167a19f2c",
+    "mtime": 1781639428.134616,
+    "ast_hash": "ef4801cdfbe60bc86bb6c9b4ef76a009",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellGrabHandle.tsx": {
-    "mtime": 1781537671.081888,
-    "ast_hash": "0f903c7b782e975288033883244e6ef7",
+    "mtime": 1781639434.6633103,
+    "ast_hash": "59dace51a033412aa2437d5932b985d0",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellResizeHandle.tsx": {
-    "mtime": 1759487904.3342805,
-    "ast_hash": "78054f3c714ea61acba049dac4831806",
-    "semantic_hash": "78054f3c714ea61acba049dac4831806"
+    "mtime": 1781639461.1055753,
+    "ast_hash": "0227239a5529bd6b1ffb15fe304ed1bd",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellSortLabel.tsx": {
-    "mtime": 1781518643.978041,
-    "ast_hash": "a3f8a1cbb30a21331ff9510801e3c168",
+    "mtime": 1781639482.7444475,
+    "ast_hash": "32d113a2b135e5241db4ef5322895478",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadRow.tsx": {
-    "mtime": 1781537743.5808327,
-    "ast_hash": "101dbfe47c88d55e00ea591d127666e6",
+    "mtime": 1781639414.2710097,
+    "ast_hash": "814cae75423546ca614d85f582f7913e",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_EditCellTextField.tsx": {
-    "mtime": 1781522527.7751536,
-    "ast_hash": "55873c1783294b0dae15f9c831b11fbe",
+    "mtime": 1781639405.35081,
+    "ast_hash": "55cf436b7bd6e101fcd77545468a5bcb",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterCheckbox.tsx": {
-    "mtime": 1781537628.5381796,
-    "ast_hash": "e998127ea21729dbae26020da7fc81ae",
+    "mtime": 1781639434.932287,
+    "ast_hash": "0ce1a200c258459cf0792592b03f59e3",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeFields.tsx": {
-    "mtime": 1781517335.2857249,
-    "ast_hash": "7e391dc783f3074cc7492544dadbbea7",
+    "mtime": 1781639552.840453,
+    "ast_hash": "72cc1f5c6deadc84645586116f1e6509",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeSlider.tsx": {
-    "mtime": 1781537758.466886,
-    "ast_hash": "d9b821c23fa9d5d27904425f43bcb708",
+    "mtime": 1781639575.751327,
+    "ast_hash": "87970215adbf958794937d72312aacec",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterTextField.tsx": {
-    "mtime": 1781537728.1582782,
-    "ast_hash": "5d2fe5a7f98dcd2817511fd793e4e82f",
+    "mtime": 1781639507.8293505,
+    "ast_hash": "84f2d01e9f101072374f3850b906002e",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_GlobalFilterTextField.tsx": {
-    "mtime": 1781522608.2307544,
-    "ast_hash": "fd651b90a135d4bcfdd08acfcf5896aa",
+    "mtime": 1781639540.3546557,
+    "ast_hash": "8fbab197649c1a9130f59a2ae784366b",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_SelectCheckbox.tsx": {
-    "mtime": 1781537700.1651642,
-    "ast_hash": "4eebb4b5fc3e0bbeb9c8f75e2ee48801",
+    "mtime": 1781639461.6290262,
+    "ast_hash": "dd45a10fddef1fc2709cdbdb36b8ee71",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ActionMenuItem.tsx": {
-    "mtime": 1781537635.8049617,
-    "ast_hash": "5bdba86f8b0d53365419404ace3ff939",
+    "mtime": 1781639411.963954,
+    "ast_hash": "63b6a02540da4956be6ed5860db6c3f3",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_CellActionMenu.tsx": {
-    "mtime": 1781517446.154189,
-    "ast_hash": "b3d222b9898c5efaedec37f653944300",
+    "mtime": 1781639423.2235959,
+    "ast_hash": "6ab1a8cc9891a018d4719277d3d5dbf1",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ColumnActionMenu.tsx": {
-    "mtime": 1781620628.9306822,
-    "ast_hash": "c53f7ad25c2b19ae830e5ac10261d005",
+    "mtime": 1781639439.0467207,
+    "ast_hash": "6cf9d167605018eb77f67c03db3c151e",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_FilterOptionMenu.tsx": {
-    "mtime": 1781517276.041948,
-    "ast_hash": "41a390e09a7674cf0ccf8d1862ef5ce5",
+    "mtime": 1781639453.8119724,
+    "ast_hash": "a58fa2b31b4b3273c094be2f2edf9fe0",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_RowActionMenu.tsx": {
-    "mtime": 1781537651.7393486,
-    "ast_hash": "3003a4a049935ae0198ffb3419f2dabf",
+    "mtime": 1781639431.8052397,
+    "ast_hash": "ced0e78e7a477ee2a49356ba2d97b0af",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenu.tsx": {
-    "mtime": 1781537686.191856,
-    "ast_hash": "35fd5f78145adc34614dfd3f971a4488",
+    "mtime": 1781639466.3524513,
+    "ast_hash": "e19c4fcd88a99ec67c5fbe8a771ce182",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenuItems.tsx": {
-    "mtime": 1781537709.0239205,
-    "ast_hash": "1da11497b27a4df38b040f11297f40a7",
+    "mtime": 1781639477.6658552,
+    "ast_hash": "a8d7c6d3366a4beb62844a7b9b7a9437",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/modals/SRT_EditRowModal.tsx": {
-    "mtime": 1781537685.2523346,
-    "ast_hash": "1301bfc05490b3313d697fbdd2fa6f5e",
+    "mtime": 1781639509.8274207,
+    "ast_hash": "4e291fd8a0f41ac0685d3cf601fcbb1c",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_Table.tsx": {
-    "mtime": 1781537411.0853786,
-    "ast_hash": "4a49025c1103b8d9c9be7bac270de8a3",
+    "mtime": 1781639465.1834967,
+    "ast_hash": "cb44f1732874a4d23cdb65d7734210e6",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableContainer.tsx": {
-    "mtime": 1781522606.660349,
-    "ast_hash": "e18ce777fb4bb63259a87ce5a8cb268e",
+    "mtime": 1781639442.9162939,
+    "ast_hash": "72f8d1d8330403c516e9516e4b4e3722",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLayout.tsx": {
-    "mtime": 1781522564.1935196,
-    "ast_hash": "b4427079e784f3cb4c8abe002796b598",
+    "mtime": 1781639488.9472663,
+    "ast_hash": "66b715bb24c941e37f9c1bc6e8f9739d",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx": {
-    "mtime": 1759478538.3342896,
-    "ast_hash": "9633e7d02a0de912cd7db2d0d2b6f5d2",
-    "semantic_hash": "9633e7d02a0de912cd7db2d0d2b6f5d2"
+    "mtime": 1781639432.1098452,
+    "ast_hash": "ff9043515709fc800ff24d57227d6280",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_BottomToolbar.tsx": {
-    "mtime": 1781537725.3883262,
-    "ast_hash": "8c379ca65bf94f6263fcbff25988d47a",
+    "mtime": 1781639496.2944033,
+    "ast_hash": "18bb451e47c8dae683a567c81be0470a",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_LinearProgressBar.tsx": {
-    "mtime": 1759486765.4798362,
-    "ast_hash": "01c67ec47b3ef78d4eb742cb570f9ba3",
-    "semantic_hash": "01c67ec47b3ef78d4eb742cb570f9ba3"
+    "mtime": 1781639514.2279696,
+    "ast_hash": "cc2f83cda396574efbbe3ae9008be140",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_TablePagination.tsx": {
-    "mtime": 1781522660.109935,
-    "ast_hash": "5080f8a4c97e3e627f3b70c94018cf5f",
+    "mtime": 1781639534.1221304,
+    "ast_hash": "90673ef4bbca54f425dcc42b1a6e720b",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarAlertBanner.tsx": {
-    "mtime": 1781537826.0568871,
-    "ast_hash": "24f415d9b3ced4128f6ef9c486a46984",
+    "mtime": 1781639559.9785466,
+    "ast_hash": "f15a9df9a4cd0d6918da843daf178696",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarDropZone.tsx": {
-    "mtime": 1781537753.6736465,
-    "ast_hash": "0068749c5f928e94823414964317e50e",
+    "mtime": 1781639568.4416811,
+    "ast_hash": "182013ca2af2e459a1097c96acc42ff4",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarInternalButtons.tsx": {
-    "mtime": 1781518647.4710882,
-    "ast_hash": "f48c18a615ca40c81efe866a2de71f5c",
+    "mtime": 1781639580.5446005,
+    "ast_hash": "db3b7173801edffb4928492d599c1960",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_TopToolbar.tsx": {
-    "mtime": 1781537708.004326,
-    "ast_hash": "927f5688c56af006b7b356a6afa98f9b",
+    "mtime": 1781639604.855434,
+    "ast_hash": "203458c147524e9df19aa313b8f3678f",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/lib/utils.ts": {
@@ -6915,19 +6915,19 @@
     "semantic_hash": "ff20c480f80482226bce8be7564e7b7e"
   },
   "packages/shadcn-react-table-core/src/hooks/useSRT_TableInstance.ts": {
-    "mtime": 1781516852.9920094,
-    "ast_hash": "60acb5804ff04de74df2cb39eeee2965",
+    "mtime": 1781639820.878543,
+    "ast_hash": "3eeb1fd55f23d7359305b1d198691719",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/useSRT_TableOptions.ts": {
-    "mtime": 1781537251.645134,
-    "ast_hash": "67e7135016018bfa35f33e289375b0c9",
+    "mtime": 1781639650.930807,
+    "ast_hash": "d99cb7febdc020e06cd56dd1102fc0a4",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/useShadcnReactTable.ts": {
-    "mtime": 1758656432.2016623,
-    "ast_hash": "f351feaff1d5c21671716195cf803541",
-    "semantic_hash": "f351feaff1d5c21671716195cf803541"
+    "mtime": 1781639762.5763736,
+    "ast_hash": "742c16b5c0116ec689ca36912a51e390",
+    "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/icons.ts": {
     "mtime": 1781537290.68829,
@@ -7130,8 +7130,8 @@
     "semantic_hash": "c08a0d82d412239d156bd40a39c9522c"
   },
   "packages/shadcn-react-table-core/src/types.ts": {
-    "mtime": 1781537680.6758878,
-    "ast_hash": "36581abdde53ad3c6a8be167377cbf9a",
+    "mtime": 1781639728.822619,
+    "ast_hash": "cd64a4237131bb87ef7dcdb334817028",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/utils/cell.utils.ts": {
@@ -7155,8 +7155,8 @@
     "semantic_hash": "aad1ff32e6adafa285b8a5e6001babce"
   },
   "packages/shadcn-react-table-core/src/utils/style.utils.ts": {
-    "mtime": 1781537323.7273755,
-    "ast_hash": "4108062f87cc20d9c270692f25a15b92",
+    "mtime": 1781639535.8965065,
+    "ast_hash": "418dde37c835cc052c1c20876239c2b7",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/utils/tanstack.helpers.ts": {
@@ -9085,18 +9085,18 @@
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowActionsColumnDef.tsx": {
-    "mtime": 1781516802.2756832,
-    "ast_hash": "fc7068f5bd959ec41e949e6875e13408",
+    "mtime": 1781639589.7420847,
+    "ast_hash": "37db3a0ff38ebfda13ff20d1f7768b60",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowDragColumnDef.tsx": {
-    "mtime": 1781516809.5994346,
-    "ast_hash": "7f6d5dfb191d54004dae8c9b4d323984",
+    "mtime": 1781639598.6940255,
+    "ast_hash": "f183b5d9120909a2265f7a6c55fedff0",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowExpandColumnDef.tsx": {
-    "mtime": 1781516873.9591622,
-    "ast_hash": "2ae07b4992423d1d8cb503705c4a56fc",
+    "mtime": 1781639557.022381,
+    "ast_hash": "c0ae581f67d111c026d0d54b96198299",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowNumbersColumnDef.tsx": {
@@ -9105,18 +9105,18 @@
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowPinningColumnDef.tsx": {
-    "mtime": 1781516816.1973565,
-    "ast_hash": "422bab26126e9a5ea91a07e5f4b75cde",
+    "mtime": 1781639592.5587218,
+    "ast_hash": "04d43cca928f6299da2eef2b5a09d467",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowSelectColumnDef.tsx": {
-    "mtime": 1781516794.9548883,
-    "ast_hash": "82663edb3e0a9eb63279554729b267ba",
+    "mtime": 1781639595.8564136,
+    "ast_hash": "8f34926d88b0262398938ee242e1809c",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/display-columns/getSRT_RowSpacerColumnDef.tsx": {
-    "mtime": 1781516784.833778,
-    "ast_hash": "cf442bbd01d5846b080a93decba8a9d0",
+    "mtime": 1781639601.592717,
+    "ast_hash": "aeee034e03b723b9e15b7cc324f00228",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/hooks/useSRT_ColumnVirtualizer.ts": {
@@ -9245,8 +9245,8 @@
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/SRT_Tooltip.tsx": {
-    "mtime": 1781537427.2759414,
-    "ast_hash": "18d002e248d15a3b917107195926286a",
+    "mtime": 1781639421.5257816,
+    "ast_hash": "b32db4e2138258a9402eda54ff47bf0b",
     "semantic_hash": ""
   },
   "apps/test-shadcn/stories/features/Aggregation.stories.tsx": {
@@ -9545,13 +9545,63 @@
     "semantic_hash": ""
   },
   ".ai/plans/matching/srt-review-notes.md": {
-    "mtime": 1781620398.0697803,
-    "ast_hash": "fca1d28ca520850ce153d9816a14d83b",
+    "mtime": 1781623074.7676303,
+    "ast_hash": "1106869d2097c2da3199812a2b8240a8",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/useSRT_MediaQuery.ts": {
     "mtime": 1781537701.7720459,
     "ast_hash": "9357539157835a90cdc73383a441736d",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/01-buttons.md": {
+    "mtime": 1781621008.4677835,
+    "ast_hash": "57400ec9c6954cf72e24d75f70eed208",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/02-inputs.md": {
+    "mtime": 1781621006.7219234,
+    "ast_hash": "00cc5450d518a95de527bc54d35e7c63",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/03-menus.md": {
+    "mtime": 1781620989.0798295,
+    "ast_hash": "a2884201f3c8b4f1c3d8d7ad93f91760",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/04-body.md": {
+    "mtime": 1781621038.3977702,
+    "ast_hash": "902e273040b56ae7ff2e6ae922e01909",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/05-head.md": {
+    "mtime": 1781621039.454605,
+    "ast_hash": "6f30799be8ce3e4deb3bb88a64d47722",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/06-footer-toolbar.md": {
+    "mtime": 1781621273.778349,
+    "ast_hash": "8f3be667bb7196db08bea8f7423b2f84",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/07-table-modals.md": {
+    "mtime": 1781621015.9521995,
+    "ast_hash": "76fe253df45a4c65c64a8123386b8146",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/review/08-core.md": {
+    "mtime": 1781621203.9439836,
+    "ast_hash": "207f1fb554cf240c7aa677c8f6827e7d",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/literal-parity-contract.md": {
+    "mtime": 1781639249.080881,
+    "ast_hash": "ff478566bcb48c8492b64dba222dfba6",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/literal-parity-plan.md": {
+    "mtime": 1781639260.4152024,
+    "ast_hash": "73bdddf113949fa2c3877b515d5a57f6",
     "semantic_hash": ""
   }
 }
