@@ -5420,8 +5420,8 @@
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/App.tsx": {
-    "mtime": 1781518417.68414,
-    "ast_hash": "1528b83d25a7c7770ca21ecf724f74e3",
+    "mtime": 1781705812.5656064,
+    "ast_hash": "0d6279300a3f815022074923e4140335",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/badge.tsx": {
@@ -5445,9 +5445,9 @@
     "semantic_hash": "dbbd1373d22aab1af1c91f6d03acdb6a"
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/ShadcnReactTable.tsx": {
-    "mtime": 1781702044.3511765,
-    "ast_hash": "96b4c528785005580a7ca0d6999f031e",
-    "semantic_hash": "96b4c528785005580a7ca0d6999f031e"
+    "mtime": 1781705807.9426448,
+    "ast_hash": "6e2325948f41e528a75c30b16abe05ec",
+    "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx": {
     "mtime": 1781702055.866469,
@@ -5695,8 +5695,8 @@
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLayout.tsx": {
-    "mtime": 1781702055.8702729,
-    "ast_hash": "66b715bb24c941e37f9c1bc6e8f9739d",
+    "mtime": 1781718155.8983467,
+    "ast_hash": "9bbe7fe40ada54eeb756b6c42e89044c",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx": {
@@ -7130,8 +7130,8 @@
     "semantic_hash": "c08a0d82d412239d156bd40a39c9522c"
   },
   "packages/shadcn-react-table-core/src/types.ts": {
-    "mtime": 1781639728.822619,
-    "ast_hash": "cd64a4237131bb87ef7dcdb334817028",
+    "mtime": 1781718142.52136,
+    "ast_hash": "610859b0633b517aca6b9278b9e6e8ad",
     "semantic_hash": ""
   },
   "packages/shadcn-react-table-core/src/utils/cell.utils.ts": {
@@ -9545,8 +9545,8 @@
     "semantic_hash": ""
   },
   ".ai/plans/matching/srt-review-notes.md": {
-    "mtime": 1781623074.7676303,
-    "ast_hash": "1106869d2097c2da3199812a2b8240a8",
+    "mtime": 1781705949.831666,
+    "ast_hash": "af2447dc73b78da407eefe00ca56fada",
     "semantic_hash": ""
   },
   "apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/useSRT_MediaQuery.ts": {
@@ -9607,6 +9607,11 @@
   "apps/test-shadcn/src/components/ui/shadcn-react-table/style.utils.ts": {
     "mtime": 1781703229.1902707,
     "ast_hash": "1fa84e5f03fc27e4644c3f235115c81e",
+    "semantic_hash": ""
+  },
+  ".ai/plans/matching/srt-review-notes-archived.md": {
+    "mtime": 1781705406.7598388,
+    "ast_hash": "aa58027ea4485638f1ae881d53a87887",
     "semantic_hash": ""
   }
 }
