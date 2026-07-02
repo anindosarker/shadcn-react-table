@@ -1,7 +1,12 @@
 # SRT ↔ MRT Review Notes
 
 Top-down review (render-tree order). Source of truth: `packages/material-react-table/`.
-`[ ]` = pending · `[x]` = reviewed.
+Single tracker for the parity loop (see `parity-workflow.md`).
+`[ ]` = pending · `[~]` = in discussion / coding · `[x]` = done + tsc-clean + read.
+
+**Trust map:** good through `SRT_TableLayout` (incl.) + hand-written core.
+Everything BELOW `SRT_TableLayout` is garbage from bad prior runs → rebuild from
+the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## Entry
 
@@ -11,8 +16,9 @@ Top-down review (render-tree order). Source of truth: `packages/material-react-t
 
 ## table/
 
-### [ ] SRT_TableLayout.tsx : MRT_TablePaper.tsx
-### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx
+### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
+- hand-written, ok. trusted. (last good file top-down)
+### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx  ← REBUILD from here down
 ### [ ] SRT_Table.tsx : MRT_Table.tsx
 ### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
 
@@ -101,7 +107,7 @@ Top-down review (render-tree order). Source of truth: `packages/material-react-t
 ## Core (`packages/shadcn-react-table-core/src`)
 
 ### [ ] index.ts : index.ts
-### [ ] types.ts : types.ts
+### [ ] types.ts : types.ts  (partial — not fully done)
 ### [ ] icons.ts : icons.ts
 ### [ ] fns/aggregationFns.ts : fns/aggregationFns.ts
 ### [ ] fns/filterFns.ts : fns/filterFns.ts
