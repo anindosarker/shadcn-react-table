@@ -8,6 +8,21 @@ Single tracker for the parity loop (see `parity-workflow.md`).
 Everything BELOW `SRT_TableLayout` is garbage from bad prior runs → rebuild from
 the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
+## General notes (established conventions — apply project-wide)
+
+- **cva throughout.** Styling via cva variants + `cn()` (twMerge), never inline
+  style for static styles. Variantful components define a `xxxVariants` cva;
+  user `className` merges last (wins). Dynamic runtime values (px calcs) may
+  stay inline `style`.
+- **Keep SRT default designs** (card look: `rounded-md border bg-background
+  shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
+  finish the library first; UI polish later.
+- **Slot-prop idiom** (per trusted `SRT_TableLayout`): `srt*Props` typed
+  `((props: { table }) => LayoutDivProps) | LayoutDivProps`, merged via
+  `{ ...parseFromValuesOrFunc(srtXProps, { table }), ...rest }`, dual-ref
+  forwarding kept (`//@ts-expect-error` pattern, same as MRT).
+- Fullscreen z-index: `z-50` (shadcn dialog tier), not MUI modal 1300.
+
 ## Entry
 
 ### [x] ShadcnReactTable.tsx : MaterialReactTable.tsx
@@ -18,6 +33,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
 - hand-written, ok. trusted. (last good file top-down)
+- 2026-07-03: 3-loop workflow calibration run (create → review → test) re-derived it.
+  Diff vs hand-written = approved decisions only: fullscreen adds `p-0` (MRT
+  padding:0), `max-h-dvh max-w-dvw` (reviewer catch), `w-dvw` for `w-screen`,
+  ref-before-className (MRT attr order). Browser-tested 5/5 (default render,
+  fullscreen classes, Escape exit, slot-prop passthrough, toolbars-off).
+  Plan file: `.ai/plans/workflows/plans/SRT_TableLayout.plan.md`.
+- Note: `srt*Props` object literals reject `data-*` keys (React HTMLAttributes
+  TS quirk, JSX-only). Same limitation as MUI *Props in MRT — use `id`/`className`
+  for test hooks, or widen LayoutDivProps with a data-* index signature later.
 ### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx  ← REBUILD from here down
 ### [ ] SRT_Table.tsx : MRT_Table.tsx
 ### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
