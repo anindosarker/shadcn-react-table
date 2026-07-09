@@ -1,27 +1,25 @@
 # SRT ↔ MRT Review Notes
 
 Top-down review (render-tree order). Source of truth: `packages/material-react-table/`.
-Single tracker for the parity loop (see `parity-workflow.md`).
-`[ ]` = pending · `[~]` = in discussion / coding · `[x]` = done + tsc-clean + read.
 
-**Trust map:** good through `SRT_TableLayout` (incl.) + hand-written core.
-Everything BELOW `SRT_TableLayout` is garbage from bad prior runs → rebuild from
+
+**Trust map:** Every unchecked item is garbage from bad prior runs → rebuild from
 the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## General notes (established conventions — apply project-wide)
 
 - **cva throughout.** Styling via cva variants + `cn()` (twMerge), never inline
   style for static styles. Variantful components define a `xxxVariants` cva;
-  user `className` merges last (wins). Dynamic runtime values (px calcs) may
-  stay inline `style`.
+  user `className` merges last (wins). 
 - **Keep SRT default designs** (card look: `rounded-md border bg-background
   shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
-  finish the library first; UI polish later.
-- **Slot-prop idiom** (per trusted `SRT_TableLayout`): `srt*Props` typed
-  `((props: { table }) => LayoutDivProps) | LayoutDivProps`, merged via
-  `{ ...parseFromValuesOrFunc(srtXProps, { table }), ...rest }`, dual-ref
-  forwarding kept (`//@ts-expect-error` pattern, same as MRT).
-- Fullscreen z-index: `z-50` (shadcn dialog tier), not MUI modal 1300.
+  finish the library first with default shadcn themed look; UI polish later.
+- **Dropped MRT constructs stay visible as comments.** Keep the dropped MRT
+  line(s) commented out at their original position + a short `// Note:` saying
+  why (example: `mrtTheme` / `useTheme` in `SRT_TableLayout`). No other
+  scaffolding comments. `//@ts-expect-error` gets a brief reason suffix.
+- **`mrtTheme` registry dropped project-wide** — tailwind/shadcn CSS vars handle
+  theming (`bg-background` etc.).
 
 ## Entry
 
@@ -33,15 +31,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
 - hand-written, ok. trusted. (last good file top-down)
-- 2026-07-03: 3-loop workflow calibration run (create → review → test) re-derived it.
-  Diff vs hand-written = approved decisions only: fullscreen adds `p-0` (MRT
-  padding:0), `max-h-dvh max-w-dvw` (reviewer catch), `w-dvw` for `w-screen`,
-  ref-before-className (MRT attr order). Browser-tested 5/5 (default render,
-  fullscreen classes, Escape exit, slot-prop passthrough, toolbars-off).
-  Plan file: `.ai/plans/workflows/plans/SRT_TableLayout.plan.md`.
-- Note: `srt*Props` object literals reject `data-*` keys (React HTMLAttributes
-  TS quirk, JSX-only). Same limitation as MUI *Props in MRT — use `id`/`className`
-  for test hooks, or widen LayoutDivProps with a data-* index signature later.
+- Created `LayoutDivProps` to mirror `PaperProps` in MRT. This is a new SRT-only construct, not in MRT.
+- `mrtTheme` / `useTheme` dropped project-wide, handled by shadcn CSS vars.
+
 ### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx  ← REBUILD from here down
 ### [ ] SRT_Table.tsx : MRT_Table.tsx
 ### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx

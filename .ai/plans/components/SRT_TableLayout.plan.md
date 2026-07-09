@@ -56,7 +56,7 @@ const tableLayoutVariants = cva(
 
 ## Gates
 
-- `npx prettier --write <file>` (run from `shadcn-react-table/`).
-- `npx tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean — ignore ONLY
+- `pnpm prettier --write <file>` (run from `shadcn-react-table/`).
+- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean — ignore ONLY
   the preexisting TS5101 `baseUrl` deprecation warning.
 - No git commits. Touch ONLY the SRT_TableLayout.tsx file.
