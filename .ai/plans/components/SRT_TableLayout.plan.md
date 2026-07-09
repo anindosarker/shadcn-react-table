@@ -16,7 +16,7 @@ Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLayo
 
 ## Structure (mirror MRT_TablePaper line-for-line)
 
-- Interface: `SRT_TableLayoutProps<TData> extends LayoutDivProps { table }`.
+- Interface: `SRT_TableLayoutProps<TData> extends DivProps { table }`.
 - Renames: `muiTablePaperProps`→`srtTableLayoutProps`,
   `tablePaperRef`→`tableLayoutRef`.
 - Destructure keeps MRT positional order: `enableBottomToolbar`,

@@ -19,6 +19,9 @@ built, it doesn't belong.
 - Process narration: which agent/loop ran, what review caught, test PASS
   counts, gate results, screenshots, plan-file pointers, dates. Reports live in
   chat; the tracker outlives them.
+- Pipeline status lines ("coded, review passed, test pending"). The `[ ]`/`[x]`
+  checkbox is the ONLY status indicator — a bullet that just restates progress
+  adds nothing.
 - Anything the code or diff already shows.
 - Tooling/TS trivia and workarounds, unless it changed an API decision.
 - Undecided suggestions ("could later widen X"). Decide it or drop it.

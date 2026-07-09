@@ -8,9 +8,12 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## General notes (established conventions — apply project-wide)
 
-- **cva throughout.** Styling via cva variants + `cn()` (twMerge), never inline
-  style for static styles. Variantful components define a `xxxVariants` cva;
-  user `className` merges last (wins). 
+- **cva throughout.** EVERY component defines a `xxxVariants` cva at the top
+  (shadcn anatomy), even with no variants yet. Styling via cva + `cn()`
+  (twMerge); user `className` merges last (wins).
+- **Runtime-measured values stay inline `style`** (e.g. maxHeight from toolbar
+  px). No CSS vars, no dynamic classes — the package must install with zero
+  CSS config. User `style` passthrough spreads after lib values (user wins).
 - **Keep SRT default designs** (card look: `rounded-md border bg-background
   shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
   finish the library first with default shadcn themed look; UI polish later.
@@ -31,10 +34,14 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
 - hand-written, ok. trusted. (last good file top-down)
-- Created `LayoutDivProps` to mirror `PaperProps` in MRT. This is a new SRT-only construct, not in MRT.
+- Created `DivProps` (`ComponentPropsWithRef<'div'>`, SRT-only; renamed from LayoutDivProps) — the single SRT analogue for EVERY MUI div-backed prop type (`PaperProps`, `TableContainerProps`, `BoxProps`, ...). shadcn has no Paper/Box layer; MUI extras (sx/component/classes) are locked deviations.
 - `mrtTheme` / `useTheme` dropped project-wide, handled by shadcn CSS vars.
 
 ### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx  ← REBUILD from here down
+- `srtTableContainerProps` converted to value-or-func `DivProps` in core
+  types.ts — same conversion applies to every remaining `SRT_HTMLProps` slot.
+- Deferred gap: `aria-describedby='srt-progress'` won't resolve until the
+  SRT_TableLoadingOverlay pair un-suffixes its progress id.
 ### [ ] SRT_Table.tsx : MRT_Table.tsx
 ### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
 
