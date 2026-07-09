@@ -62,7 +62,7 @@ function makeData(count: number): Person[] {
   });
 }
 
-const data = makeData(40);
+const data = makeData(30);
 
 function useColumns(): SRT_ColumnDef<Person>[] {
   return useMemo(
@@ -70,38 +70,35 @@ function useColumns(): SRT_ColumnDef<Person>[] {
       {
         accessorKey: 'firstName',
         header: 'First Name',
-        enableEditing: true,
       },
       {
         accessorKey: 'lastName',
         header: 'Last Name',
-        enableEditing: true,
       },
       {
         accessorKey: 'email',
         header: 'Email',
-        enableEditing: true,
         size: 240,
       },
       {
         accessorKey: 'city',
         header: 'City',
-        enableEditing: true,
       },
     ],
     [],
   );
 }
 
-type EditMode = 'row' | 'modal';
+type LayoutMode = 'semantic' | 'grid' | 'grid-no-grow';
 
-export function SRT_TableContainerDemo() {
+export function SRT_TableDemo() {
   const columns = useColumns();
 
-  const [loading, setLoading] = useState(false);
-  const [sticky, setSticky] = useState(false);
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('semantic');
+  const [resizing, setResizing] = useState(false);
+  const [caption, setCaption] = useState(false);
+  const [memo, setMemo] = useState(false);
   const [slotProps, setSlotProps] = useState(false);
-  const [editMode, setEditMode] = useState<EditMode>('row');
 
   const table = useShadcnReactTable<Person>({
     columns,
@@ -110,64 +107,88 @@ export function SRT_TableContainerDemo() {
 
     enableTopToolbar: true,
     enableBottomToolbar: true,
-    enableToolbarInternalActions: true,
-    enableFullScreenToggle: true,
 
-    enableStickyHeader: sticky,
+    enableColumnResizing: resizing,
+    columnResizeMode: 'onChange',
 
-    enableEditing: true,
-    editDisplayMode: editMode,
-    onEditingRowSave: ({ values, table: t }) => {
-      console.log('[container-demo] saved row', values);
-      t.setEditingRow(null);
-    },
+    layoutMode,
+    memoMode: memo ? 'table-body' : undefined,
 
-    srtTableContainerProps: slotProps
-      ? () => ({
-          id: 'container',
-          className: 'srt-custom-container',
-          style: { maxHeight: '400px' },
-        })
+    renderCaption: caption
+      ? ({ table: t }) =>
+          `SRT_Table caption — ${t.getRowModel().rows.length} rows shown`
       : undefined,
 
-    state: { showLoadingOverlay: loading },
+    srtTableProps: slotProps
+      ? () => ({
+          id: 'srt-table',
+          className: 'srt-custom-table',
+        })
+      : undefined,
   });
 
   return (
     <section>
-      <h2 className="mb-1 text-lg font-semibold">SRT_TableContainer</h2>
+      <h2 className="mb-1 text-lg font-semibold">SRT_Table</h2>
       <p className="mb-3 max-w-3xl text-sm text-muted-foreground">
-        The scroll/overlay container wrapping the table. It handles
-        maxHeight/overflow for sticky and fullscreen modes, hosts the loading
-        overlay and the edit/create modal, and merges function-form{' '}
-        <code>srtTableContainerProps</code>.
+        The <code>&lt;table&gt;</code> element itself: applies the{' '}
+        <code>layoutMode</code> variant, writes live column-size CSS vars,
+        renders an optional caption, dispatches the memoized vs plain body, and
+        merges function-form <code>srtTableProps</code>.
       </p>
       <ul className="mb-3 ml-5 list-disc text-sm text-muted-foreground">
-        <li>loading overlay dims the body when toggled on</li>
-        <li>sticky header stays visible when the container scrolls</li>
+        <li>layoutMode select changes grid vs semantic table display</li>
         <li>
-          slot-props sets <code>id=&quot;container&quot;</code> +{' '}
-          <code>srt-custom-container</code>; user <code>maxHeight 400px</code>{' '}
-          wins over the lib value
+          resizing ON flips the default layout to <code>grid-no-grow</code> per
+          core — drag a header border to watch size vars update
         </li>
-        <li>edit-mode select switches between inline-row and modal editing</li>
-        <li>fullscreen toggle (top toolbar) works in all modes</li>
+        <li>caption renders a caption row above the head</li>
+        <li>memoMode swaps in the memoized table body</li>
+        <li>
+          slot-props applies <code>id=&quot;srt-table&quot;</code> +{' '}
+          <code>srt-custom-table</code> class merged last
+        </li>
       </ul>
 
       <div className="mb-4 flex flex-wrap items-center gap-4 rounded-md border p-3">
+        <div className="flex items-center gap-2">
+          <Label htmlFor="srt-table-layout">layoutMode</Label>
+          <Select
+            value={layoutMode}
+            onValueChange={(v) => setLayoutMode(v as LayoutMode)}
+          >
+            <SelectTrigger id="srt-table-layout" size="sm">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="semantic">semantic</SelectItem>
+              <SelectItem value="grid">grid</SelectItem>
+              <SelectItem value="grid-no-grow">grid-no-grow</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        {/* enableColumnResizing flips the layoutMode default to 'grid-no-grow'
+            (core useSRT_TableOptions.ts, mirrors MRT). */}
         <Label className="gap-2">
           <Checkbox
-            checked={loading}
-            onCheckedChange={(v) => setLoading(v === true)}
+            checked={resizing}
+            onCheckedChange={(v) => setResizing(v === true)}
           />
-          loading overlay
+          resizing
         </Label>
         <Label className="gap-2">
           <Checkbox
-            checked={sticky}
-            onCheckedChange={(v) => setSticky(v === true)}
+            checked={caption}
+            onCheckedChange={(v) => setCaption(v === true)}
           />
-          sticky header
+          caption
+        </Label>
+        <Label className="gap-2">
+          <Checkbox
+            checked={memo}
+            onCheckedChange={(v) => setMemo(v === true)}
+          />
+          memoMode
         </Label>
         <Label className="gap-2">
           <Checkbox
@@ -176,21 +197,6 @@ export function SRT_TableContainerDemo() {
           />
           slot-props
         </Label>
-        <div className="flex items-center gap-2">
-          <Label htmlFor="srt-container-edit">edit mode</Label>
-          <Select
-            value={editMode}
-            onValueChange={(v) => setEditMode(v as EditMode)}
-          >
-            <SelectTrigger id="srt-container-edit" size="sm">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="row">inline row</SelectItem>
-              <SelectItem value="modal">modal</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
       </div>
 
       <ShadcnReactTable table={table} />

@@ -14,6 +14,13 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - **Runtime-measured values stay inline `style`** (e.g. maxHeight from toolbar
   px). No CSS vars, no dynamic classes — the package must install with zero
   CSS config. User `style` passthrough spreads after lib values (user wins).
+- **MUI component DEFAULT styles count as spec.** MRT inherits MUI root CSS
+  invisibly (Table: `width:100%`, `border-spacing:0`; Paper: elevation/bg;
+  etc.). When replacing a MUI component with a native element, map its default
+  styles into the cva base — MRT source alone is not the full spec.
+- **MRT-exact useMemo/useEffect deps arrays are kept verbatim**;
+  `// eslint-disable-next-line react-hooks/exhaustive-deps` on the deps line is
+  the authorized way to hold them against the lint gate.
 - **Keep SRT default designs** (card look: `rounded-md border bg-background
   shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
   finish the library first with default shadcn themed look; UI polish later.
@@ -37,13 +44,24 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - Created `DivProps` (`ComponentPropsWithRef<'div'>`, SRT-only; renamed from LayoutDivProps) — the single SRT analogue for EVERY MUI div-backed prop type (`PaperProps`, `TableContainerProps`, `BoxProps`, ...). shadcn has no Paper/Box layer; MUI extras (sx/component/classes) are locked deviations.
 - `mrtTheme` / `useTheme` dropped project-wide, handled by shadcn CSS vars.
 
-### [ ] SRT_TableContainer.tsx : MRT_TableContainer.tsx  ← REBUILD from here down
+### [x] SRT_TableContainer.tsx : MRT_TableContainer.tsx
 - `srtTableContainerProps` converted to value-or-func `DivProps` in core
   types.ts — same conversion applies to every remaining `SRT_HTMLProps` slot.
-- Deferred gap: `aria-describedby='srt-progress'` won't resolve until the
-  SRT_TableLoadingOverlay pair un-suffixes its progress id.
+- `aria-describedby='srt-progress'` never matches the overlay's suffixed
+  `srt-progress-${id}` — MRT has the identical broken link; mirrored as-is.
 ### [ ] SRT_Table.tsx : MRT_Table.tsx
+- MUI `stickyHeader` Table prop dropped (no native `<table>` attr) — sticky th
+  styles live in `SRT_TableHeadCell` (+ thead-level grid-mode sticky in
+  `SRT_TableHead`), derived from `enableStickyHeader || isFullScreen` off
+  `table`, same as MRT_TableHead does.
+- `TableProps` (`ComponentPropsWithRef<'table'>`) added to core next to
+  `DivProps`; `srtTableProps` converted to MRT's value-or-func shape.
 ### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
+- Spinner = `LoaderCircleIcon` + `animate-spin`, `size={40}` maps MUI
+  CircularProgress's 40px default; `Component` override kept (MRT fallback shape).
+- Wrapper div takes NO user className — MRT's Box takes no user props; the
+  `srtCircularProgressProps` slot targets the spinner only. Pattern for other
+  MRT Box-wrapper components.
 
 ## toolbar/
 

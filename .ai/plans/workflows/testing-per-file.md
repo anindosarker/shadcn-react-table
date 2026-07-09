@@ -1,6 +1,11 @@
 # Testing steps after one component is finished
 
-- Stage the use case as a NEW self-contained demo component: `apps/test-shadcn/src/demos/<Component>Demo.tsx` (own data, columns, `useShadcnReactTable` instance; URL-param toggles like `?loading` for test variants). Then APPEND one `<XDemo />` section to App.tsx — never rewrite or remove existing demos. Demos accumulate so the user can rerun any component's test themselves, and appending keeps token cost small. Add each new demo at the top so user doesn't have to scroll down to find it. Each demo must be self-contained, with a title and description at the top for context.
+- Stage the use case as a NEW self-contained demo component: `apps/test-shadcn/src/demos/<Component>Demo.tsx` (own data, columns, `useShadcnReactTable` instance). Then APPEND one `<XDemo />` section to App.tsx — never rewrite or remove existing demos. Demos accumulate so the user can rerun any component's test themselves, and appending keeps token cost small. Add each new demo at the top so user doesn't have to scroll down to find it.
+- Demo header format (strict):
+  - Title = component name.
+  - 1–2 short lines of CONTEXT: what this component is / where it sits in the tree.
+  - Then a SHORT BULLET LIST of exactly what to check ("sticky header stays visible when scrolling", "user maxHeight 400px wins"). No prose paragraphs, no param documentation dumps, no random garbage.
+- Variant switching: render in-demo CONTROLS (buttons / select / toggles via existing shadcn ui components) to flip each tweakable setting live — e.g. loading on/off, layoutMode select, slot-props on/off. Local `useState` into the table options. Controls beat URL params for multi-setting demos; URL params optional extra only when a variant genuinely needs a fresh mount.
   - After edits, re-run `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` — staged demos must not break the tsc gate (e.g. `data-*` keys are rejected in `srt*Props` object literals; use `id`/`className` as test hooks).
 - Dev server: shared instance at http://localhost:5273 (lead starts/health-checks it before testing). NEVER `pkill vite`, never start a server on the default port; if an isolated server is truly needed, use a unique port and kill only your own PID.
 - Open browser with playwright and test
