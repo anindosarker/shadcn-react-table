@@ -61,7 +61,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   types.ts — same conversion applies to every remaining `SRT_HTMLProps` slot.
 - `aria-describedby='srt-progress'` never matches the overlay's suffixed
   `srt-progress-${id}` — MRT has the identical broken link; mirrored as-is.
-### [ ] SRT_Table.tsx : MRT_Table.tsx
+### [x] SRT_Table.tsx : MRT_Table.tsx
 - MUI `stickyHeader` Table prop dropped (no native `<table>` attr) — sticky th
   styles live in `SRT_TableHeadCell` (+ thead-level grid-mode sticky in
   `SRT_TableHead`), derived from `enableStickyHeader || isFullScreen` off
