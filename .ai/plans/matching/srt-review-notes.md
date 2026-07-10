@@ -68,7 +68,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   `table`, same as MRT_TableHead does.
 - `TableProps` (`ComponentPropsWithRef<'table'>`) added to core next to
   `DivProps`; `srtTableProps` converted to MRT's value-or-func shape.
-### [ ] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
+### [x] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
 - Spinner = `LoaderCircleIcon` + `animate-spin`, `size={40}` maps MUI
   CircularProgress's 40px default; `Component` override kept (MRT fallback shape).
 - Wrapper div takes NO user className — MRT's Box takes no user props; the
