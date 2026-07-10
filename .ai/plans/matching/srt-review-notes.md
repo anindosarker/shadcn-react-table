@@ -77,7 +77,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## toolbar/
 
-### [ ] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
+### [x] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
 ### [ ] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
 ### [ ] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
 ### [ ] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
