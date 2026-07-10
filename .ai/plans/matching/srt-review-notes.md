@@ -79,7 +79,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ### [x] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
 ### [x] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
-### [ ] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
+### [x] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
 ### [ ] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
 ### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
