@@ -8,9 +8,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## General notes (established conventions — apply project-wide)
 
-- **cva throughout.** EVERY component defines a `xxxVariants` cva at the top
-  (shadcn anatomy), even with no variants yet. Styling via cva + `cn()`
-  (twMerge); user `className` merges last (wins).
+- **cva variants**
+  Components defines a `xxxVariants` cva at the top (shadcn anatomy), to define the default styling classes. Styling via cva + `cn()` (twMerge); user `className` merges last (wins).
+  If a file has nothing to style, it has no cva. User `className` still merges last via `cn()`.
 - **Runtime-measured values stay inline `style`** (e.g. maxHeight from toolbar
   px). No CSS vars, no dynamic classes — the package must install with zero
   CSS config. User `style` passthrough spreads after lib values (user wins).
@@ -26,10 +26,8 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   controls (Checkbox/Radio/IconButton) size the padded HIT AREA (e.g. 2.5rem);
   the visible glyph is ~18px. Radix/shadcn roots ARE the visible box — map to
   visible sizes (size-4/size-5), not MRT's rem values.
-- **MUI component DEFAULT styles count as spec.** MRT inherits MUI root CSS
-  invisibly (Table: `width:100%`, `border-spacing:0`; Paper: elevation/bg;
-  etc.). When replacing a MUI component with a native element, map its default
-  styles into the cva base — MRT source alone is not the full spec.
+- **MUI component DEFAULT styles count as spec** 
+  MRT inherits MUI root CSS invisibly (Table: `width:100%`, `border-spacing:0`; etc.). When replacing a MUI component, map its default styles into that element's cva if needed. When replacing with a shadcn COMPONENT, this rule does NOT apply — use the shadcn default variant; no needed to port MUI's look onto it.
 - **MRT-exact useMemo/useEffect deps arrays are kept verbatim**;
   `// eslint-disable-next-line react-hooks/exhaustive-deps` on the deps line is
   the authorized way to hold them against the lint gate.
@@ -42,16 +40,12 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   scaffolding comments. `//@ts-expect-error` gets a brief reason suffix.
 - **`mrtTheme` registry dropped project-wide** — tailwind/shadcn CSS vars handle
   theming (`bg-background` etc.).
-- **shadcn defaults win — no className style overrides (user ruling
-  2026-07-11).** shadcn components take variants only; className permitted
-  solely for layout (position/margins/flex placement/icon-direction
-  transforms), never colors/typography/opacity/sizing/padding/radius. Where
-  shadcn defaults differ from MRT pixel values, shadcn wins; drop the MRT
-  value with a Note. cva survives only for SRT-owned elements. Supersedes the
-  earlier cva-restyling idiom for shadcn components (AlertBanner's approved
-  neutralization cva predates this and stands). Sweep plan:
-  `.ai/plans/components/shadcn-sweep.plan.md`. New ui components installed:
-  spinner, input-group, skeleton, pagination, field.
+- **shadcn DEFAULT variants**
+  When using a shadcn component, use its default variant. Layout-only
+  className allowed (position/margins/flex placement/icon-direction
+  transforms — confirmed 2026-07-14); never look (colors/typography/opacity/
+  sizing/padding/radius). No custom or "neutralization" cva targeting a
+  shadcn component.
 - **shadcn-first (user ruling 2026-07-10).** When a shadcn/ui component exists
   for the MUI counterpart, use it — add via CLI if missing (components.json =
   radix/new-york; NOT the Base UI docs flavor). Approved mappings: MUI Alert →
