@@ -2,6 +2,39 @@
 
 Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarAlertBanner.tsx`.
 
+## REV 3 (2026-07-14, user ruling: default Alert variant) — SUPERSEDES Rev 2 cva decisions
+
+User: "why should we replace the default variants? I'm perfectly fine with the
+default variant." Grandfather clause on Rev 2's neutralization cva revoked
+(tracker General notes updated same day). Changes vs current file — styling
+only, zero logic changes:
+
+- **Delete the neutralization from `toolbarAlertBannerVariants`**: `block
+  border-none rounded-none p-0 text-base bg-primary/10 text-foreground` all
+  die — shadcn Alert default variant renders as-is (bordered, rounded-lg,
+  px-4 py-3, text-sm, bg-card). cva keeps ONLY layout: base `relative left-0
+  right-0 top-0 z-[2] w-full` + bottomOffset variant `-mb-4`. Rewrite the
+  Note accordingly (drop the twMerge-precedence explanation).
+- **Delete `clearSelectionButtonVariants`** (`p-[2px] text-primary` = padding
+  + color override on shadcn Button). Clear-selection = plain
+  `<Button type="button" variant="ghost" size="sm">`. Note: MUI text-button
+  primary color + p:2px dropped per default-variants ruling.
+- **Badge chip**: drop the `cn('gap-1', ...)` — `gap-1` already in Badge base
+  (redundant). Spread stays `{...chipProps}` + `className={chipProps?.className}`
+  via cn.
+- **AlertTitle `mb-1`**: KEEP (margin = layout, maps MUI AlertTitle mb).
+- **Inner density-padding div**: KEEP verbatim (SRT-owned element). Alert's
+  own default `px-4 py-3` now wraps it — combined padding accepted, add Note.
+- Everything else untouched: interface, slots, selectedRowCount memo,
+  localization chains, CloseIcon size-3 (raw button icon, SRT-owned),
+  head-overlay block, maxWidth inline style.
+
+Gates: prettier; tsc clean (ignore TS5101); eslint on the file
+--max-warnings=0. No core edits. No git. Browser retest: ToolbarsDemo banner
+(selection count + clear button, grouping chips + remove, head-overlay).
+
+---
+
 ## REV 2 (2026-07-10, user-approved shadcn-first rewrite) — SUPERSEDES Rev 1 below
 
 User ruling: when a shadcn/ui component exists for the MUI counterpart, use it

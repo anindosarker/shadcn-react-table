@@ -45,7 +45,11 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   className allowed (position/margins/flex placement/icon-direction
   transforms — confirmed 2026-07-14); never look (colors/typography/opacity/
   sizing/padding/radius). No custom or "neutralization" cva targeting a
-  shadcn component.
+  shadcn component. STATE-DRIVEN functional styling is allowed (lead ruling
+  2026-07-14): classes gated on runtime state that map an MRT feature —
+  density dense menus, drag outlines, active-filter bg-accent, single-select
+  rounded-full, note-25 checkbox sizing — default state must emit pure
+  shadcn. Static decorative overrides always die.
 - **shadcn-first (user ruling 2026-07-10).** When a shadcn/ui component exists
   for the MUI counterpart, use it — add via CLI if missing (components.json =
   radix/new-york; NOT the Base UI docs flavor). Approved mappings: MUI Alert →
@@ -99,15 +103,20 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 ### [x] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
 ### [x] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
 ### [ ] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
-- Rev-2 rewrite (shadcn-first ruling): MUI Alert → ui/alert (CLI add; cva adds
-  `block border-none rounded-none p-0 text-base` to neutralize Alert's
-  grid/border/padding — inert leftovers like grid-cols under block accepted),
-  Chip → ui/badge secondary + internal close button (keeps `icons:
-  { CloseIcon }` — MUI Chip's onDelete icon is internal, Badge has none),
-  clear-selection → Button ghost sm `p-[2px] text-primary` `type="button"`
-  (Rev-1's hover:underline was invented — dropped).
-- Interface extends `ComponentProps<typeof Alert>` (DialogContent precedent);
-  core adds `SpanProps`, `srtToolbarAlertBannerChipProps` DivProps → SpanProps.
+- Rev-3 (2026-07-14 default-variants ruling): neutralization cva REVERTED —
+  Alert renders its shadcn default (border, rounded-lg, px-4 py-3, bg-card;
+  old flat bg-primary/10 banner look gone); cva now layout-only (`relative
+  left-0 right-0 top-0 z-[2] w-full` + `-mb-4` bottomOffset). Clear-selection
+  = plain Button ghost/sm (`p-[2px] text-primary` cva deleted); Badge gap-1
+  dropped (already in Badge base). Alert default padding now wraps the inner
+  density-padding div — combined padding accepted. Content wrapper div takes
+  `col-start-2` (SRT-owned) to land in Alert's `grid-cols-[0_1fr]` content
+  track — without it content auto-places in the 0px icon track (browser-
+  caught regression); replaces Rev-2's `block` neutralization.
+- Rev-2 keeps: ui/alert via CLI, Chip → ui/badge secondary + internal close
+  button (keeps `icons: { CloseIcon }` — MUI Chip's onDelete icon is
+  internal, Badge has none), interface extends `ComponentProps<typeof Alert>`;
+  core `SpanProps`, `srtToolbarAlertBannerChipProps` DivProps → SpanProps.
 ### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
@@ -128,6 +137,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   overrides) and PaginationLink dropped for numbered pages (href-less anchor,
   not keyboard-operable) → all interactive controls are Buttons inside
   PaginationItem; active page = variant outline + aria-current="page".
+- `mx-0 w-auto` on Pagination root ruled LAYOUT (2026-07-14): undoes the
+  component's standalone `mx-auto w-full` so the nav sits inline in the
+  toolbar flex row — placement, not look.
 
 ## head/
 
@@ -211,12 +223,21 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   onKeyDown/aria common props — focus-filter-on-open skips select columns.
   Structural to the locked June rendering; revisit if select filters need
   programmatic focus.
+- PopoverContent `w-[--radix-popover-trigger-width] p-0` (autocomplete +
+  multiselect) KEPT: shadcn's own canonical Combobox pattern (Command inside
+  padless Popover); width var = layout. Notes at both sites.
 ### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
 ### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
+- Default-variants pass: `px-1` (ported MUI px:4px) dropped from Slider cva;
+  `mx-auto w-[calc(100%-8px)]` kept as layout (track inset). Watch item:
+  thumb clipping at min/max extremes — revert px-1 if browser shows clipping.
 ### [ ] SRT_FilterCheckbox.tsx : MRT_FilterCheckbox.tsx
 - Checkbox slots are ButtonProps → MRT's `(e, checked)` onChange composition
   has no typed surface; user hook = onClick only (same across all checkbox
   slots).
+- Default-variants pass: no-op `cva('size-4')` deleted, Checkbox bare.
+  Pre-existing gap (reviewer aside, deferred): user `checkboxProps.
+  onCheckedChange` is overridden, not composed — MRT forwards onChange.
 ### [ ] SRT_GlobalFilterTextField.tsx : MRT_GlobalFilterTextField.tsx
 - Sweep: raw input + absolute adornments → InputGroup (mode button or bare
   SearchIcon inline-start; clear inline-end, disabled clear tooltip-anchored
@@ -247,6 +268,10 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ### [ ] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
 ### [ ] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
+- Active-mode `bg-accent` on the selected item KEPT (2026-07-14 ruling):
+  state-driven functional styling (MUI MenuItem `selected` analog); same
+  token radix uses for its own highlighted state. RadioGroup/RadioItem
+  alternative rejected — items flow through shared SRT_ActionMenuItem.
 ### [ ] SRT_RowActionMenu.tsx : MRT_RowActionMenu.tsx
 ### [ ] SRT_CellActionMenu.tsx : MRT_CellActionMenu.tsx
 - MRT `transformOrigin={{horizontal: -100, vertical: 8}}` → radix Content
@@ -268,6 +293,8 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   import matching checkbox.tsx idiom, no new dep).
 - draggingBorderColor map: dragging → dashed outline-muted-foreground,
   hovered === column → dashed outline-primary.
+- Default-variants pass: `py-1.5` (ported MUI py:6px) dropped from item cva;
+  layout classes + `-outline-offset-2` (drag-outline inset, functional) kept.
 ### [ ] SRT_ActionMenuItem.tsx : MRT_ActionMenuItem.tsx
 - Sweep: submenu arrow raw button → Button ghost/icon (size-9 in the item
   row); item cva trimmed of min-w-[120px]/py-1.5 (DropdownMenuItem defaults
@@ -336,7 +363,11 @@ icon rotations kept. Each drop has an in-file Note.
 - `showCloseButton={false}` (MUI Dialog has no top-right X) +
   `aria-describedby={undefined}` (no DialogDescription in MRT), both before
   spread so user slots can override.
-- `fullWidth maxWidth="xs"` → cva `sm:max-w-[444px]`.
+- Default-variants pass (supersedes next line): `sm:max-w-[444px]` cva
+  DELETED — DialogContent default sm:max-w-lg (512px) wins; DialogTitle
+  `text-center` dropped (typography) — DialogHeader default alignment
+  (centered mobile / left sm+) wins. Both = visual changes vs MRT.
+- ~~`fullWidth maxWidth="xs"` → cva `sm:max-w-[444px]`~~ (superseded above).
 - Sweep: field stack div (flex-col gap-8 pt-4) → ui/field FieldGroup
   (gap-7, no top pad — shadcn default wins); DialogFooter `p-5` dropped
   (default footer spacing wins; MRT DialogActions p 1.25rem noted).
