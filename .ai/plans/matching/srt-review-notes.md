@@ -113,10 +113,17 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   `col-start-2` (SRT-owned) to land in Alert's `grid-cols-[0_1fr]` content
   track — without it content auto-places in the 0px icon track (browser-
   caught regression); replaces Rev-2's `block` neutralization.
-- Rev-2 keeps: ui/alert via CLI, Chip → ui/badge secondary + internal close
-  button (keeps `icons: { CloseIcon }` — MUI Chip's onDelete icon is
-  internal, Badge has none), interface extends `ComponentProps<typeof Alert>`;
-  core `SpanProps`, `srtToolbarAlertBannerChipProps` DivProps → SpanProps.
+- Rev-2 keeps: ui/alert via CLI, Chip → ui/badge secondary (keeps `icons:
+  { CloseIcon }` — MUI Chip's onDelete icon is internal, Badge has none),
+  interface extends `ComponentProps<typeof Alert>`; core `SpanProps`,
+  `srtToolbarAlertBannerChipProps` DivProps → SpanProps.
+- Grouping chip = `Badge asChild` rendering a single `<button>` (2026-07-15
+  user ruling; replaces Rev-2's nested raw delete button). Deviation: MUI
+  Chip label is inert, only its X deletes — here the WHOLE chip click
+  ungroups (user-accepted). CloseIcon auto-sized by badge base
+  `[&>svg]:size-3`; accessible name = column header text (MUI's delete icon
+  was unlabeled). Browser-verified 6/6. Same nested-button pattern remains
+  in SRT_FilterTextField chips — asChild swap there pending user call.
 ### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
