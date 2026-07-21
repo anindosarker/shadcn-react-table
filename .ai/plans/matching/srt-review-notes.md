@@ -62,6 +62,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   SRT_LinearProgressBar, SRT_TableHeadCellColumnActionsButton,
   SRT_TableHeadCellFilterLabel, SRT_TableHeadCellSortLabel,
   SRT_GlobalFilterTextField (2 adornments), SRT_ActionMenuItem (submenu arrow).
+- **ui/ registry refresh (2026-07-21, user order: every component, no
+  exceptions).** All ui/*.tsx on latest radix-flavor registry. input-group
+  fork CONVERGED upstream (no longer a deviation). badge data-icon fork
+  dropped — registry has no data-icon support yet; `data-icon` attrs stay
+  inert until Base UI migration. tooltip on latest → provider moved to
+  ShadcnReactTable root (see SRT_Tooltip entry). button gained xs/icon-xs/
+  icon-sm/icon-lg sizes + data-variant/data-size stamps. Pre-refresh backup:
+  session scratchpad ui-backup/. Browser-verified post-refresh (tooltips,
+  chips, console clean).
 
 ## Entry
 
@@ -120,10 +129,16 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - Grouping chip = `Badge asChild` rendering a single `<button>` (2026-07-15
   user ruling; replaces Rev-2's nested raw delete button). Deviation: MUI
   Chip label is inert, only its X deletes — here the WHOLE chip click
-  ungroups (user-accepted). CloseIcon auto-sized by badge base
-  `[&>svg]:size-3`; accessible name = column header text (MUI's delete icon
-  was unlabeled). Browser-verified 6/6. Same nested-button pattern remains
-  in SRT_FilterTextField chips — asChild swap there pending user call.
+  ungroups (user-accepted). Icon auto-sized by badge base `[&>svg]:size-3`;
+  accessible name = column header text (MUI's delete icon was unlabeled).
+  Browser-verified. FilterTextField chip converted to the same pattern
+  2026-07-21 (see its entry).
+- Chip icon (final, 2026-07-21): chip uses the `CancelIcon` slot (registry
+  `CancelIcon: XCircle` = circle-X, matching MUI Chip's built-in onDelete
+  glyph). User's interim global `CloseIcon → CircleX` remap was reverted —
+  registry back to MUI parity (CloseIcon=plain X). `data-icon="inline-end"`
+  attr on the icon is inert under radix-flavor badge — kept for future Base
+  UI migration.
 ### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
@@ -159,6 +174,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - Sweep: raw button → Button ghost/icon defaults; MRT sx (32px box, negative
   margins, idle opacity 0.3 + hover fade) dropped per no-override ruling —
   button now full-opacity size-9. Icon scale(0.9) → `scale-90` class.
+- Head-button resize (2026-07-22): size icon → `icon-sm` (size-8/32px,
+  built-in variant from the ui refresh; closest to MUI small IconButton
+  ~34px) — resolves the size-9 dense-column crowding flag. Applied uniformly
+  to ColumnActionsButton, FilterLabel, SortLabel, GrabHandleButton.
+  Browser-verified 32px + functional + compact density clean. SortLabel
+  nuance: MRT's TableSortLabel is ~3ch (~24px), not a small IconButton —
+  icon-sm chosen for sibling parity; `icon-xs` (24px) = alternative if
+  closer MRT footprint wanted. GrabHandleButton shared → row drag handles
+  shrink too (MRT small in both spots, parity holds).
 ### [ ] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
 ### [ ] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
 - Sweep: raw button → Button ghost/icon defaults; MRT's 16px scaled box +
@@ -233,6 +257,13 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - PopoverContent `w-[--radix-popover-trigger-width] p-0` (autocomplete +
   multiselect) KEPT: shadcn's own canonical Combobox pattern (Command inside
   padless Popover); width var = layout. Notes at both sites.
+- Filter-value chip (2026-07-21): Badge asChild single `<button>` — banner
+  chip pattern; whole-chip click clears filter value+mode (MUI label-inert
+  deviation accepted, banner precedent). Icon = `CancelIcon` slot (circle-X,
+  MUI Chip onDelete parity); X button's `aria-label={localization.
+  clearFilter}` dropped — accessible name = chip label text. gap-1/ml-0.5/
+  size-3 manual classes dropped (badge base covers). Browser-verified
+  (clear resets mode→Fuzzy, rows restore, console clean).
 ### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
 ### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
 - Default-variants pass: `px-1` (ported MUI px:4px) dropped from Slider cva;
@@ -390,6 +421,12 @@ icon rotations kept. Each drop has an in-file Note.
   delayDuration now passed to Tooltip Root directly (prop beats provider).
 - `disableHoverableContent` added to Root — maps MRT's getCommonTooltipProps
   `disableInteractive: true` (tooltip dismisses when pointer moves onto it).
+- ui-refresh (2026-07-21): latest registry tooltip no longer self-wraps in a
+  TooltipProvider (radix Root THROWS without one). Per shadcn docs ("add the
+  TooltipProvider to the root of your app") ONE provider is mounted in
+  ShadcnReactTable.tsx wrapping SRT_TableLayout — zero consumer boilerplate
+  (MUI/MRT ergonomics). Per-Root delayDuration kept (valid radix override).
+  Portal audit: all 23 usages descend from the provider.
 
 ## Core (`packages/shadcn-react-table-core/src`)
 
