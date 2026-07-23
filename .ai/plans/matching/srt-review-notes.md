@@ -155,10 +155,20 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 ### [x] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
-### [ ] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
+### [x] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
 - Sweep: bars → ui/progress driven by the existing useSRT_ProgressAnimation
   value; manual aria dropped (radix Progress supplies progressbar semantics);
   h-1 square → h-2 rounded-full shadcn default.
+- Collapse swap (2026-07-24, user): wrapper div + early-return → radix
+  Collapsible (banner precedent). Collapsible root = MRT's Collapse root
+  (carries the absolute/top-bottom/w-full cva + `wrapper` slot spread,
+  ordered before `open` so lib wins); MUI mountOnEnter/unmountOnExit = radix
+  default unmount. Duration EXACT parity: inline
+  `--tw-animation-duration: 300ms` var on CollapsibleContent (tw-animate
+  chain reads it first) = MUI duration.standard. Animation classes
+  unconditional (MUI always animates here, unlike banner's 0/200 split).
+  Browser-verified: both toolbars' bars, 0.3s computed, rAF sweep, clean
+  unmount, console clean.
 ### [ ] SRT_TablePagination.tsx : MRT_TablePagination.tsx
 - `srtPaginationProps` keeps explicit `showFirstButton`/`showLastButton`
   literals — MUI PaginationProps base carried them; the DivProps swap would
