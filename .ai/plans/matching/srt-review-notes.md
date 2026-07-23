@@ -50,6 +50,10 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   density dense menus, drag outlines, active-filter bg-accent, single-select
   rounded-full, note-25 checkbox sizing — default state must emit pure
   shadcn. Static decorative overrides always die.
+- **`Srt-*` class hooks DELETED (user ruling 2026-07-22).** The 6 manual
+  class hooks (AlertBanner, DropZone, TablePagination, TableHeadCell,
+  DetailPanel, ResizeHandle) mirrored MUI's auto-generated global classes —
+  redundant: consumer className flows via slot props. Don't add new ones.
 - **shadcn-first (user ruling 2026-07-10).** When a shadcn/ui component exists
   for the MUI counterpart, use it — add via CLI if missing (components.json =
   radix/new-york; NOT the Base UI docs flavor). Approved mappings: MUI Alert →
@@ -111,7 +115,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 ### [x] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
 ### [x] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
 ### [x] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
-### [ ] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
+### [x] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
 - Rev-3 (2026-07-14 default-variants ruling): neutralization cva REVERTED —
   Alert renders its shadcn default (border, rounded-lg, px-4 py-3, bg-card;
   old flat bg-primary/10 banner look gone); cva now layout-only (`relative
@@ -133,6 +137,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   accessible name = column header text (MUI's delete icon was unlabeled).
   Browser-verified. FilterTextField chip converted to the same pattern
   2026-07-21 (see its entry).
+- Collapse swap (2026-07-22, user): conditional render → radix Collapsible
+  (controlled `open` = MRT's exact condition, no trigger; early return
+  removed — root div stays in DOM closed, MUI Collapse parity). MUI
+  `timeout={stackAlertBanner ? 200 : 0}` → collapsible animation classes
+  ONLY when stacked (tw-animate-css keyframes, 0.2s default = 200ms; no CSS
+  config added). Parity gap accepted: radix unmounts closed content, MUI
+  keeps it mounted (forceMount rejected — banner stateless, would need
+  hand-styled hidden state). Browser-verified 6/6; stacked-animation branch
+  not demo-reachable (guard verified in code).
 - Chip icon (final, 2026-07-21): chip uses the `CancelIcon` slot (registry
   `CancelIcon: XCircle` = circle-X, matching MUI Chip's built-in onDelete
   glyph). User's interim global `CloseIcon → CircleX` remap was reverted —
