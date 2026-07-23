@@ -152,7 +152,7 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   registry back to MUI parity (CloseIcon=plain X). `data-icon="inline-end"`
   attr on the icon is inert under radix-flavor badge — kept for future Base
   UI migration.
-### [ ] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
+### [x] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
 ### [ ] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
