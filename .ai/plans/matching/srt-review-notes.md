@@ -170,21 +170,19 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   Browser-verified: both toolbars' bars, 0.3s computed, rAF sweep, clean
   unmount, console clean.
 ### [ ] SRT_TablePagination.tsx : MRT_TablePagination.tsx
-- `srtPaginationProps` keeps explicit `showFirstButton`/`showLastButton`
-  literals — MUI PaginationProps base carried them; the DivProps swap would
-  have dropped API the component consumes.
-- Sweep: rows-per-page native select → radix Select; `SelectProps` slot
-  retyped Partial<'select' props> → Partial<ButtonProps> (spread target =
-  SelectTrigger); slot `children` rendered inside SelectContent, excluded
-  from trigger spread.
-- 'pages' mode = shadcn Pagination composition, but PaginationPrevious/Next
-  dropped (hardcode English text + lucide icons — break 38-locale + icon
-  overrides) and PaginationLink dropped for numbered pages (href-less anchor,
-  not keyboard-operable) → all interactive controls are Buttons inside
-  PaginationItem; active page = variant outline + aria-current="page".
-- `mx-0 w-auto` on Pagination root ruled LAYOUT (2026-07-14): undoes the
-  component's standalone `mx-auto w-full` so the nav sits inline in the
-  toolbar flex row — placement, not look.
+- `srtPaginationProps` + component interface keep explicit `showFirstButton`/
+  `showLastButton` — MUI PaginationProps carried them; component consumes both.
+- Rows-per-page = radix Select; `SelectProps` slot → Partial<ButtonProps>
+  (spread target = SelectTrigger), slot `children` rendered inside
+  SelectContent; InputLabel → ui/label. SelectTrigger `size="sm"` (32px = MUI
+  standard Select) keeps pagination at 56px = toolbar min-h-14. Deviation:
+  radix Select locks body scroll while open (MRT passes disableScrollLock).
+- 'pages' mode = shadcn Pagination + verbatim in-file port of MUI
+  `usePagination` item algorithm (boundary/sibling 1); one Button per item =
+  PaginationItem analog (page aria-label = MUI default text, nav labels
+  localized). PaginationPrevious/Next/Link not used (English text, lucide
+  icons, href-less anchor). `mx-0 w-auto` = layout. All pagination Buttons
+  `icon-sm` per the head-button ruling (MUI small IconButton / 32px item).
 
 ## head/
 
