@@ -23,6 +23,18 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - `as any` casts kept MRT-verbatim now carry
   `// eslint-disable-next-line @typescript-eslint/no-explicit-any`. Alternative:
   relax `no-explicit-any` for the shadcn-react-table directory.
+- **Indeterminate checkbox glyph**: `ui/checkbox.tsx` (registry) has no
+  `data-[state=indeterminate]` branch, so a partially-selected parent row and an
+  unset tri-state filter paint a check instead of MUI's dash. Fixing means
+  forking the registry component (adds a `MinusIcon` branch). Not done — your
+  no-silent-forks rule. Affects SRT_SelectCheckbox + SRT_FilterCheckbox.
+- **Global filter show/hide is instant**: MUI Collapse animated width
+  (`orientation="horizontal"`); radix Collapsible ships height keyframes only.
+  A width keyframe could be added to app CSS if you want the transition.
+- **FilterTextField select/multi-select**: user `srtFilterTextFieldProps.onChange`
+  and `children` do not fire/render there (radix Select and cmdk expose no
+  ChangeEvent and cannot host arbitrary option children). MRT lines kept
+  commented in place.
 - Several `[x]` files still carry multi-line `// Note:` comments that the
   one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
 
@@ -323,11 +335,19 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   clearFilter}` dropped — accessible name = chip label text. gap-1/ml-0.5/
   size-3 manual classes dropped (badge base covers). Browser-verified
   (clear resets mode→Fuzzy, rows restore, console clean).
+- Autocomplete rebuilt to MUI Autocomplete behaviour: options filter against the
+  typed value, popover opens only with a non-empty input AND non-empty list, and
+  closes on select. Multi-select routes through `handleChange` (debounced path)
+  like every other variant; its cmdk search box + em-dash empty row deleted.
+- Adornment buttons → `icon-sm` (MUI small IconButton), matching the head buttons.
 ### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
 ### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
 - Default-variants pass: `px-1` (ported MUI px:4px) dropped from Slider cva;
   `mx-auto w-[calc(100%-8px)]` kept as layout (track inset). Watch item:
   thumb clipping at min/max extremes — revert px-1 if browser shows clipping.
+- `filterInputRefs` stores the radix thumb (`[data-slot=slider-thumb]`), not the
+  Slider root — the root is tabindex-less, so focus() from column actions and
+  the filter label had no effect.
 ### [ ] SRT_FilterCheckbox.tsx : MRT_FilterCheckbox.tsx
 - Checkbox slots are ButtonProps → MRT's `(e, checked)` onChange composition
   has no typed surface; user hook = onClick only (same across all checkbox
@@ -340,6 +360,8 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   SearchIcon inline-start; clear inline-end, disabled clear tooltip-anchored
   via span); InputGroupButton size icon-xs; width lives on the SRT-owned
   wrapper (w-48), not the group.
+- Width (`w-48`) sits on CollapsibleContent, not the root, so a hidden search
+  field occupies no toolbar width.
 ### [ ] SRT_EditCellTextField.tsx : MRT_EditCellTextField.tsx
 - Sweep: raw input → ui/Input; raw select → radix Select. Select mapping:
   onValueChange = commit (setValue + saveInputValueToRowCache);
@@ -352,6 +374,10 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - SRT-only `onEditingCellSave` API preserved: fires in saveInputValueToRowCache
   when editDisplayMode is 'cell'|'table' (blur + Enter-via-blur + select
   immediate save) — where MRT does nothing. Signature {cell, row, table, value}.
+- Select variant spreads the remaining slot props onto SelectTrigger; the
+  omit-destructure is held against no-unused-vars by a scoped eslint block.
+- Deferred gap: MRT's Enter→blur save is still unwired for the select variant
+  (radix Select has no editInputRefs blur analogue).
 ### [ ] SRT_SelectCheckbox.tsx : MRT_SelectCheckbox.tsx
 - `srtSelectCheckboxProps` collapses MRT's `CheckboxProps | RadioProps` union
   to ButtonProps — locked June deviation: round Checkbox for single-select,
@@ -366,6 +392,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - Checkbox is anchored on a `<span>` inside SRT_Tooltip: `TooltipTrigger
   asChild` overwrote radix's own `data-state`, so checked styling never
   rendered even though selection state was correct.
+- Indeterminate is MRT-verbatim again: the some-selected branch is evaluated
+  regardless of `isChecked`, so a checked parent with partially selected
+  subrows renders indeterminate. Dropped MUI Radio kept as a commented line.
 ### [ ] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
 ### [ ] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
 - Active-mode `bg-accent` on the selected item KEPT (2026-07-14 ruling):
@@ -416,6 +445,8 @@ fades gone (GrabHandle 0.5→1, RowActionMenu/edit 0.5→1, ColumnActions 0.3→
 ExpandButton disabled dim 0.3 → disabled:opacity-50 default. Layout margins +
 icon rotations kept. Each drop has an in-file Note.
 
+- Submenu arrow → Button ghost `icon-sm` (supersedes the 2026-07-11 size-9
+  bullet, which predates the icon-sm registry size).
 ### [ ] SRT_ToggleRowActionMenuButton.tsx : MRT_ToggleRowActionMenuButton.tsx
 - `{...rest}` moved LAST on both Buttons (MRT precedence: consumer
   onClick/aria-label override internal) — sweep review caught the uniform
