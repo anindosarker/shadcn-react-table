@@ -44,6 +44,11 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - **Edit modal** is capped at `max-h-[calc(100%-4rem)]` (MUI Paper default) so
   the inner scroll box can actually scroll. A user `className` on the dialog
   slot replaces it, since it lives in className rather than a cva.
+- **Tooltip API surface**: `sideOffset`, `onOpenChange` and `className` on
+  SRT_Tooltip have zero consumers across all call sites. Keep them as public
+  API or trim them?
+- **Filter on/off icon pair**: currently ListFilter (on) + FilterX (off).
+  The alternative is the matched funnel pair Filter + FilterX.
 - Several `[x]` files still carry multi-line `// Note:` comments that the
   one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
 
@@ -556,10 +561,18 @@ icon rotations kept. Each drop has an in-file Note.
 
 ## Core (`packages/shadcn-react-table-core/src`)
 
+- Single consumer of core's `getCommonTooltipProps`: delay, hoverable-content
+  and side all come from there, so `delayDuration`/`disableHoverableContent`
+  are no longer public props. Provider mounts with `skipDelayDuration={0}`,
+  which is MRT's `enterNextDelay: 1000` (every tooltip waits its full delay).
 ### [ ] index.ts : index.ts
-- Deviation kept: SRT re-exports `utils/utils` (parseFromValuesOrFunc etc.)
-  publicly — required because SRT components live in the app, outside the
-  core package; MRT keeps it internal (same-package imports).
+- Deviation kept: SRT re-exports `utils/utils` (parseFromValuesOrFunc etc.),
+  `utils/style.utils` (getSRTPinnedCellStyles / getSRTCellWidthStyles /
+  parseCSSVarId / getCommonTooltipProps), the SRT-only
+  `hooks/useSRT_ProgressAnimation`, and `highlightWords` from the
+  `highlight-words` dep publicly — SRT components live in the app, outside the
+  core package, and consumers installing via the CLI would otherwise need their
+  own `highlight-words` dependency. MRT keeps all of these internal.
 - Deviation kept: all locales re-exported from the MAIN index (MRT ships
   them as separate subpath entry points); display-column defs also surfaced
   (MRT exports none). Single-entry consumption is intentional.
@@ -585,9 +598,13 @@ icon rotations kept. Each drop has an in-file Note.
 ### [ ] utils/displayColumn.utils.ts : utils/displayColumn.utils.ts
 ### [ ] utils/row.utils.ts : utils/row.utils.ts
 ### [ ] utils/style.utils.ts : utils/style.utils.ts
-- Deferred gap: MRT's pinned-edge inset boxShadow (`&:before` pseudo on
-  last-left/first-right pinned column, getCommonPinnedCellStyles) not
-  reproduced — pinned columns have no edge shadow. Revisit at this pair.
+- Pinned-edge inset boxShadow now implemented in `getSRTPinnedCellStyles`
+  (last-left / first-right), closing the old deferred gap; the helper
+  early-returns `{}` when unpinned, so the three cells spread it
+  unconditionally like MRT.
+- `getCommonTooltipProps` is live again: SRT_Tooltip is its single consumer
+  (MRT spreads it per call site). It returns `disableHoverableContent`
+  (radix's `disableInteractive`) plus the 1000ms delay.
 ### [ ] utils/tanstack.helpers.ts : utils/tanstack.helpers.ts
 ### [ ] utils/utils.ts : utils/utils.ts
 ### [ ] utils/virtualization.utils.ts : utils/virtualization.utils.ts
