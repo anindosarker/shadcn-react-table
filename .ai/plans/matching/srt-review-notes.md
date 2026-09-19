@@ -6,6 +6,26 @@ Top-down review (render-tree order). Source of truth: `packages/material-react-t
 **Trust map:** Every unchecked item is garbage from bad prior runs → rebuild from
 the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
+## Open for user review (autonomous run 2026-09-19)
+
+- **MUI TableCell defaults now mapped onto raw cells** (General note "MUI
+  component DEFAULT styles count as spec"): head/body/detail cells get
+  `border-b text-sm` (+`leading-6` on th), footer cells get MUI's
+  footer-variant `text-xs leading-[1.3125rem] text-muted-foreground`. Rows now
+  have 1px separators and 14px text where SRT previously inherited 16px and had
+  none. Rule if you dislike it: keep border-less rows and record it in General
+  notes instead.
+- **Tooltip vs radix state**: `TooltipTrigger asChild` overwrote the child's own
+  `data-state`, so tooltip-wrapped Checkbox/Switch never rendered their checked
+  styling (select-all and per-row checkboxes looked empty while selected).
+  Fixed by anchoring those two tooltips on a `<span>` (pagination precedent).
+  A central fix inside `SRT_Tooltip` is possible if you prefer.
+- `as any` casts kept MRT-verbatim now carry
+  `// eslint-disable-next-line @typescript-eslint/no-explicit-any`. Alternative:
+  relax `no-explicit-any` for the shadcn-react-table directory.
+- Several `[x]` files still carry multi-line `// Note:` comments that the
+  one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
+
 ## General notes (established conventions — apply project-wide)
 
 - **cva variants**
@@ -187,10 +207,16 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 ## head/
 
 ### [ ] SRT_TableHead.tsx : MRT_TableHead.tsx
+- `headerGroup as any` restored (MRT-verbatim) with an eslint-disable line —
+  the convention for every MRT-parity cast in the tree.
 ### [ ] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
 ### [ ] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
 - Deferred gap: MRT's expand Header appends grouped-column names when
   `groupedColumnMode === 'remove'` — not rendered; revisit at grouping parity.
+- `headerPL` padding gate restored to MRT-exact `tableCellProps?.align ===
+  'center'` (user slot only). The old `columnDefType === 'group'` substitute
+  pushed every group label right of centre; MRT group headers get no headerPL.
+- th cva carries MUI TableCell head defaults `border-b text-sm leading-6`.
 ### [ ] SRT_TableHeadCellColumnActionsButton.tsx : MRT_TableHeadCellColumnActionsButton.tsx
 - Sweep: raw button → Button ghost/icon defaults; MRT sx (32px box, negative
   margins, idle opacity 0.3 + hover fade) dropped per no-override ruling —
@@ -232,6 +258,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - Row highlights = solid classes (locked deviation; MRT's td:after overlay
   machinery commented in place). Consequence: hovering a SELECTED row lightens
   it (bg-muted → bg-muted/50); MRT keeps selected bg on hover.
+- Hoisted `isStickyPinned` const and hoisted `rowStyle` object inlined back to
+  MRT's expression positions; dropped MUI `selected` prop now visible as a
+  commented line (selection carried by `data-selected` + the cva variant).
 ### [ ] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
 - Sweep: skeleton pulse-div → ui/skeleton (runtime width/height stay inline;
   MUI wave→pulse and bg-muted→bg-accent defaults noted).
@@ -242,6 +271,11 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 - `renderRowActions` is handled inside SRT_ToggleRowActionMenuButton — the
   cell dispatch renders only the button (MRT def shape); wrapping it again
   double-invokes.
+- td cva carries MUI TableCell defaults `border-b text-sm`; `-outline-offset-1`
+  moved to the base (MRT sets outlineOffset at the sx root, so it also applies
+  to the hover outline on editable cells).
+- `mrt-row-numbers` and `mrt-row-spacer` cases deleted from the display
+  dispatch — core supplies both (Cell / blankColProps), so they were dead.
 ### [ ] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
 - `highlight-words` re-exported from core (`highlightWords`) instead of a
   direct app dependency — consuming apps only need the core dep. Components
@@ -255,12 +289,16 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## footer/
 
+- Detail-panel td takes MUI TableCell defaults (`border-b text-sm text-start`,
+  `px-4`); `expanded` variant drops the border when collapsed = MRT line 92.
 ### [ ] SRT_TableFooter.tsx : MRT_TableFooter.tsx
 ### [ ] SRT_TableFooterRow.tsx : MRT_TableFooterRow.tsx
 ### [ ] SRT_TableFooterCell.tsx : MRT_TableFooterCell.tsx
 
 ## inputs/
 
+- MUI `variant="footer"` defaults folded into the cva as `text-xs
+  leading-[1.3125rem] text-muted-foreground` (raw td has no variant analogue).
 ### [ ] SRT_FilterTextField.tsx : MRT_FilterTextField.tsx
 - Sweep fork: text + autocomplete variants → InputGroup (mode InputGroupButton
   + chip inline-start; clear inline-end, text only; autocomplete's
@@ -325,6 +363,9 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
 ## menus/
 
+- Checkbox is anchored on a `<span>` inside SRT_Tooltip: `TooltipTrigger
+  asChild` overwrote radix's own `data-state`, so checked styling never
+  rendered even though selection state was correct.
 ### [ ] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
 ### [ ] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
 - Active-mode `bg-accent` on the selected item KEPT (2026-07-14 ruling):
@@ -354,6 +395,8 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   hovered === column → dashed outline-primary.
 - Default-variants pass: `py-1.5` (ported MUI py:6px) dropped from item cva;
   layout classes + `-outline-offset-2` (drag-outline inset, functional) kept.
+- Switch anchored on a `<span>` inside SRT_Tooltip (same radix `data-state`
+  clobber as SRT_SelectCheckbox).
 ### [ ] SRT_ActionMenuItem.tsx : MRT_ActionMenuItem.tsx
 - Sweep: submenu arrow raw button → Button ghost/icon (size-9 in the item
   row); item cva trimmed of min-w-[120px]/py-1.5 (DropdownMenuItem defaults
