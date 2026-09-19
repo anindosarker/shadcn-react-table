@@ -6,66 +6,65 @@ Top-down review (render-tree order). Source of truth: `packages/material-react-t
 **Trust map:** Every unchecked item is garbage from bad prior runs → rebuild from
 the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
-## Open for user review (autonomous run 2026-09-19)
+## Autonomous run 2026-09-19 — rulings made
 
-- **MUI TableCell defaults now mapped onto raw cells** (General note "MUI
-  component DEFAULT styles count as spec"): head/body/detail cells get
-  `border-b text-sm` (+`leading-6` on th), footer cells get MUI's
-  footer-variant `text-xs leading-[1.3125rem] text-muted-foreground`. Rows now
-  have 1px separators and 14px text where SRT previously inherited 16px and had
-  none. Rule if you dislike it: keep border-less rows and record it in General
-  notes instead.
-- **Tooltip vs radix state**: `TooltipTrigger asChild` overwrote the child's own
-  `data-state`, so tooltip-wrapped Checkbox/Switch never rendered their checked
-  styling (select-all and per-row checkboxes looked empty while selected).
-  Fixed by anchoring those two tooltips on a `<span>` (pagination precedent).
-  A central fix inside `SRT_Tooltip` is possible if you prefer.
-- `as any` casts kept MRT-verbatim now carry
-  `// eslint-disable-next-line @typescript-eslint/no-explicit-any`. Alternative:
-  relax `no-explicit-any` for the shadcn-react-table directory.
-- **Indeterminate checkbox glyph**: `ui/checkbox.tsx` (registry) has no
-  `data-[state=indeterminate]` branch, so a partially-selected parent row and an
-  unset tri-state filter paint a check instead of MUI's dash. Fixing means
-  forking the registry component (adds a `MinusIcon` branch). Not done — your
-  no-silent-forks rule. Affects SRT_SelectCheckbox + SRT_FilterCheckbox.
-- **Global filter show/hide is instant**: MUI Collapse animated width
-  (`orientation="horizontal"`); radix Collapsible ships height keyframes only.
-  A width keyframe could be added to app CSS if you want the transition.
-- **FilterTextField select/multi-select**: user `srtFilterTextFieldProps.onChange`
-  and `children` do not fire/render there (radix Select and cmdk expose no
-  ChangeEvent and cannot host arbitrary option children). MRT lines kept
-  commented in place.
-- **Row-pin button box is 32px, MRT's is 24px.** MRT sets `size="small"` plus
-  an explicit 24px `sx`. The sx override is dropped per the sweep ruling, and
-  `icon-xs` was rejected because it forces a 12px glyph. Say the word if you
-  want an exact 24px box with an 18px icon.
-- **Expand-all compact density**: restored as a cva `size-7` variant (MRT's
-  1.75rem branch), the only density sizing kept on a shadcn Button.
-- **Edit modal** is capped at `max-h-[calc(100%-4rem)]` (MUI Paper default) so
-  the inner scroll box can actually scroll. A user `className` on the dialog
-  slot replaces it, since it lives in className rather than a cva.
-- **Tooltip API surface**: `sideOffset`, `onOpenChange` and `className` on
-  SRT_Tooltip have zero consumers across all call sites. Keep them as public
-  API or trim them?
-- **Filter on/off icon pair**: currently ListFilter (on) + FilterX (off).
-  The alternative is the matched funnel pair Filter + FilterX.
-- **Progress bars re-render ~60x/sec.** `useSRT_ProgressAnimation` drives the
-  bar by setting state on every animation frame, so both toolbars re-render
-  continuously while `showProgressBars` is on. MUI animates in pure CSS with
-  zero re-renders. A CSS-keyframes rewrite would match MUI and cost nothing,
-  but it changes the hook's shape, so it is your call.
-- **`onEditingCellSave` is SRT-only public API.** MRT has no counterpart (only
-  onEditingRowSave / onCreatingRowSave). A reviewer proposed deleting it; it is
-  live (SRT_EditCellTextField fires it for cell/table edit modes), so it stays.
-  Ratify or drop it deliberately.
-- **`types.ts` declaration order** still differs from MRT's in places (the
-  sorting/filter/aggregation family, display-column types). Purely cosmetic;
-  a reorder pass needs exclusive access to the file.
-- **`srtLinearProgressProps` keeps the invented nested bag**
-  (`{ collapsibleProps, progressComponentProps }`) so the Collapsible wrapper
-  stays configurable. MRT's slot is flat.
-- Several `[x]` files still carry multi-line `// Note:` comments that the
-  one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
+Resolved under the standing autonomy (lead decides, never silently). Reverse any
+of these and the reasoning is here.
+
+- **MUI TableCell defaults mapped onto raw cells — KEPT.** Head/body/detail
+  cells carry `border-b text-sm` (+`leading-6` on th); footer cells carry MUI's
+  footer variant (`text-xs leading-[1.3125rem] text-muted-foreground`). Direct
+  application of the General note "MUI DEFAULT styles count as spec". This is
+  the one change that alters the default look: rows now have 1px separators and
+  14px text. Eyeball it; if you want border-less rows, that is a new General
+  note, not a bug.
+- **Progress bars now animate in CSS** — `useSRT_ProgressAnimation` DELETED
+  (hook + core export). MUI LinearProgress defaults to `variant="indeterminate"`
+  and animates in pure CSS, so the rAF hook was emulating in React what MRT
+  never rendered in React. Keyframes (`srt-linear-progress-indeterminate`,
+  2100ms, MUI's `indeterminate1` curve) live in the app stylesheet; a slot
+  `value` still switches the bar to determinate. Removes a ~60fps re-render in
+  both toolbars and the 100→0 value wrap.
+- **Indeterminate checkbox = MUI's dash. Registry fork, recorded.** `ui/checkbox`
+  now renders MinusIcon for `data-[state=indeterminate]` and fills the box like
+  the checked state. Upstream has no indeterminate branch, so a partially
+  selected parent row and an unset tri-state filter were painting a full check —
+  wrong state, not a style preference. Re-apply after any registry refresh; the
+  fork is two class strings and one icon.
+- **Global filter animates its width** — MUI `Collapse orientation="horizontal"`
+  mapped with `srt-collapsible-left/right` keyframes in the app stylesheet
+  (radix ships height keyframes only).
+- **SRT_Tooltip trimmed**: `sideOffset` and `onOpenChange` had zero consumers
+  and are gone. `open` (2 consumers), `className` (7) and `asChild` stay.
+- **Tooltip over a radix state component needs a `<span>` anchor** — now a
+  General note. `TooltipTrigger asChild` overwrites the child's `data-state`.
+- **`types.ts` declaration order is already MRT-exact** — verified export by
+  export. The only SRT-only exports are the DOM prop aliases (DivProps,
+  SpanProps, NavProps, ButtonProps, InputProps, Table*Props) that stand in for
+  MUI's prop types, plus the two progress prop types. `MRT_Theme` is the
+  deliberately dropped `mrtTheme`.
+- **`onEditingCellSave` RATIFIED** as SRT-only public API. MRT has no
+  counterpart, but it is live (SRT_EditCellTextField fires it for cell and table
+  edit modes) and it closes a real MRT gap.
+- **Kept as-is, with reasons**: `as any` casts carry a per-line eslint-disable
+  rather than relaxing the rule directory-wide; the row-pin button stays 32px
+  (`icon-xs` forces a 12px glyph, far from MUI's ~18px); the edit modal keeps
+  MUI's Paper max-height so its scroll box can scroll; `srtLinearProgressProps`
+  keeps the nested `{collapsibleProps, progressComponentProps}` bag so the
+  Collapsible wrapper stays configurable.
+- **Permanent deviations (no fix exists)**: user `srtFilterTextFieldProps`
+  `onChange`/`children` do not reach the select and multi-select variants —
+  radix Select and cmdk expose no ChangeEvent and cannot host arbitrary option
+  children. MRT's lines stay commented at their positions.
+
+### Still yours to call
+
+- **Filter on/off icons**: currently ListFilter (on) + FilterX (off). MUI pairs
+  FilterList with FilterListOff, which has no exact lucide twin. The alternative
+  is the matched funnel pair Filter + FilterX. Pure taste.
+- **Multi-line `// Note:` comments in files you already checked `[x]`** (e.g.
+  `ShadcnReactTable.tsx`) would be trimmed by the one-line rule. Untouched,
+  because `[x]` is yours.
 
 ## General notes (established conventions — apply project-wide)
 
@@ -120,6 +119,10 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   ButtonBase always emits it; a bare shadcn `<button>` defaults to `submit` and
   would submit an enclosing form. Every ported icon/text button restores it,
   placed before `{...rest}` so consumers can override.
+- **Tooltips over radix state components need a `<span>` anchor.**
+  `TooltipTrigger asChild` merges its own `data-state` onto the child, which
+  overwrites a Checkbox's or Switch's state attribute and kills its styling.
+  Wrap those children in a `<span className="inline-flex">`.
 - **`Srt-*` class hooks DELETED (user ruling 2026-07-22).** The 6 manual
   class hooks (AlertBanner, DropZone, TablePagination, TableHeadCell,
   DetailPanel, ResizeHandle) mirrored MUI's auto-generated global classes —
