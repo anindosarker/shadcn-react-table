@@ -49,6 +49,21 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   API or trim them?
 - **Filter on/off icon pair**: currently ListFilter (on) + FilterX (off).
   The alternative is the matched funnel pair Filter + FilterX.
+- **Progress bars re-render ~60x/sec.** `useSRT_ProgressAnimation` drives the
+  bar by setting state on every animation frame, so both toolbars re-render
+  continuously while `showProgressBars` is on. MUI animates in pure CSS with
+  zero re-renders. A CSS-keyframes rewrite would match MUI and cost nothing,
+  but it changes the hook's shape, so it is your call.
+- **`onEditingCellSave` is SRT-only public API.** MRT has no counterpart (only
+  onEditingRowSave / onCreatingRowSave). A reviewer proposed deleting it; it is
+  live (SRT_EditCellTextField fires it for cell/table edit modes), so it stays.
+  Ratify or drop it deliberately.
+- **`types.ts` declaration order** still differs from MRT's in places (the
+  sorting/filter/aggregation family, display-column types). Purely cosmetic;
+  a reorder pass needs exclusive access to the file.
+- **`srtLinearProgressProps` keeps the invented nested bag**
+  (`{ collapsibleProps, progressComponentProps }`) so the Collapsible wrapper
+  stays configurable. MRT's slot is flat.
 - Several `[x]` files still carry multi-line `// Note:` comments that the
   one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
 
@@ -584,6 +599,15 @@ icon rotations kept. Each drop has an in-file Note.
   populated `mrtTheme: Required<SRT_Theme>`; SRT_Theme interface deleted).
 - Dead-API family fully deleted post-conversion: SRT_HTMLProps,
   SRT_HTMLPropsValue, the three *HTMLPropsContext types, srtHtmlProps.utils.
+- `NavProps` added to the DOM alias family; `srtPaginationProps` is nav-rooted
+  and no longer borrows DivProps. The DivProps ruling stays scoped to divs.
+- `srtPaginationProps` restored MUI usePagination's four inputs
+  (boundaryCount, siblingCount, hidePrevButton, hideNextButton); all four are
+  now consumed by SRT_TablePagination's item builder.
+- Slot base-type corrections: slider slots → `SpanProps & {max,min}` at both
+  levels, alert-banner chip → ButtonProps (Badge asChild renders a button),
+  `SRT_CircularProgressProps` → bare LucideProps. Both srt*Props blocks
+  reordered to MRT's alphabetical order.
 ### [ ] icons.ts : icons.ts
 - All 34 MRT icon keys mapped to lucide; `Record<string,...>` annotation
   dropped (defeated `as const` → icons option lost key checking) and
@@ -614,6 +638,8 @@ icon rotations kept. Each drop has an in-file Note.
 - REMOVED (with SRT_HTMLProps/SRT_HTMLPropsValue types + index export) —
   dead June API, zero live references; parseFromValuesOrFunc is the sole
   slot-parsing idiom.
+- Re-verified 2026-09-19: zero references to the file or the SRT_HTMLProps
+  type family anywhere in apps/ or packages/ source.
 ### [ ] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
 ### [ ] hooks/useSRT_TableInstance.ts : hooks/useMRT_TableInstance.ts
 ### [ ] hooks/useSRT_TableOptions.ts : hooks/useMRT_TableOptions.ts
@@ -628,6 +654,11 @@ icon rotations kept. Each drop has an in-file Note.
 
 ## Core display-columns (`hooks/display-columns/`)
 
+- Now ports MUI LinearProgress `indeterminate1` literally: 2100ms cycle,
+  cubic-bezier(0.65, 0.815, 0.735, 0.395), travel complete at 60% then hold.
+  API collapsed to `useSRT_ProgressAnimation(show)` returning the value.
+- Standing deviation: one radix Progress bar vs MUI's two overlapping spans,
+  and the value wraps 100→0 each cycle instead of exiting a clipped root.
 ### [ ] getSRT_RowActionsColumnDef.tsx : getMRT_RowActionsColumnDef.tsx
 ### [ ] getSRT_RowDragColumnDef.tsx : getMRT_RowDragColumnDef.tsx
 ### [ ] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
