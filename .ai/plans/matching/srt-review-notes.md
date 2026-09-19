@@ -46,6 +46,12 @@ of these and the reasoning is here.
 - **`onEditingCellSave` RATIFIED** as SRT-only public API. MRT has no
   counterpart, but it is live (SRT_EditCellTextField fires it for cell and table
   edit modes) and it closes a real MRT gap.
+- **Filter on/off icons → lucide's matched pair** (`Filter` + `FilterX`, both
+  funnel-family). MUI pairs FilterList with its slashed twin; the previous
+  ListFilter + FilterX mixed a list glyph with a funnel glyph, so the toggle
+  changed shape family in place and read as a rendering bug. lucide has no
+  list-style "off" glyph, so shape consistency wins over matching MUI's exact
+  single glyph. Browser-verified: funnel → funnel-x.
 - **Kept as-is, with reasons**: `as any` casts carry a per-line eslint-disable
   rather than relaxing the rule directory-wide; the row-pin button stays 32px
   (`icon-xs` forces a 12px glyph, far from MUI's ~18px); the edit modal keeps
@@ -59,12 +65,17 @@ of these and the reasoning is here.
 
 ### Still yours to call
 
-- **Filter on/off icons**: currently ListFilter (on) + FilterX (off). MUI pairs
-  FilterList with FilterListOff, which has no exact lucide twin. The alternative
-  is the matched funnel pair Filter + FilterX. Pure taste.
-- **Multi-line `// Note:` comments in files you already checked `[x]`** (e.g.
-  `ShadcnReactTable.tsx`) would be trimmed by the one-line rule. Untouched,
-  because `[x]` is yours.
+- **Nothing blocking.** Both former open items are now ruled (see above): the
+  filter icon pair moved to lucide's matched funnel pair, and the MUI cell
+  defaults are kept per the MUI-defaults-are-spec note. Reverse either with a
+  one-line change if you disagree.
+- **`[x]` boxes and the merge are yours by design.** The branch `claude/review`
+  is 47+ commits ahead of `origin/master`, 0 behind, 0 conflicts — a clean
+  fast-forward. Nothing was merged, because the unchecked boxes are your review
+  gate and this is a shared repo.
+- **Multi-line `// Note:` comments inside files you already checked `[x]`**
+  (e.g. `ShadcnReactTable.tsx`) would be trimmed by the one-line rule.
+  Untouched, because `[x]` is yours.
 
 ## General notes (established conventions — apply project-wide)
 
@@ -617,6 +628,8 @@ icon rotations kept. Each drop has an in-file Note.
   SRT_Icons re-exported from types.ts (MRT parity).
 - Cosmetic candidate: DynamicFeedIcon → Rss is a weak glyph match (MUI =
   stacked cards); Layers/Files would read better. Left as-is.
+- `FilterListIcon`/`FilterListOffIcon` → `Filter`/`FilterX` (matched funnel
+  pair); lucide has no slashed list-filter glyph, so the toggle keeps one shape.
 ### [ ] fns/aggregationFns.ts : fns/aggregationFns.ts
 ### [ ] fns/filterFns.ts : fns/filterFns.ts
 ### [ ] fns/sortingFns.ts : fns/sortingFns.ts
