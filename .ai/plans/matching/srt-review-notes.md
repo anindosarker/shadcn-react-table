@@ -35,6 +35,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   and `children` do not fire/render there (radix Select and cmdk expose no
   ChangeEvent and cannot host arbitrary option children). MRT lines kept
   commented in place.
+- **Row-pin button box is 32px, MRT's is 24px.** MRT sets `size="small"` plus
+  an explicit 24px `sx`. The sx override is dropped per the sweep ruling, and
+  `icon-xs` was rejected because it forces a 12px glyph. Say the word if you
+  want an exact 24px box with an 18px icon.
+- **Expand-all compact density**: restored as a cva `size-7` variant (MRT's
+  1.75rem branch), the only density sizing kept on a shadcn Button.
+- **Edit modal** is capped at `max-h-[calc(100%-4rem)]` (MUI Paper default) so
+  the inner scroll box can actually scroll. A user `className` on the dialog
+  slot replaces it, since it lives in className rather than a cva.
 - Several `[x]` files still carry multi-line `// Note:` comments that the
   one-line rule would trim (e.g. `ShadcnReactTable.tsx`). Not touched.
 
@@ -82,6 +91,15 @@ the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
   density dense menus, drag outlines, active-filter bg-accent, single-select
   rounded-full, note-25 checkbox sizing — default state must emit pure
   shadcn. Static decorative overrides always die.
+- **Icon-button size mapping (settled 2026-09-19).** Map from what MRT
+  actually passes, not from "it's an icon button": MRT `size="small"` →
+  `icon-sm` (32px); MRT with no `size` (MUI medium) → `icon` (36px). Only
+  RowPinButton, ToggleRowActionMenuButton's row-actions button, and the head
+  buttons pass `small`; the toolbar toggles pass nothing, so they stay `icon`.
+- **`type="button"` is MUI-inherited behaviour, not scaffolding.** MUI
+  ButtonBase always emits it; a bare shadcn `<button>` defaults to `submit` and
+  would submit an enclosing form. Every ported icon/text button restores it,
+  placed before `{...rest}` so consumers can override.
 - **`Srt-*` class hooks DELETED (user ruling 2026-07-22).** The 6 manual
   class hooks (AlertBanner, DropZone, TablePagination, TableHeadCell,
   DetailPanel, ResizeHandle) mirrored MUI's auto-generated global classes —
@@ -451,10 +469,14 @@ icon rotations kept. Each drop has an in-file Note.
 - `{...rest}` moved LAST on both Buttons (MRT precedence: consumer
   onClick/aria-label override internal) — sweep review caught the uniform
   rest-first idiom inverting this file's MRT order.
+- Row-actions button `icon-sm`, edit button `icon` — mirrors MRT's deliberate
+  `size="small"` vs default-medium split.
 ### [ ] SRT_EditActionButtons.tsx : MRT_EditActionButtons.tsx
 - Sweep: spinner → ui/spinner (was LoaderCircleIcon 18px; now Spinner 16px
   default); save icon button's `text-primary` (old color="info" map) and
   text-variant `min-w-[100px]` dropped per ruling.
+- Dropped MRT props recorded as bare `// prop` + one-line Note in JSX attribute
+  position (prettier-stable) rather than `{/* */}` blocks above the element.
 ### [ ] SRT_CopyButton.tsx : MRT_CopyButton.tsx
 - USER EXCEPTION (2026-07-11) to the no-className ruling: text-inheritance
   cva restored — click-to-copy cells must render as plain cell text, not a
@@ -463,12 +485,16 @@ icon rotations kept. Each drop has an in-file Note.
   MRT's root-only `backgroundColor: transparent` sx, so ghost's default
   `hover:bg-accent` is the correct analog (plan initially said the opposite;
   corrected on review).
+- `[font-size:inherit]` is the correct idiom for MRT's `fontSize: 'inherit'`;
+  `text-[inherit]` compiles to `color: inherit` and was wrong.
 ### [ ] SRT_ExpandButton.tsx : MRT_ExpandButton.tsx
 - theme.direction rtl branches dropped with Notes (SRT has no theme
   direction); `positionExpandColumn === 'last'` branches kept.
 - MRT's no-rest-spread quirk mirrored (destructures only
   row/staticRowIndex/table; interface still extends ButtonProps).
 ### [ ] SRT_ExpandAllButton.tsx : MRT_ExpandAllButton.tsx
+- Density sizing as cva variants (compact `size-7`, otherwise `-mt-1` over
+  Button `size="icon"`), mirroring MRT's 1.75rem/2.25rem sx branch.
 ### [ ] SRT_GrabHandleButton.tsx : MRT_GrabHandleButton.tsx
 - Post-sweep: opacity/location distinction gone (all handles full-opacity
   size-9 per ruling); `location` prop vestigial — kept in interface,
@@ -478,6 +504,8 @@ icon rotations kept. Each drop has an in-file Note.
 ### [ ] SRT_RowPinButton.tsx : MRT_RowPinButton.tsx
 - `RowPinningPosition` re-exported from core types.ts (app has no direct
   @tanstack/react-table dep; MRT imports it directly).
+- `icon-sm` (32px) kept; MRT's explicit 24px sx stays dropped (commented) —
+  `icon-xs` rejected because its `size-3` glyph is far below MUI's ~18px.
 ### [ ] SRT_ColumnPinningButtons.tsx : MRT_ColumnPinningButtons.tsx
 ### [ ] SRT_ShowHideColumnsButton.tsx : MRT_ShowHideColumnsButton.tsx
 ### [ ] SRT_ToggleDensePaddingButton.tsx : MRT_ToggleDensePaddingButton.tsx
@@ -507,6 +535,9 @@ icon rotations kept. Each drop has an in-file Note.
 
 ## Deviation-only (no MRT counterpart)
 
+- Field labels render here (Field + FieldLabel per cell) = MRT_EditCellTextField's
+  modal-only `label`; control nested inside FieldLabel. Inner MUI DialogContent
+  → raw scroll div, with the MUI Paper max-height cap on DialogContent.
 ### [ ] SRT_Tooltip.tsx
 - API frozen (~24 consumers): title/side/sideOffset/disabled/open/
   onOpenChange/className/asChild; controlled-open-without-onOpenChange is
