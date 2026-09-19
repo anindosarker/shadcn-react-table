@@ -626,7 +626,9 @@ icon rotations kept. Each drop has an in-file Note.
   padding instead of collapsing to 0.
 
 ### [ ] locales/ (38 files) : MRT locales
-- 38/38 byte-identical to MRT (92 keys each). Consumed via the core barrel
+- Re-verified 2026-09-19: 38/38 identical to MRT modulo the SRT_/MRT_ rename;
+  no file missing on either side.
+- Consumed via the core barrel
   (`import { SRT_Localization_XX } from 'shadcn-react-table-core'`) — MRT's
   per-locale subpath entry points (`material-react-table/locales/xx`) not
   reproduced; add build-locales + exports map at publish time if path-import
