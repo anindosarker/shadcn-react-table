@@ -254,8 +254,10 @@ of these and the reasoning is here.
   Browser-verified: both toolbars' bars, 0.3s computed, rAF sweep, clean
   unmount, console clean.
 ### [ ] SRT_TablePagination.tsx : MRT_TablePagination.tsx
-- `srtPaginationProps` + component interface keep explicit `showFirstButton`/
-  `showLastButton` — MUI PaginationProps carried them; component consumes both.
+- `SRT_PaginationProps` (core types.ts) = MUI PaginationProps stand-in: NavProps +
+  the usePagination inputs MRT forwards (boundary/sibling, hidePrev/Next,
+  showFirst/Last, disabled). Component + `srtPaginationProps` extend it exactly
+  as MRT extends PaginationProps (2026-09-29, user-directed).
 - Rows-per-page = radix Select; `SelectProps` slot → Partial<ButtonProps>
   (spread target = SelectTrigger), slot `children` rendered inside
   SelectContent; InputLabel → ui/label. SelectTrigger `size="sm"` (32px = MUI
