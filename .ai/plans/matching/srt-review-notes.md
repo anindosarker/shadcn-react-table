@@ -263,8 +263,9 @@ of these and the reasoning is here.
   SelectContent; InputLabel → ui/label. SelectTrigger `size="sm"` (32px = MUI
   standard Select) keeps pagination at 56px = toolbar min-h-14. Deviation:
   radix Select locks body scroll while open (MRT passes disableScrollLock).
-- 'pages' mode = shadcn Pagination + verbatim in-file port of MUI
-  `usePagination` item algorithm (boundary/sibling 1); one Button per item =
+- 'pages' mode = shadcn Pagination + verbatim port of MUI `usePagination` item
+  algorithm, living in core `utils/pagination.utils.ts` (`getPaginationItems`,
+  single MUI-shaped `SRT_PaginationItem`) (boundary/sibling 1); one Button per item =
   PaginationItem analog (page aria-label = MUI default text, nav labels
   localized). PaginationPrevious/Next/Link not used (English text, lucide
   icons, href-less anchor). `mx-0 w-auto` = layout. All pagination Buttons
