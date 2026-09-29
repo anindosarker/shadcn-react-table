@@ -2,7 +2,6 @@
 
 Top-down review (render-tree order). Source of truth: `packages/material-react-table/`.
 
-
 **Trust map:** Every unchecked item is garbage from bad prior runs → rebuild from
 the MRT spec, do NOT trust existing SRT code there. `types.ts` is only partial.
 
@@ -31,8 +30,7 @@ of these and the reasoning is here.
   selected parent row and an unset tri-state filter were painting a full check —
   wrong state, not a style preference. Re-apply after any registry refresh; the
   fork is two class strings and one icon.
-- **`ui/native-select` import fix, recorded.** shadcn CLI emitted `import { cn }
-  from "cn"` (bogus dep); changed to `@/lib/utils` like every sibling. Re-check
+- **`ui/native-select` import fix, recorded.** shadcn CLI emitted `import { cn } from "cn"` (bogus dep); changed to `@/lib/utils` like every sibling. Re-check
   after any registry refresh.
 - **Global filter animates its width** — MUI `Collapse orientation="horizontal"`
   mapped with `srt-collapsible-left/right` keyframes in the app stylesheet
@@ -100,13 +98,12 @@ of these and the reasoning is here.
   controls (Checkbox/Radio/IconButton) size the padded HIT AREA (e.g. 2.5rem);
   the visible glyph is ~18px. Radix/shadcn roots ARE the visible box — map to
   visible sizes (size-4/size-5), not MRT's rem values.
-- **MUI component DEFAULT styles count as spec** 
+- **MUI component DEFAULT styles count as spec**
   MRT inherits MUI root CSS invisibly (Table: `width:100%`, `border-spacing:0`; etc.). When replacing a MUI component, map its default styles into that element's cva if needed. When replacing with a shadcn COMPONENT, this rule does NOT apply — use the shadcn default variant; no needed to port MUI's look onto it.
 - **MRT-exact useMemo/useEffect deps arrays are kept verbatim**;
   `// eslint-disable-next-line react-hooks/exhaustive-deps` on the deps line is
   the authorized way to hold them against the lint gate.
-- **Keep SRT default designs** (card look: `rounded-md border bg-background
-  shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
+- **Keep SRT default designs** (card look: `rounded-md border bg-background shadow`, base `p-2`, `relative`) even where MRT differs visually. Target =
   finish the library first with default shadcn themed look; UI polish later.
 - **Dropped MRT constructs stay visible as comments.** Keep the dropped MRT
   line(s) commented out at their original position + a short `// Note:` saying
@@ -166,29 +163,36 @@ of these and the reasoning is here.
 ## Entry
 
 ### [x] ShadcnReactTable.tsx : MaterialReactTable.tsx
+
 - ok. almost same.
 - Some import differences, will be handled later depending on shadcn registry implementation.
 
 ## table/
 
 ### [x] SRT_TableLayout.tsx : MRT_TablePaper.tsx
+
 - hand-written, ok. trusted. (last good file top-down)
 - Created `DivProps` (`ComponentPropsWithRef<'div'>`, SRT-only; renamed from LayoutDivProps) — the single SRT analogue for EVERY MUI div-backed prop type (`PaperProps`, `TableContainerProps`, `BoxProps`, ...). shadcn has no Paper/Box layer; MUI extras (sx/component/classes) are locked deviations.
 - `mrtTheme` / `useTheme` dropped project-wide, handled by shadcn CSS vars.
 
 ### [x] SRT_TableContainer.tsx : MRT_TableContainer.tsx
+
 - `srtTableContainerProps` converted to value-or-func `DivProps` in core
   types.ts — same conversion applies to every remaining `SRT_HTMLProps` slot.
 - `aria-describedby='srt-progress'` never matches the overlay's suffixed
   `srt-progress-${id}` — MRT has the identical broken link; mirrored as-is.
+
 ### [x] SRT_Table.tsx : MRT_Table.tsx
+
 - MUI `stickyHeader` Table prop dropped (no native `<table>` attr) — sticky th
   styles live in `SRT_TableHeadCell` (+ thead-level grid-mode sticky in
   `SRT_TableHead`), derived from `enableStickyHeader || isFullScreen` off
   `table`, same as MRT_TableHead does.
 - `TableProps` (`ComponentPropsWithRef<'table'>`) added to core next to
   `DivProps`; `srtTableProps` converted to MRT's value-or-func shape.
+
 ### [x] SRT_TableLoadingOverlay.tsx : MRT_TableLoadingOverlay.tsx
+
 - Sweep supersedes the LoaderCircleIcon line: spinner = ui/spinner at its
   default size (MUI 40px dropped per ruling — noticeably smaller);
   `srtCircularProgressProps` (LucideProps) spreads onto Spinner (svg) clean;
@@ -200,21 +204,23 @@ of these and the reasoning is here.
 ## toolbar/
 
 ### [x] SRT_TopToolbar.tsx : MRT_TopToolbar.tsx
+
 ### [x] SRT_BottomToolbar.tsx : MRT_BottomToolbar.tsx
+
 ### [x] SRT_ToolbarInternalButtons.tsx : MRT_ToolbarInternalButtons.tsx
+
 ### [x] SRT_ToolbarAlertBanner.tsx : MRT_ToolbarAlertBanner.tsx
+
 - Rev-3 (2026-07-14 default-variants ruling): neutralization cva REVERTED —
   Alert renders its shadcn default (border, rounded-lg, px-4 py-3, bg-card;
-  old flat bg-primary/10 banner look gone); cva now layout-only (`relative
-  left-0 right-0 top-0 z-[2] w-full` + `-mb-4` bottomOffset). Clear-selection
+  old flat bg-primary/10 banner look gone); cva now layout-only (`relative left-0 right-0 top-0 z-[2] w-full` + `-mb-4` bottomOffset). Clear-selection
   = plain Button ghost/sm (`p-[2px] text-primary` cva deleted); Badge gap-1
   dropped (already in Badge base). Alert default padding now wraps the inner
   density-padding div — combined padding accepted. Content wrapper div takes
   `col-start-2` (SRT-owned) to land in Alert's `grid-cols-[0_1fr]` content
   track — without it content auto-places in the 0px icon track (browser-
   caught regression); replaces Rev-2's `block` neutralization.
-- Rev-2 keeps: ui/alert via CLI, Chip → ui/badge secondary (keeps `icons:
-  { CloseIcon }` — MUI Chip's onDelete icon is internal, Badge has none),
+- Rev-2 keeps: ui/alert via CLI, Chip → ui/badge secondary (keeps `icons: { CloseIcon }` — MUI Chip's onDelete icon is internal, Badge has none),
   interface extends `ComponentProps<typeof Alert>`; core `SpanProps`,
   `srtToolbarAlertBannerChipProps` DivProps → SpanProps.
 - Grouping chip = `Badge asChild` rendering a single `<button>` (2026-07-15
@@ -239,10 +245,14 @@ of these and the reasoning is here.
   registry back to MUI parity (CloseIcon=plain X). `data-icon="inline-end"`
   attr on the icon is inert under radix-flavor badge — kept for future Base
   UI migration.
+
 ### [x] SRT_ToolbarDropZone.tsx : MRT_ToolbarDropZone.tsx
+
 - `srtToolbarDropZoneProps` slot REMOVED from core — MRT has no
   muiToolbarDropZoneProps (prior-run invention); props flow via ...rest only.
+
 ### [x] SRT_LinearProgressBar.tsx : MRT_LinearProgressBar.tsx
+
 - Sweep: bars → ui/progress driven by the existing useSRT_ProgressAnimation
   value; manual aria dropped (radix Progress supplies progressbar semantics);
   h-1 square → h-2 rounded-full shadcn default.
@@ -256,7 +266,9 @@ of these and the reasoning is here.
   unconditional (MUI always animates here, unlike banner's 0/200 split).
   Browser-verified: both toolbars' bars, 0.3s computed, rAF sweep, clean
   unmount, console clean.
-### [ ] SRT_TablePagination.tsx : MRT_TablePagination.tsx
+
+### [-] SRT_TablePagination.tsx : MRT_TablePagination.tsx
+
 - `SRT_PaginationProps` (core types.ts) = MUI PaginationProps stand-in: NavProps +
   the usePagination inputs MRT forwards (boundary/sibling, hidePrev/Next,
   showFirst/Last, disabled). Component + `srtPaginationProps` extend it exactly
@@ -278,17 +290,22 @@ of these and the reasoning is here.
 ## head/
 
 ### [ ] SRT_TableHead.tsx : MRT_TableHead.tsx
+
 - `headerGroup as any` restored (MRT-verbatim) with an eslint-disable line —
   the convention for every MRT-parity cast in the tree.
+
 ### [ ] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
+
 ### [ ] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
+
 - Deferred gap: MRT's expand Header appends grouped-column names when
   `groupedColumnMode === 'remove'` — not rendered; revisit at grouping parity.
-- `headerPL` padding gate restored to MRT-exact `tableCellProps?.align ===
-  'center'` (user slot only). The old `columnDefType === 'group'` substitute
+- `headerPL` padding gate restored to MRT-exact `tableCellProps?.align === 'center'` (user slot only). The old `columnDefType === 'group'` substitute
   pushed every group label right of centre; MRT group headers get no headerPL.
 - th cva carries MUI TableCell head defaults `border-b text-sm leading-6`.
+
 ### [ ] SRT_TableHeadCellColumnActionsButton.tsx : MRT_TableHeadCellColumnActionsButton.tsx
+
 - Sweep: raw button → Button ghost/icon defaults; MRT sx (32px box, negative
   margins, idle opacity 0.3 + hover fade) dropped per no-override ruling —
   button now full-opacity size-9. Icon scale(0.9) → `scale-90` class.
@@ -301,22 +318,31 @@ of these and the reasoning is here.
   icon-sm chosen for sibling parity; `icon-xs` (24px) = alternative if
   closer MRT footprint wanted. GrabHandleButton shared → row drag handles
   shrink too (MRT small in both spots, parity holds).
+
 ### [ ] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
+
 ### [ ] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
+
 - Sweep: raw button → Button ghost/icon defaults; MRT's 16px scaled box +
   active-opacity dim dropped per ruling; only ml-1 (layout) kept.
+
 ### [ ] SRT_TableHeadCellGrabHandle.tsx : MRT_TableHeadCellGrabHandle.tsx
+
 - Renders SRT_GrabHandleButton WITHOUT `location` (MRT-exact). The old
   location-opacity gap is moot post-sweep: normalization made ALL grab
   handles full-opacity (user ruling); `location` is now vestigial on the
   button (kept in interface, excluded from DOM spread).
+
 ### [ ] SRT_TableHeadCellResizeHandle.tsx : MRT_TableHeadCellResizeHandle.tsx
+
 - Sweep: `<hr>` → Separator orientation="vertical" (rest spread now plain
   DivProps — hr cast removed). Line 2px → 1px bg-border default; active
   highlight via wrapper selector `[&:active>[data-slot=separator]]:bg-primary`
   (no className on Separator beyond translate-x-1 layout + transition, which
   must sit on Separator for the active state to animate).
+
 ### [ ] SRT_TableHeadCellSortLabel.tsx : MRT_TableHeadCellSortLabel.tsx
+
 - Sweep: raw button → Button ghost/icon with pure defaults (user ruling —
   ~3ch box → size-9); MUI TableSortLabel active/idle dim moved onto the
   SRT-owned icons (SyncAlt opacity-30 unsorted / Arrow opacity-100 sorted);
@@ -325,14 +351,18 @@ of these and the reasoning is here.
 ## body/
 
 ### [ ] SRT_TableBody.tsx : MRT_TableBody.tsx
+
 ### [ ] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
+
 - Row highlights = solid classes (locked deviation; MRT's td:after overlay
   machinery commented in place). Consequence: hovering a SELECTED row lightens
   it (bg-muted → bg-muted/50); MRT keeps selected bg on hover.
 - Hoisted `isStickyPinned` const and hoisted `rowStyle` object inlined back to
   MRT's expression positions; dropped MUI `selected` prop now visible as a
   commented line (selection carried by `data-selected` + the cva variant).
+
 ### [ ] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
+
 - Sweep: skeleton pulse-div → ui/skeleton (runtime width/height stay inline;
   MUI wave→pulse and bg-muted→bg-accent defaults noted).
 - Deferred gap: MRT derives grid-mode flex `justify-content` from the MUI
@@ -347,13 +377,19 @@ of these and the reasoning is here.
   to the hover outline on editable cells).
 - `mrt-row-numbers` and `mrt-row-spacer` cases deleted from the display
   dispatch — core supplies both (Cell / blankColProps), so they were dead.
+
 ### [ ] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
+
 - `highlight-words` re-exported from core (`highlightWords`) instead of a
   direct app dependency — consuming apps only need the core dep. Components
   import it from 'shadcn-react-table-core'.
+
 ### [ ] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
+
 ### [ ] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
+
 ### [ ] SRT_TableDetailPanel.tsx : MRT_TableDetailPanel.tsx
+
 - Sweep: MUI Collapse → Collapsible/CollapsibleContent on the NON-virtual
   branch only (virtual branch stays a bare conditional so measureElement
   reads real height). Browser-verified expand/collapse clean.
@@ -362,21 +398,25 @@ of these and the reasoning is here.
 
 - Detail-panel td takes MUI TableCell defaults (`border-b text-sm text-start`,
   `px-4`); `expanded` variant drops the border when collapsed = MRT line 92.
+
 ### [ ] SRT_TableFooter.tsx : MRT_TableFooter.tsx
+
 ### [ ] SRT_TableFooterRow.tsx : MRT_TableFooterRow.tsx
+
 ### [ ] SRT_TableFooterCell.tsx : MRT_TableFooterCell.tsx
 
 ## inputs/
 
-- MUI `variant="footer"` defaults folded into the cva as `text-xs
-  leading-[1.3125rem] text-muted-foreground` (raw td has no variant analogue).
+- MUI `variant="footer"` defaults folded into the cva as `text-xs leading-[1.3125rem] text-muted-foreground` (raw td has no variant analogue).
+
 ### [ ] SRT_FilterTextField.tsx : MRT_FilterTextField.tsx
+
 - Sweep fork: text + autocomplete variants → InputGroup (mode InputGroupButton
   + chip inline-start; clear inline-end, text only; autocomplete's
-  PopoverTrigger asChild wraps ONLY the InputGroupInput so the mode button
-  opens the mode menu, not the popover). select/multiselect/date keep sibling
-  adornments (`!usesInputGroup` gate) — radix Select/Popover can't host
-  addons. Adornment size-*/scale-* overrides stripped to variant defaults.
+    PopoverTrigger asChild wraps ONLY the InputGroupInput so the mode button
+    opens the mode menu, not the popover). select/multiselect/date keep sibling
+    adornments (`!usesInputGroup` gate) — radix Select/Popover can't host
+    addons. Adornment size-*/scale-* overrides stripped to variant defaults.
 - Text-branch value guard widened to accept numbers (`valueAsNumber` filters
   blanked the visible input each keystroke; MRT passes filterValue directly).
 - Deferred gap: select/multi-select filter variants (June non-input
@@ -390,8 +430,7 @@ of these and the reasoning is here.
 - Filter-value chip (2026-07-21): Badge asChild single `<button>` — banner
   chip pattern; whole-chip click clears filter value+mode (MUI label-inert
   deviation accepted, banner precedent). Icon = `CancelIcon` slot (circle-X,
-  MUI Chip onDelete parity); X button's `aria-label={localization.
-  clearFilter}` dropped — accessible name = chip label text. gap-1/ml-0.5/
+  MUI Chip onDelete parity); X button's `aria-label={localization. clearFilter}` dropped — accessible name = chip label text. gap-1/ml-0.5/
   size-3 manual classes dropped (badge base covers). Browser-verified
   (clear resets mode→Fuzzy, rows restore, console clean).
 - Autocomplete rebuilt to MUI Autocomplete behaviour: options filter against the
@@ -399,29 +438,37 @@ of these and the reasoning is here.
   closes on select. Multi-select routes through `handleChange` (debounced path)
   like every other variant; its cmdk search box + em-dash empty row deleted.
 - Adornment buttons → `icon-sm` (MUI small IconButton), matching the head buttons.
+
 ### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
+
 ### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
+
 - Default-variants pass: `px-1` (ported MUI px:4px) dropped from Slider cva;
   `mx-auto w-[calc(100%-8px)]` kept as layout (track inset). Watch item:
   thumb clipping at min/max extremes — revert px-1 if browser shows clipping.
 - `filterInputRefs` stores the radix thumb (`[data-slot=slider-thumb]`), not the
   Slider root — the root is tabindex-less, so focus() from column actions and
   the filter label had no effect.
+
 ### [ ] SRT_FilterCheckbox.tsx : MRT_FilterCheckbox.tsx
+
 - Checkbox slots are ButtonProps → MRT's `(e, checked)` onChange composition
   has no typed surface; user hook = onClick only (same across all checkbox
   slots).
 - Default-variants pass: no-op `cva('size-4')` deleted, Checkbox bare.
-  Pre-existing gap (reviewer aside, deferred): user `checkboxProps.
-  onCheckedChange` is overridden, not composed — MRT forwards onChange.
+  Pre-existing gap (reviewer aside, deferred): user `checkboxProps. onCheckedChange` is overridden, not composed — MRT forwards onChange.
+
 ### [ ] SRT_GlobalFilterTextField.tsx : MRT_GlobalFilterTextField.tsx
+
 - Sweep: raw input + absolute adornments → InputGroup (mode button or bare
   SearchIcon inline-start; clear inline-end, disabled clear tooltip-anchored
   via span); InputGroupButton size icon-xs; width lives on the SRT-owned
   wrapper (w-48), not the group.
 - Width (`w-48`) sits on CollapsibleContent, not the root, so a hidden search
   field occupies no toolbar width.
+
 ### [ ] SRT_EditCellTextField.tsx : MRT_EditCellTextField.tsx
+
 - Sweep: raw input → ui/Input; raw select → radix Select. Select mapping:
   onValueChange = commit (setValue + saveInputValueToRowCache);
   onOpenChange(false) → setEditingCell(null) with NO re-save (stale-closure
@@ -437,7 +484,9 @@ of these and the reasoning is here.
   omit-destructure is held against no-unused-vars by a scoped eslint block.
 - Deferred gap: MRT's Enter→blur save is still unwired for the select variant
   (radix Select has no editInputRefs blur analogue).
+
 ### [ ] SRT_SelectCheckbox.tsx : MRT_SelectCheckbox.tsx
+
 - `srtSelectCheckboxProps` collapses MRT's `CheckboxProps | RadioProps` union
   to ButtonProps — locked June deviation: round Checkbox for single-select,
   no Radio element in SRT.
@@ -448,32 +497,41 @@ of these and the reasoning is here.
 
 ## menus/
 
-- Checkbox is anchored on a `<span>` inside SRT_Tooltip: `TooltipTrigger
-  asChild` overwrote radix's own `data-state`, so checked styling never
+- Checkbox is anchored on a `<span>` inside SRT_Tooltip: `TooltipTrigger asChild` overwrote radix's own `data-state`, so checked styling never
   rendered even though selection state was correct.
 - Indeterminate is MRT-verbatim again: the some-selected branch is evaluated
   regardless of `isChecked`, so a checked parent with partially selected
   subrows renders indeterminate. Dropped MUI Radio kept as a commented line.
+
 ### [ ] SRT_ColumnActionMenu.tsx : MRT_ColumnActionMenu.tsx
+
 ### [ ] SRT_FilterOptionMenu.tsx : MRT_FilterOptionMenu.tsx
+
 - Active-mode `bg-accent` on the selected item KEPT (2026-07-14 ruling):
   state-driven functional styling (MUI MenuItem `selected` analog); same
   token radix uses for its own highlighted state. RadioGroup/RadioItem
   alternative rejected — items flow through shared SRT_ActionMenuItem.
+
 ### [ ] SRT_RowActionMenu.tsx : MRT_RowActionMenu.tsx
+
 ### [ ] SRT_CellActionMenu.tsx : MRT_CellActionMenu.tsx
+
 - MRT `transformOrigin={{horizontal: -100, vertical: 8}}` → radix Content
   `align="start" alignOffset={100} sideOffset={8}` (offset placement near
   click point; no exact radix equivalent).
 - `cell = actionCell!` kept MRT-verbatim — sole caller (SRT_TableContainer)
   gates render on `enableCellActions && actionCell`.
+
 ### [ ] SRT_ShowHideColumnsMenu.tsx : MRT_ShowHideColumnsMenu.tsx
+
 - Dropped June file's invented `min-w-[14rem]` on Content — MRT Menu has no
   width constraint.
 - Function-call deps in allColumns memo kept MRT-verbatim under a tightly
   scoped eslint-disable/enable BLOCK (prettier splits deps one-per-line, so
   the next-line comment convention can't cover them).
+
 ### [ ] SRT_ShowHideColumnsMenuItems.tsx : MRT_ShowHideColumnsMenuItems.tsx
+
 - `onSelect={(e) => e.preventDefault()}` on the item — radix closes menu on
   select, MUI doesn't; preventDefault preserves MRT's menu-stays-open
   behavior for visibility toggles.
@@ -485,7 +543,9 @@ of these and the reasoning is here.
   layout classes + `-outline-offset-2` (drag-outline inset, functional) kept.
 - Switch anchored on a `<span>` inside SRT_Tooltip (same radix `data-state`
   clobber as SRT_SelectCheckbox).
+
 ### [ ] SRT_ActionMenuItem.tsx : MRT_ActionMenuItem.tsx
+
 - Sweep: submenu arrow raw button → Button ghost/icon (size-9 in the item
   row); item cva trimmed of min-w-[120px]/py-1.5 (DropdownMenuItem defaults
   win; Content governs width).
@@ -506,19 +566,25 @@ icon rotations kept. Each drop has an in-file Note.
 
 - Submenu arrow → Button ghost `icon-sm` (supersedes the 2026-07-11 size-9
   bullet, which predates the icon-sm registry size).
+
 ### [ ] SRT_ToggleRowActionMenuButton.tsx : MRT_ToggleRowActionMenuButton.tsx
+
 - `{...rest}` moved LAST on both Buttons (MRT precedence: consumer
   onClick/aria-label override internal) — sweep review caught the uniform
   rest-first idiom inverting this file's MRT order.
 - Row-actions button `icon-sm`, edit button `icon` — mirrors MRT's deliberate
   `size="small"` vs default-medium split.
+
 ### [ ] SRT_EditActionButtons.tsx : MRT_EditActionButtons.tsx
+
 - Sweep: spinner → ui/spinner (was LoaderCircleIcon 18px; now Spinner 16px
   default); save icon button's `text-primary` (old color="info" map) and
   text-variant `min-w-[100px]` dropped per ruling.
 - Dropped MRT props recorded as bare `// prop` + one-line Note in JSX attribute
   position (prettier-stable) rather than `{/* */}` blocks above the element.
+
 ### [ ] SRT_CopyButton.tsx : MRT_CopyButton.tsx
+
 - USER EXCEPTION (2026-07-11) to the no-className ruling: text-inheritance
   cva restored — click-to-copy cells must render as plain cell text, not a
   ghost-button box (strict ruling application boxed every copyable cell).
@@ -528,36 +594,51 @@ icon rotations kept. Each drop has an in-file Note.
   corrected on review).
 - `[font-size:inherit]` is the correct idiom for MRT's `fontSize: 'inherit'`;
   `text-[inherit]` compiles to `color: inherit` and was wrong.
+
 ### [ ] SRT_ExpandButton.tsx : MRT_ExpandButton.tsx
+
 - theme.direction rtl branches dropped with Notes (SRT has no theme
   direction); `positionExpandColumn === 'last'` branches kept.
 - MRT's no-rest-spread quirk mirrored (destructures only
   row/staticRowIndex/table; interface still extends ButtonProps).
+
 ### [ ] SRT_ExpandAllButton.tsx : MRT_ExpandAllButton.tsx
+
 - Density sizing as cva variants (compact `size-7`, otherwise `-mt-1` over
   Button `size="icon"`), mirroring MRT's 1.75rem/2.25rem sx branch.
+
 ### [ ] SRT_GrabHandleButton.tsx : MRT_GrabHandleButton.tsx
+
 - Post-sweep: opacity/location distinction gone (all handles full-opacity
   size-9 per ruling); `location` prop vestigial — kept in interface,
   destructured out of the DOM spread (callers still pass it harmlessly).
 - Superseded history: June `location='row'` default bug was fixed
   (no-default), then the ruling flattened the 0.5/1 opacity split entirely.
+
 ### [ ] SRT_RowPinButton.tsx : MRT_RowPinButton.tsx
+
 - `RowPinningPosition` re-exported from core types.ts (app has no direct
   @tanstack/react-table dep; MRT imports it directly).
 - `icon-sm` (32px) kept; MRT's explicit 24px sx stays dropped (commented) —
   `icon-xs` rejected because its `size-3` glyph is far below MUI's ~18px.
+
 ### [ ] SRT_ColumnPinningButtons.tsx : MRT_ColumnPinningButtons.tsx
+
 ### [ ] SRT_ShowHideColumnsButton.tsx : MRT_ShowHideColumnsButton.tsx
+
 ### [ ] SRT_ToggleDensePaddingButton.tsx : MRT_ToggleDensePaddingButton.tsx
+
 ### [ ] SRT_ToggleFiltersButton.tsx : MRT_ToggleFiltersButton.tsx
+
 ### [ ] SRT_ToggleFullScreenButton.tsx : MRT_ToggleFullScreenButton.tsx
+
 ### [ ] SRT_ToggleGlobalFilterButton.tsx : MRT_ToggleGlobalFilterButton.tsx
 
 ## modals/
 
 ### [ ] SRT_EditRowModal.tsx : MRT_EditRowModal.tsx
-- Interface = Partial<DialogContent props> + open/table; slots
+
+- Interface = Partial<DialogContent props></dialogcontent> + open/table; slots
   (srtCreateRowModalProps/srtEditRowDialogProps) are DivProps spread onto
   DialogContent. MUI `onClose(event, reason)` → radix `onOpenChange(false)`;
   MRT's `dialogProps.onClose` compose dropped + Note (close interception not
@@ -579,7 +660,9 @@ icon rotations kept. Each drop has an in-file Note.
 - Field labels render here (Field + FieldLabel per cell) = MRT_EditCellTextField's
   modal-only `label`; control nested inside FieldLabel. Inner MUI DialogContent
   → raw scroll div, with the MUI Paper max-height cap on DialogContent.
+
 ### [ ] SRT_Tooltip.tsx
+
 - API frozen (~24 consumers): title/side/sideOffset/disabled/open/
   onOpenChange/className/asChild; controlled-open-without-onOpenChange is
   valid radix usage (3 consumers drive state via button handlers).
@@ -601,7 +684,9 @@ icon rotations kept. Each drop has an in-file Note.
   and side all come from there, so `delayDuration`/`disableHoverableContent`
   are no longer public props. Provider mounts with `skipDelayDuration={0}`,
   which is MRT's `enterNextDelay: 1000` (every tooltip waits its full delay).
+
 ### [ ] index.ts : index.ts
+
 - Deviation kept: SRT re-exports `utils/utils` (parseFromValuesOrFunc etc.),
   `utils/style.utils` (getSRTPinnedCellStyles / getSRTCellWidthStyles /
   parseCSSVarId / getCommonTooltipProps), the SRT-only
@@ -612,10 +697,12 @@ icon rotations kept. Each drop has an in-file Note.
 - Deviation kept: all locales re-exported from the MAIN index (MRT ships
   them as separate subpath entry points); display-column defs also surfaced
   (MRT exports none). Single-entry consumption is intentional.
+
 ### [ ] types.ts : types.ts
+
 - Full-surface audit vs MRT: 40/40 table slot props + 14/14 columnDef slots
   + all state/instance/localization keys matched (renames: srtTableLayoutProps
-  / refs.tableLayoutRef for the MUI Paper pair).
+    / refs.tableLayoutRef for the MUI Paper pair).
 - mrtTheme remnants removed (SRT_DefinedTableOptions re-added a never-
   populated `mrtTheme: Required<SRT_Theme>`; SRT_Theme interface deleted).
 - Dead-API family fully deleted post-conversion: SRT_HTMLProps,
@@ -629,7 +716,9 @@ icon rotations kept. Each drop has an in-file Note.
   levels, alert-banner chip → ButtonProps (Badge asChild renders a button),
   `SRT_CircularProgressProps` → bare LucideProps. Both srt*Props blocks
   reordered to MRT's alphabetical order.
+
 ### [ ] icons.ts : icons.ts
+
 - All 34 MRT icon keys mapped to lucide; `Record<string,...>` annotation
   dropped (defeated `as const` → icons option lost key checking) and
   SRT_Icons re-exported from types.ts (MRT parity).
@@ -637,14 +726,23 @@ icon rotations kept. Each drop has an in-file Note.
   stacked cards); Layers/Files would read better. Left as-is.
 - `FilterListIcon`/`FilterListOffIcon` → `Filter`/`FilterX` (matched funnel
   pair); lucide has no slashed list-filter glyph, so the toggle keeps one shape.
+
 ### [ ] fns/aggregationFns.ts : fns/aggregationFns.ts
+
 ### [ ] fns/filterFns.ts : fns/filterFns.ts
+
 ### [ ] fns/sortingFns.ts : fns/sortingFns.ts
+
 ### [ ] utils/cell.utils.ts : utils/cell.utils.ts
+
 ### [ ] utils/column.utils.ts : utils/column.utils.ts
+
 ### [ ] utils/displayColumn.utils.ts : utils/displayColumn.utils.ts
+
 ### [ ] utils/row.utils.ts : utils/row.utils.ts
+
 ### [ ] utils/style.utils.ts : utils/style.utils.ts
+
 - Pinned-edge inset boxShadow now implemented in `getSRTPinnedCellStyles`
   (last-left / first-right), closing the old deferred gap; the helper
   early-returns `{}` when unpinned, so the three cells spread it
@@ -652,27 +750,42 @@ icon rotations kept. Each drop has an in-file Note.
 - `getCommonTooltipProps` is live again: SRT_Tooltip is its single consumer
   (MRT spreads it per call site). It returns `disableHoverableContent`
   (radix's `disableInteractive`) plus the 1000ms delay.
+
 ### [ ] utils/tanstack.helpers.ts : utils/tanstack.helpers.ts
+
 ### [ ] utils/utils.ts : utils/utils.ts
+
 ### [ ] utils/virtualization.utils.ts : utils/virtualization.utils.ts
+
 - Stale JSDoc still names MRT_TableBodyRowGrabHandle/MRT_TableHeadCellGrabHandle
   (comment-only; fix at core-completion pass).
+
 ### [ ] utils/srtHtmlProps.utils.ts : (SRT-only)
+
 - REMOVED (with SRT_HTMLProps/SRT_HTMLPropsValue types + index export) —
   dead June API, zero live references; parseFromValuesOrFunc is the sole
   slot-parsing idiom.
 - Re-verified 2026-09-19: zero references to the file or the SRT_HTMLProps
   type family anywhere in apps/ or packages/ source.
+
 ### [ ] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
+
 ### [ ] hooks/useSRT_TableInstance.ts : hooks/useMRT_TableInstance.ts
+
 ### [ ] hooks/useSRT_TableOptions.ts : hooks/useMRT_TableOptions.ts
+
 - Delta vs MRT = 11 removed lines, all mrtTheme/useTheme plumbing. Restored
   the non-theme half of the columnResizeDirection default (`'ltr'` literal;
   theme.direction fallback dropped — no theme in SRT).
+
 ### [ ] hooks/useSRT_Effects.ts : hooks/useMRT_Effects.ts
+
 ### [ ] hooks/useSRT_Rows.ts : hooks/useMRT_Rows.ts
+
 ### [ ] hooks/useSRT_ColumnVirtualizer.ts : hooks/useMRT_ColumnVirtualizer.ts
+
 ### [ ] hooks/useSRT_RowVirtualizer.ts : hooks/useMRT_RowVirtualizer.ts
+
 ### [ ] hooks/useSRT_ProgressAnimation.ts : (SRT-only)
 
 ## Core display-columns (`hooks/display-columns/`)
@@ -682,21 +795,31 @@ icon rotations kept. Each drop has an in-file Note.
   API collapsed to `useSRT_ProgressAnimation(show)` returning the value.
 - Standing deviation: one radix Progress bar vs MUI's two overlapping spans,
   and the value wraps 100→0 each cycle instead of exiting a clipped root.
+
 ### [ ] getSRT_RowActionsColumnDef.tsx : getMRT_RowActionsColumnDef.tsx
+
 ### [ ] getSRT_RowDragColumnDef.tsx : getMRT_RowDragColumnDef.tsx
+
 ### [ ] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
+
 - MRT's `alignProps` (align right when positionExpandColumn==='last')
   dropped per the locked align→text-start deviation; consequence: expand
   column positioned 'last' stays left-aligned.
+
 ### [ ] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
+
 ### [ ] getSRT_RowPinningColumnDef.tsx : getMRT_RowPinningColumnDef.tsx
+
 ### [ ] getSRT_RowSelectColumnDef.tsx : getMRT_RowSelectColumnDef.tsx
+
 ### [ ] getSRT_RowSpacerColumnDef.tsx : getMRT_RowSpacerColumnDef.tsx
+
 - Restored MRT's `blankColProps` (children null + minWidth/padding/width 0 on
   body/footer/head cell slots) — was dropped, so the spacer kept density
   padding instead of collapsing to 0.
 
 ### [ ] locales/ (38 files) : MRT locales
+
 - Re-verified 2026-09-19: 38/38 identical to MRT modulo the SRT_/MRT_ rename;
   no file missing on either side.
 - Consumed via the core barrel
