@@ -258,9 +258,10 @@ of these and the reasoning is here.
   the usePagination inputs MRT forwards (boundary/sibling, hidePrev/Next,
   showFirst/Last, disabled). Component + `srtPaginationProps` extend it exactly
   as MRT extends PaginationProps (2026-09-29, user-directed).
-- Rows-per-page = radix Select; `SelectProps` slot → Partial<ButtonProps>
-  (spread target = SelectTrigger), slot `children` rendered inside
-  SelectContent; InputLabel → ui/label. SelectTrigger `size="sm"` (32px = MUI
+- Rows-per-page = radix Select, or shadcn NativeSelect when `SelectProps.native`
+  (MRT mobile ≤720px rule restored via useSRT_MediaQuery); `SelectProps` =
+  Partial<ButtonProps & SelectElementProps & { native }>; slot `children`
+  rendered once in either branch; SelectGroup dropped (MUI listbox has no group); InputLabel → ui/label. SelectTrigger `size="sm"` (32px = MUI
   standard Select) keeps pagination at 56px = toolbar min-h-14. Deviation:
   radix Select locks body scroll while open (MRT passes disableScrollLock).
 - 'pages' mode = shadcn Pagination + verbatim port of MUI `usePagination` item
