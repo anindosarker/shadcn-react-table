@@ -31,6 +31,9 @@ of these and the reasoning is here.
   selected parent row and an unset tri-state filter were painting a full check —
   wrong state, not a style preference. Re-apply after any registry refresh; the
   fork is two class strings and one icon.
+- **`ui/native-select` import fix, recorded.** shadcn CLI emitted `import { cn }
+  from "cn"` (bogus dep); changed to `@/lib/utils` like every sibling. Re-check
+  after any registry refresh.
 - **Global filter animates its width** — MUI `Collapse orientation="horizontal"`
   mapped with `srt-collapsible-left/right` keyframes in the app stylesheet
   (radix ships height keyframes only).
