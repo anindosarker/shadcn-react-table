@@ -13,6 +13,10 @@ reviewing or fixing SRT files read this first, then `earn-its-place-review.md`.
   for a counterpart before porting MUI by hand (NativeSelect, Pagination).
 - Everything carries the SRT prefix, including string ids (`srt-row-select`,
   not `mrt-row-select`) and option keys (`srt*Props`).
+- Development happens only in `apps/test-shadcn`. The CLI package
+  (`packages/shadcn-react-table-cli`) is a later concern: never work on it,
+  never delete it, never let it block a change. Minimum edits only when
+  the workspace would otherwise fail to install.
 
 ## How the owner reviews
 
