@@ -375,7 +375,7 @@ of these and the reasoning is here.
 
 ### [-] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
 
-### [ ] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
+### [-] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
 
 ### [ ] SRT_TableDetailPanel.tsx : MRT_TableDetailPanel.tsx
 
