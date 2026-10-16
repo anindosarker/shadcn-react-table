@@ -7,9 +7,11 @@ reviewing or fixing SRT files read this first, then `earn-its-place-review.md`.
 
 1. MRT is the spec; MUI behind it is the spec; shadcn is only the material.
 2. A line that differs from MRT must point at MRT, MUI, or a recorded ruling.
-   No pointer, it goes.
+   No pointer, it goes. A recorded ruling is a Conventions line or a ticked
+   box in the tracker; bullets under unticked entries are agent claims.
 3. Nothing extra: no helper, type, wrapper, variable, or colour MRT did not
-   need. Same name, same place as MRT.
+   need. Same name, same place as MRT. Exception: a wrapper that gives shadcn
+   parts MUI's one-element shape is material, not extra (`SRT_Tooltip`).
 4. Use what shadcn/Tailwind already ship: registry parts, theme tokens,
    pseudo classes. Never a parallel system.
 
