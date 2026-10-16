@@ -3,6 +3,18 @@
 Living file. Every session that reviews with the owner appends here. Agents
 reviewing or fixing SRT files read this first, then `earn-its-place-review.md`.
 
+## Rule of thumb (the owner's four, 2026-10-16)
+
+1. MRT is the spec; MUI behind it is the spec; shadcn is only the material.
+2. A line that differs from MRT must point at MRT, MUI, or a recorded ruling.
+   No pointer, it goes.
+3. Nothing extra: no helper, type, wrapper, variable, or colour MRT did not
+   need. Same name, same place as MRT.
+4. Use what shadcn/Tailwind already ship: registry parts, theme tokens,
+   pseudo classes. Never a parallel system.
+
+Everything below is a consequence of these four.
+
 ## Vision (settled 2026-10-16)
 
 - End state = ONE copy-in folder: `components/ui/shadcn-react-table/` holds
