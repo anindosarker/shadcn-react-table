@@ -87,14 +87,9 @@ of these and the reasoning is here.
 - **Runtime-measured values stay inline `style`** (e.g. maxHeight from toolbar
   px). No CSS vars, no dynamic classes — the package must install with zero
   CSS config. User `style` passthrough spreads after lib values (user wins).
-- **Display-column boundary (locked June deviation).** Core display-column
-  defs (ids `mrt-row-*`) carry string/localization Headers where possible but
-  NO component-rendering Cell/Header (core cannot import app components). The
-  component layer dispatches on ids for what core can't supply:
-  `SRT_TableHeadCell` → select-all checkbox (`mrt-row-select`), expand-all
-  button (`mrt-row-expand`); `SRT_TableBodyCell` → ALL body display controls.
-  Precedence: `columnDef.Header/Cell` (user override) → id dispatch → string
-  header.
+- **Display columns MRT-exact (2026-10-16).** Defs in `hooks/display-columns/`
+  carry `Cell`/`Header` and import the components by relative path, like MRT.
+  No id dispatch in body/head cells. Ids are `srt-row-*`.
 - **MUI control sizes: hit-area ≠ visible box.** MUI icon-button-style
   controls (Checkbox/Radio/IconButton) size the padded HIT AREA (e.g. 2.5rem);
   the visible glyph is ~18px. Radix/shadcn roots ARE the visible box — map to
@@ -299,8 +294,7 @@ of these and the reasoning is here.
 
 ### [ ] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
 
-- Deferred gap: MRT's expand Header appends grouped-column names when
-  `groupedColumnMode === 'remove'` — not rendered; revisit at grouping parity.
+- display dispatch removed 2026-10-16; Header lives on the defs as MRT.
 - `headerPL` padding gate restored to MRT-exact `tableCellProps?.align === 'center'` (user slot only). The old `columnDefType === 'group'` substitute
   pushed every group label right of centre; MRT group headers get no headerPL.
 - th cva carries MUI TableCell head defaults `border-b text-sm leading-6`.
@@ -370,16 +364,10 @@ of these and the reasoning is here.
   classes → text-* and `flex-row-reverse` for right, grid adds
   `justify-center`; `text-start` only as the default. Expand def `alignProps`
   restored in core.
-- `columnDef.Cell` precedence = MRT: a user Cell wins even when it returns
-  null; id dispatch only when no Cell is defined (user-caught 2026-10-16).
-- `renderRowActions` is handled inside SRT_ToggleRowActionMenuButton — the
-  cell dispatch renders only the button (MRT def shape); wrapping it again
-  double-invokes.
+- display dispatch removed 2026-10-16; Cell lives on the defs as MRT.
 - td cva carries MUI TableCell defaults `border-b text-sm`; `-outline-offset-1`
   moved to the base (MRT sets outlineOffset at the sx root, so it also applies
   to the hover outline on editable cells).
-- `mrt-row-numbers` and `mrt-row-spacer` cases deleted from the display
-  dispatch — core supplies both (Cell / blankColProps), so they were dead.
 
 ### [ ] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
 
@@ -806,10 +794,7 @@ icon rotations kept. Each drop has an in-file Note.
 
 ### [ ] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
 
-- MRT's `alignProps` (align right when positionExpandColumn==='last')
-  dropped per the locked align→text-start deviation; consequence: expand
-  column positioned 'last' stays left-aligned.
-- `alignProps` restored 2026-10-16 (user-caught; pairs with the body-cell `align` override), superseding the drop above.
+- `alignProps` restored 2026-10-16 (user-caught; pairs with the body-cell `align` override).
 
 ### [ ] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
 
