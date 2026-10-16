@@ -27,9 +27,16 @@ reviewing or fixing SRT files read this first, then `earn-its-place-review.md`.
 
 - One file at a time, VS Code diff SRT ↔ MRT, top-down. Does not pass a line
   until it is cleared.
-- Jumps into every definition the line touches (types, utils, slot props)
-  and compares it to the MUI/MRT original. Reads names as claims: a type
-  named after a MUI type must have that MUI type's shape and element.
+- Reads the component first, then the definitions it touches, then
+  `pnpm review SRT_X` for the defs diff as a fast cross-check (owner,
+  2026-10-16).
+- Does NOT re-review definitions already reviewed. A type or util checked
+  once is trusted until a weird case shows the earlier check was wrong; then
+  it is reopened. Reads names as claims: a type named after a MUI type must
+  have that MUI type's shape and element.
+- Core questions are "why is this written differently from MRT?" and "why
+  is there a separate function/type/const the original does not have?".
+  Lead the review with those two, per differing block.
 - Ignores: prefix renames, imports, cva blocks, theme/useTheme lines.
 - Everything else must be: mirrored MRT, MUI-inherited behaviour the
   component consumed, or a ruling recorded in the tracker. Otherwise delete
