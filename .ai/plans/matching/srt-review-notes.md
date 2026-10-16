@@ -80,6 +80,7 @@ of these and the reasoning is here.
 
 ## General notes (established conventions — apply project-wide)
 
+- **Single-folder layout (2026-10-16).** Core (types/hooks/utils/fns/locales/icons) folded into `components/ui/shadcn-react-table/`; `packages/shadcn-react-table-core` deleted. Components import core files by relative path like MRT. No core build gate. CLI left as-is, stale, later.
 - **cva variants**
   Components defines a `xxxVariants` cva at the top (shadcn anatomy), to define the default styling classes. Styling via cva + `cn()` (twMerge); user `className` merges last (wins).
   If a file has nothing to style, it has no cva. User `className` still merges last via `cn()`.
