@@ -349,9 +349,7 @@ of these and the reasoning is here.
 
 ### [-] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
 
-- Row highlights = solid classes (locked deviation; MRT's td:after overlay
-  machinery commented in place). Consequence: hovering a SELECTED row lightens
-  it (bg-muted → bg-muted/50); MRT keeps selected bg on hover.
+- Row highlights = MRT's `td:after` overlays in Tailwind (2026-10-16): selected `primary/20`, pinned row `primary/10`, hover `foreground/10` (selected keeps its tint). MUI `hover` prop stays dropped (no DOM equivalent).
 - Hoisted `isStickyPinned` const and hoisted `rowStyle` object inlined back to
   MRT's expression positions; dropped MUI `selected` prop now visible as a
   commented line (selection carried by `data-selected` + the cva variant).
@@ -368,6 +366,7 @@ of these and the reasoning is here.
 - td cva carries MUI TableCell defaults `border-b text-sm`; `-outline-offset-1`
   moved to the base (MRT sets outlineOffset at the sx root, so it also applies
   to the hover outline on editable cells).
+- Pinned cells receive the row tint through the row's `td:after` overlay; `bg-background` stays as the opaque sticky base.
 
 ### [-] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
 
