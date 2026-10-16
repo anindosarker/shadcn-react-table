@@ -46,3 +46,9 @@ ad-hoc "parity cards". Output is a short list of findings, then fixes.
 One bullet per finding: `<SRT line(s)>: <what differs> → <fix>`. No bullets
 for things that pass. No praise, no status lines. End with either
 `EQUIVALENT` or the count of findings.
+
+## Tooling
+
+`pnpm review SRT_X` opens two VS Code diff tabs: the component pair and a generated
+`SRT_X.defs.ts ↔ MRT_X.defs.ts` pair holding every core type/util/slot the file
+consumes next to its MRT/MUI twin, in import order. Script: `.ai/scripts/review-defs.mjs`.
