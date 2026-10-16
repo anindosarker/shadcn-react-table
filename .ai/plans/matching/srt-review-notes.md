@@ -356,7 +356,7 @@ of these and the reasoning is here.
   MRT's expression positions; dropped MUI `selected` prop now visible as a
   commented line (selection carried by `data-selected` + the cva variant).
 
-### [ ] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
+### [-] SRT_TableBodyCell.tsx : MRT_TableBodyCell.tsx
 
 - Sweep: skeleton pulse-div → ui/skeleton (runtime width/height stay inline;
   MUI wave→pulse and bg-muted→bg-accent defaults noted).
@@ -369,7 +369,7 @@ of these and the reasoning is here.
   moved to the base (MRT sets outlineOffset at the sx root, so it also applies
   to the hover outline on editable cells).
 
-### [ ] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
+### [-] SRT_TableBodyCellValue.tsx : MRT_TableBodyCellValue.tsx
 
 - `highlight-words` imported directly, as MRT (single-folder layout). Match chunk = `<mark>` (owner ruling, HTML semantics) with `data-slot="srt-match-highlight"` as the restyle hook; colour = `destructive/20` (dark `/30`) + `text-foreground`, MUI's `warning`-derived `matchHighlightColor` has no shadcn token (owner decision 2026-10-16).
 
