@@ -373,7 +373,7 @@ of these and the reasoning is here.
 
 - `highlight-words` imported directly, as MRT (single-folder layout). Match chunk = `<mark>` (owner ruling, HTML semantics) with `data-slot="srt-match-highlight"` as the restyle hook; colour = `destructive/20` (dark `/30`) + `text-foreground`, MUI's `warning`-derived `matchHighlightColor` has no shadcn token (owner decision 2026-10-16).
 
-### [ ] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
+### [-] SRT_TableBodyRowGrabHandle.tsx : MRT_TableBodyRowGrabHandle.tsx
 
 ### [ ] SRT_TableBodyRowPinButton.tsx : MRT_TableBodyRowPinButton.tsx
 
