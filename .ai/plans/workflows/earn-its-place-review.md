@@ -49,6 +49,6 @@ for things that pass. No praise, no status lines. End with either
 
 ## Tooling
 
-`pnpm review SRT_X` opens two VS Code diff tabs: the component pair and a generated
+`pnpm review SRT_X` (inside `apps/test-shadcn`; from the root `pnpm --filter test-shadcn review SRT_X`) opens two VS Code diff tabs: the component pair and a generated
 `SRT_X.defs.ts ↔ MRT_X.defs.ts` pair holding every core type/util/slot the file
-consumes next to its MRT/MUI twin, in import order. Script: `.ai/scripts/review-defs.mjs`.
+consumes next to its MRT/MUI twin, in import order. Script: `apps/test-shadcn/scripts/review-defs.mjs`.
