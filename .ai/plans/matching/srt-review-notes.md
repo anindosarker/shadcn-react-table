@@ -716,7 +716,7 @@ icon rotations kept. Each drop has an in-file Note.
   levels, alert-banner chip → ButtonProps (Badge asChild renders a button),
   `SRT_CircularProgressProps` → bare LucideProps. Both srt*Props blocks
   reordered to MRT's alphabetical order.
-- `TableSectionProps` split into `TableHeadProps` (thead) / `TableFooterProps` (tfoot) = MUI TableHeadProps / TableFooterProps (user-caught 2026-10-16).
+- `TableSectionProps` split into `TableHeadProps` (thead) / `TableFooterProps` (tfoot) = MUI TableHeadProps / TableFooterProps (user-caught 2026-10-16). `TdProps` merged into `TableCellProps` = `th & td` props, MUI's single loose cell type (user-directed 2026-10-16).
 
 ### [ ] icons.ts : icons.ts
 
