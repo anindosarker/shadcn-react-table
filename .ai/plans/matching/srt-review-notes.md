@@ -289,7 +289,7 @@ of these and the reasoning is here.
 
 ## head/
 
-### [ ] SRT_TableHead.tsx : MRT_TableHead.tsx
+### [-] SRT_TableHead.tsx : MRT_TableHead.tsx
 
 - `headerGroup as any` restored (MRT-verbatim) with an eslint-disable line —
   the convention for every MRT-parity cast in the tree.
