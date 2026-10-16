@@ -11,11 +11,13 @@ unticked entry are agent claims, not rulings.
 
 - Single folder: `components/ui/shadcn-react-table/` holds components, types,
   hooks, utils, fns, locales, icons. Relative imports like MRT. CLI package
-  untouched. Stories deferred until the library is done.
+  untouched. Stories deferred until the library is done. Locales are imported
+  by path, like MRT's subpath entries.
 - Styling: one `xxxVariants` cva at the top, applied through `cn()`; user
   `className` merges last. Runtime-measured values stay inline `style`; user
   `style` spreads last. No CSS variables added; theme tokens only; `data-slot`
-  is the restyle hook.
+  is the restyle hook. Focus rings use `ring`. Keyframes MRT needs (progress
+  indeterminate, horizontal collapse) live in the app stylesheet for now.
 - MUI default styles of raw elements (`table`, `tr`, `td`) count as spec. A
   shadcn component is used in its default variant; layout-only `className`;
   state-driven classes allowed when they map an MRT feature.
@@ -28,28 +30,13 @@ unticked entry are agent claims, not rulings.
 - `mrtTheme` dropped project-wide. No `Srt-*` class hooks.
 - MRT deps arrays verbatim, held with `eslint-disable-next-line
   react-hooks/exhaustive-deps`. `type="button"` on every button (MUI
-  ButtonBase emits it).
+  ButtonBase emits it). Icon buttons: MRT `size="small"` is `icon-sm`, no
+  size is `icon`.
 - Display columns MRT-exact: `Cell`/`Header` on the defs, ids `srt-row-*`.
 - Registry forks to re-apply after a refresh: `ui/native-select` imports `cn`
-  from `@/lib/utils` (CLI emitted `"cn"`).
+  from `@/lib/utils` (CLI emitted `"cn"`); `ui/checkbox` renders MUI's dash
+  for `indeterminate`.
 
-## Your call
-
-Open decisions. Agents leave the code as is and never cite these as rulings.
-
-- [ ] Every cell carries MUI defaults `border-b text-sm` (1px separators, 14px text).
-- [ ] `ui/checkbox` fork: indeterminate renders MUI's dash.
-- [ ] Global filter width animation via keyframes in the app stylesheet.
-- [ ] Filter toggle icons `Filter`/`FilterX` instead of MUI's FilterList pair.
-- [ ] `onEditingCellSave`: SRT-only public option, no MRT counterpart.
-- [ ] `index.ts` re-exports utils, style utils, `highlightWords`, locales and
-      display-column defs publicly; MRT keeps them internal.
-- [ ] Icon-button sizes: MRT `size="small"` is `icon-sm`, no size is `icon`.
-- [ ] Focus-visible outline on cells uses `outline-ring`; MRT uses primary.
-- [ ] MUI `usePagination` defaults live in `SRT_TablePagination`, not in
-      `getPaginationItems`.
-- [ ] eslint override block for the folded core paths in
-      `apps/test-shadcn/eslint.config.js`.
 
 ## Entry
 
@@ -225,6 +212,8 @@ Open decisions. Agents leave the code as is and never cite these as rulings.
 ### [ ] utils/utils.ts : utils/utils.ts
 
 ### [ ] utils/virtualization.utils.ts : utils/virtualization.utils.ts
+
+### [ ] utils/pagination.utils.ts : MUI usePagination.js
 
 ### [ ] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
 
