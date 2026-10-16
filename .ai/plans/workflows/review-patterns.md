@@ -96,6 +96,8 @@ Everything below is a consequence of these four.
   deviations.
 - Never mark `[x]`; the owner does. One commit per tracker entry, named
   `review: SRT_X.tsx : MRT_X.tsx`, pushed on `claude/review`, no trailers.
+- A comment-only or formatting-only diff is not a result: no edit, no commit,
+  status equivalent. Changing for the sake of changing is a miss.
 
 ## Catches log (what the owner found that agents missed)
 
@@ -105,3 +107,4 @@ Everything below is a consequence of these four.
 | 2026-10-16 | types.ts | `TableSectionProps = 'thead'` used for tfoot too | shared-symbol rule said "check spread target only"; never compared alias to MUI type | #8 |
 | 2026-10-16 | types.ts | `TdProps` split with invented name | same | #8 |
 | 2026-10-16 | SRT_TableBodyCell | `align` override inert; dispatch function; `mrt-row-*` ids kept | June ruling treated as spec; ids never questioned | #7, #9, Vision |
+| 2026-10-17 | useSRT_TableInstance, virtualization.utils | comment-only commits: reworded `ts-expect-error` reason, MRT→SRT inside a doc comment | agents treat "find something to change" as the deliverable | Delivery: no comment-only commits |
