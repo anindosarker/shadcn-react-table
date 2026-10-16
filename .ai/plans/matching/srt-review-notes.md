@@ -365,10 +365,12 @@ of these and the reasoning is here.
 
 - Sweep: skeleton pulse-div → ui/skeleton (runtime width/height stay inline;
   MUI wave→pulse and bg-muted→bg-accent defaults noted).
-- Deferred gap: MRT derives grid-mode flex `justify-content` from the MUI
-  `align` prop (RTL / right-aligned display columns); SRT dropped `align` for
-  logical `text-start`, which covers text-align but not flex justify. Visible
-  only in grid layout + RTL/align-overrides. Revisit if RTL parity pass happens.
+- `align` override restored (user-caught 2026-10-16): MUI TableCell align
+  classes → text-* and `flex-row-reverse` for right, grid adds
+  `justify-center`; `text-start` only as the default. Expand def `alignProps`
+  restored in core.
+- `columnDef.Cell` precedence = MRT: a user Cell wins even when it returns
+  null; id dispatch only when no Cell is defined (user-caught 2026-10-16).
 - `renderRowActions` is handled inside SRT_ToggleRowActionMenuButton — the
   cell dispatch renders only the button (MRT def shape); wrapping it again
   double-invokes.
@@ -806,6 +808,7 @@ icon rotations kept. Each drop has an in-file Note.
 - MRT's `alignProps` (align right when positionExpandColumn==='last')
   dropped per the locked align→text-start deviation; consequence: expand
   column positioned 'last' stays left-aligned.
+- `alignProps` restored 2026-10-16 (user-caught; pairs with the body-cell `align` override), superseding the drop above.
 
 ### [ ] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
 
