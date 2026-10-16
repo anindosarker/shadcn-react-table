@@ -347,7 +347,7 @@ of these and the reasoning is here.
 
 ### [ ] SRT_TableBody.tsx : MRT_TableBody.tsx
 
-### [ ] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
+### [-] SRT_TableBodyRow.tsx : MRT_TableBodyRow.tsx
 
 - Row highlights = solid classes (locked deviation; MRT's td:after overlay
   machinery commented in place). Consequence: hovering a SELECTED row lightens
