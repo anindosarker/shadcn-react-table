@@ -108,6 +108,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/RowActions.stories.tsx
 - data back to inline faker (5 fields, 10 rows) instead of makeData; menu items inlined per story as DropdownMenuItem with lucide icons (was a shared helper of plain buttons); Meta from @storybook/react-vite
 - Pagination commit: cf5309f
+- MRT verifier: RowActionsCompleteOverride IconButton -> `Button size="icon"` default variant (ghost dropped per plan rule)
 
 ### [ ] features/RowDragging.stories.tsx
 - data back to inline faker (MRT shape incl. id column, 25 rows) instead of makeData; added missing ID column; Meta from @storybook/react-vite (MRT `_setData` dropped: SRT eslint no-unused-vars rejects it)
