@@ -99,7 +99,7 @@ unticked entry are agent claims, not rulings.
 - Deleted the homegrown `if (!open) return null` + plain div + empty cva (no MRT/MUI pointer).
 - commits: 1a12bec
 
-### [ ] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
+### [-] SRT_TableHeadCellFilterLabel.tsx : MRT_TableHeadCellFilterLabel.tsx
 
 - IconButton sx rebuilt as tableHeadCellFilterLabelVariants cva (icon-sm = 16px box + 8px pad, ml-1, scale-75, transition-all 150ms ease-in-out, active opacity 1/.3); previous "head-button ruling" comment pointed at no Conventions line, …
 - Popover anchor: fixed-position span + getBoundingClientRect hack replaced by radix PopoverAnchor virtualRef={{ current: anchorEl }} (1:1 with MUI anchorEl). …
