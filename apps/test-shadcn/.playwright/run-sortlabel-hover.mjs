@@ -1,0 +1,18 @@
+import { chromium } from 'playwright';
+const BASE = process.env.SRT_BASE || 'http://localhost:5371/';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage({ viewport: { width: 1600, height: 1200 } });
+await page.goto(BASE, { waitUntil: 'networkidle' });
+await page.waitForSelector('.srt-custom-layout thead', { timeout: 20000 });
+const btn = page.locator('.srt-custom-layout thead button[aria-label="Sort by Email ascending"]');
+const th = btn.locator('xpath=ancestor::th[1]');
+const op = () => btn.evaluate((b) => getComputedStyle(b).opacity);
+console.log('before hover', await op());
+await th.hover({ position: { x: 10, y: 5 } });
+await page.waitForTimeout(400);
+console.log('th hover', await op());
+await page.mouse.move(0, 0);
+await page.waitForTimeout(400);
+console.log('after leave', await op());
+console.log('dark?', await page.evaluate(() => document.documentElement.className));
+await browser.close();
