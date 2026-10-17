@@ -16,3 +16,13 @@ Judgment calls made under the handoff. Revert any you disagree with.
 - library bug found by CellActions stories (not fixed, out of scope): `SRT_CellActionMenu` opens on `contextmenu` but Radix closes it on the right-button `pointerup` of a real right-click, so the menu never stays open in a real browser. Logged under `## Library gaps` in the tracker.
 - stories: `Meta` import moved from `@storybook/react` to `@storybook/react-vite` in every file (plan definition). One-line revert per file if you consider it churn.
 - library gaps from styling stories (logged in tracker, not fixed): `SRT_Table` `<caption>` has no caption-bottom default (Caption `BottomCaption` renders on top); `srtTableBodyRowProps` has no `hover: false` (story uses className workaround); no per-subtree light theme in shadcn (Theming `CustomLightTheme` overrides only --background/--primary/--secondary).
+
+## Deploy, registry and CI (plan `.ai/plans/deploy-registry-ci.md`)
+
+- Repo is PUBLIC, default branch `master` (not `main`). CI triggers on `master` and `claude/review`. The GitHub registry address `anindosarker/shadcn-react-table/shadcn-react-table` resolves at `HEAD` = `master`; until `master` carries the root `registry.json`, append `#claude/review` to the docs install command. The locale items depend on the main item by that bare address, so `shadcn add .../shadcn-react-table-locale-<code>#claude/review` fails until `master` has the registry (the dependency does not inherit the `#ref`).
+- `packages/shadcn-react-table/public/r` is gitignored (package `.gitignore` line 28), so the built item JSON is never committed; the GitHub registry reads `registry.json` plus source files, so nothing is needed. `pnpm registry:build` then `pnpm registry:serve` (port 5310) is the local contributor path.
+- Vercel, two projects from this repo, created in the dashboard (Add New Project, import `anindosarker/shadcn-react-table`):
+  - Docs: Root Directory `apps/shadcn-react-table-docs`, Framework Preset Next.js, Build Command and Output Directory default (from `vercel.json`), Install Command default. The installed library copy under `components/ui/shadcn-react-table` is committed, so no pre-build step.
+  - Storybook: Root Directory `packages/shadcn-react-table`, Framework Preset Other, Build Command `pnpm storybook:build`, Output Directory `storybook-static` (both from `vercel.json`), Install Command default.
+  - Production Branch for both: `master` once the branch carries this work; `claude/review` meanwhile. Enable "Include source files outside of the Root Directory" (default on) so the pnpm workspace installs from the repo root.
+- CI workflow `.github/workflows/ci.yml`: jobs `library`, `test`, `docs`, `registry` (push only). Node 22, pnpm from `packageManager`.
