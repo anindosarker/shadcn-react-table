@@ -146,6 +146,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - restored MRT cell/container overrides (were dropped as a false gap): `srtTableBodyCellProps`/`srtTableHeadCellProps` `align: center` + `className: border-l border-black`, `srtTableContainerProps` `style: { maxHeight: 300 }` (className cannot beat the sticky-header inline maxHeight); `mockData`/`mockColumns` typed instead of `any` (eslint no-explicit-any); `Meta` from `@storybook/react-vite` (mobile-date-pickers commit: deecefe)
 
 ### [ ] fixed-bugs/useEffects.stories.tsx
+- `Box sx` -> `div className="flex gap-4 whitespace-nowrap"`, MUI `Button` -> shadcn `Button`, `MenuItem` -> `DropdownMenuItem`; eslint-disable `react-hooks/rules-of-hooks` block around MRT's lowercase export `renderRowActionMenuItemsAsync` (name kept); `Meta` from `@storybook/react-vite` (sticky-footer commit: b76a30f)
 
 ### [ ] styling/Alignment.stories.tsx
 - data back to faker (25 rows, MRT shape); `align` on `defaultColumn`/column `srtTable{Body,Head,Footer}CellProps` restored for all 8 aligned stories (stale "API GAP" comments removed, SRT supports `align`)
