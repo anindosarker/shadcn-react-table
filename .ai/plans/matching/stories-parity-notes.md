@@ -191,6 +191,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - StylingDisplayColumns commit: ece1f02
 
 ### [ ] styling/TableBodyRowStyles.stories.tsx
+- data back to faker (21 rows, MRT shape); all 5 styled stories restored via className: hover off -> `hover:[&>td]:after:bg-transparent`, row sx -> `bg-sky-500/10 border-r border-border`, striped -> tbody `[&_tr:nth-of-type(odd)]:bg-[limegreen]` / `[&_tr:nth-child(4n+3)]:bg-[limegreen]` + cell `border-none`, conditional -> `bg-red-500/20 italic`; stale API GAP comments removed
+- gap: `srtTableBodyRowProps` has no `hover` boolean like MUI TableRow; disabling the hover overlay needs the className above
+- TableBodyCellStyles commit: 773d0a1
 
 ### [ ] styling/TableDiminsions.stories.tsx
 
