@@ -16,8 +16,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/CellActions.stories.tsx
 - data back to MRT faker shape (local `Row` interface, 100 rows) instead of `makeData`/`Person`; Meta import to `@storybook/react-vite`
 - gap: SRT_CellActionMenu closes on right-button pointerup (Radix dismissable layer), so a real right-click never leaves the menu open; verified items via a dispatched `contextmenu` event
+- commit d7f9cc2
 
 ### [ ] features/ClickToCopy.stories.tsx
+- same scenario as MRT; only the Meta import moved to `@storybook/react-vite`
 
 ### [ ] features/ColumnActions.stories.tsx
 
