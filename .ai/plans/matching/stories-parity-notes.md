@@ -70,6 +70,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowActions commit: d3270c9
 
 ### [ ] features/RowNumbers.stories.tsx
+- data back to inline faker (MRT shape, 100 rows) instead of makeData; Meta from @storybook/react-vite; eslint-disable rules-of-hooks on enableRowNumbersConditionally (lowercase MRT export name + useState, SRT eslint rejects it)
+- RowDragging commit: 6010705
 
 ### [ ] features/RowOrdering.stories.tsx
 
