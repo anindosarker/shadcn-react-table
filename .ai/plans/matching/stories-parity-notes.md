@@ -222,4 +222,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - TableHeadCellStyles commit: 7167138
 
 ### [ ] styling/Theming.stories.tsx
+- data back to faker (21 rows, MRT shape); `createTheme` palette -> wrapper div with shadcn CSS vars (`--background` #ffffef, `--primary` #ff9800, `--secondary` #00bcd4; dark: `.dark` wrapper + `--primary` #81980f, `--secondary` #00bcd4); stale API GAP comments removed
+- gap: shadcn has no per-subtree light mode (only `.dark` is defined, light is `:root`), so CustomLightTheme keeps the Storybook-global foreground/other tokens and overrides only the 3 palette tokens MUI sets
+- TablePaper commit: 3c36699
 
