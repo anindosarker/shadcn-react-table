@@ -123,6 +123,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - gap: MUI X date/time pickers -> SRT native `date`/`datetime-local`/`time` inputs (no `calendar` under `src/components/ui`); all 6 variants render
 
 ### [ ] fixed-bugs/sticky-footer.stories.tsx
+- restored MRT cell/container overrides (were dropped as a false gap): `srtTableBodyCellProps`/`srtTableHeadCellProps` `align: center` + `className: border-l border-black`, `srtTableContainerProps` `style: { maxHeight: 300 }` (className cannot beat the sticky-header inline maxHeight); `mockData`/`mockColumns` typed instead of `any` (eslint no-explicit-any); `Meta` from `@storybook/react-vite` (mobile-date-pickers commit: deecefe)
 
 ### [ ] fixed-bugs/useEffects.stories.tsx
 
