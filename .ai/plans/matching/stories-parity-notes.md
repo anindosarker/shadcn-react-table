@@ -3,6 +3,10 @@
 Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative to `packages/shadcn-react-table/stories`). Ticks are owner-only. Under each entry at most 3 bullets: what changed, library gaps found, commit. Equivalent files get `- same scenario as MRT, no change`.
 
 ## Library gaps (features a story needs that SRT lacks)
+
+- features/Pagination: muiPaginationProps shape/variant (MUI style variants) have no SRT equivalent
+- features/Search: muiSearchTextFieldProps label / variant / InputLabelProps have no shadcn Input equivalent; placeholder only
+- features/RowPinning, features/Virtualization: srtTableContainerProps className max-h is overridden by the container inline sticky-header clamp; stories use style maxHeight
 - SRT_CellActionMenu: opens on `contextmenu` but Radix closes it on the right-button `pointerup` that follows a real right-click (features/CellActions, all stories)
 - fixed-bugs/mobile-date-pickers: MUI X date/time pickers have no shadcn calendar/popover picker in SRT; filter variants use native inputs
 
