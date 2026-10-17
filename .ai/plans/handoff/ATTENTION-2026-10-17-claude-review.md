@@ -7,5 +7,5 @@ Judgment calls made under the handoff. Revert any you disagree with.
 - Five menus now carry the same ghost-span trigger plus focus-restore handler. An `SRT_Menu` wrapper with MUI Menu's shape (anchorEl, open, onClose) would hold it once, like `SRT_Tooltip`. Not done.
 - `SRT_ActionMenuItem` submenu arrow uses the registry size `icon-xs` for MRT's `sx={{ p: 0 }}`; `divider` is `border-b` on the item like MUI, not a `DropdownMenuSeparator`.
 - Agent-decided taste items, kept with their recommendation: `icons.ts` keeps shadcn-conventional glyphs for DragHandle and Density over MUI pixel-twins; filter label popover stays non-modal; detail panel keeps `overflow-hidden` during the collapse; date filters hand the filter a `Date` like MRT; edit select stays radix Select; `getCommonToolbarStyles` stays exported though the ticked toolbars inline it.
-- Stories (deferred): `apps/test-shadcn/stories/features/Editing.stories.tsx` still uses the deleted `onEditingCellSave`.
+- Stories (deferred): `packages/shadcn-react-table/stories/features/Editing.stories.tsx` still uses the deleted `onEditingCellSave`.
 - Audit trail of the last 25 entries: `.ai/plans/handoff/findings-2026-10-17.md`.

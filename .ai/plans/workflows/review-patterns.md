@@ -31,7 +31,7 @@ Everything below is a consequence of these four.
   (`packages/shadcn-react-table-cli`) is a later concern: never work on it,
   never delete it, never let it block a change. Minimum edits only when
   the workspace would otherwise fail to install.
-- Stories (`apps/test-shadcn/stories`, `.storybook`) are deferred until the
+- Stories (`packages/shadcn-react-table/stories`, `.storybook`) are deferred until the
   library is finished. No story edits, no stories tsc gate, until then.
 - Colours: theme tokens over Tailwind palette literals. No new CSS variables
   for one-off colours. Expose restyle hooks with `data-slot`, shadcn's own
