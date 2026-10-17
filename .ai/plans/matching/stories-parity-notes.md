@@ -91,6 +91,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - same scenario as MRT; `Meta` from `@storybook/react-vite`, dropped unused `_setData` (eslint no-unused-vars) (data-types commit: 5deed99)
 
 ### [ ] fixed-bugs/fullscreen-with-appbar.stories.tsx
+- AppBar/Toolbar/CssBaseline stay a sticky div (no shadcn AppBar), inline styles -> Tailwind `bg-primary text-primary-foreground`, `Box padding={2}` -> `p-4`; app bar `z-[1100]` (MUI number) -> `z-40` so SRT fullscreen (`z-50`, MRT uses `theme.zIndex.modal`) covers it as the scenario expects; `Meta` from `@storybook/react-vite` (dragging-virtual commit: 9f7bb23)
 
 ### [ ] fixed-bugs/gridLayout.stories.tsx
 
