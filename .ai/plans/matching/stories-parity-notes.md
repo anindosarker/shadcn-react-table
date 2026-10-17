@@ -9,6 +9,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ## Files
 
 ### [ ] features/Aggregation.stories.tsx
+- Meta import to `@storybook/react-vite`; dropped the `any` annotations on the multi aggregationFn params (eslint no-explicit-any), inferred from the column type
 
 ### [ ] features/CellActions.stories.tsx
 
@@ -31,6 +32,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/Creating.stories.tsx
 
 ### [ ] features/DensePadding.stories.tsx
+
+- same scenario as MRT, no change
 
 ### [ ] features/DetailPanel.stories.tsx
 
