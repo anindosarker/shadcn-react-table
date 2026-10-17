@@ -120,6 +120,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Search commit: 0bbf9ce
 
 ### [ ] features/Sorting.stories.tsx
+- inline faker (5 fields, 100 rows) instead of makeData; columns in MRT multi-line shape; Meta from @storybook/react-vite
+- Selection commit: c1415bf
 
 ### [ ] features/SubRowTree.stories.tsx
 
