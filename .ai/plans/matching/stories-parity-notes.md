@@ -4,7 +4,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ## Library gaps (features a story needs that SRT lacks)
 
-(none logged yet)
+- styling/Caption: SRT_Table `<caption>` lacks MUI's `captionSide: bottom` default; BottomCaption renders on top
 
 ## Files
 
@@ -104,6 +104,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - data back to faker (25 rows, MRT shape); `align` on `defaultColumn`/column `srtTable{Body,Head,Footer}CellProps` restored for all 8 aligned stories (stale "API GAP" comments removed, SRT supports `align`)
 
 ### [ ] styling/Caption.stories.tsx
+- data back to faker (25 rows, MRT shape); TopCaption: `muiTableProps.sx caption captionSide top` -> `srtTableProps.className '[&>caption]:caption-top'`
+- gap: SRT_Table renders a bare `<caption>` with no `caption-bottom` default, so BottomCaption shows the caption on top (MUI TableCaption defaults to bottom)
+- Alignment commit: f7d45b2
 
 ### [ ] styling/ColumnWidths.stories.tsx
 
