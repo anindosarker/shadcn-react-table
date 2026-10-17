@@ -206,6 +206,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - TableBodyRowStyles commit: 8ddb7c2
 
 ### [ ] styling/TableHeadCellStyles.stories.tsx
+- data back to faker (21 rows, MRT shape); sx restored as className: sort icon `[&_button[aria-label^=Sort]_svg]:text-[limegreen]!` when sorted, all cells `bg-sky-500/10 border-r border-border text-foreground`, per column `text-primary` / `text-red-500`, `Box color=primary.main` -> `div.text-primary`; stale API GAP comments removed
+- TableDiminsions commit: 628ba57
 
 ### [ ] styling/TablePaper.stories.tsx
 
