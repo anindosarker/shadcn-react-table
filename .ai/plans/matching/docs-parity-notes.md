@@ -420,4 +420,3 @@ synced with the name map only get `- synced, name map only`.
 - `SRT_Tooltip` and `useSRT_MediaQuery` not exported from the barrel (path imports in custom-column-filtering-ui, dynamic-columns, editing-crud-*) (D)
 - `srtTableBodyRowProps` no `hover` flag (minimal: hover overlay neutralised with a className) (D)
 - `srtPaginationProps` no `color`/`shape`/`variant`, `srtSearchTextFieldProps` no `size`/`variant` (advanced, custom-headless; dropped) (D)
-- MRT-only facts removed

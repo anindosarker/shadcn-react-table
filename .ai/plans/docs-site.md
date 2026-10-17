@@ -1,5 +1,7 @@
 # Docs site parity plan
 
+Status: done 2026-10-17. 95 pages, 113 examples, 10 groups, home page (2268721); MRT-only facts removed (8cfe9de); docs-diff 94 ok (a76898b, b872027); page gate 1200/0 (e82c71d); production build green. Open items in the ATTENTION file.
+
 Goal: every page of the Material React Table docs (`apps/material-react-table-docs`, MRT v3 at
 commit 6008059, untracked reference copy) exists in `apps/shadcn-react-table-docs` with the same
 content, rendered with SRT code. Started 2026-10-17 after the fumadocs scaffold, theme and the

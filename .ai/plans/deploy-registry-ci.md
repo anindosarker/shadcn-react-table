@@ -1,6 +1,6 @@
 # Deploy, registry and CI plan
 
-Status: written 2026-10-17, not started.
+Status: done 2026-10-17, commits d50f40a, 5573c76, 28df366. CI green on claude/review (run 39045185158). Vercel projects are the owner's (ATTENTION file).
 
 Goal: users install the library with one command from GitHub, the docs site and Storybook each
 deploy on Vercel from this repo, and one GitHub Actions workflow gates every push. Nothing here
