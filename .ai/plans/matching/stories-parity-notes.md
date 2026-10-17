@@ -20,8 +20,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ClickToCopy.stories.tsx
 - same scenario as MRT; only the Meta import moved to `@storybook/react-vite`
+- commit 301086b
 
 ### [ ] features/ColumnActions.stories.tsx
+- data back to MRT faker shape (local `Row` interface, 100 rows) instead of `makeData`/`Person`; Meta import to `@storybook/react-vite`
 
 ### [ ] features/ColumnDragging.stories.tsx
 
