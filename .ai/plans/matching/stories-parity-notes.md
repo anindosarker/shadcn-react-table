@@ -173,6 +173,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowHeights commit: dc1acdc
 
 ### [ ] styling/StylingDisplayColumns.stories.tsx
+- data back to faker (21 rows, MRT shape); display column sx restored as className (`srt-row-actions` head cell `text-xl italic`, `srt-row-numbers` body cell `text-2xl text-red-500`); plain `button` -> shadcn `Button` (default / `destructive` for MUI primary / error contained); stale API GAP comment removed
+- StickyHeader commit: 0033f46
 
 ### [ ] styling/TableBodyCellStyles.stories.tsx
 
