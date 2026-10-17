@@ -48,8 +48,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnResizing.stories.tsx
 - same scenario as MRT; only the Meta import moved to `@storybook/react-vite`
+- commit d6dec05
 
 ### [ ] features/Creating.stories.tsx
+- CreateRowIndexIndexExpanding: `renderRowActions` back to MRT `staticRowIndex` (SRT has it now; stale API-gap comment and `row.index` fallback removed), IconButton -> `Button size="icon"` default variant; CreateWithCustomEditCell: MUI Select/MenuItem -> shadcn `Select`/`SelectItem` with MRT `value`; Meta import to `@storybook/react-vite`
 
 ### [ ] features/DensePadding.stories.tsx
 
