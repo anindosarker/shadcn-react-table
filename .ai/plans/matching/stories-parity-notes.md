@@ -44,8 +44,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnPinning.stories.tsx
 - data back to MRT faker shape (`(typeof data)[0]`, 100 rows) instead of `makeData`/`Person`; `renderDetailPanel` drops the unused `_row` destructure (eslint no-unused-vars); Meta import to `@storybook/react-vite`
+- commit 5d1453e
 
 ### [ ] features/ColumnResizing.stories.tsx
+- same scenario as MRT; only the Meta import moved to `@storybook/react-vite`
 
 ### [ ] features/Creating.stories.tsx
 
