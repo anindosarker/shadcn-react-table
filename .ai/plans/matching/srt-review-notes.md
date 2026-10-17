@@ -92,7 +92,7 @@ unticked entry are agent claims, not rulings.
 - Rest unchanged and MRT-exact: ButtonProps slot verified (srtColumnActionsButtonProps -> shadcn Button -> <button></button>), SRT_Tooltip side='top' carries getCommonTooltipProps, size icon-sm / type='button' per Conventions, …
 - commits: 1633618
 
-### [ ] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
+### [-] SRT_TableHeadCellFilterContainer.tsx : MRT_TableHeadCellFilterContainer.tsx
 
 - MUI Collapse rebuilt as shadcn Collapsible/CollapsibleContent with animate-collapsible-down/up (same pattern as ticked SRT_LinearProgressBar, SRT_ToolbarAlertBanner); radix unmount on close = mountOnEnter/unmountOnExit.
 - Props extend React.ComponentProps<typeof Collapsible></typeof> (CollapseProps twin) instead of DivProps; rest spreads last like MRT.
