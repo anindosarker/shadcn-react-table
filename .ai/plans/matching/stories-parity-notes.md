@@ -111,6 +111,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Alignment commit: f7d45b2
 
 ### [ ] styling/ColumnWidths.stories.tsx
+- title to `Styling/Custom Column Widths`; data back to faker (21 rows, MRT shape incl. `id`); columns rewritten to MRT's 5 (id/firstName/lastName/age/address) with MRT sizes and grow flags, inline per story
+- Caption commit: 53993b6 (+ Meta import fix 64a5369; Alignment Meta fix dbe8c89)
 
 ### [ ] styling/CustomTableBody.stories.tsx
 
