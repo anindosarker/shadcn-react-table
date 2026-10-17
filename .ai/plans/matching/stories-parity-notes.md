@@ -7,6 +7,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - fixed-bugs/mobile-date-pickers: MUI X date/time pickers have no shadcn calendar/popover picker in SRT; filter variants use native inputs
 
 - styling/Caption: SRT_Table `<caption>` lacks MUI's `captionSide: bottom` default; BottomCaption renders on top
+- styling/TableBodyRowStyles: no `hover: false` on `srtTableBodyRowProps` (MUI TableRow `hover`); workaround className `hover:[&>td]:after:bg-transparent`
+- styling/Theming: no per-subtree light theme (MUI ThemeProvider mode); shadcn light tokens live on `:root`, only `.dark` is a class
 
 ## Files
 
