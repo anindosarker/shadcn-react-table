@@ -76,6 +76,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/Virtualization.stories.tsx
 
 ### [ ] fixed-bugs/click-propogation.stories.tsx
+- added `srtTableBodyRowProps.onClick` alert (was dropped as a false gap), `MenuItem` -> `DropdownMenuItem`, `Button` -> shadcn `Button`, `Meta` from `@storybook/react-vite`
 
 ### [ ] fixed-bugs/data-types.stories.tsx
 
