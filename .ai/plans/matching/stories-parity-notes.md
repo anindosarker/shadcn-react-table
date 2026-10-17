@@ -180,6 +180,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - StickyHeader commit: 0033f46
 
 ### [ ] styling/TableBodyCellStyles.stories.tsx
+- data back to faker (21 rows, MRT shape); conditional story back to MRT rule (`> 40` -> `bg-green-500/50`, fontWeight 700/400 -> `font-bold`/`font-normal`; was `>= 50` red/green)
+- StylingDisplayColumns commit: ece1f02
 
 ### [ ] styling/TableBodyRowStyles.stories.tsx
 
