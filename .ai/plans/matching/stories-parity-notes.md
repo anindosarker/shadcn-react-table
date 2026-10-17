@@ -125,6 +125,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Caption commit: 53993b6 (+ Meta import fix 64a5369; Alignment Meta fix dbe8c89)
 
 ### [ ] styling/CustomTableBody.stories.tsx
+- data back to faker (25 rows, MRT shape); CustomTableBody: `srtTableBodyProps.children` restored (stale API GAP comment removed, SRT_TableBody honours children); Typography -> `p`
+- render check flags React 19's `text nodes cannot be a child of <tbody>` console.error on CustomTableBody; MRT's story has the same text child under the same React 19, kept as written
+- ColumnWidths commit: fbbad71
 
 ### [ ] styling/RowHeights.stories.tsx
 
