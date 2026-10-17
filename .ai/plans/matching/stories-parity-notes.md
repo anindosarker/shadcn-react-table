@@ -134,6 +134,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - ColumnWidths commit: fbbad71
 
 ### [ ] styling/RowHeights.stories.tsx
+- data back to faker (25 rows, MRT shape); sx `p: '2px 16px'` -> `srtTableBodyCellProps.className 'py-0.5 px-4'`, sx `height: '10px'` -> `srtTableBodyRowProps.className 'h-2.5'` (stale API GAP comment removed)
+- CustomTableBody commit: 3eee7d8
 
 ### [ ] styling/StickyHeader.stories.tsx
 
