@@ -198,6 +198,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - TableBodyCellStyles commit: 773d0a1
 
 ### [ ] styling/TableDiminsions.stories.tsx
+- data back to faker (25 rows, MRT shape, no age); `muiTablePaperProps` -> `srtTableLayoutProps` (`m-auto max-w-[800px]`, `h-full`), container sx -> `srtTableContainerProps` className `max-h-[500px]` / `min-h-[800px]`, toolbar-ref `calc` height kept as `style`; stale API GAP comments removed
+- TableBodyRowStyles commit: 8ddb7c2
 
 ### [ ] styling/TableHeadCellStyles.stories.tsx
 
