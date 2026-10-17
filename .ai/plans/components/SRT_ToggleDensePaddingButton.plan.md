@@ -1,6 +1,6 @@
 # Plan: SRT_ToggleDensePaddingButton ← MRT_ToggleDensePaddingButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleDensePaddingButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ToggleDensePaddingButton.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

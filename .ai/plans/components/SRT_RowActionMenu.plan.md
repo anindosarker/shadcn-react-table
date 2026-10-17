@@ -1,6 +1,6 @@
 # Plan: SRT_RowActionMenu ← MRT_RowActionMenu
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_RowActionMenu.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_RowActionMenu.tsx`.
 Garbage-zone; author fresh. Menu shell = shadcn DropdownMenu family + the
 fixed-span anchorEl bridge (locked — see ActionMenuItem tracker entry; copy
 the bridge wiring from the garbage file / SRT_ColumnActionMenu's shell).

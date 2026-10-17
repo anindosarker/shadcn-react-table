@@ -14,8 +14,8 @@
   MRT constructs kept commented out at their original position + short
   `// Note:` why, (c) a brief reason on `//@ts-expect-error`.
 - Gates after coding: `pnpm prettier --write <file>`, then
-  `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean. Also check for lint errors: `pnpm --filter test-shadcn exec eslint <path relative to apps/test-shadcn> --max-warnings=0` (eslint lives in the app package, not the workspace root).
+  `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean. Also check for lint errors: `pnpm --filter shadcn-react-table exec eslint <path relative to apps/test-shadcn> --max-warnings=0` (eslint lives in the app package, not the workspace root).
 - The coding agent must report back explicitly (SendMessage to main): files
   touched, gate results, unreachable parity + why, questions it stopped on.
   Going idle without a report is a failure.
-- You will code in the test shadcn project, not in the package. we will code in the package later. /Users/anindosarker/Work/Personal/React-table/shadcn-react-table/apps/test-shadcn/src/components/ui/shadcn-react-table
+- You will code in the test shadcn project, not in the package. we will code in the package later. /Users/anindosarker/Work/Personal/React-table/shadcn-react-table/packages/shadcn-react-table/src/components/ui/shadcn-react-table

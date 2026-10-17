@@ -1,6 +1,6 @@
 # Plan: SRT_TableFooter ← MRT_TableFooter
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/footer/SRT_TableFooter.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/footer/SRT_TableFooter.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

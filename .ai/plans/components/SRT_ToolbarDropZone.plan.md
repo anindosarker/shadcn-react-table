@@ -1,6 +1,6 @@
 # Plan: SRT_ToolbarDropZone ← MRT_ToolbarDropZone
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarDropZone.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarDropZone.tsx`.
 Garbage-zone (already slot-stripped by the types task); author fresh.
 
 ## Resolved decisions

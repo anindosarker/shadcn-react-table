@@ -47,5 +47,5 @@ your report.
 ## Gates
 
 - `pnpm prettier --write packages/shadcn-react-table-core/src/types.ts` (+ any touched garbage files)
-- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean
+- `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean
 - No git. Nothing else in types.ts changes.

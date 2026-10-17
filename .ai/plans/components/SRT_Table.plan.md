@@ -1,6 +1,6 @@
 # Plan: SRT_Table ← MRT_Table
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_Table.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/table/SRT_Table.tsx`
 ← `packages/material-react-table/src/components/table/MRT_Table.tsx` (spec, source of truth).
 
 Existing SRT file = garbage from prior runs. Author fresh from the MRT spec.
@@ -78,6 +78,6 @@ Existing SRT file = garbage from prior runs. Author fresh from the MRT spec.
 ## Gates (repo root)
 
 - `pnpm prettier --write` on both touched files
-- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean
-- `pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/table/SRT_Table.tsx --max-warnings=0`
+- `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean
+- `pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/table/SRT_Table.tsx --max-warnings=0`
 - Touch ONLY: this component file + the two types.ts changes. No git.

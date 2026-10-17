@@ -1,6 +1,6 @@
 # Plan: SRT_TablePagination ← MRT_TablePagination
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_TablePagination.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_TablePagination.tsx`.
 Garbage-zone; author fresh — BUT read the garbage file FIRST: its
 `paginationDisplayMode === 'pages'` numbered-buttons+ellipsis implementation
 is June browser-verified; preserve that rendering logic (restructured to fit

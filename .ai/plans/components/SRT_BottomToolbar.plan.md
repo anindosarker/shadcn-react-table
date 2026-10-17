@@ -1,6 +1,6 @@
 # Plan: SRT_BottomToolbar ← MRT_BottomToolbar
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_BottomToolbar.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_BottomToolbar.tsx`.
 Garbage-zone; author fresh. FIXES the user-reported pagination cutoff: the
 garbage file lacked MRT's `minHeight: 3.5rem`, so the absolutely-positioned
 pagination overflowed the collapsed toolbar and got clipped.

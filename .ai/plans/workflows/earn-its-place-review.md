@@ -31,7 +31,7 @@ ad-hoc "parity cards". Output is a short list of findings, then fixes.
    into the cva. Replaced by a shadcn COMPONENT → shadcn default variant, no
    styling className (layout-only className allowed).
 7. Gates: `pnpm prettier --write <file>`; `pnpm tsc -p
-   apps/test-shadcn/tsconfig.app.json --noEmit` (ignore TS5101; errors in
+   packages/shadcn-react-table/tsconfig.app.json --noEmit` (ignore TS5101; errors in
    OTHER files being edited concurrently are not yours); `pnpm --filter
    test-shadcn exec eslint <app-relative path> --max-warnings=0`.
 8. Tracker: DO NOT mark `[x]` (only the user checks boxes). ≤3 bullets, decisions/deviations only

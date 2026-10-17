@@ -1,6 +1,6 @@
 # Plan: SRT_TableHeadCellGrabHandle ← MRT_TableHeadCellGrabHandle
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellGrabHandle.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellGrabHandle.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHeadCellGrabHandle.tsx`.
 Garbage-zone; author fresh. Logic-only component (no styling of its own).
 
@@ -40,6 +40,6 @@ draggingColumn, hoveredColumn`), merge, handlers, JSX. Comments: none.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellGrabHandle.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellGrabHandle.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.

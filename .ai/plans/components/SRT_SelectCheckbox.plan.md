@@ -1,6 +1,6 @@
 # Plan: SRT_SelectCheckbox ← MRT_SelectCheckbox
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_SelectCheckbox.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_SelectCheckbox.tsx`.
 Garbage-zone; author fresh — but READ the garbage file first: its shadcn/radix
 Checkbox event bridge (range-select shiftKey handling) and the round-checkbox
 single-select rendering are June browser-verified; preserve those mechanisms.

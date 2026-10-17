@@ -1,6 +1,6 @@
 # Monorepo restructure and registry distribution
 
-Status: planned 2026-10-17, not started. Runs after the storybook plan.
+Status: steps 1 and 2 done 2026-10-17. Step 1 commit caf42f9 (move library to packages/shadcn-react-table). Step 2 is the commit that carries this status line (remove material-react-table monorepo leftovers). Steps 3 to 5 not started.
 
 ## Target layout
 

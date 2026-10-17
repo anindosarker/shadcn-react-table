@@ -132,9 +132,9 @@
 - `tailwind-merge` - cn() utility
 
 ### Key Files Modified
-- `/apps/test-shadcn/src/components/ui/shadcn-react-table/table/`
+- `/packages/shadcn-react-table/src/components/ui/shadcn-react-table/table/`
   - All 7 new table components
-- `/apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/`
+- `/packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/`
   - SRT_TablePagination.tsx (new)
   - SRT_BottomToolbar.tsx (cleaned)
   - SRT_TableLayout.tsx (enhanced)
@@ -201,7 +201,7 @@ dist/assets/index-4pvy25_W.js   304.20 kB │ gzip: 94.46 kB
 ## Files Structure
 
 ```
-apps/test-shadcn/src/components/ui/shadcn-react-table/
+packages/shadcn-react-table/src/components/ui/shadcn-react-table/
 ├── ShadcnReactTable.tsx (root component)
 ├── table/
 │   ├── SRT_Table.tsx ✅

@@ -1,6 +1,6 @@
 # Plan: SRT_TableBodyCell ← MRT_TableBodyCell
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBodyCell.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/body/SRT_TableBodyCell.tsx`
 ← `packages/material-react-table/src/components/body/MRT_TableBodyCell.tsx`.
 Garbage-zone; author fresh. Second-biggest file. Includes the DISPLAY-COLUMN
 BODY DISPATCH (General notes: display-column boundary) — read that note first.
@@ -93,7 +93,7 @@ BODY DISPATCH (General notes: display-column boundary) — read that note first.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/body/SRT_TableBodyCell.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/body/SRT_TableBodyCell.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git. STOP if any dispatched component's
 interface rejects the props both the garbage file and MRT semantics suggest.

@@ -1,6 +1,6 @@
 # Plan: SRT_EditActionButtons ← MRT_EditActionButtons
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_EditActionButtons.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_EditActionButtons.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

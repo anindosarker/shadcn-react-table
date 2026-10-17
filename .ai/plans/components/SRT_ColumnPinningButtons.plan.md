@@ -1,6 +1,6 @@
 # Plan: SRT_ColumnPinningButtons ← MRT_ColumnPinningButtons
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ColumnPinningButtons.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ColumnPinningButtons.tsx`.
 Garbage-zone; author fresh. NOTE: menus/SRT_ShowHideColumnsMenuItems already
 imports this with `{column, table}` — do not break that call.
 

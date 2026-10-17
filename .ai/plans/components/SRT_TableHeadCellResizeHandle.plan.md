@@ -1,6 +1,6 @@
 # Plan: SRT_TableHeadCellResizeHandle ← MRT_TableHeadCellResizeHandle
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellResizeHandle.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellResizeHandle.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHeadCellResizeHandle.tsx`.
 Garbage-zone; author fresh. This restores working column resizing (drag +
 double-click reset).
@@ -49,6 +49,6 @@ Comments: none needed beyond any dropped constructs encountered.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellResizeHandle.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellResizeHandle.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.

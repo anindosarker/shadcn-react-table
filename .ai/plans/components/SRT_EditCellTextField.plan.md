@@ -1,6 +1,6 @@
 # Plan: SRT_EditCellTextField ← MRT_EditCellTextField
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_EditCellTextField.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_EditCellTextField.tsx`.
 Garbage-zone; author fresh — but READ the garbage file first and PRESERVE the
 June first-class `onEditingCellSave` wiring (SRT-only API, fired on
 blur/Enter for editDisplayMode 'cell'|'table'; documented in tracker/core

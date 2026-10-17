@@ -1,6 +1,6 @@
 # Plan: SRT_ToggleRowActionMenuButton ← MRT_ToggleRowActionMenuButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleRowActionMenuButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ToggleRowActionMenuButton.tsx`.
 Garbage-zone; author fresh. Depends on SRT_EditActionButtons (same cluster —
 build AFTER it) + menus/SRT_RowActionMenu (review-clean).
 

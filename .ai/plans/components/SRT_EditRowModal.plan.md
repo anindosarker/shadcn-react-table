@@ -1,6 +1,6 @@
 # Plan: SRT_EditRowModal ← MRT_EditRowModal
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/modals/SRT_EditRowModal.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/modals/SRT_EditRowModal.tsx`.
 Garbage-zone; author fresh. Shell = shadcn Dialog family (June idiom, kept).
 PRECONDITION: core `srtCreateRowModalProps`/`srtEditRowDialogProps` converted
 to value-or-func DivProps with `{row, table}` context (types-coder task; STOP

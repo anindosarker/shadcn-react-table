@@ -39,5 +39,5 @@ NOTHING unless tsc cannot pass; if forced, minimal local swap
 ## Gates
 
 `pnpm prettier --write` types.ts (+ any touched files);
-`pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean. No git.
+`pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean. No git.
 Nothing else in types.ts changes.

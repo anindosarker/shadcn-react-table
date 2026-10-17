@@ -1,6 +1,6 @@
 # Plan: SRT_TableLoadingOverlay ← MRT_TableLoadingOverlay
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx`
 ← `packages/material-react-table/src/components/table/MRT_TableLoadingOverlay.tsx` (spec).
 
 Existing SRT file = garbage-zone; close to target but author fresh per trust map
@@ -56,6 +56,6 @@ user className clobbers it).
 ## Gates (repo root)
 
 - `pnpm prettier --write <file>`
-- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean
-- `pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx --max-warnings=0`
+- `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean
+- `pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/table/SRT_TableLoadingOverlay.tsx --max-warnings=0`
 - Touch ONLY this component file. No core, no git.

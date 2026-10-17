@@ -34,6 +34,6 @@ marker style). Export both from the file (core index already `export *`).
 
 ## Gates
 
-`pnpm prettier --write` the file; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean.
+`pnpm prettier --write` the file; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean.
 Touch ONLY style.utils.ts. Do not modify parseCSSVarId/getCommonTooltipProps.
 No git.

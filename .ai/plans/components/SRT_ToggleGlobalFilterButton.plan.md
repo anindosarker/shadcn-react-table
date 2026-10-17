@@ -1,6 +1,6 @@
 # Plan: SRT_ToggleGlobalFilterButton ← MRT_ToggleGlobalFilterButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleGlobalFilterButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ToggleGlobalFilterButton.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

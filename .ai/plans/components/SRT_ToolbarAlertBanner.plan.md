@@ -1,6 +1,6 @@
 # Plan: SRT_ToolbarAlertBanner ← MRT_ToolbarAlertBanner
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarAlertBanner.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarAlertBanner.tsx`.
 
 ## REV 3 (2026-07-14, user ruling: default Alert variant) — SUPERSEDES Rev 2 cva decisions
 
