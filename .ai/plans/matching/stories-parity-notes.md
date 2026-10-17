@@ -36,8 +36,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnHiding.stories.tsx
 - added the 3 missing exports ColumnHidingWithHeaderGroups, ColumnHidingColumnsNotVisibleInShowHide, ColumnHidingWithColumnsHiddenAndNotVisibleInShowHide (verbatim MRT, `visibleInShowHideMenu` exists in SRT); Meta import to `@storybook/react-vite`
+- commit 8f46128
 
 ### [ ] features/ColumnOrdering.stories.tsx
+- same scenario as MRT; only the Meta import moved to `@storybook/react-vite`
 
 ### [ ] features/ColumnPinning.stories.tsx
 
