@@ -185,48 +185,94 @@ synced with the name map only get `- synced, name map only`.
 ## Cluster D
 
 ### [ ] examples/advanced
+- examples: BasicExamples group (basic, minimal, advanced, custom-headless); advanced: date pickers dropped, `muiPaginationProps` color/shape/variant and `muiSearchTextFieldProps` size/variant dropped (no shadcn twin), MenuItem to DropdownMenuItem, chips to Tailwind colours
+- MRT-only left: storybook link (domain rewritten by the map, dead)
 
 ### [ ] examples/aggregation-and-grouping
+- examples: ExpandingExamples group; aggregation-and-grouping (`muiToolbarAlertBannerChipProps.color` dropped, plain button props)
+- group: MRT interleaves link tabs (Lazy Sub-Rows, Lazy Detail Panel, Tree Editing) between example tabs; ExampleTabs puts links last
+- MRT-only left: storybook link
 
 ### [ ] examples/basic
+- examples: BasicExamples group
+- MRT-only left: storybook link
 
 ### [ ] examples/chart-detail-panel
+- examples: chart-detail-panel (@mui/x-charts LineChart to a minimal recharts LineChart, same data)
+- page rule: "shadcn/ui X Charts" prose and mui.com link to Recharts; frontmatter description still says "shadcn/ui X Charts" (rules apply to the body only)
+- MRT-only left: storybook link
 
 ### [ ] examples/column-grouping
+- examples: enable-column-grouping (RadioGroup for grouped column mode)
+- MRT-only left: storybook link
 
 ### [ ] examples/column-ordering
+- examples: DraggingExamples group; enable-column-ordering, enable-row-ordering, enable-row-dragging (`muiTablePaperProps` to `srtTableLayoutProps`, Typography colours to Tailwind)
+- MRT-only left: storybook link
 
 ### [ ] examples/column-pinning
+- examples: StickyPinningExamples group; enable-sticky-header, enable-column-pinning, enable-row-pinning-sticky/static/select (`sx.maxHeight` to className, row `sx.height` to style)
+- MRT-only left: storybook link
 
 ### [ ] examples/column-virtualization
+- examples: VirtualizedExamples group; virtualized, enable-row-virtualization, enable-column-virtualization (seeded faker; column `size` via faker instead of Math.random for SSR), infinite-scrolling (react-query devtools block dropped, package not installed)
+- MRT-only left: storybook link
 
 ### [ ] examples/custom-filter-ui
+- examples: FilteringExamples group; custom-column-filtering-ui (`useSRT_MediaQuery` path import, filter container `in` to `open`, `muiFilterTextFieldProps.label` to `placeholder`), customize-filter-variants, enable-filter-facet-values, customize-filter-modes, alternate-column-filtering
+- MRT-only left: storybook link
 
 ### [ ] examples/custom-headless
+- examples: custom-headless (MUI Table parts to shadcn Table, `flexRender` from the SRT barrel, `muiPaginationProps.variant` dropped)
+- MRT-only left: storybook link with `www.Material-react-table.dev` (capital M, missed by the map)
 
 ### [ ] examples/customized-grouping
+- examples: customize-remove-column-grouping
+- MRT-only left: storybook link
 
 ### [ ] examples/detail-panel
+- examples: enable-detail-panel-conditionally
+- MRT-only left: storybook link
 
 ### [ ] examples/dynamic-columns
+- examples: RemoteFetchingExamples group; dynamic-columns, react-query, lazy-detail-panel, lazy-sub-rows (IconButton+Tooltip to Button ghost icon + SRT_Tooltip, `muiToolbarAlertBannerProps.color` to className, devtools block dropped), remote
+- MRT-only left: storybook link
 
 ### [ ] examples/editing-crud
+- examples: EditingCRUDExamples group; editing-crud-modal, -row, -cell, -table, -tree (Dialog parts, Tooltip to SRT_Tooltip, `muiEditTextFieldProps` error/helperText/select to `aria-invalid` only, alert banner colour to className, devtools block dropped)
+- MRT-only left: storybook link
 
 ### [ ] examples/editing-crud-inline-cell
+- examples: editing-crud-cell (see editing-crud)
+- MRT-only left: storybook link
 
 ### [ ] examples/editing-crud-inline-row
+- examples: editing-crud-row (see editing-crud)
+- MRT-only left: storybook link
 
 ### [ ] examples/editing-crud-inline-table
+- examples: editing-crud-table (see editing-crud)
+- MRT-only left: storybook link
 
 ### [ ] examples/editing-crud-tree
+- examples: editing-crud-tree (see editing-crud; row depth shading via `bg-muted` steps)
+- MRT-only left: storybook link
 
 ### [ ] examples/expanding-tree
+- examples: expanding-tree-expanded
+- MRT-only left: storybook link
 
 ### [ ] examples/expanding-tree-flat-parse
+- examples: expanding-tree-flat-parse
+- MRT-only left: storybook link
 
 ### [ ] examples/export-csv
+- examples: DataExportExamples group; export-to-csv (export-to-csv verbatim, Button + lucide DownloadIcon)
+- MRT-only left: storybook link
 
 ### [ ] examples/export-pdf
+- examples: export-to-pdf (jspdf + jspdf-autotable verbatim; file name `srt-pdf-example.pdf`); title map rule added for " - Material React Table Docs"
+- MRT-only left: storybook link
 
 ## Cluster E
 
@@ -281,3 +327,10 @@ synced with the name map only get `- synced, name map only`.
 - `srtFilterSliderProps`: no `marks`/`valueLabelFormat` on the shadcn Slider (customize-filter-variants, enable-filter-facet-values) (B)
 - api/srt-components: `SRT_TablePaper` (SRT has `SRT_TableLayout`); `SRT_FilterFilterRangeFields` is MRT's typo, library has `SRT_FilterRangeFields`
 - api/table-options: `srtTablePaperProps` (SRT uses `srtTableLayoutProps`)
+- `srtToolbarAlertBannerChipProps` is plain button props, no `color` (aggregation-and-grouping) (D)
+- `srtToolbarAlertBannerProps` no `color`; `color: 'error'` becomes `className` (react-query, infinite-scrolling, lazy-*, dynamic-columns, editing-crud-*) (D)
+- `srtEditTextFieldProps` is plain input props: no `error`, `helperText`, `select`; validation text not rendered inline (editing-crud-*) (D)
+- `srtFilterTextFieldProps` no `label`, only `placeholder` is read (custom-column-filtering-ui) (D)
+- `SRT_Tooltip` and `useSRT_MediaQuery` not exported from the barrel (path imports in custom-column-filtering-ui, dynamic-columns, editing-crud-*) (D)
+- `srtTableBodyRowProps` no `hover` flag (minimal: hover overlay neutralised with a className) (D)
+- `srtPaginationProps` no `color`/`shape`/`variant`, `srtSearchTextFieldProps` no `size`/`variant` (advanced, custom-headless; dropped) (D)
