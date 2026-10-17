@@ -212,6 +212,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - TableDiminsions commit: 628ba57
 
 ### [ ] styling/TablePaper.stories.tsx
+- data back to faker (25 rows, MRT shape, no age); `muiTablePaperProps.elevation 0` -> `srtTableLayoutProps.className 'shadow-none'` (layout wrapper carries the default `shadow`); stale API GAP comment removed
+- TableHeadCellStyles commit: 7167138
 
 ### [ ] styling/Theming.stories.tsx
 
