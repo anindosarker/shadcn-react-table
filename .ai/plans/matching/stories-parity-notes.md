@@ -32,8 +32,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnGrouping.stories.tsx
 - ColumnGroupingDropZoneAlwaysVisible: MRT `muiTopToolbarProps` sx on `.Mui-ToolbarDropZone` mapped to `srtTopToolbarProps` className `[&>.border-dashed]:...` (1px solid red, z-2!) replacing the stale API-gap comment; GroupingColumnsSetState `any` typed as `SRT_RowData` (eslint); Meta import to `@storybook/react-vite`
+- commit 08c7d91
 
 ### [ ] features/ColumnHiding.stories.tsx
+- added the 3 missing exports ColumnHidingWithHeaderGroups, ColumnHidingColumnsNotVisibleInShowHide, ColumnHidingWithColumnsHiddenAndNotVisibleInShowHide (verbatim MRT, `visibleInShowHideMenu` exists in SRT); Meta import to `@storybook/react-vite`
 
 ### [ ] features/ColumnOrdering.stories.tsx
 
