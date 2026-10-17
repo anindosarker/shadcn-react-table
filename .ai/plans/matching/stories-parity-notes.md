@@ -130,6 +130,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Selection commit: c1415bf
 
 ### [ ] features/SubRowTree.stories.tsx
+- inline nested faker (MRT shape: 5 rows, 0-4 / 3 / 2 sub-rows) instead of makeNestedData; RTL stories use SRT_Localization_HE from locales/he (stale "API GAP" comment removed) with dir="rtl" wrapper replacing MUI ThemeProvider direction; srt-row-expand displayColumnDefOptions kept as MRT; Meta from @storybook/react-vite
+- Sorting commit: ab3b4b5
 
 ### [ ] features/Toolbar.stories.tsx
 
