@@ -41,6 +41,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/Editing.stories.tsx
 
+- deleted `onEditingCellSave` replaced by `srtEditTextFieldProps` onBlur save (cell, cell+row actions, table, manual onChange) like MRT; `srtTableContainerProps` height 400 restored; custom Save button green like MRT `color="success"`; stale API GAP comments removed
+- `muiEditTextFieldProps` `select` + MenuItem children stays `editVariant`/`editSelectOptions` (SRT Input takes no children); `variant: outlined` has no Input equivalent
+- DetailPanel commit: 957eb01
+
 ### [ ] features/Filtering.stories.tsx
 
 ### [ ] features/FullScreen.stories.tsx
