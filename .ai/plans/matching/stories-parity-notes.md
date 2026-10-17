@@ -100,6 +100,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - AppBar/Toolbar/CssBaseline stay a sticky div (no shadcn AppBar), inline styles -> Tailwind `bg-primary text-primary-foreground`, `Box padding={2}` -> `p-4`; app bar `z-[1100]` (MUI number) -> `z-40` so SRT fullscreen (`z-50`, MRT uses `theme.zIndex.modal`) covers it as the scenario expects; `Meta` from `@storybook/react-vite` (dragging-virtual commit: 9f7bb23)
 
 ### [ ] fixed-bugs/gridLayout.stories.tsx
+- restored `align` center/right via `srtTableBodyCellProps`/`srtTableHeadCellProps` (was dropped as a false gap), `Meta` from `@storybook/react-vite` (fullscreen-with-appbar commit: e94a1f3)
 
 ### [ ] fixed-bugs/loading.stories.tsx
 
