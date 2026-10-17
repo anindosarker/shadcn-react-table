@@ -78,6 +78,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowDragging commit: 6010705
 
 ### [ ] features/RowOrdering.stories.tsx
+- full MRT port: inline faker Person with num column (100 rows) instead of makeData; srtRowDragHandleProps onDragEnd splice-commit restored in every story (stale "API GAP" comment removed, SRT has the option); fakeData cells back to faker firstName; Meta from @storybook/react-vite
+- RowNumbers commit: 3a2ba9a
 
 ### [ ] features/RowPinning.stories.tsx
 
