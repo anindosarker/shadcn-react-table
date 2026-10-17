@@ -113,6 +113,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowPinning commit: 7080a87
 
 ### [ ] features/Selection.stories.tsx
+- full MRT port: inline faker (4 fields, 15 rows) instead of makeData; row-click handlers (getSRT_RowSelectionHandler, getToggleSelectedHandler, manual data-selected), srtSelectCheckboxProps / srtSelectAllCheckboxProps / srtToolbarAlertBannerProps / srtTableBodyCellProps and the shift-click range selection restored (stale "API GAP" comments removed, SRT has all of them); Meta from @storybook/react-vite
+- mapping: MUI `selected` row prop -> `data-selected`; checkbox color secondary -> data-[state=checked] secondary classes; banner color info -> sky classes; Button success -> green classes; MRT useCallback/useEffect deps kept with eslint-disable exhaustive-deps
+- Search commit: 0bbf9ce
 
 ### [ ] features/Sorting.stories.tsx
 
