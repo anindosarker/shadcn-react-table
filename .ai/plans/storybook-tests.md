@@ -1,5 +1,9 @@
 # Storybook tests plan
 
+Status: phase 1 done 2026-10-17, commit d58fb69. `pnpm test` runs 55 story files / 399 stories
+as render tests in headless Chromium, 399 passed, about 16 s vitest duration (18 s wall through
+turbo). No story file needed changes. Phase 2 not started.
+
 Goal: every story in `packages/shadcn-react-table/stories` runs as an automated test through
 Storybook's Vitest addon, in a real browser, from one command. Replaces the hand-written
 Playwright smoke scripts in `apps/test-shadcn/.playwright` (`check-all-stories.mjs`,
