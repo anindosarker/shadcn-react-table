@@ -37,6 +37,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/DetailPanel.stories.tsx
 
+- added `DetailPanelSingleExpand`; `muiExpandButtonProps` -> `srtExpandButtonProps` (rotation, conditional hide, single expand); `srt-row-expand` cell/head `align: right` restored; stale API GAP comments removed
+
 ### [ ] features/Editing.stories.tsx
 
 ### [ ] features/Filtering.stories.tsx
