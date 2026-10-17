@@ -82,6 +82,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowNumbers commit: 3a2ba9a
 
 ### [ ] features/RowPinning.stories.tsx
+- full MRT port: inline faker (6 fields, 50 rows) instead of makeData; muiTableContainerProps sx maxHeight and muiTableBodyRowProps sx height restored as srtTableContainerProps / srtTableBodyRowProps className (stale "API GAP" comment removed, SRT has both); Meta from @storybook/react-vite
+- RowOrdering commit: 83cdc43
 
 ### [ ] features/Search.stories.tsx
 
