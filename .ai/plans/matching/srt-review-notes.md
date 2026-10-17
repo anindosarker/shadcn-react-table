@@ -75,7 +75,7 @@ unticked entry are agent claims, not rulings.
 
 ### [-] SRT_TableHead.tsx : MRT_TableHead.tsx
 
-### [ ] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
+### [-] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
 - equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
