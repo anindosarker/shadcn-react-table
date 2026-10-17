@@ -54,6 +54,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/Memod.stories.tsx
 
 ### [ ] features/Pagination.stories.tsx
+- added PaginationEnabledDefaultNoRowsPerPage and PaginationEnabledCustomizeRowsPerPage; ported muiPaginationProps (rowsPerPageOptions, showRowsPerPage, SelectProps.native, boundaryCount, showFirst/LastButton, disabled) to srtPaginationProps and muiTableContainerProps sx height to srtTableContainerProps className; Meta from @storybook/react-vite
+- gaps: muiPaginationProps shape/variant (MUI style variants) have no SRT equivalent, dropped
 
 ### [ ] features/RowActions.stories.tsx
 
