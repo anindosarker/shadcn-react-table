@@ -47,6 +47,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/Filtering.stories.tsx
 
+- `CustomFilterComponent`: MUI `TextField select` + MenuItem -> shadcn `NativeSelect`/`NativeSelectOption` (empty value = All, like MRT `value={null}`); `muiFilterTextFieldProps variant: outlined` has no Input equivalent, stays dropped
+- Editing commit: e870e41
+
 ### [ ] features/FullScreen.stories.tsx
 
 ### [ ] features/HeaderGroups.stories.tsx
