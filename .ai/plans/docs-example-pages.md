@@ -1,6 +1,6 @@
 # Docs example pages plan
 
-Status: written 2026-10-18, not started. Design: `.ai/plans/design/example-navigation.excalidraw`
+Status: done 2026-10-18 (commits 363a000 to 7a11ca7 on claude/review). Design: `.ai/plans/design/example-navigation.excalidraw`
 (frames E, F, H, I; A to D and G are the rejected or superseded variants).
 
 Goal: example pages read like TanStack's, without a sandbox: one pre-rendered table per page
