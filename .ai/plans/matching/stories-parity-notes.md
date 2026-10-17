@@ -24,8 +24,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnActions.stories.tsx
 - data back to MRT faker shape (local `Row` interface, 100 rows) instead of `makeData`/`Person`; Meta import to `@storybook/react-vite`
+- commit 1bed949
 
 ### [ ] features/ColumnDragging.stories.tsx
+- data back to MRT faker shape (local `Person` type, 100 rows) instead of `makeData`; Meta import to `@storybook/react-vite`
 
 ### [ ] features/ColumnGrouping.stories.tsx
 
