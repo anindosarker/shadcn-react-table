@@ -58,6 +58,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - gaps: muiPaginationProps shape/variant (MUI style variants) have no SRT equivalent, dropped
 
 ### [ ] features/RowActions.stories.tsx
+- data back to inline faker (5 fields, 10 rows) instead of makeData; menu items inlined per story as DropdownMenuItem with lucide icons (was a shared helper of plain buttons); Meta from @storybook/react-vite
+- Pagination commit: cf5309f
 
 ### [ ] features/RowDragging.stories.tsx
 
