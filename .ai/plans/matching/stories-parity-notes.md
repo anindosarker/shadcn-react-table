@@ -99,6 +99,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] fixed-bugs/useEffects.stories.tsx
 
 ### [ ] styling/Alignment.stories.tsx
+- data back to faker (25 rows, MRT shape); `align` on `defaultColumn`/column `srtTable{Body,Head,Footer}CellProps` restored for all 8 aligned stories (stale "API GAP" comments removed, SRT supports `align`)
 
 ### [ ] styling/Caption.stories.tsx
 
