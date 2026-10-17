@@ -11,8 +11,11 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/Aggregation.stories.tsx
 - Meta import to `@storybook/react-vite`; dropped the `any` annotations on the multi aggregationFn params (eslint no-explicit-any), inferred from the column type
+- commit dd82639
 
 ### [ ] features/CellActions.stories.tsx
+- data back to MRT faker shape (local `Row` interface, 100 rows) instead of `makeData`/`Person`; Meta import to `@storybook/react-vite`
+- gap: SRT_CellActionMenu closes on right-button pointerup (Radix dismissable layer), so a real right-click never leaves the menu open; verified items via a dispatched `contextmenu` event
 
 ### [ ] features/ClickToCopy.stories.tsx
 
