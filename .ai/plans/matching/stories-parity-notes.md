@@ -106,6 +106,9 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - RowOrdering commit: 83cdc43
 
 ### [ ] features/Search.stories.tsx
+- inline faker (6 fields incl. float age, 200 rows) instead of makeData; CustomizeSearchTextBox ports placeholder via srtSearchTextFieldProps (stale "API GAP" comment replaced); Meta from @storybook/react-vite
+- gaps: muiSearchTextFieldProps label / variant / InputLabelProps have no shadcn Input equivalent
+- RowPinning commit: 7080a87
 
 ### [ ] features/Selection.stories.tsx
 
