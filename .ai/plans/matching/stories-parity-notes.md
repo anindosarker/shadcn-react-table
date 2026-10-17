@@ -86,6 +86,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - same scenario as MRT; only `Meta` import moved to `@storybook/react-vite` (click-propogation commit: 317d0b4)
 
 ### [ ] fixed-bugs/dragging-virtual-when-filtered.stories.tsx
+- same scenario as MRT; `Meta` from `@storybook/react-vite`, dropped unused `_setData` (eslint no-unused-vars) (data-types commit: 5deed99)
 
 ### [ ] fixed-bugs/fullscreen-with-appbar.stories.tsx
 
