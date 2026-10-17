@@ -138,6 +138,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Sorting commit: ab3b4b5
 
 ### [ ] features/Toolbar.stories.tsx
+- inline faker (5 fields, 5 rows) instead of makeData; MUI Tooltip -> SRT_Tooltip (was title attr), IconButton -> Button size="icon" variant="ghost", Button success/info -> green/sky classes, Typography h4 -> h4 classes, Box sx p -> p-8; SRT_ToggleFullScreenButton from barrel; Meta from @storybook/react-vite
+- SubRowTree commit: 20eb07b
 
 ### [ ] features/Virtualization.stories.tsx
 
