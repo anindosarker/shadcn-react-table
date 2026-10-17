@@ -120,6 +120,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 ### [ ] features/RowPinning.stories.tsx
 - full MRT port: inline faker (6 fields, 50 rows) instead of makeData; muiTableContainerProps sx maxHeight and muiTableBodyRowProps sx height restored as srtTableContainerProps / srtTableBodyRowProps className (stale "API GAP" comment removed, SRT has both); Meta from @storybook/react-vite
 - RowOrdering commit: 83cdc43
+- follow-up: container maxHeight moved from className to style, the SRT container inline sticky-header clamp overrides the class when sticky header or row virtualization is on
 
 ### [ ] features/Search.stories.tsx
 - inline faker (6 fields incl. float age, 200 rows) instead of makeData; CustomizeSearchTextBox ports placeholder via srtSearchTextFieldProps (stale "API GAP" comment replaced); Meta from @storybook/react-vite
@@ -144,6 +145,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - SubRowTree commit: 20eb07b
 
 ### [ ] features/Virtualization.stories.tsx
+- muiTableContainerProps / muiTablePaperProps restored as srtTableContainerProps style maxHeight and srtTableLayoutProps className (stale "API GAP" comment removed); Stack -> div flex classes; longColumns typed (typeof longData)[0] instead of any (SRT eslint); Meta from @storybook/react-vite
+- Toolbar commit: ea0d5dd
 
 ### [ ] fixed-bugs/click-propogation.stories.tsx
 - added `srtTableBodyRowProps.onClick` alert (was dropped as a false gap), `MenuItem` -> `DropdownMenuItem`, `Button` -> shadcn `Button`, `Meta` from `@storybook/react-vite`
