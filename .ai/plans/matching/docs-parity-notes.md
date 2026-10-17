@@ -78,6 +78,7 @@ synced with the name map only get `- synced, name map only`.
 - MRT-only facts removed
 
 ### [ ] index
+- removed: MRT TOC page, `/docs` redirects to `getting-started/install` (next.config.mjs)
 
 - synced, name map only (re-sync diff is quote style only; left as committed)
 
