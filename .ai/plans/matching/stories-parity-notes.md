@@ -58,13 +58,24 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/FullScreen.stories.tsx
 
+- `ControlledFullScreen`: `muiTableBodyCellProps` cell `title` restored as `srtTableBodyCellProps`; stale API GAP comment removed
+- Filtering commit: 69ac8cb
+
 ### [ ] features/HeaderGroups.stories.tsx
+
+- same scenario as MRT, no change
 
 ### [ ] features/LayoutMode.stories.tsx
 
+- data back to inline faker (5 fields, 100 rows) like MRT instead of `makeData(100)` Person shape; `(typeof data)[0]` column type like MRT
+
 ### [ ] features/Loading.stories.tsx
 
+- `OnlyTopProgressBar`: `muiLinearProgressProps` sx display -> `srtLinearProgressProps` `progressComponentProps.style`; stale API GAP comment removed
+
 ### [ ] features/Memod.stories.tsx
+
+- same scenario as MRT, no change (MUI `variant="contained"` = shadcn default Button)
 
 ### [ ] features/Pagination.stories.tsx
 - added PaginationEnabledDefaultNoRowsPerPage and PaginationEnabledCustomizeRowsPerPage; ported muiPaginationProps (rowsPerPageOptions, showRowsPerPage, SelectProps.native, boundaryCount, showFirst/LastButton, disabled) to srtPaginationProps and muiTableContainerProps sx height to srtTableContainerProps className; Meta from @storybook/react-vite
