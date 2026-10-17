@@ -77,8 +77,6 @@ unticked entry are agent claims, not rulings.
 
 ### [-] SRT_TableHeadRow.tsx : MRT_TableHeadRow.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [-] SRT_TableHeadCell.tsx : MRT_TableHeadCell.tsx
 
 - cva base gets MUI TableCell head defaults `border-b text-sm leading-6` (owner ruling); `font-bold` kept (MRT fontWeight bold).
@@ -107,8 +105,6 @@ unticked entry are agent claims, not rulings.
 - commits: 5ea63d3, 61dfd12
 
 ### [ ] SRT_TableHeadCellGrabHandle.tsx : MRT_TableHeadCellGrabHandle.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_TableHeadCellResizeHandle.tsx : MRT_TableHeadCellResizeHandle.tsx
 
@@ -161,8 +157,6 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] SRT_TableFooterRow.tsx : MRT_TableFooterRow.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_TableFooterCell.tsx : MRT_TableFooterCell.tsx
 
 - user `align` was inert (class picked from columnDefType only); now MUI align classes map like body/head cell, default group→center else text-start, user align wins as in MRT spread
@@ -180,8 +174,6 @@ unticked entry are agent claims, not rulings.
 - commits: 12c967e, c4253b1
 
 ### [ ] SRT_FilterRangeFields.tsx : MRT_FilterRangeFields.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_FilterRangeSlider.tsx : MRT_FilterRangeSlider.tsx
 
@@ -271,16 +263,12 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] SRT_ToggleRowActionMenuButton.tsx : MRT_ToggleRowActionMenuButton.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_EditActionButtons.tsx : MRT_EditActionButtons.tsx
 
 - `{...rest}` spread removed from the root div: MRT (:87-94) forwards only `rest?.sx` into Box; `className={cn(editActionButtonsVariants({ className: rest.className }))}` and stopPropagation onClick kept.
 - commits: 8dec057
 
 ### [ ] SRT_CopyButton.tsx : MRT_CopyButton.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_ExpandButton.tsx : MRT_ExpandButton.tsx
 
@@ -290,8 +278,6 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] SRT_ExpandAllButton.tsx : MRT_ExpandAllButton.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_GrabHandleButton.tsx : MRT_GrabHandleButton.tsx
 
 - cva now carries MRT's sx (:44-58): base 'my-0 -mx-[0.1rem] cursor-grab transition-all duration-150 ease-in-out hover:bg-transparent hover:opacity-100 active:cursor-grabbing dark:hover:bg-transparent', …
@@ -300,11 +286,7 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] SRT_RowPinButton.tsx : MRT_RowPinButton.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_ColumnPinningButtons.tsx : MRT_ColumnPinningButtons.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_ShowHideColumnsButton.tsx : MRT_ShowHideColumnsButton.tsx
 
@@ -313,19 +295,11 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] SRT_ToggleDensePaddingButton.tsx : MRT_ToggleDensePaddingButton.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_ToggleFiltersButton.tsx : MRT_ToggleFiltersButton.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] SRT_ToggleFullScreenButton.tsx : MRT_ToggleFullScreenButton.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] SRT_ToggleGlobalFilterButton.tsx : MRT_ToggleGlobalFilterButton.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ## modals/
 
@@ -370,31 +344,17 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] fns/aggregationFns.ts : fns/aggregationFns.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] fns/filterFns.ts : fns/filterFns.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] fns/sortingFns.ts : fns/sortingFns.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] utils/cell.utils.ts : utils/cell.utils.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] utils/column.utils.ts : utils/column.utils.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] utils/displayColumn.utils.ts : utils/displayColumn.utils.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] utils/row.utils.ts : utils/row.utils.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] utils/style.utils.ts : utils/style.utils.ts
 
@@ -404,8 +364,6 @@ unticked entry are agent claims, not rulings.
 - commits: 3e58d08
 
 ### [ ] utils/tanstack.helpers.ts : utils/tanstack.helpers.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] utils/utils.ts : utils/utils.ts
 
@@ -429,8 +387,6 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] hooks/useShadcnReactTable.ts : hooks/useMaterialReactTable.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] hooks/useSRT_TableInstance.ts : hooks/useMRT_TableInstance.ts
 
 - Follow-up 1 applied: line 250 ts-expect-error reason replaced with `SRT_ColumnDef/SRT_TableInstance widen TanStack's ColumnDef/Table`; verified by removing the directive: tsc reports TS2345 (SRT_ColumnDef[] vs ColumnDef[], …
@@ -445,50 +401,26 @@ unticked entry are agent claims, not rulings.
 
 ### [ ] hooks/useSRT_Effects.ts : hooks/useMRT_Effects.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] hooks/useSRT_Rows.ts : hooks/useMRT_Rows.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] hooks/useSRT_ColumnVirtualizer.ts : hooks/useMRT_ColumnVirtualizer.ts
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] hooks/useSRT_RowVirtualizer.ts : hooks/useMRT_RowVirtualizer.ts
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ## Core display-columns (`hooks/display-columns/`)
 
 ### [ ] getSRT_RowActionsColumnDef.tsx : getMRT_RowActionsColumnDef.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] getSRT_RowDragColumnDef.tsx : getMRT_RowDragColumnDef.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] getSRT_RowExpandColumnDef.tsx : getMRT_RowExpandColumnDef.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] getSRT_RowNumbersColumnDef.tsx : getMRT_RowNumbersColumnDef.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] getSRT_RowPinningColumnDef.tsx : getMRT_RowPinningColumnDef.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] getSRT_RowSelectColumnDef.tsx : getMRT_RowSelectColumnDef.tsx
-
-- equivalent to MRT, no change (run 2026-10-17)
 
 ### [ ] getSRT_RowSpacerColumnDef.tsx : getMRT_RowSpacerColumnDef.tsx
 
-- equivalent to MRT, no change (run 2026-10-17)
-
 ### [ ] locales/ (38 files) : MRT locales
-
-- equivalent to MRT, no change (run 2026-10-17)
