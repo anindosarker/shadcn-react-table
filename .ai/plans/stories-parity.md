@@ -2,7 +2,7 @@
 
 Goal, the only one: every story in `packages/material-react-table/stories` exists in
 `packages/shadcn-react-table/stories` with the exact same scenario, written with SRT code.
-Status: planned 2026-10-17, not started. Runs after the monorepo restructure steps 1 and 2
+Status: done 2026-10-17 (54/54 files, 398 exports, verifier pass clean, storybook build and full smoke green; last story commit 78d495b). Ran after the monorepo restructure steps 1 and 2
 (done: caf42f9, ac19434). The registry build and the docs app are deferred, not part of this.
 
 ## Starting point (measured 2026-10-17)
