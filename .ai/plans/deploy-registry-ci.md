@@ -1,6 +1,6 @@
 # Deploy, registry and CI plan
 
-Status: done 2026-10-17, commits d50f40a, 5573c76, 28df366. CI green on claude/review (run 39045185158). Vercel projects are the owner's (ATTENTION file).
+Status: done 2026-10-17, commits d50f40a, 5573c76, 28df366. CI green on claude/review (run 39045185158). 2026-10-18: example registry items added (`apps/shadcn-react-table-docs/registry.json`, root `registry:items` script, CI dry-run add of `example-basic`); validation after push pending. Vercel projects are the owner's (ATTENTION file).
 
 Goal: users install the library with one command from GitHub, the docs site and Storybook each
 deploy on Vercel from this repo, and one GitHub Actions workflow gates every push. Nothing here
