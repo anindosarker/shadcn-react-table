@@ -83,6 +83,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - added `srtTableBodyRowProps.onClick` alert (was dropped as a false gap), `MenuItem` -> `DropdownMenuItem`, `Button` -> shadcn `Button`, `Meta` from `@storybook/react-vite`
 
 ### [ ] fixed-bugs/data-types.stories.tsx
+- same scenario as MRT; only `Meta` import moved to `@storybook/react-vite` (click-propogation commit: 317d0b4)
 
 ### [ ] fixed-bugs/dragging-virtual-when-filtered.stories.tsx
 
