@@ -105,6 +105,7 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - restored `align` center/right via `srtTableBodyCellProps`/`srtTableHeadCellProps` (was dropped as a false gap), `Meta` from `@storybook/react-vite` (fullscreen-with-appbar commit: e94a1f3)
 
 ### [ ] fixed-bugs/loading.stories.tsx
+- same scenario as MRT; only `Meta` import moved to `@storybook/react-vite` (gridLayout commit: 1d12a54)
 
 ### [ ] fixed-bugs/mobile-date-pickers.stories.tsx
 
