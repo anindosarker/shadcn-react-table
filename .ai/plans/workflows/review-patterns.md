@@ -27,10 +27,9 @@ Everything below is a consequence of these four.
   for a counterpart before porting MUI by hand (NativeSelect, Pagination).
 - Everything carries the SRT prefix, including string ids (`srt-row-select`,
   not `mrt-row-select`) and option keys (`srt*Props`).
-- Development happens only in `apps/test-shadcn`. The CLI package
-  (`packages/shadcn-react-table-cli`) is a later concern: never work on it,
-  never delete it, never let it block a change. Minimum edits only when
-  the workspace would otherwise fail to install.
+- Development happens only in `packages/shadcn-react-table`. Distribution
+  is the shadcn registry (plan: `.ai/plans/restructure-monorepo.md`); the old
+  CLI package is deleted.
 - Stories (`packages/shadcn-react-table/stories`, `.storybook`) are deferred until the
   library is finished. No story edits, no stories tsc gate, until then.
 - Colours: theme tokens over Tailwind palette literals. No new CSS variables
