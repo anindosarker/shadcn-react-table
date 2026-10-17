@@ -62,6 +62,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - Pagination commit: cf5309f
 
 ### [ ] features/RowDragging.stories.tsx
+- data back to inline faker (MRT shape incl. id column, 25 rows) instead of makeData; added missing ID column; Meta from @storybook/react-vite (MRT `_setData` dropped: SRT eslint no-unused-vars rejects it)
+- RowActions commit: d3270c9
 
 ### [ ] features/RowNumbers.stories.tsx
 
