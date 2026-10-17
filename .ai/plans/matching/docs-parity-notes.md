@@ -76,44 +76,71 @@ synced with the name map only get `- synced, name map only`.
 ## Cluster B
 
 ### [ ] guides/accessibility
+- synced; no examples. MRT-only prose left: `sx` focus-style snippets (`sx:` keys in code blocks).
 
 ### [ ] guides/aggregation
+- examples: aggregation-and-grouping, aggregation-multi (Box/Stack to span/div, chip `color` to className)
+- library bug: `enableGrouping: true` logs "Can't perform a React state update on a component that hasn't mounted yet" (console error on page)
 
 ### [ ] guides/async-loading
+- examples: loading, linear-progress, react-query (devtools lazy import dropped: `@tanstack/react-query-devtools` not installed)
 
 ### [ ] guides/best-practices
+- synced; no examples. MRT-only prose left: `npm-check-updates` line lists `@mui/*` and `@emotion/*`; `sx: { fontSize }` snippet
 
 ### [ ] guides/cell-actions
+- examples: enable-cell-actions (SRT_ActionMenuItem, lucide Mail/UserX)
 
 ### [ ] guides/click-to-copy
+- examples: enable-click-to-copy (`startIcon` dropped: SRT_CopyButton owns its children). MRT-only prose left: `sx: { width }` snippet
 
 ### [ ] guides/column-actions
+- examples: disable-column-actions, custom-column-actions, column-actions-space (`.Mui-TableHeadCell-Content` selector to `[&>div]:justify-between`)
 
 ### [ ] guides/column-filtering
+- examples: alternate-column-filtering, customize-filter-variants, customize-filter-modes, customize-filter-components, enable-filter-facet-values (date pickers to `Input type="date"`; slider `marks`/`valueLabelFormat` dropped)
+- name map: MUI `Box` import dropped, `<Box component="span" color="warning.main">` to a Tailwind span (also used by global-filtering). MRT-only prose left: `theme.palette.warning.main`
+- library bug: SRT_FilterTextField text variant passes `value={filterValue}` that becomes undefined, "controlled input to be uncontrolled" (console error on page)
 
 ### [ ] guides/column-grouping
+- examples: enable-column-grouping (RadioGroup from ui), customize-remove-column-grouping (theme colors to CSS vars)
+- library bug: same `enableGrouping` setState-in-render console error as guides/aggregation
 
 ### [ ] guides/column-hiding
+- examples: disable-column-hiding. Prose says "import ... from material react table" (lowercase, not in name map)
 
 ### [ ] guides/column-ordering-dnd
+- examples: enable-column-ordering
 
 ### [ ] guides/column-pinning
+- examples: enable-column-pinning
 
 ### [ ] guides/column-resizing
+- examples: enable-column-resizing, localization-i18n-fa (ThemeProvider/faIR dropped, rtl wrapper kept; folder also used by C's LocaleExamples)
 
 ### [ ] guides/column-size
+- synced; no examples
 
 ### [ ] guides/customize-components
+- examples: mui-theme (ThemeProvider to a div setting shadcn CSS vars; tooltip/switch overrides dropped, portals), customize-table-styles (`mrtTheme` dropped, `baseBackgroundColor` as a CSS var; `muiTablePaperProps` to `srtTableLayoutProps` via name map)
+- MRT-only prose left: `mui...Props` (dotted form not in name map), `sx`/Emotion/Pigment CSS sections, mui.com links, "shadcn/ui V6"
+- library gap: `srtTheme` (MRT `mrtTheme`) not declared; `srtTablePaperProps` has no counterpart beyond `srtTableLayoutProps`
 
 ### [ ] guides/customize-icons
+- examples: font-awesome-icons. MRT-only prose left: "Material Icons" default, mui.com icons link
 
 ### [ ] guides/data-columns
+- examples: column-alignment. Prose keeps a react-router `<Link>` snippet
 
 ### [ ] guides/density-toggle
+- examples: disable-density-toggle
 
 ### [ ] guides/detail-panel
+- examples: alternate-detail-panel (local `useMediaQuery` hook: drives table options, no Tailwind equivalent), chart-detail-panel (recharts LineChart, `Math.random` to seeded faker), enable-detail-panel-virtualized, enable-detail-panel-conditionally, lazy-detail-panel (devtools dropped)
+- MRT-only prose left: "shadcn/ui X Charts" + mui.com link, `sx` snippets
 
 ### [ ] guides/display-columns
+- examples: customize-display-columns
 
 ## Cluster C
 
@@ -247,5 +274,10 @@ synced with the name map only get `- synced, name map only`.
 
 ## Library gaps
 
+- `srtTheme` (MRT `mrtTheme`): commented out in types.ts; customize-table-styles expresses `baseBackgroundColor` with a CSS var instead (B)
+- `srtTablePaperProps`: no Paper in SRT; mapped to `srtTableLayoutProps` in the name map (B)
+- `enableGrouping: true` logs "Can't perform a React state update on a component that hasn't mounted yet" in dev (aggregation, column-grouping pages) (B)
+- `SRT_FilterTextField` text variant: `value={filterValue}` becomes undefined, React "controlled input to be uncontrolled" warning (column-filtering page) (B)
+- `srtFilterSliderProps`: no `marks`/`valueLabelFormat` on the shadcn Slider (customize-filter-variants, enable-filter-facet-values) (B)
 - api/srt-components: `SRT_TablePaper` (SRT has `SRT_TableLayout`); `SRT_FilterFilterRangeFields` is MRT's typo, library has `SRT_FilterRangeFields`
 - api/table-options: `srtTablePaperProps` (SRT uses `srtTableLayoutProps`)
