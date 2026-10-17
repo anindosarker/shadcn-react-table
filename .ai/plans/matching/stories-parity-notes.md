@@ -164,6 +164,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - CustomTableBody commit: 3eee7d8
 
 ### [ ] styling/StickyHeader.stories.tsx
+- data back to faker (100 rows, MRT shape, no age); `muiTableContainerProps.sx maxHeight 400` -> `srtTableContainerProps.style maxHeight 400` on the 3 shorter-table stories (className `max-h-[400px]` loses to the container's inline sticky clamp, `style` is spread last); stale API GAP comments removed
+- RowHeights commit: dc1acdc
 
 ### [ ] styling/StylingDisplayColumns.stories.tsx
 
