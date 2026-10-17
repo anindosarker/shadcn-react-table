@@ -3,6 +3,7 @@
 Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative to `packages/shadcn-react-table/stories`). Ticks are owner-only. Under each entry at most 3 bullets: what changed, library gaps found, commit. Equivalent files get `- same scenario as MRT, no change`.
 
 ## Library gaps (features a story needs that SRT lacks)
+- fixed-bugs/mobile-date-pickers: MUI X date/time pickers have no shadcn calendar/popover picker in SRT; filter variants use native inputs
 
 - styling/Caption: SRT_Table `<caption>` lacks MUI's `captionSide: bottom` default; BottomCaption renders on top
 
@@ -111,6 +112,8 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 - same scenario as MRT; only `Meta` import moved to `@storybook/react-vite` (gridLayout commit: 1d12a54)
 
 ### [ ] fixed-bugs/mobile-date-pickers.stories.tsx
+- same columns/filterVariants as MRT; `Meta` from `@storybook/react-vite` (loading commit: a2e3f8a)
+- gap: MUI X date/time pickers -> SRT native `date`/`datetime-local`/`time` inputs (no `calendar` under `src/components/ui`); all 6 variants render
 
 ### [ ] fixed-bugs/sticky-footer.stories.tsx
 
