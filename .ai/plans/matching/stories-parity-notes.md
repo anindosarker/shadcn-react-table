@@ -28,8 +28,10 @@ Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative
 
 ### [ ] features/ColumnDragging.stories.tsx
 - data back to MRT faker shape (local `Person` type, 100 rows) instead of `makeData`; Meta import to `@storybook/react-vite`
+- commit a8e55a1
 
 ### [ ] features/ColumnGrouping.stories.tsx
+- ColumnGroupingDropZoneAlwaysVisible: MRT `muiTopToolbarProps` sx on `.Mui-ToolbarDropZone` mapped to `srtTopToolbarProps` className `[&>.border-dashed]:...` (1px solid red, z-2!) replacing the stale API-gap comment; GroupingColumnsSetState `any` typed as `SRT_RowData` (eslint); Meta import to `@storybook/react-vite`
 
 ### [ ] features/ColumnHiding.stories.tsx
 
