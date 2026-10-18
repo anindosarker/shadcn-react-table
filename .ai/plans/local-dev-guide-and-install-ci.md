@@ -99,6 +99,42 @@ After the rename: docs link `https://shadcn-table.com`, Storybook link
 pinning, editing, virtualization, row selection, column ordering, 38 locales), the install
 block unchanged. No badges that imply an npm package.
 
+## 5. Fork leftovers
+
+Inventory taken 2026-10-19 (paths post-rename). The library is a port, so MRT credit stays in
+`LICENSE` and the README; everything else should read as shadcn-table.
+
+- Library `src/components/ui/shadcn-table/types.ts`: ten JSDoc `@link https://www.material-react-table.com/docs/...`
+  lines. Point them at `https://shadcn-table.com/docs/...` with the same path, except
+  `api/props` which is `api/table-options` here. The sentence
+  "a locale imported from `material-react-table/locales/*`" becomes
+  "`@/components/ui/shadcn-table/locales/*`". Comments naming `MRT_TableBodyRowGrabHandle`,
+  `MRT_TableHead` and "maps MRT getCommonToolbarStyles (packages/material-react-table/...)" in
+  `utils/virtualization.utils.ts`, `table/ST_Table.tsx`, `toolbar/ST_TopToolbar.tsx`: use the
+  `ST_` names and drop the dead path. After that, `lib:install` so the docs copy matches.
+- Docs `lib/routes.ts`: the Discord link `discord.gg/5wqyRx6fnm` is MRT's server; replace with
+  GitHub Discussions `https://github.com/anindosarker/shadcn-table/discussions`.
+- Example data: `examples/row-actions-buttons/TS.tsx` mailto `kevinvandy@mailinator.com`,
+  `examples/enable-filter-facet-values/makeData.ts` and
+  `examples/customize-filter-variants/makeData.ts` row named "Kevin Vandy". Replace with other
+  fake names; keep row counts and shapes.
+- `components/dev-home/v9/footer.tsx` links MRT: goes away with the `/dev/*` deletion.
+- `package.json` in both packages: add `"license": "MIT"`,
+  `"repository": "github:anindosarker/shadcn-table"`, `"homepage": "https://shadcn-table.com"`,
+  `"author": "Anindo Sarker"`. Root `package.json`: `"license": "MIT"` only.
+- GitHub repo settings (owner): description, website `https://shadcn-table.com`, topics
+  `shadcn`, `shadcn-ui`, `react`, `data-table`, `tanstack-table`, `tailwindcss`. The repo is not
+  a GitHub fork (no parent), nothing to detach.
+- Check: `grep -rIn -iE 'kevin ?vandy|KevinVandy|material-react-table\.com|discord\.gg|\bMRT_' packages apps skills`
+  returns nothing after the pass. `material-react-table` as a word stays only in `LICENSE`,
+  `README.md`, and prop-table generator headers.
+
+## 6. `/dev/*` homepage variants
+
+`feat/dev-homepages` is merged. Delete `apps/shadcn-table-docs/app/dev` and every file under
+`components/dev-home` the real home page (`app/(home)`) does not import; keep what it imports.
+`types:check`, `build`, page gate cluster `e` after.
+
 ## Verification
 
 `pnpm --filter shadcn-table tsc`, `lint`, `pnpm test`, docs `types:check` and `build`,
