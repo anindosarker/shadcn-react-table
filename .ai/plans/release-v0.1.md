@@ -19,7 +19,7 @@ prompts carry that domain, tag `v0.1.0` exists.
       `storybook`), production branch `master`.
 - [x] Env `NEXT_PUBLIC_SITE_URL=https://www.shadcn-table.com` (Config, not Secret), redeployed. `www` is canonical, apex 308s to it.
 - [x] Domains `shadcn-table.com`, `www.shadcn-table.com`, `storybook.shadcn-table.com` on the Vercel project, DNS records, HTTPS live.
-- [ ] GitHub: repo description and website set to the domain, Discussions on, branch protection on
+- [x] GitHub: repo description and website set to the domain, Discussions on, branch protection on
       `master` requiring CI.
 - [x] Storybook: service `storybook` in the root `vercel.json`, host rewrite `storybook.` (no separate
       project).
@@ -55,20 +55,20 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] `gitConfig.branch = 'master'` in `apps/shadcn-table-docs/lib/shared.ts`.
 - [x] `pnpm registry:items`, commit the regenerated `apps/shadcn-table-docs/registry.json`.
 - [x] `ci.yml`: kept `claude/review` in the push branches (free, gates agent pushes).
-- [ ] PR into `master`, owner merges.
+- [x] PR into `master`, owner merges.
 
 ## Verify the public release (agent)
 
-- [ ] `pnpm dlx shadcn@latest registry validate anindosarker/shadcn-table`.
-- [ ] Dry-run adds from the docs app: `shadcn-table`, one locale item, one example item.
-- [ ] Real install into a fresh Vite app per `CONTRIBUTING.md`, GitHub address, no `#ref`.
-- [ ] Site: `/`, `/docs/getting-started/install`, `/SKILL.md`, `/llms.txt` return 200 and show the
+- [x] `pnpm dlx shadcn@latest registry validate anindosarker/shadcn-table`.
+- [x] Dry-run adds from the docs app: `shadcn-table`, one locale item, one example item.
+- [x] Real install into a fresh Vite app per `CONTRIBUTING.md`, GitHub address, no `#ref`.
+- [x] Site: `/`, `/docs/getting-started/install`, `/SKILL.md`, `/llms.txt` return 200 and show the
       domain. `npx skills add anindosarker/shadcn-table` works.
 
 ## Tag and release (owner)
 
-- [ ] `git tag v0.1.0` on the final merge commit, push the tag.
-- [ ] GitHub Release `v0.1.0`: install command, docs link, known gaps from
+- [x] `git tag v0.1.0` on 95cbed6 (PR 14 merge), pushed.
+- [x] GitHub Release `v0.1.0`: install command, docs link, known gaps from
       `.ai/plans/handoff/ATTENTION-2026-10-17-claude-review.md`.
 
 ## Rollback
