@@ -1,65 +1,62 @@
-# Release v0.1
+# Release v0.1 checklist
 
-How to publish shadcn-react-table v0.1. Stages run in order; each stage is discussed and ticked
-before the next starts. Owner: dashboard and GitHub clicks. Agents: everything with a command.
+Owner items: dashboard and GitHub clicks. Agent items: commands, land on `claude/review`.
+Tick as you go.
 
 Done means: `pnpm dlx shadcn@latest add anindosarker/shadcn-react-table/shadcn-react-table`
 installs from the default branch, the docs site is live on the domain, `/SKILL.md` and the copied
 prompts carry that domain, tag `v0.1.0` exists.
 
-## Stage 1: Freeze the branch (agents)
+## Baseline merge
 
-- Push `claude/review`. Revert the `.next-*` lines in `apps/shadcn-react-table-docs/tsconfig.json`.
-- Delete the `/dev/*` homepage variants (`app/dev`, `components/dev-home` except what the real
-  home page imports).
-- Background agents finish their work and land on `claude/review`. CI green.
+- [x] PR `claude/review` into `master`: https://github.com/anindosarker/shadcn-react-table/pull/8
+- [ ] Owner: merge with "Create a merge commit" (not squash). CI on `master` green.
+- [ ] Owner: merge `feat/dev-homepages` into `claude/review` when that agent is done.
 
-## Stage 2: Presentable repo (agents)
+## Hosting (owner)
 
-- Rewrite `README.md`: what it is, install command, docs link, status, MIT credit to
-  material-react-table. `CONTRIBUTING.md` points at `LOCAL_DEVELOPMENT.md`.
-- Versions `0.1.0` in `packages/shadcn-react-table/package.json` and
-  `apps/shadcn-react-table-docs/package.json`. Drop the root `lib:build` script
-  (copies into `packages/material-react-table`).
-- Replace the two `www.shadcn-react-table.com` links (`guides/column-filtering.mdx`,
-  `guides/global-filtering.mdx`) with site-relative links.
+- [ ] Vercel docs project: import repo, Root Directory `apps/shadcn-react-table-docs`, Framework
+      Next.js, production branch `master`.
+- [ ] Env `NEXT_PUBLIC_SITE_URL=https://<domain>` on the docs project, then redeploy.
+- [ ] Domain on the Vercel project, DNS records, HTTPS live.
+- [ ] GitHub: repo description and website set to the domain, Discussions on, branch protection on
+      `master` requiring CI.
+- [ ] Optional: Storybook project, Root Directory `packages/shadcn-react-table` (settings in its
+      `vercel.json`).
 
-## Stage 3: Hosting setup (owner, in parallel with 1 and 2)
+## Cleanup (agent, running now)
 
-- Vercel docs project: import the repo, Root Directory `apps/shadcn-react-table-docs`, Framework
-  Next.js, production branch `master`, env `NEXT_PUBLIC_SITE_URL=https://<domain>`.
-- Domain: add to the Vercel project, DNS records.
-- Optional: Storybook project, Root Directory `packages/shadcn-react-table` (build settings come
-  from its `vercel.json`).
-- GitHub: branch protection on `master` (require CI), Discussions on, repo description and
-  website set to the domain.
+- [ ] Revert the `.next-*` lines in `apps/shadcn-react-table-docs/tsconfig.json`.
+- [ ] `README.md` rewrite: what it is, install command, docs link, status, MIT credit to
+      material-react-table. `CONTRIBUTING.md` points at `LOCAL_DEVELOPMENT.md`.
+- [ ] Versions `0.1.0` in `packages/shadcn-react-table/package.json` and
+      `apps/shadcn-react-table-docs/package.json`.
+- [ ] Drop the root `lib:build` script (copies into `packages/material-react-table`).
+- [ ] Replace the two `www.shadcn-react-table.com` links (`guides/column-filtering.mdx`,
+      `guides/global-filtering.mdx`) with site-relative links.
+- [ ] Delete the `/dev/*` homepage variants (`app/dev`, unused parts of `components/dev-home`).
+      After the `feat/dev-homepages` merge, to avoid conflicts.
 
-## Stage 4: Point at the default branch (agents)
+## Point at the default branch (agent, after the baseline merge)
 
-- `gitConfig.branch = 'master'` in `apps/shadcn-react-table-docs/lib/shared.ts`.
-- `pnpm registry:items`, commit the regenerated `apps/shadcn-react-table-docs/registry.json`.
-- `ci.yml`: keep `master`, drop `claude/review` once merged.
-- Commit, push, CI green.
+- [ ] `gitConfig.branch = 'master'` in `apps/shadcn-react-table-docs/lib/shared.ts`.
+- [ ] `pnpm registry:items`, commit the regenerated `apps/shadcn-react-table-docs/registry.json`.
+- [ ] `ci.yml`: drop `claude/review` from the push branches.
+- [ ] PR into `master`, owner merges.
 
-## Stage 5: Merge (owner)
+## Verify the public release (agent)
 
-- PR `claude/review` into `master`. Default branch is `master`, not `main`.
-- Merge. CI on `master` green, registry job included. Vercel production deploy runs.
+- [ ] `pnpm dlx shadcn@latest registry validate anindosarker/shadcn-react-table`.
+- [ ] Dry-run adds from the docs app: `shadcn-react-table`, one locale item, one example item.
+- [ ] Real install into a fresh Vite app per `LOCAL_DEVELOPMENT.md`, GitHub address, no `#ref`.
+- [ ] Site: `/`, `/docs/getting-started/install`, `/SKILL.md`, `/llms.txt` return 200 and show the
+      domain. `npx skills add anindosarker/shadcn-react-table` works.
 
-## Stage 6: Verify the public release (agents)
+## Tag and release (owner)
 
-- `pnpm dlx shadcn@latest registry validate anindosarker/shadcn-react-table`.
-- Dry-run adds from the docs app: `shadcn-react-table`, one locale item, one example item
-  (locale dependencies resolve only now).
-- Real install into a fresh Vite app per `LOCAL_DEVELOPMENT.md`, with the GitHub address.
-- Site: `/`, `/docs/getting-started/install`, `/SKILL.md`, `/llms.txt` return 200 and show the
-  domain. `npx skills add anindosarker/shadcn-react-table` works.
-
-## Stage 7: Tag and release (owner)
-
-- `git tag v0.1.0` on the merge commit, push the tag.
-- GitHub Release `v0.1.0`: install command, docs link, known gaps from
-  `.ai/plans/handoff/ATTENTION-2026-10-17-claude-review.md`.
+- [ ] `git tag v0.1.0` on the final merge commit, push the tag.
+- [ ] GitHub Release `v0.1.0`: install command, docs link, known gaps from
+      `.ai/plans/handoff/ATTENTION-2026-10-17-claude-review.md`.
 
 ## Rollback
 
