@@ -1,6 +1,6 @@
 # Plan: SRT_ColumnActionMenu ← MRT_ColumnActionMenu
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ColumnActionMenu.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_ColumnActionMenu.tsx`.
 Garbage-zone; author fresh. Depends on SRT_ActionMenuItem's `divider?: boolean`
 prop (amendment in flight — verify it exists before coding; STOP if absent).
 

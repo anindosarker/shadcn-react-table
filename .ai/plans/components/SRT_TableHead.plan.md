@@ -1,6 +1,6 @@
 # Plan: SRT_TableHead ← MRT_TableHead
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHead.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHead.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHead.tsx`.
 Garbage-zone; author fresh. THIS pair kills the user-reported "weird header
 shadow" — the garbage file paints `bg-muted/50` on the thead; MRT's thead has
@@ -43,6 +43,6 @@ mrtTheme here).
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHead.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHead.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.

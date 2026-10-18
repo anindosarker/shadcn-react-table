@@ -1,6 +1,6 @@
 # Plan: SRT_CopyButton ← MRT_CopyButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_CopyButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_CopyButton.tsx`.
 Garbage-zone; author fresh. Slot types converted (`srtCopyButtonProps` →
 value-or-func ButtonProps at BOTH table and columnDef level — verify before
 starting; STOP if still `SRT_HTMLProps`).

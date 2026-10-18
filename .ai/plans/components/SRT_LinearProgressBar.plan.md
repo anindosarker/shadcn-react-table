@@ -1,6 +1,6 @@
 # Plan: SRT_LinearProgressBar ← MRT_LinearProgressBar
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_LinearProgressBar.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_LinearProgressBar.tsx`.
 Garbage-zone; author fresh — BUT read the garbage file first: it (and core's
 `useSRT_ProgressAnimation` hook + `SRT_LinearProgressProps` type with
 wrapper/progressRoot) embodies the June indeterminate-progress deviation.

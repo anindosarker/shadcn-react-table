@@ -1,6 +1,6 @@
 # Plan: SRT_TableContainer ← MRT_TableContainer
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableContainer.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/table/SRT_TableContainer.tsx`
 ← `packages/material-react-table/src/components/table/MRT_TableContainer.tsx` (spec, source of truth).
 
 Existing SRT file = garbage from prior runs. Author fresh from the MRT spec. Do
@@ -63,7 +63,7 @@ dead — do not import them).
 ## Gates (run from repo root)
 
 - `pnpm prettier --write <files>`
-- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean (ignore only
+- `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean (ignore only
   the preexisting TS5101 baseUrl deprecation)
-- `pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/table/SRT_TableContainer.tsx --max-warnings=0`
+- `pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/table/SRT_TableContainer.tsx --max-warnings=0`
 - Touch ONLY the two files above. No git.

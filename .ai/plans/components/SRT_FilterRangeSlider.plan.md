@@ -1,6 +1,6 @@
 # Plan: SRT_FilterRangeSlider ← MRT_FilterRangeSlider
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeSlider.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeSlider.tsx`.
 Garbage-zone; author fresh — READ the garbage file first for its shadcn/radix
 Slider usage (June browser-verified range slider); preserve its event mapping.
 

@@ -1,6 +1,6 @@
 # Plan: SRT_TableBody ← MRT_TableBody
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx`
 ← `packages/material-react-table/src/components/body/MRT_TableBody.tsx`.
 Garbage-zone; author fresh. + `Memo_SRT_TableBody = memo(..., (prev, next) =>
 prev.table.options.data === next.table.options.data)` export verbatim.
@@ -44,7 +44,7 @@ prev.table.options.data === next.table.options.data)` export verbatim.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/body/SRT_TableBody.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git. Concurrent siblings (BodyRow/BodyCell)
 may be mid-rebuild — scope gate claims to your file if their errors appear.

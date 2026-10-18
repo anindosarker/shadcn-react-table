@@ -1,6 +1,6 @@
 # Plan: SRT_ToggleFullScreenButton ← MRT_ToggleFullScreenButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFullScreenButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFullScreenButton.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

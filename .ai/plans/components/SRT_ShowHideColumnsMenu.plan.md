@@ -1,6 +1,6 @@
 # Plan: SRT_ShowHideColumnsMenu ← MRT_ShowHideColumnsMenu
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenu.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenu.tsx`.
 Garbage-zone; author fresh. Shell = DropdownMenu + fixed-span bridge (locked).
 
 ## Resolved decisions

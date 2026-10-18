@@ -1,6 +1,6 @@
 # Plan: SRT_FilterTextField ← MRT_FilterTextField
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterTextField.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_FilterTextField.tsx`.
 The inputs monster. Garbage-zone BUT the garbage file embodies the June
 browser-verified variant renderings (native date/datetime/time inputs, native
 select + multi-select, autocomplete) — locked deviations. Strategy: MRT's

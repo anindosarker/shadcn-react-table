@@ -1,6 +1,6 @@
 # Plan: SRT_GrabHandleButton ← MRT_GrabHandleButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_GrabHandleButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_GrabHandleButton.tsx`.
 Garbage-zone; author fresh. FIXES LOGGED GAP: June file defaulted
 `location = 'row'` → wrong opacity 1 everywhere; MRT default is undefined →
 opacity 0.5 unless explicitly location="row". CALLERS (HeadCell/BodyRow

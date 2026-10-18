@@ -1,6 +1,6 @@
 # Plan: SRT_TableHeadCellColumnActionsButton ← MRT_TableHeadCellColumnActionsButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellColumnActionsButton.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellColumnActionsButton.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHeadCellColumnActionsButton.tsx`.
 Garbage-zone; author fresh.
 
@@ -44,6 +44,6 @@ Comments: only the dropped size="small" note.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellColumnActionsButton.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellColumnActionsButton.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.

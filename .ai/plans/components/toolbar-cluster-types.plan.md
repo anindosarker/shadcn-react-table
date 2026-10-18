@@ -37,6 +37,6 @@ TableCellProps, TdProps, TableBodyProps, ButtonProps, TableProps).
 
 ## Gates
 
-prettier types.ts; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit`
+prettier types.ts; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit`
 clean. Same garbage-consumer rule (touch nothing else unless tsc forces;
 minimal local swaps only; list every touch). No git.

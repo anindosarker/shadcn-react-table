@@ -27,8 +27,8 @@ Shared rules for every file:
 - SINGLE CORE WRITER: only coder-sweep-toolbar may edit
   packages/shadcn-react-table-core. Anyone else needing a core change STOPS
   and reports to main.
-- Gates per file: prettier --write; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json
-  --noEmit` clean (ignore TS5101); `pnpm --filter test-shadcn exec eslint
+- Gates per file: prettier --write; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json
+  --noEmit` clean (ignore TS5101); `pnpm --filter shadcn-react-table exec eslint
   <app-relative path> --max-warnings=0`. No git. Never touch the shared dev
   server (:5273).
 

@@ -1,0 +1,27 @@
+import { chromium } from 'playwright';
+const BASE = process.env.SRT_BASE || 'http://localhost:5371/';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage({ viewport: { width: 1600, height: 1200 } });
+const msgs = [];
+page.on('console', (m) => { if (['error','warning'].includes(m.type())) msgs.push(m.type()+': '+m.text()); });
+page.on('pageerror', (e) => msgs.push('PAGEERROR: ' + e.message));
+await page.goto(BASE, { waitUntil: 'networkidle' });
+await page.waitForSelector('.srt-custom-layout thead', { timeout: 20000 });
+const scan = () => page.evaluate(() => {
+  const btns = [...document.querySelectorAll('.srt-custom-layout thead button')].filter(b => /sort/i.test(b.getAttribute('aria-label')||''));
+  return btns.slice(0,3).map(b => { const cs = getComputedStyle(b); const svg = b.querySelector('svg'); const scs = svg && getComputedStyle(svg); const badge = b.parentElement.querySelector('span.absolute'); return { label: b.getAttribute('aria-label'), w: b.getBoundingClientRect().width, h: b.getBoundingClientRect().height, opacity: cs.opacity, flex: cs.flex, display: cs.display, svgW: svg && svg.getBoundingClientRect().width, svgRotate: scs && scs.rotate, svgTransform: scs && scs.transform, svgColor: scs && scs.color, badge: badge && { text: badge.textContent, w: badge.getBoundingClientRect().width, h: badge.getBoundingClientRect().height, top: badge.getBoundingClientRect().top - b.getBoundingClientRect().top } }; });
+});
+console.log('initial', JSON.stringify(await scan(), null, 1));
+const labels = page.locator('.srt-custom-layout thead button[aria-label*="ort"]');
+await labels.nth(0).click();
+await page.waitForTimeout(200);
+console.log('after click 1', JSON.stringify(await scan(), null, 1));
+await labels.nth(1).click({ modifiers: ['Shift'] });
+await page.waitForTimeout(200);
+console.log('after shift click 2', JSON.stringify(await scan(), null, 1));
+await page.locator('.srt-custom-layout thead th').nth(2).hover();
+await page.waitForTimeout(300);
+console.log('hover th2', JSON.stringify((await scan())[2]));
+await page.screenshot({ path: '.playwright/screenshots/sortlabel.png', clip: { x: 0, y: 0, width: 1600, height: 400 } });
+console.log('msgs', msgs.filter(m => !/DevTools/.test(m)));
+await browser.close();

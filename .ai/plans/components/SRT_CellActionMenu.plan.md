@@ -1,6 +1,6 @@
 # Plan: SRT_CellActionMenu ← MRT_CellActionMenu
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_CellActionMenu.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_CellActionMenu.tsx`.
 Garbage-zone; author fresh. Shell = DropdownMenu + fixed-span bridge —
 anchored from `actionCellRef.current` (set by SRT_TableBodyCell's
 handleContextMenu).

@@ -1,6 +1,6 @@
 # Plan: SRT_ToggleFiltersButton ← MRT_ToggleFiltersButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFiltersButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ToggleFiltersButton.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

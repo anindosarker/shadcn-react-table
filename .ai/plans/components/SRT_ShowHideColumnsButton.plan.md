@@ -1,6 +1,6 @@
 # Plan: SRT_ShowHideColumnsButton ← MRT_ShowHideColumnsButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ShowHideColumnsButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ShowHideColumnsButton.tsx`.
 Garbage-zone; author fresh. Menu dependency review-clean
 (menus/SRT_ShowHideColumnsMenu — anchorEl/setAnchorEl/table interface).
 

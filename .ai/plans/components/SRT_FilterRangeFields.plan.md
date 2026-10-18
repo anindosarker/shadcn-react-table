@@ -1,6 +1,6 @@
 # Plan: SRT_FilterRangeFields ← MRT_FilterRangeFields
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeFields.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_FilterRangeFields.tsx`.
 Garbage-zone; author fresh. Tiny.
 
 ## Resolved decisions

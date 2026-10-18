@@ -31,6 +31,6 @@ MRT declares table-level + columnDef-level.
 
 ## Gates
 
-prettier; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean.
+prettier; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean.
 Garbage-consumer rule: touch nothing else unless tsc forces; minimal local
 swaps only; list every touch. No git.

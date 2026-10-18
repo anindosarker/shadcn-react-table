@@ -1,6 +1,6 @@
 # Plan: SRT_FilterCheckbox ← MRT_FilterCheckbox
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_FilterCheckbox.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_FilterCheckbox.tsx`.
 Garbage-zone; author fresh (consult garbage for June checkbox idiom only).
 
 ## Resolved decisions

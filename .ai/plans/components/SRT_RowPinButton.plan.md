@@ -1,6 +1,6 @@
 # Plan: SRT_RowPinButton ← MRT_RowPinButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_RowPinButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_RowPinButton.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

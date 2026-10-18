@@ -1,6 +1,6 @@
 # Plan: SRT_GlobalFilterTextField ← MRT_GlobalFilterTextField
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/inputs/SRT_GlobalFilterTextField.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/inputs/SRT_GlobalFilterTextField.tsx`.
 Garbage-zone; author fresh — but READ the garbage file first for (a) its input
 class string (browser-verified June styling) and (b) its debounce mechanism;
 reuse both.

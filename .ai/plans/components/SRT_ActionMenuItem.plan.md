@@ -1,6 +1,6 @@
 # Plan: SRT_ActionMenuItem ← MRT_ActionMenuItem
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ActionMenuItem.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_ActionMenuItem.tsx`.
 Garbage-zone; author fresh — READ the garbage file first: the June menu shell
 (shadcn DropdownMenu family + the anchorEl bridge) is the locked deviation;
 this item component must match whatever menu-item primitive the June menus

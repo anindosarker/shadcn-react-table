@@ -1,6 +1,6 @@
 # Plan: SRT_ToolbarInternalButtons ← MRT_ToolbarInternalButtons
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarInternalButtons.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/toolbar/SRT_ToolbarInternalButtons.tsx`.
 Garbage-zone; author fresh. Simple dispatcher.
 
 ## Resolved decisions

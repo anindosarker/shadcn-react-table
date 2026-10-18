@@ -1,6 +1,6 @@
 # Plan: SRT_ExpandButton ← MRT_ExpandButton
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/buttons/SRT_ExpandButton.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/buttons/SRT_ExpandButton.tsx`.
 Garbage-zone; author fresh. Slot `srtExpandButtonProps` converted
 (`{row, staticRowIndex?, table}` → ButtonProps; verify; STOP if still
 `SRT_HTMLProps`). Called by body display-column dispatch (`mrt-row-expand`).

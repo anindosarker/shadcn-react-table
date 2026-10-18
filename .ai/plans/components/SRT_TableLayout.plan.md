@@ -1,6 +1,6 @@
 # Plan: SRT_TableLayout ← MRT_TablePaper
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/table/SRT_TableLayout.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/table/SRT_TableLayout.tsx`
 ← `packages/material-react-table/src/components/table/MRT_TablePaper.tsx` (spec, source of truth).
 
 ## Resolved decisions (human-approved)
@@ -57,6 +57,6 @@ const tableLayoutVariants = cva(
 ## Gates
 
 - `pnpm prettier --write <file>` (run from `shadcn-react-table/`).
-- `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean — ignore ONLY
+- `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean — ignore ONLY
   the preexisting TS5101 `baseUrl` deprecation warning.
 - No git commits. Touch ONLY the SRT_TableLayout.tsx file.

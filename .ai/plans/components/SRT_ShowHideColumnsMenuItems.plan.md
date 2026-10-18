@@ -1,6 +1,6 @@
 # Plan: SRT_ShowHideColumnsMenuItems ← MRT_ShowHideColumnsMenuItems
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenuItems.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_ShowHideColumnsMenuItems.tsx`.
 Garbage-zone; author fresh.
 
 ## Resolved decisions

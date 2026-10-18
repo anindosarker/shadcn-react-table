@@ -1,6 +1,6 @@
 # Plan: SRT_TableHeadCellFilterContainer ← MRT_TableHeadCellFilterContainer
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterContainer.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterContainer.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHeadCellFilterContainer.tsx`.
 Garbage-zone; author fresh. Small dispatcher component.
 
@@ -31,6 +31,6 @@ isRangeFilter, JSX). Comments: only the dropped-Collapse note.
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterContainer.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCellFilterContainer.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.

@@ -1,6 +1,6 @@
 # Plan: SRT_FilterOptionMenu ← MRT_FilterOptionMenu
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/menus/SRT_FilterOptionMenu.tsx`.
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/menus/SRT_FilterOptionMenu.tsx`.
 Garbage-zone; author fresh. Shell = DropdownMenu + fixed-span bridge (locked).
 
 ## Resolved decisions

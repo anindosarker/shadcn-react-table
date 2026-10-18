@@ -1,6 +1,6 @@
 # Plan: SRT_TableHeadCell ← MRT_TableHeadCell
 
-Pair: `apps/test-shadcn/src/components/ui/shadcn-react-table/head/SRT_TableHeadCell.tsx`
+Pair: `packages/shadcn-react-table/src/components/ui/shadcn-react-table/head/SRT_TableHeadCell.tsx`
 ← `packages/material-react-table/src/components/head/MRT_TableHeadCell.tsx`.
 Garbage-zone; author fresh. Biggest head/ file. This pair (with the new core
 helpers) fixes the user-reported grid-mode right gap (cells must GROW in grid
@@ -102,6 +102,6 @@ Mirror MRT order throughout. Comments: dropped useTheme/mrtTheme/align notes +
 
 ## Gates
 
-`pnpm prettier --write <file>`; `pnpm tsc -p apps/test-shadcn/tsconfig.app.json --noEmit` clean;
-`pnpm --filter test-shadcn exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCell.tsx --max-warnings=0`.
+`pnpm prettier --write <file>`; `pnpm tsc -p packages/shadcn-react-table/tsconfig.app.json --noEmit` clean;
+`pnpm --filter shadcn-react-table exec eslint src/components/ui/shadcn-react-table/head/SRT_TableHeadCell.tsx --max-warnings=0`.
 Touch ONLY this file. No core, no git.
