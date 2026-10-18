@@ -24,15 +24,15 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [ ] Optional: Storybook project, Root Directory `packages/shadcn-react-table` (settings in its
       `vercel.json`).
 
-## Cleanup (agent, running now)
+## Cleanup (agent)
 
-- [ ] Revert the `.next-*` lines in `apps/shadcn-react-table-docs/tsconfig.json`.
-- [ ] `README.md` rewrite: what it is, install command, docs link, status, MIT credit to
+- [x] Revert the `.next-*` lines in `apps/shadcn-react-table-docs/tsconfig.json`.
+- [x] `README.md` rewrite: what it is, install command, docs link, status, MIT credit to
       material-react-table. `CONTRIBUTING.md` points at `LOCAL_DEVELOPMENT.md`.
-- [ ] Versions `0.1.0` in `packages/shadcn-react-table/package.json` and
+- [x] Versions `0.1.0` in `packages/shadcn-react-table/package.json` and
       `apps/shadcn-react-table-docs/package.json`.
-- [ ] Drop the root `lib:build` script (copies into `packages/material-react-table`).
-- [ ] Replace the two `www.shadcn-react-table.com` links (`guides/column-filtering.mdx`,
+- [x] Drop the root `lib:build` script (copies into `packages/material-react-table`).
+- [x] Replace the two `www.shadcn-react-table.com` links (`guides/column-filtering.mdx`,
       `guides/global-filtering.mdx`) with site-relative links.
 - [ ] Delete the `/dev/*` homepage variants (`app/dev`, unused parts of `components/dev-home`).
       After the `feat/dev-homepages` merge, to avoid conflicts.
