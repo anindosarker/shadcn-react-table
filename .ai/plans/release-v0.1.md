@@ -61,7 +61,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 
 - [ ] `pnpm dlx shadcn@latest registry validate anindosarker/shadcn-table`.
 - [ ] Dry-run adds from the docs app: `shadcn-table`, one locale item, one example item.
-- [ ] Real install into a fresh Vite app per `LOCAL_DEVELOPMENT.md`, GitHub address, no `#ref`.
+- [ ] Real install into a fresh Vite app per `CONTRIBUTING.md`, GitHub address, no `#ref`.
 - [ ] Site: `/`, `/docs/getting-started/install`, `/SKILL.md`, `/llms.txt` return 200 and show the
       domain. `npx skills add anindosarker/shadcn-table` works.
 
