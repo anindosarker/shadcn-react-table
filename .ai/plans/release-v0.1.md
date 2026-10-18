@@ -55,7 +55,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] `gitConfig.branch = 'master'` in `apps/shadcn-table-docs/lib/shared.ts`.
 - [x] `pnpm registry:items`, commit the regenerated `apps/shadcn-table-docs/registry.json`.
 - [x] `ci.yml`: kept `claude/review` in the push branches (free, gates agent pushes).
-- [ ] PR into `master`, owner merges.
+- [x] PR into `master`, owner merges.
 
 ## Verify the public release (agent)
 
@@ -68,7 +68,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 ## Tag and release (owner)
 
 - [x] `git tag v0.1.0` on 95cbed6 (PR 14 merge), pushed.
-- [ ] GitHub Release `v0.1.0`: install command, docs link, known gaps from
+- [x] GitHub Release `v0.1.0`: install command, docs link, known gaps from
       `.ai/plans/handoff/ATTENTION-2026-10-17-claude-review.md`.
 
 ## Rollback
