@@ -43,7 +43,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] Code rename: `shadcn-react-table` to `shadcn-table`, `SRT_` to `ST_`, dirs, registry, skill,
       page checks for the new code explorer UI. Lands on `claude/review`.
 - [ ] Owner: restart the docs dev server from `apps/shadcn-table-docs` (old dirs removed, `pnpm install` done).
-- [ ] PR into `master`, owner merges. First Vercel build after this.
+- [x] PR into `master`, owner merges. First Vercel build after this.
 
 ## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
 
@@ -52,9 +52,9 @@ prompts carry that domain, tag `v0.1.0` exists.
 
 ## Point at the default branch (agent, after the baseline merge)
 
-- [ ] `gitConfig.branch = 'master'` in `apps/shadcn-table-docs/lib/shared.ts`.
-- [ ] `pnpm registry:items`, commit the regenerated `apps/shadcn-table-docs/registry.json`.
-- [ ] `ci.yml`: drop `claude/review` from the push branches.
+- [x] `gitConfig.branch = 'master'` in `apps/shadcn-table-docs/lib/shared.ts`.
+- [x] `pnpm registry:items`, commit the regenerated `apps/shadcn-table-docs/registry.json`.
+- [x] `ci.yml`: kept `claude/review` in the push branches (free, gates agent pushes).
 - [ ] PR into `master`, owner merges.
 
 ## Verify the public release (agent)
