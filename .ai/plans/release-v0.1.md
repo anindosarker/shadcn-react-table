@@ -47,7 +47,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 
 ## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
 
-- [ ] `LOCAL_DEVELOPMENT.md` rewrite, `install` CI job (fresh and existing app), `LICENSE`
+- [ ] `CONTRIBUTING.md` single guide (`LOCAL_DEVELOPMENT.md` removed), `install` CI job (fresh and existing app), `LICENSE`
       copyright line, README links and feature list.
 
 ## Point at the default branch (agent, after the baseline merge)

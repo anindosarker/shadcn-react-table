@@ -6,45 +6,62 @@ Status: planned 2026-10-19. Runs after the `shadcn-table` rename lands on `claud
 Names below use the post-rename layout: `packages/shadcn-table`, `apps/shadcn-table-docs`,
 registry address `anindosarker/shadcn-table/<item>`, docs at `https://shadcn-table.com`.
 
-## 1. `LOCAL_DEVELOPMENT.md` rewrite
+## 1. `CONTRIBUTING.md` as the single contributor guide
 
-Audience: a contributor (or an agent) who has cloned the repo. Goal: understand the layout,
-run every loop, prove a change end to end. Commands stay exact; prose explains why, short.
+One file. `LOCAL_DEVELOPMENT.md` is deleted; its commands move here. Plain Markdown for GitHub:
+numbered `##` headings carry the steps (no `<Steps>` MDX). Style reference:
+`apps/shadcn-table-docs/content/docs/guides/production-ready-tables.mdx` (short lead, numbered
+pieces, a text diagram, one line of why per step, bold-lead bullets, Common Mistakes, Related).
+Every command is verified once from a clean shell after the rename before it is written down.
 
-Sections, in order:
+Audience: a contributor or an agent with a fresh clone. Goal: make a change, prove it, open a
+PR. Excluded: release steps (the checklist owns them), Vercel, table internals.
 
-1. **What this repo is.** Two packages. The library ships as a shadcn registry: the shadcn CLI
-   copies the source into the user's app under `components/ui/shadcn-table/`. There is no npm
-   package. Radix base only.
-2. **Monorepo structure.** Tree with one line per entry:
-   `packages/shadcn-table` (library source `src/components/ui/shadcn-table`, shadcn/ui parts it
-   uses, `stories/`, Vitest browser tests, `scripts/build-registry.mjs`, `registry.json`),
-   `apps/shadcn-table-docs` (Next 16 + fumadocs, installed copy of the library in
-   `components/ui/shadcn-table`, `examples/`, `content/docs`, example registry items
-   `registry.json`, `scripts/check-pages.mjs` page gate, `/SKILL.md` and `/llms.txt` routes),
-   root `registry.json` (includes both), `skills/shadcn-table/SKILL.md`, `vercel.json`
-   (services `docs` and `storybook`), `.github/workflows/ci.yml`, `.ai/plans` (history).
-3. **How development works.** Edit `packages/shadcn-table/src`. Storybook is the test bed:
-   every feature has stories, Vitest runs them in Chromium. The docs app holds a copy of the
-   library, resync it with `lib:install` after library changes. The registry build plus an
-   install into a consumer app is the final proof; the docs app does not prove the install path.
-4. **Prerequisites.** Node 22, pnpm 10.13.1 (`packageManager`), Chromium through
-   `playwright install chromium`. Ports: docs 5320, Storybook 6006, dev registry 5310.
-   Optional env: `NEXT_PUBLIC_SITE_URL`, `REGISTRY_BASE_URL`, `NEXT_DIST_DIR`, `PORT`.
-5. **Setup.** Clone, `pnpm install`, `pnpm --filter shadcn-table exec playwright install chromium`.
-6. **Library loop.** `storybook`, `test`, `tsc`, `lint`. Where stories live, how to add one.
-7. **Docs loop.** `dev` on 5320, `lib:install` then `git checkout -- app/global.css`,
-   `types:check`, `build`, page gate `node scripts/check-pages.mjs --base http://localhost:5320`
-   with the cluster letters, the `tsconfig.json` include noise note.
-8. **Registry loop.** `pnpm registry:dev` (serves `.dev/r` on 5310), fresh consumer app
-   (Vite, `shadcn init --base radix --preset nova`, `shadcn add http://localhost:5310/r/shadcn-table.json`),
-   existing app (same with `@tanstack/react-table` already installed), install from a pushed
-   branch (`anindosarker/shadcn-table/shadcn-table#<branch>`), what `registry:build` and
-   `registry:items` regenerate and that both outputs are committed.
-9. **Before a PR.** The exact commands CI runs, in order. Link `.ai/plans/release-v0.1.md`.
+Structure:
 
-Keep the current file's commands as the source of truth; verify each one still runs after the
-rename before writing it down.
+- **Lead.** Two sentences: what the repo is, what the library is (shadcn registry, source copied
+  into the user's app, no npm package, Radix base only). Then the four pieces:
+  1. **Library:** `packages/shadcn-table`, the source and its Storybook stories.
+  2. **Tests:** Vitest runs the stories in Chromium.
+  3. **Docs:** `apps/shadcn-table-docs`, holds an installed copy of the library.
+  4. **Registry:** what users install, built from the library source.
+
+  Text diagram:
+
+  ```text
+  packages/shadcn-table/src
+    ▼ stories + vitest            (prove the change)
+    ▼ registry:build              (what users install)
+    ▼ lib:install                 (docs app copy)
+  apps/shadcn-table-docs          (docs, examples, page gate)
+  ```
+
+- **Folder Layout.** Tree with one comment per entry: library source
+  `src/components/ui/shadcn-table`, shadcn/ui parts, `stories/`, `scripts/build-registry.mjs`,
+  `registry.json`; docs `components/ui/shadcn-table` (installed copy), `examples/`,
+  `content/docs`, `registry.json` (example items), `scripts/check-pages.mjs`, `/SKILL.md` and
+  `/llms.txt` routes; root `registry.json`, `skills/`, `vercel.json`, `.github/workflows/ci.yml`.
+- **Prerequisites.** Node 22, pnpm 10.13.1, Chromium. Ports table (docs 5320, Storybook 6006,
+  dev registry 5310). Optional env vars table (`NEXT_PUBLIC_SITE_URL`, `REGISTRY_BASE_URL`,
+  `NEXT_DIST_DIR`, `PORT`).
+- **Steps**, `## 1.` to `## 6.`, each one line of why, exact commands, bold-lead notes:
+  1. **Set up:** clone, `pnpm install`, `pnpm --filter shadcn-table exec playwright install chromium`.
+  2. **Change the library:** edit `src`, add or update a story, `storybook`, `test`, `tsc`, `lint`.
+  3. **Sync the docs app:** `lib:install`, `git checkout -- app/global.css`, `dev` on 5320,
+     `types:check`, page gate with cluster letters, the `tsconfig.json` include-noise note.
+  4. **Prove the install:** `pnpm registry:dev`; fresh Vite app
+     (`shadcn init --base radix --preset nova`, add `http://localhost:5310/r/shadcn-table.json`);
+     existing app with `@tanstack/react-table` already installed; from a pushed branch with
+     `anindosarker/shadcn-table/shadcn-table#<branch>`.
+  5. **Update the docs:** `content/docs`, `examples/`, `registry:items` for example items; both
+     generated `registry.json` files are committed and must keep GitHub addresses.
+  6. **Open a PR:** the commands CI runs, in order; discuss large changes in an issue first;
+     commit message style; no `git add -A`.
+- **Common Mistakes.** Editing the docs copy instead of the library; forgetting `lib:install`;
+  committing `tsconfig.json` include noise; `registry.json` rewritten with localhost (use
+  `registry:dev`); a server on a port already in use; `shadcn init` without `--base radix`.
+- **Related.** `.ai/plans/release-v0.1.md`, `.github/workflows/ci.yml`, the docs install page,
+  `LICENSE`.
 
 ## 2. Install tests in CI
 
@@ -86,4 +103,4 @@ block unchanged. No badges that imply an npm package.
 
 `pnpm --filter shadcn-table tsc`, `lint`, `pnpm test`, docs `types:check` and `build`,
 `act`-free check of the workflow: push the branch and read the `install` job result on GitHub
-before merging. Each command in `LOCAL_DEVELOPMENT.md` run once from a clean shell.
+before merging. Each command in `CONTRIBUTING.md` run once from a clean shell. `LOCAL_DEVELOPMENT.md` removed and no file references it (grep).
