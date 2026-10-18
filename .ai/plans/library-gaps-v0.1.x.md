@@ -25,13 +25,9 @@ fails before and passes after; `pnpm --filter shadcn-table tsc`, `lint`, `pnpm t
    string. Story asserts `getByRole('button', { name })` for a toolbar icon.
 3. **Caption bottom.** `ST_Table` `<caption>` renders on top. Default to `caption-bottom` so
    the Caption story's `BottomCaption` matches MRT; `stTableProps.className` can override.
-4. **TooltipProvider in headless use.** Sub-components used outside `<ShadcnTable />` throw.
-   Wrap each exported composite root that renders tooltips (`ST_TopToolbar`,
-   `ST_BottomToolbar`, `ST_TableContainer`, `ST_TableLayout`; audit the barrel for others) in
-   `TooltipProvider` with the same `skipDelayDuration={0}`. Do not wrap every `ST_Tooltip`
-   (loses hover grouping). Remove the `TooltipProvider` from `apps/shadcn-table-docs/app/layout.tsx`
-   afterwards and prove the docs home page and `custom-headless` example still work. Nested
-   providers are fine: a provider scopes only the tooltips inside it.
+4. **TooltipProvider in headless use.** Decided 2026-10-19: option 3, no library change.
+   `ShadcnTable` keeps its own provider; parts composed by hand outside it need one
+   `TooltipProvider` from the consumer. Not done in this release.
 5. **`stTableBodyRowProps.hover`.** MRT's `hover` flag. Add `hover?: boolean` (default true);
    false removes the hover background. Replace the className workaround in the `minimal`
    example and its story.
