@@ -1,6 +1,6 @@
 # shadcn style unification plan
 
-Status: written 2026-10-18, started the same day. Owner's go: "only update the library with
+Status: done 2026-10-18 (46334d9, 5794bf6, 978c597, 258c475, d042e18 and the docs library copy sync). Owner's go: "only update the library with
 Radix Nova styling and remove all the older generational stuff".
 
 Goal: one generation of shadcn parts everywhere. The library, its playground and the docs app
