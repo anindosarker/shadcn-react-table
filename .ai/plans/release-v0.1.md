@@ -34,7 +34,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] Drop the root `lib:build` script (copies into `packages/material-react-table`).
 - [x] Replace the two `www.shadcn-react-table.com` links (`guides/column-filtering.mdx`,
       `guides/global-filtering.mdx`) with site-relative links.
-- [ ] Delete the `/dev/*` homepage variants (`app/dev`, unused parts of `components/dev-home`).
+- [x] Delete the `/dev/*` homepage variants (`app/dev`, unused parts of `components/dev-home`).
       After the `feat/dev-homepages` merge, to avoid conflicts.
 
 ## Rename to shadcn-table (agent, branch `rename-st`)
@@ -47,7 +47,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 
 ## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
 
-- [ ] `CONTRIBUTING.md` single guide (`LOCAL_DEVELOPMENT.md` removed), `install` CI job (fresh and existing app), `LICENSE`
+- [x] `CONTRIBUTING.md` single guide (`LOCAL_DEVELOPMENT.md` removed), `install` CI job (fresh and existing app), `LICENSE`
       copyright line, README links and feature list.
 
 ## Point at the default branch (agent, after the baseline merge)
