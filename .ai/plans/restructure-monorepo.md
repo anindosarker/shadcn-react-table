@@ -47,7 +47,7 @@ Delete: `apps/test-cra`, `apps/test-remix`, `apps/test-vite`, `apps/material-rea
 - `registryDependencies` bare names always mean shadcn/ui items, so the locale items reference the main item by URL `https://shadcn-table.com/r/shadcn-react-table.json`; `REGISTRY_BASE_URL=http://localhost:<port>/r` rebuilds for a local install test.
 - `css` on the item ships the `srt-*` keyframes and the `.srt-progress-indeterminate` rule from `src/index.css`; the CLI writes `@keyframes` into `@theme inline` and plain rules at top level, both end up in the built CSS (checked 2026-10-17).
 - shadcn v4 `init` defaults to Base UI. Users (and the docs app) need `shadcn init -b radix -p nova` (new-york look, neutral, css variables) because the library and the forked checkbox import `radix-ui`.
-- Users: `"registries": { "@srt": "https://shadcn-table.com/r/{name}.json" }` then `shadcn add @srt/shadcn-react-table`.
+- Users: `"registries": { "@st": "https://shadcn-table.com/r/{name}.json" }` then `shadcn add @st/shadcn-table`.
 - `native-select` is not a fork: upstream ships `import { cn } from "cn"`, a placeholder the CLI rewrites. Only `checkbox` (indeterminate dash) is a real fork and ships inside the item with `target: "@ui/checkbox.tsx"`.
 
 ## Registry items
