@@ -40,9 +40,9 @@ prompts carry that domain, tag `v0.1.0` exists.
 ## Rename to shadcn-table (agent, branch `rename-st`)
 
 - [x] GitHub repo renamed to `anindosarker/shadcn-table`, origin updated.
-- [ ] Code rename: `shadcn-react-table` to `shadcn-table`, `SRT_` to `ST_`, dirs, registry, skill,
+- [x] Code rename: `shadcn-react-table` to `shadcn-table`, `SRT_` to `ST_`, dirs, registry, skill,
       page checks for the new code explorer UI. Lands on `claude/review`.
-- [ ] Owner: restart the docs dev server from `apps/shadcn-table-docs`.
+- [ ] Owner: restart the docs dev server from `apps/shadcn-table-docs` (old dirs removed, `pnpm install` done).
 - [ ] PR into `master`, owner merges. First Vercel build after this.
 
 ## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
