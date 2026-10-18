@@ -15,10 +15,10 @@ prompts carry that domain, tag `v0.1.0` exists.
 
 ## Hosting (owner)
 
-- [ ] Vercel project: import repo at root `./`, services preset reads `vercel.json` (`docs`,
+- [x] Vercel project: import repo at root `./`, services preset reads `vercel.json` (`docs`,
       `storybook`), production branch `master`.
-- [ ] Env `NEXT_PUBLIC_SITE_URL=https://shadcn-table.com` on the docs project, then redeploy.
-- [ ] Domains `shadcn-table.com`, `www.shadcn-table.com`, `storybook.shadcn-table.com` on the Vercel project, DNS records, HTTPS live.
+- [x] Env `NEXT_PUBLIC_SITE_URL=https://www.shadcn-table.com` (Config, not Secret), redeployed. `www` is canonical, apex 308s to it.
+- [x] Domains `shadcn-table.com`, `www.shadcn-table.com`, `storybook.shadcn-table.com` on the Vercel project, DNS records, HTTPS live.
 - [ ] GitHub: repo description and website set to the domain, Discussions on, branch protection on
       `master` requiring CI.
 - [x] Storybook: service `storybook` in the root `vercel.json`, host rewrite `storybook.` (no separate
@@ -42,7 +42,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] GitHub repo renamed to `anindosarker/shadcn-table`, origin updated.
 - [x] Code rename: `shadcn-react-table` to `shadcn-table`, `SRT_` to `ST_`, dirs, registry, skill,
       page checks for the new code explorer UI. Lands on `claude/review`.
-- [ ] Owner: restart the docs dev server from `apps/shadcn-table-docs` (old dirs removed, `pnpm install` done).
+- [x] Owner: restart the docs dev server from `apps/shadcn-table-docs` (old dirs removed, `pnpm install` done).
 - [x] PR into `master`, owner merges. First Vercel build after this.
 
 ## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
