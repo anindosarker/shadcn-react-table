@@ -45,7 +45,7 @@ prompts carry that domain, tag `v0.1.0` exists.
 - [x] Owner: restart the docs dev server from `apps/shadcn-table-docs` (old dirs removed, `pnpm install` done).
 - [x] PR into `master`, owner merges. First Vercel build after this.
 
-## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci.md`)
+## Guide, install CI, license (agent, plan `local-dev-guide-and-install-ci/anindosarker/local-dev-guide-and-install-ci-plan.md`)
 
 - [x] `CONTRIBUTING.md` single guide (`LOCAL_DEVELOPMENT.md` removed), `install` CI job (fresh and existing app), `LICENSE`
       copyright line, README links and feature list.
