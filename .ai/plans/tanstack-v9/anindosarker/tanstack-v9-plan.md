@@ -65,17 +65,22 @@ vocabulary. Shipping v1.0 on v8 would mean a breaking port right after.
   prototypes, so a spread drops them.
 - Shared source ported once; the 23 overrides get the same renames by hand; gates run per
   base (`tsc:radix`, `tsc:baseui`, `test`, `test:base`).
+- Row range selection (Shift-click) is TanStack's native `rowSelectionFeature` behaviour
+  (`enableRowRangeSelection`, default on); the library's own range-select code and the
+  `lastSelectedRowId` ref are removed, the select checkbox passes its click event to
+  `row.getToggleSelectedHandler()` (owner decision 2026-10-19: use the native solution).
 - Pin `@tanstack/react-table` 9.3.1 in both `package.json` files, both `registry.ts`, the
   registry item dependencies, the CI `existing` scenario and the docs.
+- Version `0.3.0` in `packages/shadcn-table/package.json` and `apps/docs/package.json` on the
+  branch (owner decision 2026-10-19: no compatibility layer, the library has no users yet;
+  0.x.y releases until v1.0.0).
 
 ## Non-goals
 
 - `createTableHook`, `tableOptions()`, external atoms, per-slice subscriptions as an
   optimisation pass (candidates after v1.0; note where `table.state` selectors would help).
 - Tree-shaking the library's feature set per consumer; the table registers all features.
-- TanStack's new Shift range selection: the library keeps its own range-select logic and sets
-  `enableRowRangeSelection: false`; revisit after v1.0.
-- Release v1.0.0, changelog, docs deploy: separate step after the owner's local test.
+- Release, changelog, docs deploy: separate step after the owner's local test.
 
 ## State
 

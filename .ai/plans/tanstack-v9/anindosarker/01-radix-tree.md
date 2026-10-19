@@ -28,8 +28,11 @@ to end. Public `ST_*` types keep their signatures. Paths below are relative to
    per-slice handlers already passed; `columnSizingInfo` becomes `columnResizing`
    (`onColumnResizingChange`, `setColumnResizing`); `table.getState()` becomes `table.state`
    inside components and `table.store.state` in callbacks outside render (4 sites).
-   `enableRowRangeSelection: false`. `getIsSomeRowsSelected()` and `getIsSomeSelected()` now
-   mean "at least one": gate indeterminate checkboxes with `&& !getIsAll...Selected()`.
+   `getIsSomeRowsSelected()` and `getIsSomeSelected()` now mean "at least one": gate
+   indeterminate checkboxes with `&& !getIsAll...Selected()`. Shift-click range selection:
+   the library's own implementation (`lastSelectedRowId`, `enableBatchRowSelection`) is
+   removed; the select checkbox passes its click event to `row.getToggleSelectedHandler()`
+   so v9's native `enableRowRangeSelection` (default on) does it.
 4. Pinning: `'left'` becomes `'start'`, `'right'` becomes `'end'` in state defaults, display
    column defs, `column.pin(...)`, `getIsPinned()` comparisons, `getLeftLeafColumns` to
    `getStartLeafColumns`, `getRight*` to `getEnd*`, `getLeftVisibleLeafColumns` to
@@ -56,5 +59,5 @@ to end. Public `ST_*` types keep their signatures. Paths below are relative to
 `columnSizingInfo` to `columnResizing` (`onColumnResizingChange`, `ST_ColumnResizingState`);
 `columnPinning: { left, right }` to `{ start, end }`, `column.pin('start' | 'end')`;
 `table.getState()` to `table.state`; `getIsSomeRowsSelected()` semantics; custom
-`aggregationFn` definitions through `constructAggregationFn`; `@tanstack/react-table` 9.3.1
-required.
+`aggregationFn` definitions through `constructAggregationFn`; Shift-click range selection is
+TanStack's native one (`enableRowRangeSelection`); `@tanstack/react-table` 9.3.1 required.
