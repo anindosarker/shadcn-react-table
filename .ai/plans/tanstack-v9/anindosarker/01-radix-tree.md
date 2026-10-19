@@ -1,9 +1,11 @@
-# 01: Radix tree on v9
+# 01: shared source on v9
 
 ## Goal
 
-`bases/radix` compiles, lints and passes 400/400 stories on `@tanstack/react-table` 9.3.1 with
-v9 names end to end. Public `ST_*` types keep their signatures.
+`shared/components/ui/shadcn-table/**` (the Radix edition, resolved with `bases/radix`)
+compiles, lints and passes 400/400 stories on `@tanstack/react-table` 9.3.1 with v9 names end
+to end. Public `ST_*` types keep their signatures. Paths below are relative to
+`packages/shadcn-table/shared/components/ui/shadcn-table/`.
 
 ## Steps
 
@@ -40,7 +42,7 @@ v9 names end to end. Public `ST_*` types keep their signatures.
    the options object. `fns/filterFns.ts` keeps composing v9 `filterFns`.
 6. Sweep remaining errors from the spike inventory file by file; no behaviour changes beyond
    the renames. Keep existing comments.
-7. Gates: `pnpm --filter shadcn-table tsc`, `lint` (eslint `--max-warnings=0` on changed files),
+7. Gates: `pnpm --filter shadcn-table tsc:radix`, `lint` (eslint `--max-warnings=0` on changed files),
    `pnpm --filter shadcn-table test` 400/400, `storybook:build`. Stories that fail only because
    they use v8 names are fixed in this phase too when they block the gate (phase 03 owns the
    rest).

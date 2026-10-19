@@ -7,9 +7,8 @@ Know every compile break before touching code, and prove the two structural deci
 
 ## Steps
 
-1. On the branch, `pnpm --filter shadcn-table add @tanstack/react-table@9.3.1` (both
-   `bases/*/package.json` and the package root if it lists it). `pnpm install`.
-2. `pnpm --filter shadcn-table tsc 2>&1 | tee` into a scratch file; group errors by file and by
+1. On the branch, `pnpm --filter shadcn-table add @tanstack/react-table@9.3.1`. `pnpm install`.
+2. `pnpm --filter shadcn-table tsc:radix 2>&1 | tee` into a scratch file; group errors by file and by
    kind (rename, generic arity, removed API, prototype method). Record the table in "Findings".
 3. In `utils/tanstack.features.ts` write the `tableFeatures({...})` call with all 15 features,
    `filteredRowModel`, `sortedRowModel`, `paginatedRowModel`, `expandedRowModel`,
