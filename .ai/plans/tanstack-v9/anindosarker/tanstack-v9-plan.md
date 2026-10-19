@@ -79,10 +79,10 @@ vocabulary. Shipping v1.0 on v8 would mean a breaking port right after.
 
 ## State
 
-- [ ] 00 spike: dependency bumped, `tsc` error inventory written to `00-spike.md` "Findings"
+- [x] 00 spike: dependency bumped, `tsc` error inventory written to `00-spike.md` "Findings"
 - [ ] 01 shared source green: `tsc:radix`, `lint`, `test` 400/400, Storybook build
 - [ ] 02 Base UI overrides green: `tsc:baseui`, `test:base` 400/400, no override identical to its shared file
-- [ ] 03 stories, docs examples, docs content, SKILL on v9 names; docs `types:check`, `lint`,
+- [x] 03 stories, docs examples, docs content, SKILL on v9 names; docs `types:check`, `lint`,
       build, page gates a and e 0 failures
 - [ ] 04 registry rebuilt (76 items, validate 3 files 190 items), CI green on the branch
       (library, test, docs, install fresh/existing/base/nextjs), trigger removed
