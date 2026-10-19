@@ -2,8 +2,8 @@
 
 - The goal was to create a SRT component that is equivalent to the MRT component. Preferrably 100% same to same.
 - First, Evaluate the srt code and compare to the MRT component to ensure equivalence. 
-- Second, read the plan file (`.ai/plans/components/<Component>.plan.md`) to understand the choices, assumptions and context for making writing this code
-- Also read the "General notes" in `.ai/plans/matching/srt-review-notes.md` — approved project-wide conventions and findings.
+- Second, read the plan file (`.ai/plans/mrt-port/components/<Component>.plan.md`) to understand the choices, assumptions and context for making writing this code
+- Also read the "General notes" in `.ai/plans/mrt-port/matching/srt-review-notes.md` — approved project-wide conventions and findings.
 - The reviewer must be a SEPARATE agent from the coder (no shared bias). Walk the MRT file top-to-bottom; every construct is either mirrored or plan/convention-authorized. Flag anything that is neither (silent assumptions).
 - Check dropped MRT constructs are kept as commented-out lines + `// Note:` why, at their MRT position.
 - For every MUI component the SRT file replaces with a native element: verify the MUI component's DEFAULT root styles are mapped (e.g. Table ships `width:100%` + `border-spacing:0`; Paper ships elevation/bg). MRT source inherits these invisibly — walking MRT alone misses them.

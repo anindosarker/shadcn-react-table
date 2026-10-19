@@ -91,7 +91,7 @@ one agent per page, refuting "same content, SRT code"; confirmed deviations fixe
 
 ## Tracker
 
-`.ai/plans/matching/docs-parity-notes.md`: one `### [ ] <path>` per page, ticked by the owner
+`.ai/plans/mrt-port/matching/docs-parity-notes.md`: one `### [ ] <path>` per page, ticked by the owner
 only. Under each entry at most 3 bullets: examples ported, library gaps, commit. Library gaps also
 under `## Library gaps` at the end.
 

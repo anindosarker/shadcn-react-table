@@ -1,7 +1,7 @@
 # SRT ↔ MRT Review Notes
 
 Spec: `packages/material-react-table/`. MUI behind MRT is also spec. Method and
-rules: `.ai/plans/workflows/review-patterns.md`.
+rules: `.ai/plans/mrt-port/workflows/review-patterns.md`.
 
 Boxes are the owner's: `[x]` reviewed, `[-]` skipped. Agents never mark them.
 A recorded ruling is a line under Conventions or a ticked box. Bullets under an

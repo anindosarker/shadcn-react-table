@@ -48,7 +48,7 @@ Per story export, compared against the MRT twin:
 
 1. Read the MRT file and the SRT file fully. Diff export lists, titles, data, options.
 2. Fix only differences that change the scenario or use stale SRT API. No comment-only or
-   formatting-only edits (no-churn rule, `.ai/plans/workflows/review-patterns.md`).
+   formatting-only edits (no-churn rule, `.ai/plans/mrt-port/workflows/review-patterns.md`).
 3. Story-writing rules: with Storybook running, call the `srt-sb` MCP tool
    `get-storybook-story-instructions` once per run and follow it where it does not conflict
    with the MRT shape above (the MRT shape wins; this plan mirrors MRT).
@@ -83,7 +83,7 @@ Playwright smoke over all story ids from `index.json`.
 
 ## Tracker
 
-`.ai/plans/matching/stories-parity-notes.md`: one `### [ ] <path>` per file, ticked by the
+`.ai/plans/mrt-port/matching/stories-parity-notes.md`: one `### [ ] <path>` per file, ticked by the
 owner only. Under each entry at most 3 bullets: what changed, library gaps found, commit.
 Equivalent files get `- same scenario as MRT, no change`.
 

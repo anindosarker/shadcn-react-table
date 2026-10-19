@@ -14,7 +14,7 @@
   - Take screenshots and compare with the expected output.
   - Store all playwright related files in /Users/anindosarker/Work/Personal/React-table/shadcn-react-table/apps/test-shadcn/.playwright/ folder
 - The expected behavior can be found in the original MRT component and relevant storybooks. All are available in /Users/anindosarker/Work/Personal/React-table/shadcn-react-table/packages/material-react-table
-- Read the "General notes" in `.ai/plans/matching/srt-review-notes.md` + the component's plan in `.ai/plans/components/` first — approved deviations from MRT (design look, dropped constructs) are NOT test failures. Test behavior parity, not visual identity.
+- Read the "General notes" in `.ai/plans/mrt-port/matching/srt-review-notes.md` + the component's plan in `.ai/plans/mrt-port/components/` first — approved deviations from MRT (design look, dropped constructs) are NOT test failures. Test behavior parity, not visual identity.
 - Depending on the test, send out result of the test to the relevant stakeholders. Use a very short concise format to send out the result. 
   - The testing agent must report explicitly (SendMessage to main): per test case PASS/FAIL + one-line evidence + screenshot filename. Going idle without a report is a failure.
 - The coding agents will fix it after test

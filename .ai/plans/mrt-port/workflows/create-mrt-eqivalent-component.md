@@ -4,11 +4,11 @@
 - Try to create the SRT component strictly the exact same as the MRT equivalent. If there is even a slightest difference, halt. Ask for clarification.
 - Don't make silent assumptions.
 - Before coding, discuss a bit about creating the plan for that component.
-- Before planning, read the "General notes" section of `.ai/plans/matching/srt-review-notes.md` — established conventions live there; don't re-ask anything already settled.
+- Before planning, read the "General notes" section of `.ai/plans/mrt-port/matching/srt-review-notes.md` — established conventions live there; don't re-ask anything already settled.
 - In the discussion phase:
   - list out the choices in conscice manner with recommendations.
   - No need to repeat unnecessary details, no ask mechanical etc etc stuff
-- Save the agreed plan to `.ai/plans/components/<Component>.plan.md` — the review agent reads it.
+- Save the agreed plan to `.ai/plans/mrt-port/components/<Component>.plan.md` — the review agent reads it.
 - Once plan is completed, finish the coding.
 - Comment rules: no comments except (a) comments MRT itself has, (b) dropped
   MRT constructs kept commented out at their original position + short

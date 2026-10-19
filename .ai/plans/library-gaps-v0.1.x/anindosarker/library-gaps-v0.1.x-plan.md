@@ -5,7 +5,7 @@ as branches; the lead fast-forwards `lib-gaps` first, then rebases and merges `d
 one PR to `master`. Patch release `v0.1.1`, no breaking change.
 
 Source of the list: `.ai/plans/handoff/ATTENTION-2026-10-17-claude-review.md` (library bug
-notes) and `.ai/plans/matching/docs-parity-notes.md` "## Library gaps" (names there are
+notes) and `.ai/plans/mrt-port/matching/docs-parity-notes.md` "## Library gaps" (names there are
 pre-rename: `SRT_` is now `ST_`, `srt*Props` is `st*Props`).
 
 Rules for both agents: fix the narrowest layer; no new public surface unless an item below says
