@@ -60,7 +60,7 @@ Structure:
 - **Common Mistakes.** Editing the docs copy instead of the library; forgetting `lib:install`;
   committing `tsconfig.json` include noise; `registry.json` rewritten with localhost (use
   `registry:dev`); a server on a port already in use; `shadcn init` without `--base radix`.
-- **Related.** `.ai/plans/release-v0.1.md`, `.github/workflows/ci.yml`, the docs install page,
+- **Related.** `.ai/plans/release-v0.1/anindosarker/release-v0.1-plan.md`, `.github/workflows/ci.yml`, the docs install page,
   `LICENSE`.
 
 ## 2. Install tests in CI

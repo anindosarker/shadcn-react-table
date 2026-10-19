@@ -1,6 +1,6 @@
 # Stories parity tracker
 
-Plan: `.ai/plans/stories-parity.md`. One entry per MRT story file (path relative to `packages/shadcn-react-table/stories`). Ticks are owner-only. Under each entry at most 3 bullets: what changed, library gaps found, commit. Equivalent files get `- same scenario as MRT, no change`.
+Plan: `.ai/plans/stories-parity/anindosarker/stories-parity-plan.md`. One entry per MRT story file (path relative to `packages/shadcn-react-table/stories`). Ticks are owner-only. Under each entry at most 3 bullets: what changed, library gaps found, commit. Equivalent files get `- same scenario as MRT, no change`.
 
 ## Library gaps (features a story needs that SRT lacks)
 

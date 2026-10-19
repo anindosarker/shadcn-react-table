@@ -1,6 +1,6 @@
 # Docs parity tracker
 
-Plan: `.ai/plans/docs-site.md`. One entry per MRT page, ticked by the owner only.
+Plan: `.ai/plans/docs-site/anindosarker/docs-site-plan.md`. One entry per MRT page, ticked by the owner only.
 Under each entry at most 3 bullets: examples ported, library gaps, commit. Equivalent pages
 synced with the name map only get `- synced, name map only`.
 

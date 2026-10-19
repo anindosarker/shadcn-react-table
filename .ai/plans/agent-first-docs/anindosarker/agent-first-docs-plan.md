@@ -1,6 +1,6 @@
 # Agent-first docs plan
 
-Status: sections 1 to 3 done 2026-10-18 (70b5df0, 944c2eb, f031554, fa7cda7, 50c8cfc). Follows `.ai/plans/docs-example-pages.md` (playground
+Status: sections 1 to 3 done 2026-10-18 (70b5df0, 944c2eb, f031554, fa7cda7, 50c8cfc). Follows `.ai/plans/docs-example-pages/anindosarker/docs-example-pages-plan.md` (playground
 panel, sticky bar, single-example pages), which must be committed first.
 
 Goal: an agent (or a person) adds any docs example to a project with one command and no extra
