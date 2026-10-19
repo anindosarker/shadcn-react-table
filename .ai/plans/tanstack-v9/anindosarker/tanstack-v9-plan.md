@@ -84,6 +84,6 @@ vocabulary. Shipping v1.0 on v8 would mean a breaking port right after.
 - [x] 02 Base UI overrides green: `tsc:baseui`, `test:base` 400/400, no override identical to its shared file
 - [x] 03 stories, docs examples, docs content, SKILL on v9 names; docs `types:check`, `lint`,
       build, page gates a and e 0 failures
-- [ ] 04 registry rebuilt (76 items, validate 3 files 190 items), CI green on the branch
+- [x] 04 registry rebuilt (76 items, validate 3 files 190 items), CI green on the branch
       (library, test, docs, install fresh/existing/base/nextjs), trigger removed
-- [ ] branch `feat/tanstack-v9` pushed, not merged; owner tests locally
+- [x] branch `feat/tanstack-v9` pushed, not merged; owner tests locally
