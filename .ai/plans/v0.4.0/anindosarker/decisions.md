@@ -36,7 +36,8 @@
      `examples.mjs`, `add-part.mjs`, `lib.mjs`, `lib.d.mts`, `check-bases.mjs`); `scripts/`
      the rest (`check-storybook.mjs`).
    - `registry.json` stays at the package root: the CLI resolves `files[].path` relative to
-     it, so the install address and every path stay as they are.
+     it, so the install addresses stay as they are (the paths inside the catalog follow the
+     tree move).
 3. Stories and tests stay one set; `@/` is a plain alias to `registry/<ST_BASE>`.
 
 ## Target tree
@@ -111,6 +112,18 @@ shadcn-react-table/
      `outbound_clicked` (GitHub, Discord).
    - Deliver with usage instructions: how to read page views, funnels per base, and the
      install-copy conversion in the PostHog UI.
+
+## Release
+
+1. Releases are automated from a tag.
+   - `pnpm release <version>` sets both `package.json` versions, commits
+     `chore: version <v>`, tags `v<v>`, pushes commit and tag.
+   - `.github/workflows/release.yml` on `v*` tags: wait for production to serve the tagged
+     version, smoke the registry URLs, Storybook, `/SKILL.md` and the page checks against
+     production, real install per base from the public URL, then `gh release create` with
+     notes from the `## <v>` section of `CHANGELOG.md`. Any failure: no release.
+   - `CHANGELOG.md` at the repo root is written during the work, not at release time.
+   - v0.3.0 is the last manual release, done by an agent from PR #19's merge commit.
 
 ## Sequence
 
