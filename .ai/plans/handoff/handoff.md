@@ -79,5 +79,6 @@ new instruction.
 
 - React Aria edition (roadmap item 3): no plan yet. With the shared layout it is a third
   override folder `bases/aria/` plus Aria parts; expect the same 20 to 25 override files.
-- Docs leftovers listed in `handoff.md`'s previous version are now in the PR #19 body and in
-  `04-release.md` "Known"; nothing else is pending.
+- Known docs leftovers (sidebar and dev-home footer Storybook links ignore the selector, home
+  tiles render Radix only, header pill desktop-only, Base UI tooltips without skip-delay
+  grouping) are in the PR #19 body and `04-release.md` "Known"; nothing else is pending.
