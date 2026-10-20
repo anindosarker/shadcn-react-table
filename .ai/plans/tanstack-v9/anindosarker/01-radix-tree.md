@@ -1,9 +1,11 @@
-# 01: Radix tree on v9
+# 01: shared source on v9
 
 ## Goal
 
-`bases/radix` compiles, lints and passes 400/400 stories on `@tanstack/react-table` 9.3.1 with
-v9 names end to end. Public `ST_*` types keep their signatures.
+`shared/components/ui/shadcn-table/**` (the Radix edition, resolved with `bases/radix`)
+compiles, lints and passes 400/400 stories on `@tanstack/react-table` 9.3.1 with v9 names end
+to end. Public `ST_*` types keep their signatures. Paths below are relative to
+`packages/shadcn-table/shared/components/ui/shadcn-table/`.
 
 ## Steps
 
@@ -26,8 +28,11 @@ v9 names end to end. Public `ST_*` types keep their signatures.
    per-slice handlers already passed; `columnSizingInfo` becomes `columnResizing`
    (`onColumnResizingChange`, `setColumnResizing`); `table.getState()` becomes `table.state`
    inside components and `table.store.state` in callbacks outside render (4 sites).
-   `enableRowRangeSelection: false`. `getIsSomeRowsSelected()` and `getIsSomeSelected()` now
-   mean "at least one": gate indeterminate checkboxes with `&& !getIsAll...Selected()`.
+   `getIsSomeRowsSelected()` and `getIsSomeSelected()` now mean "at least one": gate
+   indeterminate checkboxes with `&& !getIsAll...Selected()`. Shift-click range selection:
+   the library's own implementation (`lastSelectedRowId`, `enableBatchRowSelection`) is
+   removed; the select checkbox passes its click event to `row.getToggleSelectedHandler()`
+   so v9's native `enableRowRangeSelection` (default on) does it.
 4. Pinning: `'left'` becomes `'start'`, `'right'` becomes `'end'` in state defaults, display
    column defs, `column.pin(...)`, `getIsPinned()` comparisons, `getLeftLeafColumns` to
    `getStartLeafColumns`, `getRight*` to `getEnd*`, `getLeftVisibleLeafColumns` to
@@ -40,7 +45,7 @@ v9 names end to end. Public `ST_*` types keep their signatures.
    the options object. `fns/filterFns.ts` keeps composing v9 `filterFns`.
 6. Sweep remaining errors from the spike inventory file by file; no behaviour changes beyond
    the renames. Keep existing comments.
-7. Gates: `pnpm --filter shadcn-table tsc`, `lint` (eslint `--max-warnings=0` on changed files),
+7. Gates: `pnpm --filter shadcn-table tsc:radix`, `lint` (eslint `--max-warnings=0` on changed files),
    `pnpm --filter shadcn-table test` 400/400, `storybook:build`. Stories that fail only because
    they use v8 names are fixed in this phase too when they block the gate (phase 03 owns the
    rest).
@@ -54,5 +59,5 @@ v9 names end to end. Public `ST_*` types keep their signatures.
 `columnSizingInfo` to `columnResizing` (`onColumnResizingChange`, `ST_ColumnResizingState`);
 `columnPinning: { left, right }` to `{ start, end }`, `column.pin('start' | 'end')`;
 `table.getState()` to `table.state`; `getIsSomeRowsSelected()` semantics; custom
-`aggregationFn` definitions through `constructAggregationFn`; `@tanstack/react-table` 9.3.1
-required.
+`aggregationFn` definitions through `constructAggregationFn`; Shift-click range selection is
+TanStack's native one (`enableRowRangeSelection`); `@tanstack/react-table` 9.3.1 required.

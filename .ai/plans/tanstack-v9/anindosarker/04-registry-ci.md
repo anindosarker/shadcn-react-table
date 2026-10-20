@@ -7,7 +7,7 @@ on `feat/tanstack-v9`.
 
 ## Steps
 
-1. `pnpm registry:build` after phases 01 and 02: 76 items, both main items pin
+1. `pnpm registry:build` and `pnpm registry:items` after phases 01 and 02: 76 library items, both main items pin
    `@tanstack/react-table@9.3.1`; `shadcn registry validate` from the repo root: 3 files, 190
    items. Commit the regenerated `registry.json` files.
 2. `.github/workflows/ci.yml`: install scenario `existing` adds `@tanstack/react-table@9.3.1`
