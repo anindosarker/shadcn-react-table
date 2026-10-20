@@ -89,5 +89,5 @@ registry.json                                 root include file, unchanged
       (apart from `path` fields), validate 3 files 190 items, hosted emit same counts
 - [x] 03 docs rename: `apps/docs`, vercel.json, CI, turbo, docs scripts, all text references
 - [x] 04 integration green on the branch (CI temporary trigger), review pass
-- [ ] merged onto `claude/review` after PR #19 (branch green at 6bc4d80, CI run 39206828507)
+- [x] merged onto `claude/review` (via `feat/tanstack-v9`, merge commit 44df3b5; owner chose one branch for review before PR #19)
 - [x] v9 plan updated to the new layout

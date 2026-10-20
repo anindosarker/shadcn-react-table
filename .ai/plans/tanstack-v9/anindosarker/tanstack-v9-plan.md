@@ -91,4 +91,4 @@ vocabulary. Shipping v1.0 on v8 would mean a breaking port right after.
       build, page gates a and e 0 failures
 - [x] 04 registry rebuilt (76 items, validate 3 files 190 items), CI green on the branch
       (library, test, docs, install fresh/existing/base/nextjs), trigger removed
-- [x] branch `feat/tanstack-v9` pushed, not merged; owner tests locally
+- [x] branch `feat/tanstack-v9` merged onto `claude/review` (44df3b5) on the owner's request to review everything in one branch; PR #19 carries it
