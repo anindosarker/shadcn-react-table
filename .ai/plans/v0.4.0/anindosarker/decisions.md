@@ -123,7 +123,12 @@ shadcn-react-table/
      production, real install per base from the public URL, then `gh release create` with
      notes from the `## <v>` section of `CHANGELOG.md`. Any failure: no release.
    - `CHANGELOG.md` at the repo root is written during the work, not at release time.
-   - v0.3.0 is the last manual release, done by an agent from PR #19's merge commit.
+   - v0.3.0 was the last manual release (tag on `e7ebbde`, released 2026-10-20).
+   - `release.yml` also runs on `workflow_dispatch` with a `dry_run` input that skips
+     `gh release create`; that run at the first milestone proves the workflow. No
+     intermediate tags; the only tag of this cycle is `v0.4.0`.
+   - Why: the manual v0.3.0 pass proved production, not the workflow; a dry run proves the
+     workflow without a version bump.
 
 ## Sequence
 
