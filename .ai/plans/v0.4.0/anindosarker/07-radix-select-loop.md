@@ -4,36 +4,39 @@
 
 ### 1.1 Overview
 
-The home page of https://www.shadcn-table.com/ (production, v0.3.0) dies about 9 s after
+The home page of https://www.shadcn-table.com/ (production, v0.3.0) dies about 9.6 s after
 load in Chrome, with no click: React error #185 "Maximum update depth exceeded", then the
-renderer is killed ("This page couldn't load"). The timing matches the live demo
-(`components/dev-home/v12/signal-demo.tsx`) reaching its Editing step; it reproduces on
-`claude/review` with `next dev`. The fix is a dependency bump the owner asked for as a
-hotfix; no decision was taken, so `decisions.md` is not touched.
+renderer is killed ("This page couldn't load"). It starts when the live demo
+(`components/dev-home/v12/signal-demo.tsx`) opens the salary cell in its Editing step and
+reproduces on `v0.4/07` with `next dev`. The fix is in the demo, not the library; no
+decision was taken, so `decisions.md` is not touched.
 
-**Mechanism:**
+**Mechanism (verified on `next dev`, Playwright hold of `/`):**
 
 | Layer | Fact |
 | --- | --- |
-| Mounted Radix Select | pagination "Rows per page" select, `ST_TablePagination.tsx`, installed copy under `apps/docs/components/ui/shadcn-table/` |
-| Closed state | Radix Select renders its items into a document fragment, so `SelectItemText` exists while closed |
-| Stack (`next dev`) | `dispatchSetState` inside `SelectItemText.useComposedRefs` during `safelyDetachRef` in `commitMutationEffectsOnFiber` |
-| Cause | `@radix-ui/react-select` 2.3.0 composes inline ref callbacks through `useComposedRefs` from `@radix-ui/react-compose-refs` 1.1.3; the composed callback changes identity every render |
-| Loop | React 19.3.1 detaches the old callback (`setState(null)`) and attaches the new one (`setState(node)`) on every commit, which re-renders until the depth limit |
-| Upstream fix | Radix release notes, June 30, 2026: "Fixed infinite re-render loop in React 19 caused by unstable composed ref callback references", radix-ui/primitives#3967 and #3968; ships as `@radix-ui/react-compose-refs` 1.1.5 and `@radix-ui/react-select` 2.4.x, pulled by `radix-ui` 1.8.1 |
-| Scope | Only this repo's lockfile is stale (`radix-ui` 1.5.0). The registry item lists `radix-ui` unversioned, so fresh user installs already resolve the fixed version. `@base-ui/react` has no Radix Select and is unaffected |
+| Trigger | Editing step sets `editing` (`signal-demo.tsx` 265 to 271); `SignalTable` opens the cell from a `useEffect` with deps `[editingRowId, table]` that calls `table.setEditingCell(cell)` (`signal-table.tsx` 229 to 246) |
+| `table` identity | `useTable` from `@tanstack/react-table` 9.3.1 returns `useMemo(() => ({ ...table, options, state }), [table, tableOptions, state])` (`dist/useTable.js` 70 to 78); `tableOptions` is a new object every render, so `useShadcnTable` returns a new `table` every render (logged: previous `table` never equals the next) |
+| `cell` identity | `useST_TableInstance.ts` 215 rebuilds `statefulTableOptions.columns` with `prepareColumns` every render, so the core row model and its cells are rebuilt; the cell the effect finds is a new object every time (logged) |
+| Loop | effect runs, `setEditingCell(newCell)`, `editingCell` state changes, `SignalTable` re-renders, new `table`, effect runs again: one commit every ~11 ms from 8.9 s, hook 31 (`editingCell`) and hook 52 (table state) of `SignalTable` change on every commit |
+| Where it throws | `ST_TableContainer.tsx` 66 to 78: the layout effect without deps calls `setTotalToolbarHeight` in every commit of the cascade; toolbar heights are constant (56 + 56 = 112, equal to the current state on every commit), so it only feeds React's nested update counter and is the frame where the 51st nested update throws |
+| Library alone | the same effect exists unguarded in MRT (`MRT_TableContainer.tsx` 50 to 62). Giving it a dependency array removes the throw, but the passive loop keeps running: two "Maximum update depth exceeded ... useEffect" console errors at 9.6 s and 10.3 s, so a library change only masks the demo bug |
+| Demo alone | effect keyed on `editingRowId` only, reading the latest `table` through a ref: the hold reaches "Now showing: Grouping" with zero page errors and zero console errors on Radix UI and on Base UI |
+| Radix | the Radix bump of 3af7aa9 stays, because the `SelectItemText` compose-refs loop of `@radix-ui/react-select` 2.3.0 under React 19.3.1 was real but secondary: it was the first frame of the same cascade before the bump |
 
 ### 1.2 Goals
 
 - Home page survives the full demo loop (Sorting to Grouping) with zero page errors and zero
   console errors, with Radix UI and with Base UI selected in the base switch
+- The demo's replay edit effect runs only when the replayed row changes, never on a new
+  `table` object
 - `pnpm-lock.yaml` resolves `radix-ui` 1.8.1, `@radix-ui/react-select` 2.4.1 and
   `@radix-ui/react-compose-refs` 1.1.5 for both importers
-- A page check guards the regression: it fails against production v0.3.0 and passes on the
-  bumped tree
-- `CHANGELOG.md` carries a Fixed entry under `## Unreleased`
-- Installed docs copies under `apps/docs/components/ui` and `ui-base` are unchanged, because
-  the library source does not change
+- A page check guards the regression: it fails against production v0.3.0 and on 3af7aa9, and
+  passes with the demo fix
+- `CHANGELOG.md` carries a Fixed entry under `## Unreleased` that names both fixes
+- Library source and the installed docs copies under `apps/docs/components/ui` and `ui-base`
+  are unchanged
 
 ### 1.3 Current structure
 
@@ -44,6 +47,8 @@ hotfix; no decision was taken, so `decisions.md` is not touched.
 ├── packages/shadcn-table/package.json     ← "radix-ui": "^1.5.0"
 └── apps/docs/
     ├── package.json                       ← "radix-ui": "^1.5.0"
+    ├── components/dev-home/v12/
+    │   └── signal-table.tsx               ← replay edit effect deps [editingRowId, table]: re-runs on every render
     └── scripts/
         ├── check-pages.mjs                ← runner; collects console errors and pageerror per page
         └── page-checks/
@@ -61,6 +66,8 @@ hotfix; no decision was taken, so `decisions.md` is not touched.
 ├── packages/shadcn-table/package.json     ← "radix-ui": "^1.8.1"
 └── apps/docs/
     ├── package.json                       ← "radix-ui": "^1.8.1"
+    ├── components/dev-home/v12/
+    │   └── signal-table.tsx               ← replay edit effect keyed on editingRowId; latest table read through a ref
     └── scripts/page-checks/
         ├── _helpers.mjs                   ← new demoLoop() helper
         └── e.mjs                          ← '/' calls demoLoop() on both bases after its existing asserts
@@ -77,7 +84,7 @@ hotfix; no decision was taken, so `decisions.md` is not touched.
 | `packages/shadcn-table/package.json` | refactor | `"radix-ui": "^1.8.1"` |
 | `apps/docs/package.json` | refactor | `"radix-ui": "^1.8.1"` |
 | `pnpm-lock.yaml` | refactor | output of `pnpm up -r radix-ui@1.8.1`; no hand edits |
-| `CHANGELOG.md` | refactor | `### Fixed` under `## Unreleased`, after `### Added` |
+| `CHANGELOG.md` | refactor | `### Fixed` under `## Unreleased`, after `### Added`; the entry of 3af7aa9 is rewritten in Phase 3 to the text below |
 | `packages/shadcn-table/registry.json` | keep | `radix-ui` stays unversioned |
 | `registry/radix/registry.ts` line 25 | keep | `{ name: 'radix-ui' }` |
 
@@ -87,10 +94,13 @@ hotfix; no decision was taken, so `decisions.md` is not touched.
 ### Fixed
 
 - The docs home page no longer crashes with React error #185 ("Maximum update depth
-  exceeded") about 9 seconds after load: `radix-ui` is bumped to 1.8.1, which carries
-  Radix's fix for the React 19 re-render loop in `Select` composed refs
-  (`@radix-ui/react-select` 2.4.1, `@radix-ui/react-compose-refs` 1.1.5). The registry
-  item already installs the fixed version for new users.
+  exceeded") about 9 seconds after load: the live demo opened its edited salary cell from
+  an effect that re-ran on every render, because `useShadcnTable` returns a new table
+  object each render. The effect now runs only when the replayed row changes.
+- `radix-ui` is bumped to 1.8.1, which carries Radix's fix for the React 19 re-render loop
+  in `Select` composed refs (`@radix-ui/react-select` 2.4.1,
+  `@radix-ui/react-compose-refs` 1.1.5). The registry item already installs the fixed
+  version for new users.
 ```
 
 #### 1.6.2 Page check: demo loop
@@ -167,6 +177,40 @@ under `apps/docs/components/ui` and `apps/docs/components/ui-base`,
 `packages/shadcn-table/registry.json`, `registry/radix/registry.ts`, `public/r` output
 content.
 
+#### 1.6.4 Demo: replay edit effect
+
+`SignalTable` opens and closes the salary cell the replay edits. The effect must not depend
+on `table`: `useShadcnTable` returns a new object every render (TanStack `useTable` 9.3.1
+memo on `tableOptions`), and the effect writes table state, so a `table` dependency loops.
+
+- The effect's dependency array is `[editingRowId]` only
+- The latest `table` is read through a ref that a deps-free `useLayoutEffect` assigns
+  (`useEffectEvent` is not in the installed `@types/react`; TS2305)
+- Open and close behaviour, `replayEditing` and the `editing` prop shape are unchanged
+- Does NOT change `ST_TableContainer.tsx`: the toolbar height effect is MRT parity, its
+  heights are constant in the loop, and a guard there only hides this bug
+
+**Operations:**
+
+| Operation | Status | Notes |
+| --- | --- | --- |
+| replay edit `useEffect` | refactor | `signal-table.tsx` 229 to 246; deps `[editingRowId]`, reads `tableRef.current` |
+| `tableRef` | new | `useRef(table)`, assigned in a `useLayoutEffect` without deps |
+| `react` import | refactor | adds `useLayoutEffect` |
+
+**Interfaces:**
+
+```typescript
+// type inferred from useShadcnTable
+const tableRef = useRef(table);
+```
+
+**Stays unchanged:** `SignalTableProps`, `SignalTableState`, `useShadcnTable` options in
+`signal-table.tsx`, `signal-demo.tsx` (steps and timings), library source under
+`packages/shadcn-table/registry/` (radix and base trees, including `ST_TableContainer.tsx`
+and `useST_TableInstance.ts`), installed copies under `apps/docs/components/ui` and
+`apps/docs/components/ui-base`.
+
 ### 1.7 Dependencies and env
 
 | Package | From | To | Importers |
@@ -214,10 +258,18 @@ as a hotfix.
 - Add `demoLoop` to `_helpers.mjs` per 1.6.2; call it from `e.mjs` `'/'`
 - Prove it red: `node scripts/check-pages.mjs e --base https://www.shadcn-table.com /`
   fails (production still serves v0.3.0)
-- Prove it green against local `next start` on 4170 (gate 1 in 2.2)
+- Prove it red against local `next start` on 4170 too: the demo loop is still there until
+  Phase 3 (gate 1 in 2.2)
 - Commit: `test(docs): hold the home page through the demo loop`
 
-#### 2.1.3 Final phase: Cleanup
+#### 2.1.3 Phase 3: Demo fix
+
+- Change the replay edit effect in `signal-table.tsx` per 1.6.4
+- Rewrite the `### Fixed` entry in `CHANGELOG.md` to the text in 1.6.1
+- Prove it green against local `next start` on 4170, both bases (gate 1 in 2.2)
+- Commit: `fix(docs): stop the home demo edit effect from re-running every render`
+
+#### 2.1.4 Final phase: Cleanup
 
 - `pnpm format`
 - Repo gates per 2.2
@@ -227,9 +279,10 @@ as a hotfix.
 ### 2.2 Gates
 
 1. Repro: docs `build`, then `next start -p 4170`;
-   `node scripts/check-pages.mjs e --base http://localhost:4170 /` green: demo reaches
+   `node scripts/check-pages.mjs e --base http://localhost:4170 /` green: `demoLoop` reaches
    Grouping on Radix UI and Base UI, hold at least 15 s each, zero page errors, zero console
-   errors, no renderer crash
+   errors, no renderer crash. Before Phase 3 the same command is red (error #185 at about
+   9.6 s); after Phase 3 it is green
 2. `pnpm check:bases`
 3. Library, both bases (the library depends on `radix-ui`):
    `pnpm --filter shadcn-table tsc:radix` (TS5101 notice only), `tsc:baseui`, `lint`,
@@ -238,6 +291,8 @@ as a hotfix.
 5. Page checks: `check-pages.mjs a` and `e` against `next start` on 4170, all green
 6. Installed copies: `pnpm --filter shadcn-table registry:build`, then
    `pnpm --filter shadcn-table-docs lib:install` and `lib:install:base`;
-   `git status --short apps/docs/components/ui apps/docs/components/ui-base` is empty;
-   side effects reverted
-7. CI on the PR: docs, library and install jobs green
+   `git status --short apps/docs/components/ui apps/docs/components/ui-base` is empty (the
+   library does not change); side effects reverted
+7. Docs lint and types cover the demo fix: `pnpm --filter shadcn-table-docs lint` and
+   `types:check` with zero errors in `components/dev-home/v12/signal-table.tsx`
+8. CI on the PR: docs, library and install jobs green
