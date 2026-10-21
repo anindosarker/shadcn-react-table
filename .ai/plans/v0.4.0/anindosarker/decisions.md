@@ -129,6 +129,13 @@ shadcn-react-table/
      intermediate tags; the only tag of this cycle is `v0.4.0`.
    - Why: the manual v0.3.0 pass proved production, not the workflow; a dry run proves the
      workflow without a version bump.
+   - For this cycle this item is superseded by item 2 on intermediate releases.
+2. Intermediate releases are allowed in this cycle.
+   - v0.3.1 releases parts 01 to 05 and 08 at the first milestone.
+   - v0.3.2 releases the home page crash fix (part 07) when it lands.
+   - v0.4.0 stays the tag for the v9 architecture (part 06).
+   - Why: the crash fix and the docs changes are user-facing and part 06 is weeks away; the
+     owner decided this on 2026-10-21.
 
 ## Sequence
 
