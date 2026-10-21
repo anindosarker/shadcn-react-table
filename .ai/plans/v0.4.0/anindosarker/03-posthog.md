@@ -100,7 +100,7 @@ Components call these, never `posthog` directly, so renaming an event is one fil
 | `example_file_viewed`    | `example`, `base`, `file`                                               | `components/code-explorer.tsx` active file change                          |
 | `storybook_opened`       | `base`, `surface` (`mdx_link`, `nav`, `footer`)                         | `components/mdx/storybook-link.tsx`, nav and footer links                  |
 | `outbound_clicked`       | `target` (`github`, `discord`), `surface`                               | `components/site-nav.tsx`, footer                                          |
-| `search_opened`          | none                                                                    | `RootProvider` `search` options if fumadocs exposes an open callback; otherwise the event is dropped, fumadocs is not patched |
+| `search_used`          | none                                                                    | `RootProvider` `search` options if fumadocs exposes an open callback; otherwise the event is dropped, fumadocs is not patched |
 
 **Interfaces:**
 
