@@ -115,13 +115,17 @@ shadcn-react-table/
 
 ## Release
 
-1. Releases are automated from a tag.
-   - `pnpm release <version>` sets both `package.json` versions, commits
-     `chore: version <v>`, tags `v<v>`, pushes commit and tag.
-   - `.github/workflows/release.yml` on `v*` tags: wait for production to serve the tagged
-     version, smoke the registry URLs, Storybook, `/SKILL.md` and the page checks against
-     production, real install per base from the public URL, then `gh release create` with
-     notes from the `## <v>` section of `CHANGELOG.md`. Any failure: no release.
+1. Releases are automated from a merged pull request (decided 2026-10-22; `master` only
+   takes pull requests, so the script cannot push to it).
+   - `pnpm release <version>` sets both `package.json` versions, closes the `Unreleased`
+     changelog section, commits `chore: version <v>` on `release/<v>`, pushes the branch
+     and opens the pull request into `master`.
+   - `.github/workflows/release.yml` on every push to `master` (and on `v*` tags pushed
+     by hand): skip when `v<v>` is already tagged, else tag `v<v>`, wait for production
+     to serve the version, smoke the registry URLs, Storybook, `/SKILL.md` and the page
+     checks against production, real install per base from the public URL, then
+     `gh release create` with notes from the `## <v>` section of `CHANGELOG.md`. Any
+     failure: no release.
    - `CHANGELOG.md` at the repo root is written during the work, not at release time.
    - v0.3.0 was the last manual release (tag on `e7ebbde`, released 2026-10-20).
    - `release.yml` also runs on `workflow_dispatch` with a `dry_run` input that skips
